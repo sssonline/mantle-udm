@@ -736,9 +736,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem">
-            <key-map field-name="invoiceId"/>
-            <key-map field-name="invoiceItemSeqId"/>
-        </relationship>
+            <key-map field-name="invoiceId"/><key-map field-name="invoiceItemSeqId"/></relationship>
         <relationship type="one" title="Vendor" related="mantle.account.invoice.InvoiceItem" short-alias="vendorInvoiceItem">
             <key-map field-name="vendorInvoiceId" related="invoiceId"/>
             <key-map field-name="vendorInvoiceItemSeqId" related="invoiceItemSeqId"/>

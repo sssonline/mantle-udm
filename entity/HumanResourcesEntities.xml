@@ -168,21 +168,6 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- mantle.humanres.employment -->
     <!-- ========================================================= -->
 
-    <entity entity-name="BenefitType" package="mantle.humanres.employment" use="configuration">
-        <field name="benefitTypeId" type="id" is-pk="true"/>
-        <field name="parentTypeId" type="id"/>
-        <field name="description" type="text-medium"/>
-        <field name="employerPaidPercentage" type="number-float"/>
-        <relationship type="one" title="Parent" related="mantle.humanres.employment.BenefitType">
-            <key-map field-name="parentTypeId" related="benefitTypeId"/></relationship>
-        <seed-data>
-            <!-- Employment Benefit Types -->
-            <mantle.humanres.employment.BenefitType description="Health Insurance" benefitTypeId="Health"/>
-            <mantle.humanres.employment.BenefitType description="Vacation Paid" benefitTypeId="Vacation"/>
-            <mantle.humanres.employment.BenefitType description="Sick Leave Paid" benefitTypeId="Sick"/>
-        </seed-data>
-    </entity>
-
     <entity entity-name="Employee" package="mantle.humanres.employment" use="nontransactional">
         <field name="partyId" type="id" is-pk="true"/>
         <field name="distGroupEnumId" type="id"/>
@@ -377,30 +362,80 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="EmploymentBenefit" package="mantle.humanres.employment" use="nontransactional">
         <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <field name="benefitTypeId" type="id" is-pk="true"/>
-        <field name="fromDate" type="date-time" is-pk="true"/>
-        <field name="thruDate" type="date-time"/>
-        <field name="cost" type="currency-amount"/>
-        <field name="actualEmployerPaidPercent" type="number-float"/>
-        <field name="availableTime" type="number-integer"/>
+        <field name="benefitTypeEnumId" type="id" is-pk="true"/>
+        <field name="accrualStartDate" type="date"/>
+        <field name="availableDate" type="date"/>
+        <field name="employerPaidPercent" type="number-float"/>
+        <field name="accrualMethodEnumId" type="id" is-pk="true"/>
+        <field name="accrualHours" type="number-decimal"/>
+        <field name="accrualHourBlock" type="number-decimal"/>
+        <field name="accrualMaxHours" type="number-decimal"/>
+        <field name="accrualCarryOverMax" type="number-decimal"/>
+
+        <field name="accruedHours" type="number-decimal"/>
+        <field name="usedHours" type="number-decimal"/>
+        <field name="availableHours" type="number-decimal"/>
+        <!-- need/want this? <field name="cost" type="currency-amount"/> -->
+
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
-        <relationship type="one" related="mantle.humanres.employment.BenefitType">
-            <key-map field-name="benefitTypeId"/></relationship>
+        <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
+            <key-map field-name="benefitTypeEnumId"/></relationship>
+        <relationship type="one" title="EmploymentBenefitAccrualType" related="moqui.basic.Enumeration" short-alias="accrualType">
+            <key-map field-name="accrualTypeEnumId"/></relationship>
+        <seed-data>
+            <!-- Employment Benefit Types -->
+            <moqui.basic.EnumerationType description="Employment Benefit Type" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Paid Holidays" enumId="EbtPaidHoliday" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Paid Leave Bank" enumId="EbtPaidLeaveBank" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Paid Sick Leave" enumId="EbtPaidSickLeave" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Paid Vacation" enumId="EbtPaidVacation" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Health Insurance" enumId="EbtHealthInsurance" enumTypeId="EmploymentBenefitType"/>
+
+            <!-- Employment Benefit Accrual Method -->
+            <moqui.basic.EnumerationType description="Employment Benefit Accrual Method" enumTypeId="EmploymentBenefitAccrualMethod"/>
+            <moqui.basic.Enumeration description="By Hours Worked" enumId="EbamHoursWorked" enumTypeId="EmploymentBenefitAccrualMethod"/>
+            <moqui.basic.Enumeration description="Per Paycheck" enumId="EbamPerPaycheck" enumTypeId="EmploymentBenefitAccrualMethod"/>
+            <moqui.basic.Enumeration description="Per Year on Anniversary" enumId="EbamPerYearAnniv" enumTypeId="EmploymentBenefitAccrualMethod"/>
+            <moqui.basic.Enumeration description="Per Year on Year Begin" enumId="EbamPerYearBegin" enumTypeId="EmploymentBenefitAccrualMethod"/>
+        </seed-data>
     </entity>
-    <entity entity-name="EmploymentLeave" package="mantle.humanres.employment" use="nontransactional">
-        <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <field name="fromDate" type="date" is-pk="true"/>
-        <field name="thruDate" type="date"/>
+    <entity entity-name="EmploymentBenefitAccrual" package="mantle.humanres.employment" use="transactional">
+        <description>For paid leave use a TimeEntry with employmentLeaveId referencing a record here.</description>
+        <field name="benefitAccrualId" type="id" is-pk="true"/>
+        <field name="partyRelationshipId" type="id"/>
+        <field name="benefitTypeEnumId" type="id"/>
+        <field name="accrualTypeEnumId" type="id"/>
+        <field name="accrualDate" type="date"/>
+        <field name="accruedHours" type="number-decimal"/>
+        <field name="comments" type="text-medium"/>
+        <field name="timeEntryId" type="id"><description>For benefit usage TimeEntry records (paid leave)</description></field>
+        <relationship type="one" related="mantle.humanres.employment.Employment"/>
+        <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
+            <key-map field-name="benefitTypeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Employment Benefit Accrual Type" enumTypeId="EmploymentBenefitAccrualType"/>
+            <moqui.basic.Enumeration description="Manual Adjustment" enumId="EbatManualAdj" enumTypeId="EmploymentBenefitAccrualType"/>
+            <moqui.basic.Enumeration description="Benefit Accrued" enumId="EbatBenefitAccrued" enumTypeId="EmploymentBenefitAccrualType"/>
+            <moqui.basic.Enumeration description="Benefit Used" enumId="EbatBenefitUsed" enumTypeId="EmploymentBenefitAccrualType"/>
+            <moqui.basic.Enumeration description="Carry Over Adjustment" enumId="EbatCarryOverAdj" enumTypeId="EmploymentBenefitAccrualType"/>
+        </seed-data>
+    </entity>
+    <entity entity-name="EmploymentLeave" package="mantle.humanres.employment" use="transactional">
+        <description>For paid leave use TimeEntry and EmploymentBenefitAccrual to deduct from accrued.</description>
+        <field name="employmentLeaveId" type="id" is-pk="true"/>
+        <field name="partyRelationshipId" type="id"/>
         <field name="leaveTypeEnumId" type="id"/>
-        <field name="leaveReasonEnumId" type="id"/>
+        <field name="benefitTypeEnumId" type="id"/>
+        <field name="fromDate" type="date"/>
+        <field name="thruDate" type="date"/>
         <field name="leaveApproved" type="text-indicator" enable-audit-log="true"/>
         <field name="approverPartyId" type="id"/>
         <field name="description" type="text-medium"/>
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
-        <relationship type="one" title="EmploymentLeaveType" related="moqui.basic.Enumeration">
+        <relationship type="one" title="EmploymentLeaveType" related="moqui.basic.Enumeration" short-alias="leaveType">
             <key-map field-name="leaveTypeEnumId"/></relationship>
-        <relationship type="one" title="EmploymentLeaveReason" related="moqui.basic.Enumeration">
-            <key-map field-name="leaveReasonEnumId"/></relationship>
+        <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
+            <key-map field-name="benefitTypeEnumId"/></relationship>
         <relationship type="one" title="Approver" related="mantle.party.Party">
             <key-map field-name="approverPartyId"/></relationship>
         <seed-data>
@@ -410,11 +445,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Loss of Pay" enumId="EltLossOfPay" enumTypeId="EmploymentLeaveType"/>
             <moqui.basic.Enumeration description="Holiday" enumId="EltHoliday" enumTypeId="EmploymentLeaveType"/>
             <moqui.basic.Enumeration description="Special Day Off" enumId="EltSpecialDayOff" enumTypeId="EmploymentLeaveType"/>
-
-            <!-- Employment Leave Reason -->
-            <moqui.basic.EnumerationType description="Employment Leave Reason" enumTypeId="EmploymentLeaveReason"/>
-            <moqui.basic.Enumeration description="Medical" enumId="ElrMedical" enumTypeId="EmploymentLeaveReason"/>
-            <moqui.basic.Enumeration description="Personal" enumId="ElrPersonal" enumTypeId="EmploymentLeaveReason"/>
         </seed-data>
     </entity>
     <entity entity-name="EmploymentPayHistory" package="mantle.humanres.employment" use="transactional">
