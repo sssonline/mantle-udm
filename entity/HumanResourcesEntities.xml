@@ -948,7 +948,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Piece Rate Type" enumTypeId="PieceRateType"/>
             <!-- these are the primary types for manual time entry -->
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
-            <moqui.basic.Enumeration enumId="RatpPieceMinWageAdj" description="Min Wage Adj" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidBreakStd" description="Paid Break STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidBreakRrp" description="Paid Break RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="NPT - STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
@@ -1033,8 +1032,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="1" enumGroupEnumId="EngPieceRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="2" enumGroupEnumId="EngPieceRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="3" enumGroupEnumId="EngPieceRateType"/>
-            <!-- Include minimum wage adjustment, as the only reason for a minimum wage adjustment is the lack of piece income -->
-            <moqui.basic.EnumGroupMember enumId="RatpPieceMinWageAdj" sequenceNum="4" enumGroupEnumId="EngPieceRateType"/>
 
             <!-- Rate Modifier Type -->
             <moqui.basic.Enumeration description="Pay Rate Modifier Type" enumId="EngPayRateModifierType" enumTypeId="EnumGroup"/>
