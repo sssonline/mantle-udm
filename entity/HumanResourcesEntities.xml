@@ -234,7 +234,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="identityTypeEnumId" type="id"/>
         <field name="emplAuthzTypeEnumId" type="id"/>
-        <field name="timePeriodTypeId" type="id"><description>Payroll time period</description></field>
+        <field name="timePeriodTypeId" type="id"><description>Payroll time period type (week, bi-week, month, etc)</description></field>
 
         <field name="taxWorkContactMechId" type="id"/>
         <field name="taxFederalAllowances" type="number-integer" enable-audit-log="update"/>
@@ -803,6 +803,23 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Foreign General (H-2B)" enumId="EtxForeignGeneral" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Foreign Specialty (H-1B)" enumId="EtxForeignSpecialty" enumTypeId="EmplTaxExempt"/>
         </seed-data>
+    </entity>
+    <entity entity-name="EmplPositionBenefit" package="mantle.humanres.position" use="configuration">
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="benefitTypeEnumId" type="id" is-pk="true"/>
+        <field name="accrualStartDays" type="number-integer"/>
+        <field name="availableDays" type="number-integer"/>
+        <field name="employerPaidPercent" type="number-float"/>
+        <field name="accrualMethodEnumId" type="id" is-pk="true"/>
+        <field name="accrualHours" type="number-decimal"/>
+        <field name="accrualHourBlock" type="number-decimal"/>
+        <field name="accrualMaxHours" type="number-decimal"/>
+        <field name="accrualCarryOverMax" type="number-decimal"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
+        <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
+            <key-map field-name="benefitTypeEnumId"/></relationship>
+        <relationship type="one" title="EmploymentBenefitAccrualType" related="moqui.basic.Enumeration" short-alias="accrualType">
+            <key-map field-name="accrualTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="EmplPositionClass" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionClassId" type="id" is-pk="true"/>
