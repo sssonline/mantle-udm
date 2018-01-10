@@ -365,6 +365,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="benefitTypeEnumId" type="id" is-pk="true"/>
         <field name="accrualStartDate" type="date"/>
         <field name="availableDate" type="date"/>
+        <field name="costPerPeriod" type="currency-amount"/>
         <field name="employerPaidPercent" type="number-float"/>
         <field name="accrualMethodEnumId" type="id" is-pk="true"/>
         <field name="accrualHours" type="number-decimal"/>
@@ -372,10 +373,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accrualMaxHours" type="number-decimal"/>
         <field name="accrualCarryOverMax" type="number-decimal"/>
 
+        <!-- better to calc these on the fly as needed:
         <field name="accruedHours" type="number-decimal"/>
         <field name="usedHours" type="number-decimal"/>
         <field name="availableHours" type="number-decimal"/>
-        <!-- need/want this? <field name="cost" type="currency-amount"/> -->
+        -->
 
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
