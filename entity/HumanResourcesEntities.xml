@@ -587,13 +587,15 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Payroll Calculation Phase -->
             <moqui.basic.EnumerationType description="Payroll Calculation Phase" enumTypeId="PayrollPhase"/>
-            <moqui.basic.Enumeration sequenceNum="1" description="Incentive Bonus" enumId="PrphBonus" enumTypeId="PayrollPhase"/>
-            <moqui.basic.Enumeration sequenceNum="2" description="Break Adjust (piece, etc)" enumId="PrphBreak" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="Incentive (Non-discretionary) Bonus" enumId="PrphNdBonus" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Wages" enumId="PrphWages" enumTypeId="PayrollPhase"/>
             <moqui.basic.Enumeration sequenceNum="3" description="Overtime" enumId="PrphOvertime" enumTypeId="PayrollPhase"/>
-            <moqui.basic.Enumeration sequenceNum="4" description="Deductible, Discretionary Bonus" enumId="PrphDeductible" enumTypeId="PayrollPhase"/>
-            <moqui.basic.Enumeration sequenceNum="5" description="Taxes, WC, etc" enumId="PrphTax" enumTypeId="PayrollPhase"/>
-            <moqui.basic.Enumeration sequenceNum="6" description="Garnish" enumId="PrphGarnish" enumTypeId="PayrollPhase"/>
-            <moqui.basic.Enumeration sequenceNum="7" description="Expenses, Reimbursement" enumId="PrphExpenses" enumTypeId="PayrollPhase"/>
+            <!-- Additional Compensation may include: Discretionary (unearned bonuses), non-qualifying expense reimbursement, housing, etc. -->
+            <moqui.basic.Enumeration sequenceNum="4" description="Additional Compensation" enumId="PrphAddlComp" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="5" description="Deductions" enumId="PrphDeductions" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="6" description="Taxes, WC, etc." enumId="PrphTax" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="7" description="Garnishments" enumId="PrphGarnish" enumTypeId="PayrollPhase"/>
+            <moqui.basic.Enumeration sequenceNum="8" description="Qualified Expense Reimbursement" enumId="PrphQualExpense" enumTypeId="PayrollPhase"/>
 
             <!-- Payroll Rate Basis -->
             <moqui.basic.EnumerationType description="Payroll Rate Basis" enumTypeId="PayrollRateBasis"/>
