@@ -382,8 +382,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
             <key-map field-name="benefitTypeEnumId"/></relationship>
-        <relationship type="one" title="EmploymentBenefitAccrualType" related="moqui.basic.Enumeration" short-alias="accrualType">
-            <key-map field-name="accrualTypeEnumId"/></relationship>
         <seed-data>
             <!-- Employment Benefit Types -->
             <moqui.basic.EnumerationType description="Employment Benefit Type" enumTypeId="EmploymentBenefitType"/>
@@ -415,6 +413,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
             <key-map field-name="benefitTypeEnumId"/></relationship>
+        <relationship type="one" title="EmploymentBenefitAccrualType" related="moqui.basic.Enumeration" short-alias="accrualType">
+            <key-map field-name="accrualTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" related="mantle.work.time.TimeEntry" short-alias="timeEntry"/>
         <seed-data>
@@ -820,8 +820,6 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
             <key-map field-name="benefitTypeEnumId"/></relationship>
-        <relationship type="one" title="EmploymentBenefitAccrualType" related="moqui.basic.Enumeration" short-alias="accrualType">
-            <key-map field-name="accrualTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="EmplPositionClass" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionClassId" type="id" is-pk="true"/>
