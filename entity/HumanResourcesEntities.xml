@@ -277,9 +277,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="EmplAuthzType" related="moqui.basic.Enumeration">
             <key-map field-name="emplAuthzTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
-        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress"
-                      short-alias="taxWorkContactMech">
+        <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress" short-alias="taxWorkContactMech">
             <key-map field-name="taxWorkContactMechId"/></relationship>
+
+        <relationship type="many" related="mantle.humanres.employment.EmploymentBenefit" short-alias="benefits">
+            <key-map field-name="partyRelationshipId"/></relationship>
 
         <seed-data>
             <!-- Termination Type -->
@@ -807,7 +809,7 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
     <entity entity-name="EmplPositionBenefit" package="mantle.humanres.position" use="configuration">
-        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="emplPositionId" type="id" is-pk="true"/>
         <field name="benefitTypeEnumId" type="id" is-pk="true"/>
         <field name="accrualStartDays" type="number-integer"/>
         <field name="availableDays" type="number-integer"/>
@@ -817,7 +819,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accrualHourBlock" type="number-decimal"/>
         <field name="accrualMaxHours" type="number-decimal"/>
         <field name="accrualCarryOverMax" type="number-decimal"/>
-        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
             <key-map field-name="benefitTypeEnumId"/></relationship>
     </entity>
