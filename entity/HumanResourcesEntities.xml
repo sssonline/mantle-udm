@@ -374,6 +374,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accrualHourBlock" type="number-decimal"/>
         <field name="accrualMaxHours" type="number-decimal"/>
         <field name="accrualCarryOverMax" type="number-decimal"/>
+        <field name="workHoursUsed" type="number-decimal"/>
 
         <!-- better to calc these on the fly as needed:
         <field name="accruedHours" type="number-decimal"/>
