@@ -369,7 +369,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="availableDate" type="date"/>
         <field name="costPerPeriod" type="currency-amount"/>
         <field name="employerPaidPercent" type="number-float"/>
-        <field name="accrualMethodEnumId" type="id" is-pk="true"/>
+        <field name="accrualMethodEnumId" type="id"/>
         <field name="accrualHours" type="number-decimal"/>
         <field name="accrualHourBlock" type="number-decimal"/>
         <field name="accrualMaxHours" type="number-decimal"/>
@@ -416,17 +416,17 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
             <key-map field-name="benefitTypeEnumId"/></relationship>
-        <relationship type="one" title="EmploymentBenefitAccrualType" related="moqui.basic.Enumeration" short-alias="accrualType">
+        <relationship type="one" title="EmploymentBenefitAccrual" related="moqui.basic.Enumeration" short-alias="accrualType">
             <key-map field-name="accrualTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" related="mantle.work.time.TimeEntry" short-alias="timeEntry"/>
         <seed-data>
-            <moqui.basic.EnumerationType description="Employment Benefit Accrual Type" enumTypeId="EmploymentBenefitAccrualType"/>
-            <moqui.basic.Enumeration description="Manual Adjustment" enumId="EbatManualAdj" enumTypeId="EmploymentBenefitAccrualType"/>
-            <moqui.basic.Enumeration description="Benefit Accrued" enumId="EbatBenefitAccrued" enumTypeId="EmploymentBenefitAccrualType"/>
-            <moqui.basic.Enumeration description="Benefit Used" enumId="EbatBenefitUsed" enumTypeId="EmploymentBenefitAccrualType"/>
-            <moqui.basic.Enumeration description="Carry Over Adjustment" enumId="EbatCarryOverAdj" enumTypeId="EmploymentBenefitAccrualType"/>
-            <moqui.basic.Enumeration description="Maximum Adjustment" enumId="EbatMaximumAdj" enumTypeId="EmploymentBenefitAccrualType"/>
+            <moqui.basic.EnumerationType description="Employment Benefit Accrual" enumTypeId="EmploymentBenefitAccrual"/>
+            <moqui.basic.Enumeration description="Manual Adjustment" enumId="EbatManualAdj" enumTypeId="EmploymentBenefitAccrual"/>
+            <moqui.basic.Enumeration description="Benefit Accrued" enumId="EbatBenefitAccrued" enumTypeId="EmploymentBenefitAccrual"/>
+            <moqui.basic.Enumeration description="Benefit Used" enumId="EbatBenefitUsed" enumTypeId="EmploymentBenefitAccrual"/>
+            <moqui.basic.Enumeration description="Carry Over Adjustment" enumId="EbatCarryOverAdj" enumTypeId="EmploymentBenefitAccrual"/>
+            <moqui.basic.Enumeration description="Maximum Adjustment" enumId="EbatMaximumAdj" enumTypeId="EmploymentBenefitAccrual"/>
         </seed-data>
     </entity>
     <entity entity-name="EmploymentLeave" package="mantle.humanres.employment" use="transactional">
