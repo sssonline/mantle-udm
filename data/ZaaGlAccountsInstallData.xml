@@ -555,7 +555,7 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="222140000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
     <mantle.ledger.account.GlAccount accountName="Federal Unemployment Insurance Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222150000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
-
+    
     <mantle.ledger.account.GlAccount accountName="State Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222400000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
     <mantle.ledger.account.GlAccount accountName="State Income Tax Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
@@ -568,6 +568,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="222440000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
     <mantle.ledger.account.GlAccount accountName="State Unemployment Insurance Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222450000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
+    <mantle.ledger.account.GlAccount accountName="State Workers Comp Insurance Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+        glAccountId="222460000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
 
     <mantle.ledger.account.GlAccount accountName="Local Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222500000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
@@ -597,6 +599,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="223400000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
     <mantle.ledger.account.GlAccount accountName="401k - Pension Employer Contribution" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223500000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
+    <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes - State Workers Comp Tax" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+        glAccountId="223600000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
 
     <!-- SALES TAX COLLECTED -->
     <mantle.ledger.account.GlAccount accountName="Sales Tax Collected" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
@@ -1026,6 +1030,11 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="State Unemployment Insurance - Employer" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="633720000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633700000"/>
 
+    <mantle.ledger.account.GlAccount accountName="Workers Comp Insurance - Employer" description="" glAccountClassEnumId="COMPENSATION"
+        glAccountId="633800000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633000000"/>
+    <mantle.ledger.account.GlAccount accountName="State Workers Comp Insurance - Employer" description="" glAccountClassEnumId="COMPENSATION"
+        glAccountId="633810000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="633800000"/>
+
     <mantle.ledger.account.GlAccount accountName="Group Health Insurance" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="634000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
     <mantle.ledger.account.GlAccount accountName="Group Health Insurance - Premiums" description="" glAccountClassEnumId="COMPENSATION"
@@ -1037,7 +1046,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.account.GlAccount accountName="Former Employee Cobra Payments" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="634900000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="634000000"/>
 
-    <mantle.ledger.account.GlAccount accountName="Workers Compensation Insurance" description="" glAccountClassEnumId="COMPENSATION"
+    <mantle.ledger.account.GlAccount accountName="Workers Comp Insurance" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="635000000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="630000000"/>
 
     <mantle.ledger.account.GlAccount accountName="Disability and Life Insurance" description="" glAccountClassEnumId="COMPENSATION"
@@ -1857,6 +1866,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222430000" direction="E" itemTypeEnumId="ItemTaxStateMiscEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222440000" direction="E" itemTypeEnumId="ItemTaxStatePensionEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222450000" direction="E" itemTypeEnumId="ItemTaxStateUnInsEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222460000" direction="E" itemTypeEnumId="ItemTaxStateWrkCmpInsEmpe" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222510000" direction="E" itemTypeEnumId="ItemTaxCountyWhold" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222510000" direction="E" itemTypeEnumId="ItemTaxCbt" organizationPartyId="DefaultSettings"/>
@@ -1871,6 +1881,8 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="633230000" direction="E" itemTypeEnumId="ItemPrlExpTaxFedPensionEmpr" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="633270000" direction="E" itemTypeEnumId="ItemPrlExpTaxStatePensionEmpr" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="633720000" direction="E" itemTypeEnumId="ItemPrlExpTaxStateUnInsEmpr" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="633810000" direction="E" itemTypeEnumId="ItemPrlExpTaxStateWrkCmpInsEmpr" organizationPartyId="DefaultSettings"/>
+
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="633250000" direction="E" itemTypeEnumId="ItemPrlExpTaxStateDisInsEmpr" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="633260000" direction="E" itemTypeEnumId="ItemPrlExpTaxStateMiscEmpr" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="633290000" direction="E" itemTypeEnumId="ItemPrlExpTaxOccPrivEmpr" organizationPartyId="DefaultSettings"/>
