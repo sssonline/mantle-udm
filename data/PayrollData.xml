@@ -95,10 +95,10 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- Minimum Wage:
     Is Employee Subject to minimum wage?
         If N, no minimum wage check will be performed.
-    What is the Employee's minimum wage?
+    xx What is the Employee's minimum wage?
     Should HOURLY time entries be included in minimum wage makeup calculation?
         If N, Minimum wage test is performed against PIECE and ND hours and pay only.
-    How frequently should minimum wage be tested?
+    xx How frequently should minimum wage be tested?
     What is the minimum wage grouping level?
         If a grouping level is defined, makeup pay will be assigned at this level.
     Should minimum wage makeup group by rate?
@@ -113,9 +113,9 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartySettingType description="Payroll MWG - Check Hourly Entries" partySettingTypeId="PayrollMwCheckHourly"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
-    <mantle.party.PartySettingType description="Payroll MWG - Calc Period" partySettingTypeId="PayrollMwCalcPer"
-                                   enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">
-        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!--<mantle.party.PartySettingType description="Payroll MWG - Calc Period" partySettingTypeId="PayrollMwCalcPer"-->
+                                   <!--enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">-->
+        <!--<roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>-->
     <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp"
                                    enumTypeId="PayrollWageGrp" defaultValue="PwgAll">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
