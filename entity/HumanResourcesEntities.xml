@@ -394,12 +394,26 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Paid Vacation" enumId="EbtPaidVacation" enumTypeId="EmploymentBenefitType"/>
             <moqui.basic.Enumeration description="Health Insurance" enumId="EbtHealthInsurance" enumTypeId="EmploymentBenefitType"/>
 
+            <moqui.basic.Enumeration description="Benefit Type Group" enumId="EngEmploymentBenefitType" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="EbtPaidHoliday" enumGroupEnumId="EngEmploymentBenefitType"/>
+            <moqui.basic.EnumGroupMember enumId="EbtPaidLeaveBank" enumGroupEnumId="EngEmploymentBenefitType"/>
+            <moqui.basic.EnumGroupMember enumId="EbtPaidSickLeave" enumGroupEnumId="EngEmploymentBenefitType"/>
+            <moqui.basic.EnumGroupMember enumId="EbtPaidVacation" enumGroupEnumId="EngEmploymentBenefitType"/>
+            <moqui.basic.EnumGroupMember enumId="EbtHealthInsurance" enumGroupEnumId="EngEmploymentBenefitType"/>
+
             <!-- Employment Benefit Accrual Method -->
             <moqui.basic.EnumerationType description="Employment Benefit Accrual Method" enumTypeId="EmploymentBenefitAccrualMethod"/>
             <moqui.basic.Enumeration description="By Hours Worked" enumId="EbamHoursWorked" enumTypeId="EmploymentBenefitAccrualMethod"/>
             <moqui.basic.Enumeration description="Per Paycheck" enumId="EbamPerPaycheck" enumTypeId="EmploymentBenefitAccrualMethod"/>
             <moqui.basic.Enumeration description="Per Year on Anniversary" enumId="EbamPerYearAnniv" enumTypeId="EmploymentBenefitAccrualMethod"/>
             <moqui.basic.Enumeration description="Per Year on Year Begin" enumId="EbamPerYearBegin" enumTypeId="EmploymentBenefitAccrualMethod"/>
+
+            <moqui.basic.Enumeration description="Accrual Method Group" enumId="EngEmploymentBenefitAccrualMethod" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="EbamHoursWorked" enumGroupEnumId="EngEmploymentBenefitAccrualMethod"/>
+            <moqui.basic.EnumGroupMember enumId="EbamPerPaycheck" enumGroupEnumId="EngEmploymentBenefitAccrualMethod"/>
+            <moqui.basic.EnumGroupMember enumId="EbamPerYearAnniv" enumGroupEnumId="EngEmploymentBenefitAccrualMethod"/>
+            <moqui.basic.EnumGroupMember enumId="EbamPerYearBegin" enumGroupEnumId="EngEmploymentBenefitAccrualMethod"/>
+
         </seed-data>
     </entity>
     <entity entity-name="EmploymentBenefitAccrual" package="mantle.humanres.employment" use="transactional">
