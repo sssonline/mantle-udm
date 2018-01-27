@@ -38,6 +38,10 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartySettingType description="Payroll FLSA - Workday Begins At" partySettingTypeId="PayrollFlsaWrkDayBegAt"
                                    validRegexp="\d\d\:\d\d" defaultValue="00:00">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!-- How many hours per day for standard work -->
+    <mantle.party.PartySettingType description="Payroll FLSA - Workday Duration" partySettingTypeId="PayrollFlsaWrkDayDuration"
+                                   validRegexp="[1-9]|1\d|2[0-4](\.\d+)?" defaultValue="8.0">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- RRP:
     Should time and associated pay for HOURLY Rest Breaks and NPT be extracted from time entries before calculating RRP?
@@ -69,6 +73,13 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Calc Period" partySettingTypeId="PayrollRrpCalcPer"
                                    enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <!-- General:
+    Which day of the week does business begin on
+    -->
+    <mantle.party.PartySettingType description="Payroll GEN - Business Week Begins On" partySettingTypeId="PayrollGenBusWkBegOn"
+                                   enumTypeId="DayOfWeek" defaultValue="DowMonday">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Overtime:
