@@ -82,6 +82,10 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="DayOfWeek" defaultValue="DowMonday">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
+    <mantle.party.PartySettingType description="Payroll GEN - Business Day Begins At" partySettingTypeId="PayrollGenBusDayBegAt"
+                                   validRegexp="\d\d\:\d\d" defaultValue="00:00">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
     <!-- Overtime:
     Overtime Premium Factor
     Double time Premium Factor
