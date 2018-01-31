@@ -227,7 +227,7 @@ along with this software (see the LICENSE.md file). If not, see
         <description>This is a type of PartyRelationship so shares the ID with the related PartyRelationship record
             between employee (fromPartyId) and internal organization (toPartyId) with relationshipTypeEnumId=PrtEmployee.</description>
         <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <field name="emplPositionId" type="id"/>
+        <field name="emplPositionId" type="id" enable-audit-log="true"/>
         <field name="terminationReasonEnumId" type="id" enable-audit-log="update"/>
         <field name="terminationTypeEnumId" type="id" enable-audit-log="update"/>
         <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
