@@ -425,7 +425,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accrualDate" type="date"/>
         <field name="accruedHours" type="number-decimal"/>
         <field name="comments" type="text-medium"/>
-        <field name="timePeriodId" type="id"/>
+        <field name="timePeriodId" type="id"><description>For benefit accrual automatically added in period close, deleted by this in period re-open</description></field>
         <field name="timeEntryId" type="id"><description>For benefit usage TimeEntry records (paid leave)</description></field>
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
