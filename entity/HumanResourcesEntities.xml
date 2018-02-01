@@ -227,10 +227,11 @@ along with this software (see the LICENSE.md file). If not, see
         <description>This is a type of PartyRelationship so shares the ID with the related PartyRelationship record
             between employee (fromPartyId) and internal organization (toPartyId) with relationshipTypeEnumId=PrtEmployee.</description>
         <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <field name="emplPositionId" type="id"/>
+        <field name="emplPositionId" type="id" enable-audit-log="true"/>
         <field name="terminationReasonEnumId" type="id" enable-audit-log="update"/>
         <field name="terminationTypeEnumId" type="id" enable-audit-log="update"/>
         <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
+        <field name="rehireDate" type="date" enable-audit-log="true"/>
 
         <field name="identityTypeEnumId" type="id"/>
         <field name="emplAuthzTypeEnumId" type="id"/>
@@ -374,7 +375,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accrualHourBlock" type="number-decimal"/>
         <field name="accrualMaxHours" type="number-decimal"/>
         <field name="accrualCarryOverMax" type="number-decimal"/>
-        <field name="workHoursUsed" type="number-decimal"/>
 
         <!-- better to calc these on the fly as needed:
         <field name="accruedHours" type="number-decimal"/>
@@ -425,7 +425,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accrualDate" type="date"/>
         <field name="accruedHours" type="number-decimal"/>
         <field name="comments" type="text-medium"/>
-        <field name="timePeriodId" type="id"/>
+        <field name="timePeriodId" type="id"><description>For benefit accrual automatically added in period close, deleted by this in period re-open</description></field>
+        <field name="workHoursUsed" type="number-decimal"><description>For accrual to track hours used for this particular accrual</description></field>
         <field name="timeEntryId" type="id"><description>For benefit usage TimeEntry records (paid leave)</description></field>
         <relationship type="one" related="mantle.humanres.employment.Employment"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
