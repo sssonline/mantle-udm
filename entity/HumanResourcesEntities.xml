@@ -803,6 +803,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="standardHoursPerWeek" type="number-integer"/>
+        <field name="defaultWorkTypeEnumId" type="id"/>
+        <field name="defaultFacilityId" type="id"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
@@ -814,6 +816,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="taxExemptEnumId"/></relationship>
         <relationship type="one" title="Tax" related="moqui.screen.form.DbForm">
             <key-map field-name="taxFormId"/></relationship>
+        <relationship type="one" related="moqui.basic.Enumeration" short-alias="workType">
+            <key-map field-name="defaultWorkTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="defaultFacility">
+            <key-map field-name="defaultFacilityId"/></relationship>
         <index name="EMPL_POSITION_ID_PSEUDO" unique="true"><index-field name="pseudoId"/></index>
         <seed-data>
             <!-- Employment Position Status -->
