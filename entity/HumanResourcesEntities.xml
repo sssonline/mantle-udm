@@ -231,6 +231,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="terminationReasonEnumId" type="id" enable-audit-log="update"/>
         <field name="terminationTypeEnumId" type="id" enable-audit-log="update"/>
         <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
+        <field name="rehireDate" type="date" enable-audit-log="true"/>
 
         <field name="identityTypeEnumId" type="id"/>
         <field name="emplAuthzTypeEnumId" type="id"/>
