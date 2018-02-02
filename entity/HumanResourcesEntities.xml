@@ -630,7 +630,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Medical Taxable" enumId="PrbsMedical" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Gross" enumId="PrbsGross" enumTypeId="PayrollRateBasis"/><!-- default -->
             <moqui.basic.Enumeration description="Straight Time Gross" enumId="PrbsStraightGross" enumTypeId="PayrollRateBasis"/>
-            <moqui.basic.Enumeration description="Hours Worked" enumId="PrbsHours" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Hours Worked" enumId="PrbsHoursWorked" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Hours Total" enumId="PrbsHoursTotal" enumTypeId="PayrollRateBasis"/>
         </seed-data>
     </entity>
     <entity entity-name="PayrollAdjustmentDetail" package="mantle.humanres.employment" use="configuration">
