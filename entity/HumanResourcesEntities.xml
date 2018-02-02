@@ -265,6 +265,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxFederalStatusEnumId" type="id"/>
         <field name="taxStateStatusEnumId" type="id"/>
         -->
+        <field name="defaultWorkTypeEnumId" type="id"/>
+        <field name="defaultFacilityId" type="id"/>
 
         <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
         <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
@@ -283,6 +285,11 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="many" related="mantle.humanres.employment.EmploymentBenefit" short-alias="benefits">
             <key-map field-name="partyRelationshipId"/></relationship>
+
+        <relationship type="one" related="moqui.basic.Enumeration" short-alias="workType">
+            <key-map field-name="defaultWorkTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="defaultFacility">
+            <key-map field-name="defaultFacilityId"/></relationship>
 
         <seed-data>
             <!-- Termination Type -->
