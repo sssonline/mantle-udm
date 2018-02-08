@@ -1029,8 +1029,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timePeriodUomId" type="id"/> <!-- The Uom of the rate; may or may not be time related. e.g. TF_hr or OTH_ea -->
         <!-- filter by if any records have these not null matching the current TimeEntry values -->
         <field name="workEffortId" type="id"/>
-        <field name="partyId" type="id"><description>Depending on Purpose either Worker/Vendor (RaprVendor) or Client/Customer (RaprClient)</description></field>
-        <field name="organizationPartyId" type="id"><description>The organization (employer, etc) who pays the Worker/Vendor and bills the Client</description></field>
+        <field name="partyId" type="id"><description>The party performing work (worker, may be the vendor or work for the vendor)</description></field>
+        <field name="organizationPartyId" type="id"><description>The organization (employer, etc) who pays the worker and bills the client</description></field>
+        <field name="clientPartyId" type="id"><description>The client who pays the internal organization (vendor) via bill through</description></field>
         <!-- must match or null; match as many as possible (to allow for nulls) with this priority if more than one match with same number of fields -->
         <field name="workTypeEnumId" type="id"/>
         <field name="payGradeId" type="id"/>
@@ -1049,6 +1050,10 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="Client" related="mantle.party.Party" short-alias="clientParty">
+            <key-map field-name="clientPartyId"/></relationship>
 
         <relationship type="one" related="mantle.humanres.rate.PayGrade" short-alias="payGrade"/>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
