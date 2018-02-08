@@ -538,7 +538,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="rateModifierEnumId"/></relationship>
 
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
-        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
+        <!--<relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>-->
     </entity>
     <entity entity-name="EmploymentPayDetail" package="mantle.humanres.employment" use="transactional">
         <field name="employmentPayDetailId" type="id" is-pk="true"/>
@@ -570,7 +570,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payeePartyId"/></relationship>
 
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
-        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
+        <!--<relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>-->
     </entity>
     <entity entity-name="EmploymentSalary" package="mantle.humanres.employment" use="configuration">
         <description>The current and past actual salary amounts for Employment. Current salary found by standard date
