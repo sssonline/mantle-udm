@@ -501,19 +501,54 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Currency" related="moqui.basic.Uom">
             <key-map field-name="currencyUomId"/></relationship>
     </entity>
+    <entity entity-name="EmploymentPayTimeDetail" package="mantle.humanres.employment" use="transactional">
+        <field name="employmentPayTimeDetailId" type="id" is-pk="true"/>
+        <field name="partyRelationshipId" type="id"/>
+        <field name="payDate" type="date"/>
+
+        <field name="itemTypeEnumId" type="id"/>
+        <field name="workTypeEnumId" type="id"/>
+        <field name="facilityId" type="id"/>
+        <field name="workEffortId" type="id"/>
+        <field name="rateTypeEnumId" type="id"/>
+        <field name="rateModifierEnumId" type="id"/>
+
+        <field name="hours" type="number-decimal"/>
+        <field name="pieceCount" type="number-decimal"/>
+        <field name="vendorHourRate" type="number-decimal"/>
+        <field name="minHourRate" type="number-decimal"/>
+        <field name="rrpHourRate" type="number-decimal"/>
+        <field name="vendorPieceRate" type="number-decimal"/>
+
+        <field name="invoiceId" type="id"/>
+        <field name="invoiceItemId" type="id"/>
+
+        <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
+            <key-map field-name="workTypeEnumId"/></relationship>
+        <!-- TODO remaining relationships -->
+    </entity>
     <entity entity-name="EmploymentPayDetail" package="mantle.humanres.employment" use="transactional">
         <field name="employmentPayDetailId" type="id" is-pk="true"/>
         <field name="partyRelationshipId" type="id"/>
         <field name="payDate" type="date"/>
+
         <field name="payrollAdjustmentId" type="id"/>
         <field name="adjCalcServiceId" type="id"/>
         <field name="itemTypeEnumId" type="id"/>
-        <field name="quantity" type="number-decimal"/>
-        <field name="amount" type="number-decimal"/>
-        <field name="isEmployerPaid" type="text-indicator"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="payeePartyId" type="id"/>
         <field name="payeeReference" type="text-short"/>
+
+        <field name="quantity" type="number-decimal"/>
+        <field name="amount" type="number-decimal"/>
+        <field name="isEmployerPaid" type="text-indicator"/>
+
+        <field name="invoiceId" type="id"/>
+        <field name="invoiceItemId" type="id"/>
+
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
