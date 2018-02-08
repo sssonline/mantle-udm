@@ -495,10 +495,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="socialTaxableYtdIncome" type="number-decimal"/>
         <field name="medicalTaxableYtdIncome" type="number-decimal"/>
         <field name="currencyUomId" type="id"/>
-        <relationship type="one" related="mantle.humanres.employment.Employment"/>
-        <relationship type="one" related="mantle.party.time.TimePeriod"/>
-        <relationship type="one" related="mantle.account.invoice.Invoice"/>
-        <relationship type="one" title="Currency" related="moqui.basic.Uom">
+        <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
+        <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
+        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
+        <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
     </entity>
     <entity entity-name="EmploymentPayTimeDetail" package="mantle.humanres.employment" use="transactional">
@@ -524,11 +524,21 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceItemId" type="id"/>
 
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
+        <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
+
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
             <key-map field-name="workTypeEnumId"/></relationship>
-        <!-- TODO remaining relationships -->
+        <relationship type="one" title="RateType" related="moqui.basic.Enumeration" short-alias="rateTypeEnum">
+            <key-map field-name="rateTypeEnumId"/></relationship>
+        <relationship type="one" title="RateModifier" related="moqui.basic.Enumeration" short-alias="rateModifierEnum">
+            <key-map field-name="rateModifierEnumId"/></relationship>
+
+        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
     </entity>
     <entity entity-name="EmploymentPayDetail" package="mantle.humanres.employment" use="transactional">
         <field name="employmentPayDetailId" type="id" is-pk="true"/>
@@ -550,12 +560,17 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceItemId" type="id"/>
 
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
+        <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
+
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
         <relationship type="one" title="Garnish" related="mantle.party.Party">
             <key-map field-name="payeePartyId"/></relationship>
+
+        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
     </entity>
     <entity entity-name="EmploymentSalary" package="mantle.humanres.employment" use="configuration">
         <description>The current and past actual salary amounts for Employment. Current salary found by standard date
