@@ -599,6 +599,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="exclusiveByItemType" type="text-indicator">
             <description>Overrides less specific payroll adjusmtents if employment or employer is set.
                 Employment > Employer > open if set to Y.</description></field>
+
+        <!-- Neither work type, nor facility are used to determine whether the adjustment applies. -->
+        <field name="workTypeEnumId" type="id"><description>Type of work to apply the adjustment to.</description></field>
+        <field name="facilityId" type="id"><description>Where to apply the adjustment.</description></field>
+
         <field name="overrideGlAccountId" type="id"/>
         <field name="payrollPhaseEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
@@ -640,6 +645,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
+            <key-map field-name="workTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" title="Override" related="mantle.ledger.account.GlAccount">
             <key-map field-name="overrideGlAccountId"/></relationship>
         <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
