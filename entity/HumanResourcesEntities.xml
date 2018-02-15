@@ -548,6 +548,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollAdjustmentId" type="id"/>
         <field name="adjCalcServiceId" type="id"/>
         <field name="itemTypeEnumId" type="id"/>
+        <field name="workTypeEnumId" type="id"/>
+        <field name="facilityId" type="id"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="payeePartyId" type="id"/>
         <field name="payeeReference" type="text-short"/>
@@ -565,6 +567,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
+            <key-map field-name="workTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
         <relationship type="one" title="Garnish" related="mantle.party.Party">
             <key-map field-name="payeePartyId"/></relationship>
