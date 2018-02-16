@@ -506,6 +506,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyRelationshipId" type="id"/>
         <field name="payDate" type="date"/>
 
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+
         <field name="itemTypeEnumId" type="id"/>
         <field name="workTypeEnumId" type="id"/>
         <field name="facilityId" type="id"/>
@@ -544,6 +547,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="employmentPayDetailId" type="id" is-pk="true"/>
         <field name="partyRelationshipId" type="id"/>
         <field name="payDate" type="date"/>
+
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
 
         <field name="payrollAdjustmentId" type="id"/>
         <field name="adjCalcServiceId" type="id"/>
