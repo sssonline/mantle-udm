@@ -559,7 +559,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="workTypeEnumId" type="id"/>
         <field name="facilityId" type="id"/>
         <field name="taxAuthorityId" type="id"/>
-        <field name="payeePartyId" type="id"/>
+        <field name="payeePartyId" type="id"><description>For deductions from pay that are paid out to third party.
+            If taxAuthorityId is set this would be the tax authority partyId.</description></field>
         <field name="payeeReference" type="text-short"/>
 
         <field name="quantity" type="number-decimal"/>
@@ -568,6 +569,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
+        <field name="payeeInvoiceId" type="id"/>
+        <field name="payeeInvoiceItemSeqId" type="id"/>
 
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
         <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
@@ -582,8 +585,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Garnish" related="mantle.party.Party">
             <key-map field-name="payeePartyId"/></relationship>
 
-        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
+        <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
+        <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="payeeInvoice">
+            <key-map field-name="payeeInvoiceId" related="invoiceId"/></relationship>
+        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="payeeInvoiceItem">
+            <key-map field-name="payeeInvoiceId" related="invoiceId"/>
+            <key-map field-name="payeeInvoiceItemSeqId" related="invoiceItemSeqId"/>
+        </relationship>
     </entity>
     <entity entity-name="EmploymentSalary" package="mantle.humanres.employment" use="configuration">
         <description>The current and past actual salary amounts for Employment. Current salary found by standard date
