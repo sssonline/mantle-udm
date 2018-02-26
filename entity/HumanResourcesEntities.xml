@@ -508,20 +508,23 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="payDate" type="date" not-null="true"/>
         <field name="timeEntryId" type="id" not-null="true"/>
+        <field name="payrollPhaseEnumId" type="id" not-null="true"/>
 
         <field name="itemTypeEnumId" type="id"/>
 
         <field name="hours" type="number-decimal"/>
-        <field name="vendorHourRate" type="number-decimal"/>
+        <field name="hourRate" type="number-decimal"/>
         <field name="minHourRate" type="number-decimal"/>
         <field name="rrpHourRate" type="number-decimal"/>
 
         <field name="pieceCount" type="number-decimal"/>
-        <field name="vendorPieceRate" type="number-decimal"/>
+        <field name="pieceRate" type="number-decimal"/>
 
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
         <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
         <relationship type="one" related="mantle.work.time.TimeEntry" short-alias="timeEntry"/>
+        <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
+            <key-map field-name="payrollPhaseEnumId"/></relationship>
 
         <!-- A time entry id may occur once per item type. -->
         <!-- e.g. An overtime time entry may appear once for its standard pay and once for the overtime premium. -->
@@ -535,6 +538,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="employmentPayDetailId" type="id" is-pk="true"/>
         <field name="partyRelationshipId" type="id"/>
         <field name="payDate" type="date"/>
+        <field name="payrollPhaseEnumId" type="id" not-null="true"/>
 
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
@@ -562,6 +566,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
 
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
+        <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
+            <key-map field-name="payrollPhaseEnumId"/></relationship>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
@@ -613,7 +619,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="facilityId" type="id"><description>Where to apply the adjustment.</description></field>
 
         <field name="overrideGlAccountId" type="id"/>
-        <field name="payrollPhaseEnumId" type="id"/>
+        <field name="payrollPhaseEnumId" type="id" not-null="true"/>
         <field name="timePeriodTypeId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
