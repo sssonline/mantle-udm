@@ -478,9 +478,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Special Day Off" enumId="EltSpecialDayOff" enumTypeId="EmploymentLeaveType"/>
         </seed-data>
     </entity>
+
     <entity entity-name="EmploymentPayHistory" package="mantle.humanres.employment" use="transactional">
-        <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <field name="payDate" type="date" is-pk="true"/>
+        <field name="employmentPayHistoryId" type="id" is-pk="true"/>
+        <field name="partyRelationshipId" type="id"/>
+        <field name="payDate" type="date"/>
         <field name="timePeriodId" type="id"/>
         <field name="invoiceId" type="id"/>
         <field name="internalPayroll" type="text-indicator"><description>If Y is included in year end tax reporting,
@@ -502,42 +504,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="currencyUomId"/></relationship>
     </entity>
 
-    <entity entity-name="EmploymentPayTimeDetail" package="mantle.humanres.employment" use="transactional">
-        <field name="employmentPayTimeDetailId" type="id" is-pk="true"/>
-        <field name="partyRelationshipId" type="id"/>
+    <entity entity-name="EmploymentPayAdjDetail" package="mantle.humanres.employment" use="transactional">
+        <field name="employmentPayAdjDetailId" type="id" is-pk="true"/>
+        <field name="employmentPayHistoryId" type="id" not-null="true"/>
 
-        <field name="payDate" type="date" not-null="true"/>
-        <field name="timeEntryId" type="id" not-null="true"/>
-        <field name="payrollPhaseEnumId" type="id" not-null="true"/>
-
-        <field name="itemTypeEnumId" type="id"/>
-
-        <field name="hours" type="number-decimal"/>
-        <field name="hourRate" type="number-decimal"/>
-        <field name="minHourRate" type="number-decimal"/>
-        <field name="rrpHourRate" type="number-decimal"/>
-
-        <field name="pieceCount" type="number-decimal"/>
-        <field name="pieceRate" type="number-decimal"/>
-
-        <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
-        <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
-        <relationship type="one" related="mantle.work.time.TimeEntry" short-alias="timeEntry"/>
-        <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
-            <key-map field-name="payrollPhaseEnumId"/></relationship>
-
-        <!-- A time entry id may occur once per item type. -->
-        <!-- e.g. An overtime time entry may appear once for its standard pay and once for the overtime premium. -->
-        <index name="EMPL_PAY_DTL_TENT" unique="true">
-            <index-field name="timeEntryId"/>
-            <index-field name="itemTypeEnumId"/>
-        </index>
-    </entity>
-
-    <entity entity-name="EmploymentPayDetail" package="mantle.humanres.employment" use="transactional">
-        <field name="employmentPayDetailId" type="id" is-pk="true"/>
-        <field name="partyRelationshipId" type="id"/>
-        <field name="payDate" type="date"/>
         <field name="payrollPhaseEnumId" type="id" not-null="true"/>
 
         <field name="fromDate" type="date-time"/>
@@ -557,13 +527,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="amount" type="number-decimal"/>
         <field name="isEmployerPaid" type="text-indicator"/>
 
-        <field name="invoiceId" type="id"/>
         <field name="invoiceItemSeqId" type="id"/>
         <field name="payeeInvoiceId" type="id"/>
         <field name="payeeInvoiceItemSeqId" type="id"/>
 
         <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
-        <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
 
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
@@ -577,8 +545,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Garnish" related="mantle.party.Party">
             <key-map field-name="payeePartyId"/></relationship>
 
-        <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
-        <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
+        <!-- TODO: Is there a way to establish the link between the invoiceItemSeqId with the invoiceId
+                   being on the EmploymentPayHistory record? -->
+        <!--<relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>-->
         <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="payeeInvoice">
             <key-map field-name="payeeInvoiceId" related="invoiceId"/></relationship>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="payeeInvoiceItem">
@@ -586,6 +555,40 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payeeInvoiceItemSeqId" related="invoiceItemSeqId"/>
         </relationship>
     </entity>
+
+    <entity entity-name="EmploymentPayTimeDetail" package="mantle.humanres.employment" use="transactional">
+        <field name="employmentPayTimeDetailId" type="id" is-pk="true"/>
+        <field name="employmentPayHistoryId" type="id" not-null="true"/>
+
+        <field name="timeEntryId" type="id" not-null="true"/>
+        <field name="payrollPhaseEnumId" type="id" not-null="true"/>
+
+        <field name="itemTypeEnumId" type="id"/>
+
+        <field name="hours" type="number-decimal"/>
+        <field name="hourRate" type="number-decimal"/>
+        <field name="minHourRate" type="number-decimal"/>
+        <field name="rrpHourRate" type="number-decimal"/>
+
+        <field name="pieceCount" type="number-decimal"/>
+        <field name="pieceRate" type="number-decimal"/>
+
+        <!-- amount = hours * hourRate + pieceCount * pieceRate -->
+
+        <relationship type="one" related="mantle.humanres.employment.EmploymentPayHistory"/>
+        <relationship type="one" related="mantle.work.time.TimeEntry" short-alias="timeEntry"/>
+        <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
+            <key-map field-name="payrollPhaseEnumId"/></relationship>
+
+        <!-- A time entry id may occur once per item type. -->
+        <!-- e.g. An overtime time entry may appear once for its standard pay and once for the overtime premium. -->
+        <index name="EMPL_PAY_DTL_TENT_ITYP" unique="true">
+            <index-field name="timeEntryId"/>
+            <index-field name="itemTypeEnumId"/>
+        </index>
+        <index name="EMPL_PAY_DTL_TENT"><index-field name="timeEntryId"/></index>
+    </entity>
+
     <entity entity-name="EmploymentSalary" package="mantle.humanres.employment" use="configuration">
         <description>The current and past actual salary amounts for Employment. Current salary found by standard date
             filter and sort (filter by fromDate, thruDate; sort by ascending fromDate; use first result).</description>
