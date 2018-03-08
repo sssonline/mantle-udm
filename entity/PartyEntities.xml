@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -362,9 +362,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumerationType description="Party Identification Type" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Passport Number" enumId="PtidPassport" enumTypeId="PartyIdType" optionValue="*{4,10}"/>
             <moqui.basic.Enumeration description="Driver License Number" enumId="PtidDriverLicense" enumTypeId="PartyIdType"/>
-            <moqui.basic.Enumeration description="Social Security Number" enumId="PtidSsn" enumTypeId="PartyIdType" optionValue="999-99-9999"/>
+            <moqui.basic.Enumeration description="Social Security Number" enumId="PtidSsn" enumCode="SSN" enumTypeId="PartyIdType" optionValue="999-99-9999"/>
             <moqui.basic.Enumeration description="Federal Agent Indicator Code" enumId="PtidFaic" enumTypeId="PartyIdType"/>
-            <moqui.basic.Enumeration description="Federal EIN" enumId="PtidFein" enumTypeId="PartyIdType" optionValue="99-9999999"/>
+            <moqui.basic.Enumeration description="Federal EIN" enumId="PtidFein" enumCode="EIN" enumTypeId="PartyIdType" optionValue="99-9999999"/>
             <moqui.basic.Enumeration description="Federal User ID" enumId="PtidFuid" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Matricula Consular ID" enumId="PtidMcid" enumTypeId="PartyIdType"/>
             <moqui.basic.Enumeration description="Global Location Number" enumId="PtidGln" enumTypeId="PartyIdType"/>
@@ -1230,7 +1230,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="CmtlGreylisted" description="Greylisted" sequenceNum="8" enumTypeId="ContactPaymentTrustLevel"/>
             <moqui.basic.Enumeration enumId="CmtlBlacklisted" description="Blacklisted" sequenceNum="9" enumTypeId="ContactPaymentTrustLevel"/>
         </seed-data>
-        
+
         <master>
             <detail relationship="telecomNumber"/>
             <detail relationship="postalAddress">
