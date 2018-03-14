@@ -717,6 +717,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
         <relationship type="one" title="Team" related="mantle.party.Party" short-alias="teamParty">
             <key-map field-name="teamPartyId"/></relationship>
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
+            <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" title="Client" related="mantle.party.Party" short-alias="clientParty">
             <key-map field-name="clientPartyId"/></relationship>
         <relationship type="one" title="RateType" related="moqui.basic.Enumeration" short-alias="rateType">
@@ -747,17 +749,17 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="Timesheet" package="mantle.work.time" cache="never">
         <field name="timesheetId" type="id" is-pk="true"/>
-        <field name="partyId" type="id"/>
-        <field name="teamPartyId" type="id"/>
+        <field name="partyId" type="id"><description>Individual party or team party ID</description></field>
+        <field name="organizationPartyId" type="id"/>
         <field name="clientPartyId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="comments" type="text-medium"/>
         <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" title="Team" related="mantle.party.Party" short-alias="teamParty">
-            <key-map field-name="teamPartyId"/></relationship>
-        <relationship type="one" title="Client" related="mantle.party.Party">
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="Client" related="mantle.party.Party" short-alias="clientParty">
             <key-map field-name="clientPartyId"/></relationship>
         <relationship type="one" title="Timesheet" related="moqui.basic.StatusItem"/>
         <seed-data>
@@ -778,6 +780,12 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.work.time.Timesheet"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.RoleType"/>
+    </entity>
+    <entity entity-name="TimesheetWorkEffort" package="mantle.work.time" cache="never">
+        <field name="timesheetId" type="id" is-pk="true"/>
+        <field name="workEffortId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.work.time.Timesheet" short-alias="timesheet"/>
+        <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
     </entity>
 
     <!-- ========================================================= -->
