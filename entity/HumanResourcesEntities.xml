@@ -926,6 +926,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="benefitTypeEnumId" type="id" is-pk="true"/>
         <field name="accrualStartDays" type="number-integer"/>
         <field name="availableDays" type="number-integer"/>
+        <field name="availableFromEnumId" type="id"/>
         <field name="employerPaidPercent" type="number-float"/>
         <field name="accrualMethodEnumId" type="id" is-pk="true"/>
         <field name="accrualHours" type="number-decimal"/>
@@ -935,6 +936,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
         <relationship type="one" title="EmploymentBenefitType" related="moqui.basic.Enumeration" short-alias="benefitType">
             <key-map field-name="benefitTypeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Start Date Type" enumTypeId="StartDateType"/>
+            <moqui.basic.Enumeration description="Employment Start Date" enumId="SdtEmploymentStartDate" enumTypeId="StartDateType"/>
+            <moqui.basic.Enumeration description="Last Day Worked" enumId="SdtLastDayWorked" enumTypeId="StartDateType"/>
+        </seed-data>
     </entity>
     <entity entity-name="EmplPositionClass" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionClassId" type="id" is-pk="true"/>
