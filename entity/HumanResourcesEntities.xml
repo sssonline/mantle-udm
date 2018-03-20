@@ -945,7 +945,8 @@ along with this software (see the LICENSE.md file). If not, see
                  e.g. if the available days were 90 and days of inactivity enum is specified, first check if there has
                  been any activity in the prior 90 days.  If there is none, the benefit is not available to use.
                  If activity exists in the prior 90 days, choose the oldest date from that activity and look back an
-                 additional 90 days.  If there are any days of activity in this window, the benefit is available to use. -->
+                 additional 90 days.  If there are any days of activity in this window, the benefit is available to use
+                 and is now available for an additional 90 days from the most recent day worked. -->
             <moqui.basic.Enumeration description="Days of Inactivity" enumId="EpbAvailAfterDaysOfInactivity" enumTypeId="EpbAvailAfterDaysType"/>
         </seed-data>
     </entity>
