@@ -522,6 +522,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payeePartyId" type="id"><description>For deductions from pay that are paid out to third party.
             If taxAuthorityId is set this would be the tax authority partyId.</description></field>
         <field name="payeeReference" type="text-short"/>
+        <field name="finAccountId" type="id"/>
 
         <field name="quantity" type="number-decimal"/>
         <field name="amount" type="number-decimal"/>
@@ -542,6 +543,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
         <relationship type="one" title="Garnish" related="mantle.party.Party">
             <key-map field-name="payeePartyId"/></relationship>
 
@@ -651,6 +653,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payeePartyId" type="id"/><!-- replaces garnishPartyId -->
         <field name="payeeReference" type="text-short"/><!-- replaces garnishCaseNumber -->
         <field name="payeeDueDays" type="number-integer"/><!-- replaces garnishDueDays -->
+        <field name="finAccountId" type="id"/>
 
         <field name="garnishDisposablePercent" type="number-decimal"/>
         <field name="garnishMinWageApplies" type="text-indicator"/>
@@ -675,6 +678,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
         <relationship type="one" title="Payee" related="mantle.party.Party" short-alias="payeeParty">
             <key-map field-name="payeePartyId"/></relationship>
+        <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
 
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentDetail" short-alias="details">
             <key-map field-name="payrollAdjustmentId"/></relationship>
