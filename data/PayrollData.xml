@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -80,11 +80,11 @@ along with this software (see the LICENSE.md file). If not, see
     -->
     <mantle.party.PartySettingType description="Payroll GEN - Business Week Begins On" partySettingTypeId="PayrollGenBusWkBegOn"
                                    enumTypeId="DayOfWeek" defaultValue="DowMonday">
-        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+        <roles roleTypeId="OrgEmployer"/><roles roleTypeId="OrgTeam"/></mantle.party.PartySettingType>
 
     <mantle.party.PartySettingType description="Payroll GEN - Business Day Begins At" partySettingTypeId="PayrollGenBusDayBegAt"
                                    validRegexp="\d\d\:\d\d" defaultValue="00:00">
-        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+        <roles roleTypeId="OrgEmployer"/><roles roleTypeId="OrgTeam"/></mantle.party.PartySettingType>
 
     <!-- Overtime:
     Overtime Premium Factor
@@ -142,7 +142,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- Workers Compensation (Risk Class):
         Default Risk Class defines the default risk class for an organization or an employee.
         Default Overrides Work Type determines whether the Default Risk Class overrides the risk class (if present)
-            overrides the risk class determined by the type of work being performed. 
+            overrides the risk class determined by the type of work being performed.
         Should overtime premiums be included in Workers Compensation Insurance calculations?
             Pennsylvania, Delaware, Utah, and Nevada are the only states that included it currently.
         Should shift differential premiums be included in Workers Compensation Insurance calculations?
