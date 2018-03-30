@@ -774,13 +774,22 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
     <entity entity-name="TimesheetParty" package="mantle.work.time" cache="never">
-        <field name="timesheetId" type="id" is-pk="true"/>
-        <field name="partyId" type="id" is-pk="true"/>
-        <field name="roleTypeId" type="id" is-pk="true"/>
+        <field name="timesheetPartyId" type="id" is-pk="true"/>
+        <field name="timesheetId" type="id" not-null="true"/>
+        <field name="partyId" type="id" not-null="true"/>
+        <field name="roleTypeId" type="id"/>
         <field name="sequenceNum" type="number-integer"/>
         <relationship type="one" related="mantle.work.time.Timesheet"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.RoleType"/>
+        <index name="TIMESHEET_PARTY_AND_ROLE" unique="true">
+            <index-field name="timesheetId"/>
+            <index-field name="partyId"/>
+            <index-field name="roleTypeId"/>
+        </index>
+        <index name="TIMESHEET_PARTY_TIMESHEET">
+            <index-field name="timesheetId"/>
+        </index>
     </entity>
     <entity entity-name="TimesheetWorkEffort" package="mantle.work.time" cache="never">
         <field name="timesheetId" type="id" is-pk="true"/>
