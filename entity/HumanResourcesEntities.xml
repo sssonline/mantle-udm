@@ -513,6 +513,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
 
+        <field name="description" type="text-medium"/>
+        <field name="overrideGlAccountId" type="id"/>
+
         <field name="payrollAdjustmentId" type="id"/>
         <field name="adjCalcServiceId" type="id"/>
         <field name="itemTypeEnumId" type="id"/>
@@ -564,6 +567,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="timeEntryId" type="id" not-null="true"/>
         <field name="payrollPhaseEnumId" type="id" not-null="true"/>
+
+        <field name="description" type="text-medium"/>
+        <field name="overrideGlAccountId" type="id"/>
 
         <field name="itemTypeEnumId" type="id"/>
 
