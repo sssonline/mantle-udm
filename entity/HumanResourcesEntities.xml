@@ -478,12 +478,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Special Day Off" enumId="EltSpecialDayOff" enumTypeId="EmploymentLeaveType"/>
         </seed-data>
     </entity>
-
     <entity entity-name="EmploymentPayHistory" package="mantle.humanres.employment" use="transactional">
         <field name="employmentPayHistoryId" type="id" is-pk="true"/>
         <field name="partyRelationshipId" type="id"/>
         <field name="payDate" type="date"/>
         <field name="timePeriodId" type="id"/>
+        <field name="payrollBatchId" type="id"/>
         <field name="invoiceId" type="id"/>
         <field name="internalPayroll" type="text-indicator"><description>If Y is included in year end tax reporting,
             otherwise considered external pay used only for YTD calculations in payroll adjustments</description></field>
@@ -502,8 +502,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
+        <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
     </entity>
-
     <entity entity-name="EmploymentPayAdjDetail" package="mantle.humanres.employment" use="transactional">
         <field name="employmentPayAdjDetailId" type="id" is-pk="true"/>
         <field name="employmentPayHistoryId" type="id" not-null="true"/>
@@ -828,6 +828,18 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="StateOrCountry" related="moqui.basic.Geo">
             <key-map field-name="stateOrCountryGeoId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
+    </entity>
+    <entity entity-name="PayrollBatch" package="mantle.humanres.employment">
+        <field name="payrollBatchId" type="id" is-pk="true"/>
+        <field name="description" type="text-medium"/>
+    </entity>
+    <entity entity-name="PayrollBatchDetail" package="mantle.humanres.employment">
+        <field name="timePeriodId" type="id" is-pk="true"/>
+        <field name="partyRelationshipId" type="id" is-pk="true"/>
+        <field name="payrollBatchId" type="id"/>
+        <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
+        <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
+        <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
     </entity>
     <entity entity-name="UnemploymentClaim" package="mantle.humanres.employment" use="nontransactional">
         <field name="unemploymentClaimId" type="id" is-pk="true"/>

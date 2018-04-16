@@ -335,6 +335,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="partyRelationshipId" type="id"><description>For Payroll invoices, points to Employment record</description></field>
         <field name="timePeriodId" type="id"><description>For Payroll invoices, points to Payroll TimePeriod</description></field>
+        <field name="payrollBatchId" type="id"><description>For Payroll invoices, points to Payroll Batch</description></field>
         <field name="acctgTransResultEnumId" type="id"/>
         <field name="systemMessageRemoteId" type="id"/>
 
@@ -374,6 +375,7 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
+        <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResultEnum">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
         <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="systemMessageRemote"/>
