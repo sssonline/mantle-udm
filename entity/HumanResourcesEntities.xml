@@ -832,7 +832,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PayrollBatch" package="mantle.humanres.employment">
         <field name="payrollBatchId" type="id" is-pk="true"/>
         <field name="description" type="text-medium"/>
-        <field name="timePeriodId" type="id"/>
+        <field name="timePeriodId" type="id" not-null="true"/>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <index name="PAYROLL_BATCH_TIMEPERIOD">
             <index-field name="payrollBatchId"/>
@@ -840,15 +840,11 @@ along with this software (see the LICENSE.md file). If not, see
         </index>
     </entity>
     <entity entity-name="PayrollBatchDetail" package="mantle.humanres.employment">
-        <field name="timePeriodId" type="id" is-pk="true"/>
-        <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <field name="payrollBatchId" type="id"/>
-        <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
+        <field name="payrollBatchDetailId" type="id" is-pk="true"/>
+        <field name="payrollBatchId" type="id" not-null="true"/>
+        <field name="partyRelationshipId" type="id" not-null="true"/>
+        <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
-        <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch">
-            <key-map field-name="payrollBatchId"/>
-            <key-map field-name="timePeriodId"/>
-        </relationship>
     </entity>
     <entity entity-name="UnemploymentClaim" package="mantle.humanres.employment" use="nontransactional">
         <field name="unemploymentClaimId" type="id" is-pk="true"/>
