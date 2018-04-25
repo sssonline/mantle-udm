@@ -790,6 +790,10 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="TIMESHEET_PARTY_TIMESHEET">
             <index-field name="timesheetId"/>
         </index>
+        <index name="TIMESHEET_PARTY_TIMESHEET_PARTY">
+            <index-field name="timesheetId"/>
+            <index-field name="partyId"/>
+        </index>
     </entity>
     <entity entity-name="TimesheetWorkEffort" package="mantle.work.time" cache="never">
         <field name="timesheetId" type="id" is-pk="true"/>
