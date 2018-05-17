@@ -1134,6 +1134,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RatpStandard" description="Standard" enumTypeId="RateType"/>
             <moqui.basic.Enumeration enumId="RatpPaidBreakStd" description="Paid Break STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidBreakRrp" description="Paid Break RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpUnpaidBreak" description="Unpaid Break" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="NPT - STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidNptRrp" description="NPT - RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpVacation" description="PTO - Vacation" enumTypeId="RateType"/><!-- calculated, not configured -->
