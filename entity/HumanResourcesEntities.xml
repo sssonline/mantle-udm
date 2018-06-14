@@ -624,6 +624,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="exclusiveByItemType" type="text-indicator">
             <description>Overrides less specific payroll adjusmtents if employment or employer is set.
                 Employment > Employer > open if set to Y.</description></field>
+        <field name="appliesEnumId" type="id" default="PaafAlways">
+            <description>Frequency to which this payroll adjustment applies, e.g. Once, Per Pay Period, or Always</description>
+        </field>
 
         <!-- Neither work type, nor facility are used to determine whether the adjustment applies. -->
         <field name="workTypeEnumId" type="id"><description>Type of work to apply the adjustment to.</description></field>
@@ -671,6 +674,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="appliesEnum">
+            <key-map field-name="appliesEnumId"/></relationship>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
@@ -696,6 +701,11 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payrollAdjustmentId"/></relationship>
 
         <seed-data>
+            <moqui.basic.EnumerationType description="Payroll Adjustment Application Frequency" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="Always" enumId="PaafAlways" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Per Period" enumId="PaafPeriod" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="Once" enumId="PaafOnce" enumTypeId="PayrollAdjApplFreq"/>
+
             <!-- Payroll Calculation Phase -->
             <moqui.basic.EnumerationType description="Payroll Calculation Phase" enumTypeId="PayrollPhase"/>
             <!-- Phases 2-5 should occur based on time entries; if there are payroll adjustments for those phases,
