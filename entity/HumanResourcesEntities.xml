@@ -850,15 +850,14 @@ along with this software (see the LICENSE.md file). If not, see
         </index>
     </entity>
     <entity entity-name="PayrollBatchDetail" package="mantle.humanres.employment">
-        <field name="payrollBatchId" type="id" not-null="true"/>
         <field name="payrollBatchDetailId" type="id" is-pk="true"/>
+        <field name="payrollBatchId" type="id" not-null="true"/>
         <field name="partyRelationshipId" type="id" not-null="true"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
     </entity>
     <entity entity-name="PayrollBatchItemTypeExclusion" package="mantle.humanres.employment">
         <field name="payrollBatchId" type="id" is-pk="true"/>
-        <field name="payrollBatchItemTypeExclId" type="id" is-pk="true"/>
         <field name="itemTypeEnumId" type="id" is-pk="true"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
