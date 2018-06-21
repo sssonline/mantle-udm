@@ -866,10 +866,19 @@ along with this software (see the LICENSE.md file). If not, see
     </entity>
     <entity entity-name="PayrollBatchAdjustmentOverride" package="mantle.humanres.employment">
         <description>Tie a payroll adjustment to a payroll batch</description>
-        <field name="payrollBatchId" type="id" is-pk="true"/>
-        <field name="payrollAdjustmentId" type="id" is-pk="true"/>
+        <field name="payrollBatchAdjOvrId" type="id" is-pk="true">
+            <description>The payroll adjustment id that replaces the one defined by batch/adj</description></field>
+        <field name="payrollBatchId" type="id"/>
+        <field name="payrollAdjustmentId" type="id"/>
+        <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustmentOverride">
+            <key-map field-name="payrollAdjustmentId" related="payrollBatchAdjOvrId"/>
+        </relationship>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustment"/>
+        <index name="PAYROLL_BATCH_ADJ_OVR" unique="true">
+            <index-field name="payrollBatchId"/>
+            <index-field name="payrollAdjustmentId"/>
+        </index>
     </entity>
     <entity entity-name="UnemploymentClaim" package="mantle.humanres.employment" use="nontransactional">
         <field name="unemploymentClaimId" type="id" is-pk="true"/>
