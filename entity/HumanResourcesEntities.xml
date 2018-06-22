@@ -860,6 +860,14 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
     </entity>
+    <entity entity-name="PayrollBatchItemTypeInclusion" package="mantle.humanres.employment">
+        <description>Include individual item types from a payroll batch (exlude any not specifically included)</description>
+        <field name="payrollBatchId" type="id" is-pk="true"/>
+        <field name="itemTypeEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+    </entity>
     <entity entity-name="PayrollBatchItemTypeExclusion" package="mantle.humanres.employment">
         <description>Exclude individual item types from a payroll batch</description>
         <field name="payrollBatchId" type="id" is-pk="true"/>
