@@ -871,7 +871,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollBatchId" type="id"/>
         <field name="payrollAdjustmentId" type="id"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustmentOverride">
-            <key-map field-name="payrollAdjustmentId" related="payrollBatchAdjOvrId"/>
+            <key-map field-name="payrollBatchAdjOvrId" related="payrollAdjustmentId"/>
         </relationship>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustment"/>
