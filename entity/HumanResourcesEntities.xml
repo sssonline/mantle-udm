@@ -232,6 +232,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="terminationTypeEnumId" type="id" enable-audit-log="update"/>
         <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
         <field name="rehireDate" type="date" enable-audit-log="true"/>
+        <field name="adjustedServiceDate" type="date" enable-audit-log="true">
+            <description>For use when fromDate does not accurately reflect benefits eligibility because an employee may have left and been rehired or taken a leave of absence.</description>
+        </field>
 
         <field name="identityTypeEnumId" type="id"/>
         <field name="emplAuthzTypeEnumId" type="id"/>
@@ -880,8 +883,8 @@ along with this software (see the LICENSE.md file). If not, see
         <description>Tie a payroll adjustment to a payroll batch</description>
         <field name="payrollBatchAdjOvrId" type="id" is-pk="true">
             <description>The payroll adjustment id that replaces the one defined by batch/adj</description></field>
-        <field name="payrollBatchId" type="id"/>
-        <field name="payrollAdjustmentId" type="id"/>
+        <field name="payrollBatchId" type="id" not-null="true"/>
+        <field name="payrollAdjustmentId" type="id" not-null="true"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustmentOverride">
             <key-map field-name="payrollBatchAdjOvrId" related="payrollAdjustmentId"/>
         </relationship>
