@@ -897,6 +897,14 @@ along with this software (see the LICENSE.md file). If not, see
             <index-field name="payrollBatchId"/>
             <index-field name="payrollAdjustmentId"/>
         </index>
+
+        <seed-data>
+            <moqui.basic.EnumerationType description="Payroll Batch Adjustment Override Status Type" enumTypeId="AdjOvrStatusType"/>
+            <moqui.basic.Enumeration description="Used" enumId="AostUsed" enumTypeId="AdjOvrStatusType"/>
+            <moqui.basic.Enumeration description="Pending - Use" enumId="AostUse" enumTypeId="AdjOvrStatusType"/>
+            <moqui.basic.Enumeration description="Pending - Update" enumId="AostUpdate" enumTypeId="AdjOvrStatusType"/>
+            <moqui.basic.Enumeration description="Pending - Delete" enumId="AostDelete" enumTypeId="AdjOvrStatusType"/>
+        </seed-data>
     </entity>
     <entity entity-name="UnemploymentClaim" package="mantle.humanres.employment" use="nontransactional">
         <field name="unemploymentClaimId" type="id" is-pk="true"/>
