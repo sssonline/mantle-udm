@@ -677,7 +677,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemTypeEnum">
             <key-map field-name="itemTypeEnumId"/></relationship>
-        <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="appliesEnum">
+        <relationship type="one" title="PayrollAdjApplFreq" related="moqui.basic.Enumeration" short-alias="appliesEnum">
             <key-map field-name="appliesEnumId"/></relationship>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
