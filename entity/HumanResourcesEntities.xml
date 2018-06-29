@@ -888,7 +888,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="disabled" type="text-indicator" default="N">
             <description>Used for marking adjustments for deletion while they are in use.</description>
         </field>
-        <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustmentOverride">
+        <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollBatchAdjOvr">
             <key-map field-name="payrollBatchAdjOvrId" related="payrollAdjustmentId"/>
         </relationship>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
