@@ -153,6 +153,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="emailTemplateId" type="id"/>
         <field name="headerImagePath" type="text-medium"/>
         <field name="detailLinkPath" type="text-medium"/>
+        <field name="webOrderBcc" type="text-medium"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="ProductStoreEmailType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="emailTypeEnumId"/></relationship>
@@ -225,6 +226,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="useLimitPerOrder" type="number-integer"/>
         <field name="useLimitPerCustomer" type="number-integer"/>
         <field name="useLimitPerPromotion" type="number-integer"/>
+        <field name="freeGroundShipping" type="text-indicator"/>
         <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
         <relationship type="many" related="mantle.product.store.ProductStorePromoParameter" short-alias="parameters">
             <key-map field-name="storePromotionId"/></relationship>
@@ -237,6 +239,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="parameterName" type="text-short" is-pk="true"/>
         <field name="parameterValue" type="text-medium"/>
         <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
+    </entity>
+    <entity entity-name="ProductStorePromoProduct" package="mantle.product.store" use="configuration" cache="true">
+        <field name="storePromotionId" type="id" is-pk="true"/>
+        <field name="productId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
     </entity>
     <entity entity-name="ProductStorePromoCode" package="mantle.product.store">
         <field name="promoCodeId" type="id" is-pk="true"/>
@@ -275,6 +283,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumCode="contentLocation" description="Content Location" enumId="PsstContentLocation" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="contentAttachmentLocation" description="Content Attachment Location" enumId="PsstContentAttachmentLoc" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration enumCode="productImageLocation" description="Product Image Location" enumId="PsstProductImageLoc" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration enumCode="getReturnLabels" description="Get Return Labels (true/false)" enumId="PsstGetReturnLabels" enumTypeId="ProductStoreSettingType"/>
         </seed-data>
     </entity>
 
