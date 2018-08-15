@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -554,7 +554,7 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="222140000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
     <mantle.ledger.account.GlAccount accountName="Federal Unemployment Insurance Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222150000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222100000"/>
-    
+
     <mantle.ledger.account.GlAccount accountName="State Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222400000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
     <mantle.ledger.account.GlAccount accountName="State Income Tax Employee Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
@@ -1806,6 +1806,8 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- Payroll Item Types -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayrollIncome" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemOvertimeHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemDoubleTimeHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPieceworkEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPieceOrHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPiecePlusHourlyEarnings" organizationPartyId="DefaultSettings"/>
