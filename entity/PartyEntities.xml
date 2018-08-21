@@ -729,6 +729,11 @@ along with this software (see the LICENSE.md file). If not, see
                     enumTypeId="BooleanYN" defaultValue="BlN"><roles roleTypeId="Customer"/></mantle.party.PartySettingType>
             <mantle.party.PartySettingType partySettingTypeId="CustomerNewerInventory" description="Newer Inventory each Order"
                     enumTypeId="BooleanYN" defaultValue="BlN"><roles roleTypeId="Customer"/></mantle.party.PartySettingType>
+
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplatePaymentCheck" description="Template Location Payment Check">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
+            <mantle.party.PartySettingType partySettingTypeId="OrgTemplatePaymentDetail" description="Template Location Payment Detail">
+                <roles roleTypeId="OrgInternal"/></mantle.party.PartySettingType>
         </seed-data>
     </entity>
     <entity entity-name="PartySettingTypeRole" package="mantle.party" use="configuration">
