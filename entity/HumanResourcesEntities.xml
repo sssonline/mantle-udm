@@ -884,6 +884,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollBatchAdjOvrId" type="id" is-pk="true">
             <description>The payroll adjustment id that replaces the one defined by batch/adj</description></field>
         <field name="payrollBatchId" type="id" not-null="true"/>
+        <field name="partyRelationshipId" type="id" not-null="true"/>
         <field name="payrollAdjustmentId" type="id" not-null="true"/>
         <field name="disabled" type="text-indicator" default="N">
             <description>Used for marking adjustments for deletion while they are in use.</description>
@@ -893,8 +894,10 @@ along with this software (see the LICENSE.md file). If not, see
         </relationship>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" title="PayrollAdjustment" related="mantle.humanres.employment.PayrollAdjustment" short-alias="payrollAdjustment"/>
+        <relationship type="one" related="mantle.humanres.employment.Employment"/>
         <index name="PAYROLL_BATCH_ADJ_OVR" unique="true">
             <index-field name="payrollBatchId"/>
+            <index-field name="partyRelationshipId"/>
             <index-field name="payrollAdjustmentId"/>
         </index>
 
