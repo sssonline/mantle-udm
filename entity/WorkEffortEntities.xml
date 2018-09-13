@@ -758,6 +758,29 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="TIME_ENTRY_PIECE_RATE_TYPE">
             <index-field name="pieceRateTypeEnumId"/>
         </index>
+        <index name="TIME_ENTRY_ORG_PARTY_PARENT">
+            <index-field name="organizationPartyId"/>
+            <index-field name="partyId"/>
+            <index-field name="parentEntryId"/>
+        </index>
+        <index name="TIME_ENTRY_ORG_PARTY_INV_DATE">
+            <index-field name="organizationPartyId"/>
+            <index-field name="partyId"/>
+            <index-field name="invoiceId"/>
+            <index-field name="vendorInvoiceId"/>
+            <index-field name="fromDate"/>
+        </index>
+        <index name="TIME_ENTRY_ORG_PARTY_RATE_DATE">
+            <index-field name="organizationPartyId"/>
+            <index-field name="partyId"/>
+            <index-field name="rateTypeEnumId"/>
+            <index-field name="fromDate"/>
+        </index>
+        <index name="TIME_ENTRY_ORG_PARTY_DATE">
+            <index-field name="organizationPartyId"/>
+            <index-field name="partyId"/>
+            <index-field name="fromDate"/>
+        </index>
     </entity>
     <entity entity-name="Timesheet" package="mantle.work.time" cache="never">
         <field name="timesheetId" type="id" is-pk="true"/>
