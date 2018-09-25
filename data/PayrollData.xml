@@ -14,10 +14,6 @@ along with this software (see the LICENSE.md file). If not, see
 -->
 <entity-facade-xml type="seed">
 
-    <moqui.basic.EnumerationType description="Payroll Calc Period" enumTypeId="PayrollCalcPer"/>
-    <moqui.basic.Enumeration description="Pay Period" enumId="PcfPayPeriod" enumTypeId="PayrollCalcPer"/>
-    <moqui.basic.Enumeration description="Workweek" enumId="PcfWorkweek" enumTypeId="PayrollCalcPer"/>
-
     <moqui.basic.EnumerationType description="Payroll Wage Grouping" enumTypeId="PayrollWageGrp"/>
     <!-- All time entries are considered together for the calculation period. -->
     <moqui.basic.Enumeration description="All" enumId="PwgAll" sequenceNum="1" enumTypeId="PayrollWageGrp"/>
@@ -43,7 +39,7 @@ along with this software (see the LICENSE.md file). If not, see
                                    validRegexp="[1-9]|1\d|2[0-4](\.\d+)?" defaultValue="8.0">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
-    <!-- RRP:
+    <!-- RRP (Regular Rate of Pay):
     Should time and associated pay for HOURLY Rest Breaks and NPT be extracted from time entries before calculating RRP?
         If Y and Rest Breaks or NPT are not recorded for HOURLY time entries, this will have no effect.
     Should HOURLY time entries be included in RRP calculation?
@@ -56,6 +52,9 @@ along with this software (see the LICENSE.md file). If not, see
         This is required in the USA by the FLSA: https://www.dol.gov/whd/regs/compliance/whdfs54.htm
     How frequently should RRP be calculated?
     -->
+    <moqui.basic.EnumerationType description="Payroll Rrp Calc Period" enumTypeId="PayrollRrpCalcPer"/>
+    <moqui.basic.Enumeration description="Pay Period" enumId="PrcpPayPeriod" enumTypeId="PayrollRrpCalcPer"/>
+    <moqui.basic.Enumeration description="Workweek" enumId="PrcpWorkweek" enumTypeId="PayrollRrpCalcPer"/>
     <mantle.party.PartySettingType description="Payroll RRP - Exclude Breaks/NPT" partySettingTypeId="PayrollRrpExclBreak"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
@@ -72,7 +71,20 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Calc Period" partySettingTypeId="PayrollRrpCalcPer"
-                                   enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">
+                                   enumTypeId="PayrollRrpCalcPer" defaultValue="PrcpWorkweek">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <!-- SRP: (Sick Rate of Pay)
+    How should SRP be calculated?
+        PscpPrior90Days: Divide the total earnings by the total hours worked in the full pay periods in the
+                         prior ninety days of employment.
+    -->
+    <moqui.basic.EnumerationType description="Payroll SRP Calc Period" enumTypeId="PayrollSrpCalcPer"/>
+    <moqui.basic.Enumeration description="Full Pay Periods from Prior 90 Days" enumId="PscpPrior90Days" enumTypeId="PayrollSrpCalcPer"/>
+    <!--<moqui.basic.Enumeration description="Most Recent Pay Period" enumId="PscpMostRecentPayPeriod" enumTypeId="PayrollSrpCalcPer"/>-->
+    <!--<moqui.basic.Enumeration description="Most Recent Workweek" enumId="PscpMostRecentWorkweek" enumTypeId="PayrollSrpCalcPer"/>-->
+    <mantle.party.PartySettingType description="Payroll SRP - Calc Period" partySettingTypeId="PayrollSrpCalcPer"
+                                   enumTypeId="PayrollSrpCalcPer" defaultValue="PscpPrior90Days">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- General:
@@ -129,7 +141,7 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <!--<mantle.party.PartySettingType description="Payroll MWG - Calc Period" partySettingTypeId="PayrollMwCalcPer"-->
-                                   <!--enumTypeId="PayrollCalcPer" defaultValue="PcfWorkweek">-->
+                                   <!--enumTypeId="PayrollRrpCalcPer" defaultValue="PrcpWorkweek">-->
         <!--<roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>-->
     <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp"
                                    enumTypeId="PayrollWageGrp" defaultValue="PwgAll">
