@@ -87,6 +87,24 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="PayrollSrpCalcPer" defaultValue="PscpPrior90Days">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
+    <!-- PTO: (Paid Time Off)
+    How should Vacation Hours be Paid?
+    How should Holiday Hours be Paid?
+    How should Paid Time Off Hours be Paid?
+    -->
+    <moqui.basic.EnumerationType description="Payroll PTO Rate Method" enumTypeId="PayrollPtoRateMethod"/>
+    <moqui.basic.Enumeration description="Regular Rate of Pay" enumId="pprmPtoUseRrp" enumTypeId="PayrollPtoRateMethod"/>
+    <moqui.basic.Enumeration description="Sick Rate of Pay" enumId="pprmPtoUseSrp" enumTypeId="PayrollPtoRateMethod"/>
+    <mantle.party.PartySettingType description="Payroll PTO - Vacation Rate Method" partySettingTypeId="PayrollPtoVacRateMeth"
+                                   enumTypeId="PayrollPtoRateMethod" defaultValue="pprmPtoUseSrp">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll PTO - Holiday Rate Method" partySettingTypeId="PayrollPtoHolRateMeth"
+                                   enumTypeId="PayrollPtoRateMethod" defaultValue="pprmPtoUseSrp">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll PTO - Paid Time Off Rate Method" partySettingTypeId="PayrollPtoPtoRateMeth"
+                                   enumTypeId="PayrollPtoRateMethod" defaultValue="pprmPtoUseSrp">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
     <!-- General:
     Which day of the week does business begin on
     -->
