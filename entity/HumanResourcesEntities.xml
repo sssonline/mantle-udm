@@ -398,16 +398,16 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Employment Benefit Types -->
             <moqui.basic.EnumerationType description="Employment Benefit Type" enumTypeId="EmploymentBenefitType"/>
-            <moqui.basic.Enumeration description="Paid Holidays" enumId="EbtPaidHoliday" enumTypeId="EmploymentBenefitType"/>
-            <moqui.basic.Enumeration description="Paid Leave Bank" enumId="EbtPaidLeaveBank" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Paid Holiday" enumId="EbtPaidHoliday" enumTypeId="EmploymentBenefitType"/>
             <moqui.basic.Enumeration description="Paid Sick Leave" enumId="EbtPaidSickLeave" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Paid Time Off" enumId="EbtPaidTimeOff" enumTypeId="EmploymentBenefitType"/>
             <moqui.basic.Enumeration description="Paid Vacation" enumId="EbtPaidVacation" enumTypeId="EmploymentBenefitType"/>
             <moqui.basic.Enumeration description="Health Insurance" enumId="EbtHealthInsurance" enumTypeId="EmploymentBenefitType"/>
 
             <moqui.basic.Enumeration description="Benefit Type Group" enumId="EngEmploymentBenefitType" enumTypeId="EnumGroup"/>
             <moqui.basic.EnumGroupMember enumId="EbtPaidHoliday" enumGroupEnumId="EngEmploymentBenefitType"/>
-            <moqui.basic.EnumGroupMember enumId="EbtPaidLeaveBank" enumGroupEnumId="EngEmploymentBenefitType"/>
             <moqui.basic.EnumGroupMember enumId="EbtPaidSickLeave" enumGroupEnumId="EngEmploymentBenefitType"/>
+            <moqui.basic.EnumGroupMember enumId="EbtPaidTimeOff" enumGroupEnumId="EngEmploymentBenefitType"/>
             <moqui.basic.EnumGroupMember enumId="EbtPaidVacation" enumGroupEnumId="EngEmploymentBenefitType"/>
             <moqui.basic.EnumGroupMember enumId="EbtHealthInsurance" enumGroupEnumId="EngEmploymentBenefitType"/>
 
