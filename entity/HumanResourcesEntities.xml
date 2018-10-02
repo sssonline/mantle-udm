@@ -227,7 +227,7 @@ along with this software (see the LICENSE.md file). If not, see
         <description>This is a type of PartyRelationship so shares the ID with the related PartyRelationship record
             between employee (fromPartyId) and internal organization (toPartyId) with relationshipTypeEnumId=PrtEmployee.</description>
         <field name="partyRelationshipId" type="id" is-pk="true"/>
-        <field name="parentRelationshipId" type="id">
+        <field name="parentEmploymentId" type="id">
             <description>Multiple positions, benefit accrual, etc. may need a master employment to roll up to.</description>
         </field>
         <field name="emplPositionId" type="id" enable-audit-log="true"/>
@@ -276,9 +276,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <relationship type="one" related="mantle.party.PartyRelationship" short-alias="partyRel"/>
         <relationship type="one" related="mantle.party.PartyRelationship" short-alias="parentRel">
-            <key-map field-name="parentRelationshipId"/></relationship>
+            <key-map field-name="parentEmploymentId"/></relationship>
         <relationship type="one" title="Parent" related="mantle.humanres.employment.Employment" short-alias="parent">
-            <key-map field-name="parentRelationshipId"/></relationship>
+            <key-map field-name="parentEmploymentId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
         <relationship type="one" title="TerminationReason" related="moqui.basic.Enumeration">
             <key-map field-name="terminationReasonEnumId"/></relationship>
