@@ -51,10 +51,13 @@ along with this software (see the LICENSE.md file). If not, see
     Should Shift Differentials be included in RRP calculation?
         This is required in the USA by the FLSA: https://www.dol.gov/whd/regs/compliance/whdfs54.htm
     How frequently should RRP be calculated?
+        Pay Period: Calculate RRP against the whole pay period.
+        Workweek: Calculate the RRP for each workweek. (Default)
+    How should RRP be calculated across related employments?
+        Ignore related employments: Calculate RRP on only the employment being run. (Default)
+        Combine related employments: Calculate RRP on all time and ND bonus across employments.
+        Calculate separately, use max: Calculate RRP separately for each employment, but use the max RRP for each calc period.
     -->
-    <moqui.basic.EnumerationType description="Payroll Rrp Calc Period" enumTypeId="PayrollRrpCalcPer"/>
-    <moqui.basic.Enumeration description="Pay Period" enumId="PrcpPayPeriod" enumTypeId="PayrollRrpCalcPer"/>
-    <moqui.basic.Enumeration description="Workweek" enumId="PrcpWorkweek" enumTypeId="PayrollRrpCalcPer"/>
     <mantle.party.PartySettingType description="Payroll RRP - Exclude Breaks/NPT" partySettingTypeId="PayrollRrpExclBreak"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
@@ -70,8 +73,18 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.party.PartySettingType description="Payroll RRP - Include Shift Differentials" partySettingTypeId="PayrollRrpInclShDiff"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <moqui.basic.EnumerationType description="Payroll RRP Calc Period" enumTypeId="PayrollRrpCalcPer"/>
+    <moqui.basic.Enumeration description="Pay Period" enumId="PrcpPayPeriod" enumTypeId="PayrollRrpCalcPer"/>
+    <moqui.basic.Enumeration description="Workweek" enumId="PrcpWorkweek" enumTypeId="PayrollRrpCalcPer"/>
     <mantle.party.PartySettingType description="Payroll RRP - Calc Period" partySettingTypeId="PayrollRrpCalcPer"
                                    enumTypeId="PayrollRrpCalcPer" defaultValue="PrcpWorkweek">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <moqui.basic.EnumerationType description="Payroll RRP Related Employment Calc" enumTypeId="PayrollRrpRelEmpCalc"/>
+    <moqui.basic.Enumeration description="Ignore Related Employments" enumId="PrrecRrpIgnoreRelated" enumTypeId="PayrollRrpRelEmpCalc"/>
+    <moqui.basic.Enumeration description="Combine Related Employments" enumId="PrrecRrpCombineRelated" enumTypeId="PayrollRrpRelEmpCalc"/>
+    <moqui.basic.Enumeration description="Calculate Separately, Use Max" enumId="PrrecRrpCalcSepUseMax" enumTypeId="PayrollRrpRelEmpCalc"/>
+    <mantle.party.PartySettingType description="Payroll RRP - Related Employment Calc" partySettingTypeId="PayrollRrpRelEmpCalc"
+                                   enumTypeId="PayrollRrpRelEmpCalc" defaultValue="PrrecRrpIgnoreRelated">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- SRP: (Sick Rate of Pay)
