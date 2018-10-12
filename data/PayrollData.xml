@@ -119,14 +119,15 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- General:
-    Which day of the week does business begin on
+    When day of the week does business begin (note that this is a different concept than the FLSA workweek). e.g. the FLSA workweek
+        could begin on Sunday at midnight, but business could commence (typically) on Monday at 8am.
     -->
     <mantle.party.PartySettingType description="Payroll GEN - Business Week Begins On" partySettingTypeId="PayrollGenBusWkBegOn"
                                    enumTypeId="DayOfWeek" defaultValue="DowMonday">
         <roles roleTypeId="OrgEmployer"/><roles roleTypeId="OrgTeam"/></mantle.party.PartySettingType>
 
     <mantle.party.PartySettingType description="Payroll GEN - Business Day Begins At" partySettingTypeId="PayrollGenBusDayBegAt"
-                                   validRegexp="\d\d\:\d\d" defaultValue="00:00">
+                                   validRegexp="\d\d\:\d\d" defaultValue="08:00">
         <roles roleTypeId="OrgEmployer"/><roles roleTypeId="OrgTeam"/></mantle.party.PartySettingType>
 
     <!-- Overtime:
