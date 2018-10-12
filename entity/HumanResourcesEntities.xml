@@ -713,8 +713,15 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Payroll Adjustment Application Frequency" enumTypeId="PayrollAdjApplFreq"/>
             <moqui.basic.Enumeration sequenceNum="1" description="Always" enumId="PaafAlways" enumTypeId="PayrollAdjApplFreq"/>
-            <moqui.basic.Enumeration sequenceNum="2" description="Per Period" enumId="PaafPeriod" enumTypeId="PayrollAdjApplFreq"/>
-            <moqui.basic.Enumeration sequenceNum="3" description="Once" enumId="PaafOnce" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Once per Period" enumId="PaafPeriod" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="Once per Period in Week 1" enumId="PaafWeek1" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="4" description="Once per Period in Week 2" enumId="PaafWeek2" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="5" description="Once per Period in Week 3" enumId="PaafWeek3" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="6" description="Once per Period in Week 4" enumId="PaafWeek4" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="7" description="Once per Period in Week 5" enumId="PaafWeek5" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="8" description="Once per Odd Period" enumId="PaafOddPeriod" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="9" description="Once per Even Period" enumId="PaafEvenPeriod" enumTypeId="PayrollAdjApplFreq"/>
+            <moqui.basic.Enumeration sequenceNum="10" description="Once" enumId="PaafOnce" enumTypeId="PayrollAdjApplFreq"/>
 
             <!-- Payroll Calculation Phase -->
             <moqui.basic.EnumerationType description="Payroll Calculation Phase" enumTypeId="PayrollPhase"/>
