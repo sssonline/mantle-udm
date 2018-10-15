@@ -16,6 +16,17 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- NOTE: these documents are meant for cloning; they have no DataFeed/DataFeedDocument records to trigger search
          indexing or anything else, so don't do anything unless used explicitly -->
 
+    <!-- NOTE: when updating these it's best to delete the indexes through ElasticSearch, then reindex the MantleSales feed:
+
+        curl http://localhost:9200/_cat/indices?v
+
+        curl -X DELETE http://localhost:9200/mantle_party?pretty
+        curl -X DELETE http://localhost:9200/mantle_product?pretty
+        curl -X DELETE http://localhost:9200/mantle_facility?pretty
+        curl -X DELETE http://localhost:9200/mantle_communication_event?pretty
+        curl -X DELETE http://localhost:9200/mantle_wiki_page?pretty
+    -->
+
     <!-- ========== Party ========== -->
     <dataDocuments dataDocumentId="MantleParty" indexName="mantle" documentName="Party"
             primaryEntityName="mantle.party.Party" documentTitle="PartyNameTemplate">
@@ -82,6 +93,9 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="62" fieldPath="notes:noteText"/>
         <fields fieldSeqId="63" fieldPath="notes:internalNote"/>
         <fields fieldSeqId="64" fieldPath="notes:userId" fieldNameAlias="noteUserId"/>
+        <!-- other Party fields, included here because no seq room lower -->
+        <fields fieldSeqId="90" fieldPath="ownerPartyId"/>
+        <fields fieldSeqId="91" fieldPath="dataSourceId"/>
     </dataDocuments>
     <dataDocuments dataDocumentId="MantleCommunicationEvent" indexName="mantle" documentName="Communication Event"
             primaryEntityName="mantle.party.communication.CommunicationEvent" documentTitle="${subject}">
@@ -130,7 +144,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="05" fieldPath="salesIntroductionDate"/>
         <fields fieldSeqId="06" fieldPath="salesDiscontinuationDate"/>
         <fields fieldSeqId="07" fieldPath="supportDiscontinuationDate"/>
-    
+        <fields fieldSeqId="08" fieldPath="ownerPartyId"/>
+
         <fields fieldSeqId="10" fieldPath="productTypeEnumId"/>
         <fields fieldSeqId="11" fieldPath="type:description" fieldNameAlias="type"/>
         <fields fieldSeqId="12" fieldPath="productClassEnumId"/>
@@ -196,7 +211,8 @@ along with this software (see the LICENSE.md file). If not, see
         <fields fieldSeqId="06" fieldPath="type:description" fieldNameAlias="type"/>
         <fields fieldSeqId="07" fieldPath="status:description" fieldNameAlias="status"/>
         <fields fieldSeqId="08" fieldPath="ownerOrganization:organizationName" fieldNameAlias="ownerName"/>
-    
+        <fields fieldSeqId="09" fieldPath="ownerPartyId"/>
+
         <fields fieldSeqId="20" fieldPath="contactMechs:postalAddress:contactMechId"/>
         <fields fieldSeqId="21" fieldPath="contactMechs:postalAddress:address1"/>
         <fields fieldSeqId="22" fieldPath="contactMechs:postalAddress:city"/>

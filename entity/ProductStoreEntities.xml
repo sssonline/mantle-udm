@@ -25,6 +25,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
+        <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
@@ -36,8 +37,10 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="requireCustomerRole" type="text-indicator"/>
         <field name="taxGatewayConfigId" type="id"/>
-        <field name="systemMessageRemoteId" type="id">
-            <description>Reference to the SystemMessageRemote record for the remote system this store is for.</description></field>
+        <field name="systemMessageRemoteId" type="id"><description>
+            Reference to the SystemMessageRemote record for the remote system this store is for such as a separate, integrated ecommerce app.
+            Note that SystemMessageRemote is extended with a productStoreId so that other SystemMessageRemotes know which store they are for (if applicable).
+        </description></field>
 
         <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organization">
             <key-map field-name="organizationPartyId"/></relationship>
@@ -45,6 +48,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="inventoryFacilityId"/></relationship>
         <relationship type="one" title="AssetReservationOrder" related="moqui.basic.Enumeration" short-alias="assetReservationOrder">
             <key-map field-name="reservationOrderEnumId"/></relationship>
+        <relationship type="one-nofk" title="Return" related="mantle.party.contact.ContactMech" short-alias="returnPostal">
+            <key-map field-name="returnPostalContactMechId"/></relationship>
+        <relationship type="one" title="Return" related="mantle.party.contact.PostalAddress" short-alias="returnPostalAddress">
+            <key-map field-name="returnPostalContactMechId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
         <relationship type="one" title="DefaultCurrency" related="moqui.basic.Uom" short-alias="defaultCurrencyUom">
@@ -63,6 +70,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.product.store.ProductStoreParty" short-alias="parties">
             <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStorePaymentGateway" short-alias="paymentGateways">
+            <key-map field-name="productStoreId"/></relationship>
+        <relationship type="many" related="mantle.product.store.ProductStoreSetting" short-alias="settings">
             <key-map field-name="productStoreId"/></relationship>
         <relationship type="many" related="mantle.product.store.ProductStoreShippingGateway" short-alias="shippingGateways">
             <key-map field-name="productStoreId"/></relationship>
@@ -103,6 +112,11 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="groups"><detail relationship="group"/></detail>
         </master>
     </entity>
+    <extend-entity entity-name="SystemMessageRemote" package="moqui.service.message">
+        <field name="productStoreId" type="id"/>
+        <relationship type="one" related="mantle.product.store.ProductStore"/>
+    </extend-entity>
+
     <entity entity-name="ProductStoreCategory" package="mantle.product.store">
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="productCategoryId" type="id" is-pk="true"/>
@@ -198,6 +212,16 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.method.PaymentGatewayConfig" short-alias="config"/>
     </entity>
 
+    <entity entity-name="ProductStoreProduct" package="mantle.product.store" use="configuration" cache="true">
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <field name="productId" type="id" is-pk="true"/>
+        <field name="signatureRequiredEnumId" type="id"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" title="SignatureRequired" related="moqui.basic.Enumeration" short-alias="signatureRequiredEnum">
+            <key-map field-name="signatureRequiredEnumId"/></relationship>
+    </entity>
+
     <entity entity-name="ProductStorePromotion" package="mantle.product.store" use="configuration" cache="true">
         <field name="storePromotionId" type="id" is-pk="true"/>
         <field name="productStoreId" type="id"/>
@@ -213,6 +237,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="useLimitPerCustomer" type="number-integer"/>
         <field name="useLimitPerPromotion" type="number-integer"/>
         <field name="freeGroundShipping" type="text-indicator"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" related="moqui.service.ServiceRegister" short-alias="serviceRegister"/>
         <relationship type="many" related="mantle.product.store.ProductStorePromoParameter" short-alias="parameters">
             <key-map field-name="storePromotionId"/></relationship>
@@ -259,7 +284,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="settingTypeEnumId" type="id" is-pk="true"/>
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
-        <field name="settingValue" type="id"/>
+        <field name="settingValue" type="text-medium"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="ProductStoreSettingType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="settingTypeEnumId"/></relationship>
@@ -288,6 +313,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productStoreId" type="id" is-pk="true"/>
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shippingGatewayConfigId" type="id"/>
+        <field name="billingType" type="text-short"><description>For third party and other carrier account billing;
+            for Shippo valid values are SENDER, RECIPIENT, THIRD_PARTY</description></field>
+        <field name="billingAccount" type="text-short"><description>Third party or other carrier account number</description></field>
+        <field name="billingZip" type="text-short"/>
+        <field name="billingCountry" type="text-short"><description>For Shippo this is the 2 letter ISO country code</description></field>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
