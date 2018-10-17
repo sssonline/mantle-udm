@@ -673,6 +673,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payeeReference" type="text-short"/><!-- replaces garnishCaseNumber -->
         <field name="payeeDueDays" type="number-integer"/><!-- replaces garnishDueDays -->
         <field name="finAccountId" type="id"/>
+        <field name="finAccountAppliesEnumId" type="id">
+            <description>For financial accounts, how/if this adjustment should apply</description></field>
 
         <field name="garnishDisposablePercent" type="number-decimal"/>
         <field name="garnishMinWageApplies" type="text-indicator"/>
@@ -700,6 +702,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Payee" related="mantle.party.Party" short-alias="payeeParty">
             <key-map field-name="payeePartyId"/></relationship>
         <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
+        <relationship type="one" title="FinAcctApplies" related="moqui.basic.Enumeration" short-alias="finAcctAppliesEnum">
+            <key-map field-name="finAccountAppliesEnumId"/></relationship>
 
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentDetail" short-alias="details">
             <key-map field-name="payrollAdjustmentId"/></relationship>
@@ -751,6 +755,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Straight Time Gross" enumId="PrbsStraightGross" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Hours Worked" enumId="PrbsHoursWorked" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Hours Total" enumId="PrbsHoursTotal" enumTypeId="PayrollRateBasis"/>
+
+            <!-- Financial Account  -->
+            <moqui.basic.EnumerationType description="Payroll Adjustment Financial Account Applies" enumTypeId="PayrollAdjFinAcctApplies"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="Always" enumId="PafaaAlways" enumTypeId="PayrollAdjFinAcctApplies"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="Until Zero Balance" enumId="PafaaAppliesUntilZeroBalance" enumTypeId="PayrollAdjFinAcctApplies"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="Until Negative Balance Limit" enumId="PafaaAppliesUntilNegativeBalanceLimit" enumTypeId="PayrollAdjFinAcctApplies"/>
+
         </seed-data>
     </entity>
     <entity entity-name="PayrollAdjustmentDetail" package="mantle.humanres.employment" use="configuration">
