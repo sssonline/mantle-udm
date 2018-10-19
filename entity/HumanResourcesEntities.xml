@@ -911,8 +911,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollBatchId" type="id" not-null="true"/>
         <field name="partyRelationshipId" type="id" not-null="true"/>
         <field name="payrollAdjustmentId" type="id" not-null="true"/>
-        <field name="amount" type="currency-amount"/>
-        <field name="overrideAmount" type="currency-amount"/>
+        <field name="origAmount" type="currency-amount"/>
         <field name="disabled" type="text-indicator" default="N">
             <description>Used for marking adjustments for deletion while they are in use.</description>
         </field>
