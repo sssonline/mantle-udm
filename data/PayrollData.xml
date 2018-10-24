@@ -14,16 +14,6 @@ along with this software (see the LICENSE.md file). If not, see
 -->
 <entity-facade-xml type="seed">
 
-    <moqui.basic.EnumerationType description="Payroll Wage Grouping" enumTypeId="PayrollWageGrp"/>
-    <!-- All time entries are considered together for the calculation period. -->
-    <moqui.basic.Enumeration description="All" enumId="PwgAll" sequenceNum="1" enumTypeId="PayrollWageGrp"/>
-    <!-- All time entries for the same facility owner -->
-    <moqui.basic.Enumeration description="Facility Owner" enumId="PwgFacilityOwner" sequenceNum="2" enumTypeId="PayrollWageGrp"/>
-    <!-- All time entries for the same facility -->
-    <moqui.basic.Enumeration description="Facility" enumId="PwgFacility" sequenceNum="3" enumTypeId="PayrollWageGrp"/>
-    <!-- Time Entry grouping should evaluate each time entry separately as for whether it achieved minimum wage -->
-    <moqui.basic.Enumeration description="Time Entry" enumId="PwgTimeEntry" sequenceNum="10" enumTypeId="PayrollWageGrp"/>
-
     <!-- An FLSA workweek is a fixed, regularly-recurring period of 168 hours – that is, seven, consecutive, 24-hour periods –
          that the employer expressly adopts in order to maintain FLSA compliance.  It is unclear what effect daylight savings
          time has on the 168 hours, but it appears that the weeks that are short or long one hour are treated as 167 or 169
@@ -160,8 +150,10 @@ along with this software (see the LICENSE.md file). If not, see
     xx How frequently should minimum wage be tested?
     What is the minimum wage grouping level?
         If a grouping level is defined, makeup pay will be assigned at this level.
-    Should minimum wage makeup group by rate?
-        If Y, treat each rate as a separate grouping level.  This allows multiple mininum wages.
+    How should minimum wage groups prorate makeup pay?
+    Should minimum wage makeup subgroup by rate?
+        If Y, treat each rate as a separate grouping level.  This allows multiple minimum wages, grouping them together to perform
+        minimum wage checks.
     -->
     <mantle.party.PartySettingType description="Payroll MWG - Check Minimum Wage" partySettingTypeId="PayrollMwCheck"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
@@ -175,13 +167,40 @@ along with this software (see the LICENSE.md file). If not, see
     <!--<mantle.party.PartySettingType description="Payroll MWG - Calc Period" partySettingTypeId="PayrollMwCalcPer"-->
                                    <!--enumTypeId="PayrollRrpCalcPer" defaultValue="PrcpWorkweek">-->
         <!--<roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>-->
+    <moqui.basic.EnumerationType description="Payroll Minimum Wage Grouping" enumTypeId="PayrollMinWageGrp"/>
+    <!-- All time entries are considered together for the calculation period. -->
+    <moqui.basic.Enumeration description="Shared Minimum Wage" enumId="PmwgSharedMinWage" sequenceNum="1" enumTypeId="PayrollMinWageGrp"/>
+    <!-- All time entries are considered together for the calculation period, but detail is maintained per facility owner. -->
+    <moqui.basic.Enumeration description="Shared Minimum Wage Per Facility Owner" enumId="PmwgSharedPerFacOwn" sequenceNum="2" enumTypeId="PayrollMinWageGrp"/>
+    <!-- All time entries are considered together for the calculation period, but detail is maintained per facility. -->
+    <moqui.basic.Enumeration description="Shared Minimum Wage Per Facility" enumId="PmwgSharedPerFac" sequenceNum="3" enumTypeId="PayrollMinWageGrp"/>
+    <!-- A minimum wage will be generated for each facility owner for the calculation period (independent of other facility owners). -->
+    <moqui.basic.Enumeration description="Min Wage Per Facility Owner" enumId="PmwgPerFacOw" sequenceNum="4" enumTypeId="PayrollMinWageGrp"/>
+    <!-- A minimum wage will be generated for each facility for the calculation period (independent of other facility owners). -->
+    <moqui.basic.Enumeration description="Min Wage Per Facility" enumId="PmwgPerFac" sequenceNum="5" enumTypeId="PayrollMinWageGrp"/>
+    <!-- Time Entry grouping should evaluate each time entry separately as for whether it achieved minimum wage -->
+    <moqui.basic.Enumeration description="Min Wage Per Time Entry" enumId="PmwgMinWagePerTimeEntry" sequenceNum="10" enumTypeId="PayrollMinWageGrp"/>
     <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp"
-                                   enumTypeId="PayrollWageGrp" defaultValue="PwgAll">
+                                   enumTypeId="PayrollMinWageGrp" defaultValue="PmwgSharedMinWage">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
-    <mantle.party.PartySettingType description="Payroll MWG - Makeup Group By Rate" partySettingTypeId="PayrollMwMkpGrpByRate"
+    <moqui.basic.EnumerationType description="Payroll Wage Calc Group Makeup Prorate" enumTypeId="PayrollWageCalcGrpMkupPro"/>
+    <!-- Prorate the minimum wage makeup among those facilities that did not make minimum wage by the proportion owed. -->
+    <moqui.basic.Enumeration description="Owing Facility Proportion of Makeup" enumId="PwgmpOwingFacPropMkup" sequenceNum="1"
+                             enumTypeId="PayrollWageCalcGrpMkupPro"/>
+    <!-- Prorate the minimum wage makeup among those facilities that did not make minimum wage by the proportion of hours
+         (only among those owing). -->
+    <moqui.basic.Enumeration description="Owing Facility Proportion of Hours" enumId="PwgmpOwingFacPropHours" sequenceNum="2"
+                             enumTypeId="PayrollWageCalcGrpMkupPro"/>
+    <!-- Prorate the minimum wage makeup among the grouped facilities by hour regardless of the amount owed (even if it is a
+         credit). -->
+    <moqui.basic.Enumeration description="All Facility Proportion of Hours" enumId="PwgmpAllFacPropHours" sequenceNum="3"
+                             enumTypeId="PayrollWageCalcGrpMkupPro"/>
+    <mantle.party.PartySettingType description="Payroll MWG - Calc Group Prorate" partySettingTypeId="PayrollMwCalcGrpPro"
+                                   enumTypeId="PayrollWageCalcGrpMkupPro" defaultValue="PwgmpOwingFacPropMkup">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll MWG - Makeup Subgroup By Rate" partySettingTypeId="PayrollMwMkpSubgrpByRate"
                                    enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
-
 
     <!-- Workers Compensation (Risk Class):
         Default Risk Class defines the default risk class for an organization or an employee.
