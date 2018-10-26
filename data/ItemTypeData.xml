@@ -184,11 +184,11 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Wage Garnishment" enumId="ItemDedWageGarnish" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Taxes" enumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Federal Income Withholding" enumId="ItemTaxFederalWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Federal Income Withholding (FITW)" enumId="ItemTaxFederalWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Federal Unemployment Insurance (FUTA) Employee" enumId="ItemTaxFutaEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Social Security Employee" enumId="ItemTaxSocialSecEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Medicare Employee" enumId="ItemTaxMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Additional Medicare Employee" enumId="ItemTaxAddtlMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Social Security (OASDI) Employee" enumId="ItemTaxSocialSecEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Medicare (HI) Employee" enumId="ItemTaxMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Additional Medicare (HI) Employee" enumId="ItemTaxAddtlMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - Federal Pension Employee" enumId="ItemTaxFedPensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Income Withholding" enumId="ItemTaxStateWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Pension Employee" enumId="ItemTaxStatePensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
@@ -212,8 +212,8 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Roth IRA Employer" enumId="ItemPrlExpRothIraEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Simple IRA Employer" enumId="ItemPrlExpSimpleIraEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Federal Unemployment Insurance (FUTA) Employer" enumId="ItemPrlExpTaxFutaEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Social Security Employer" enumId="ItemPrlExpTaxSocialSecEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Medicare Employer" enumId="ItemPrlExpTaxMedEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Social Security (OASDI) Employer" enumId="ItemPrlExpTaxSocialSecEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Medicare (HI) Employer" enumId="ItemPrlExpTaxMedEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Federal Pension Employer" enumId="ItemPrlExpTaxFedPensionEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="State Pension Employer" enumId="ItemPrlExpTaxStatePensionEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="State Unemployment Insurance Employer" enumId="ItemPrlExpTaxStateUnInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
