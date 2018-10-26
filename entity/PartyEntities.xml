@@ -1531,6 +1531,8 @@ along with this software (see the LICENSE.md file). If not, see
                     parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="2" lengthUomId="TF_wk"/>
             <mantle.party.time.TimePeriodType description="Payroll Week" timePeriodTypeId="PayrollWeek"
                     parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_wk"/>
+            <mantle.party.time.TimePeriodType description="Payroll Day" timePeriodTypeId="PayrollDay"
+                    parentPeriodTypeId="PayrollMonth" periodPurposeEnumId="Payroll" periodLength="1" lengthUomId="TF_day"/>
 
             <mantle.party.time.TimePeriodType description="Sales Year" timePeriodTypeId="SalesYear"
                     periodPurposeEnumId="Sales" periodLength="1" lengthUomId="TF_yr"/>

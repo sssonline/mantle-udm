@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -123,7 +123,7 @@ along with this software (see the LICENSE.md file). If not, see
         <details detailSeqId="05" periodMin="3579" periodMax="7369" flatAmount="-710.90" rate="-0.28" rateAfterPeriodMin="Y"/>
         <details detailSeqId="06" periodMin="7369" periodMax="15915" flatAmount="-1772.10" rate="-0.33" rateAfterPeriodMin="Y"/>
         <details detailSeqId="07" periodMin="15915" periodMax="15981" flatAmount="-4592.28" rate="-0.35" rateAfterPeriodMin="Y"/>
-        <details detailSeqId="08" periodMin="15981" periodMax="" flatAmount="-4592.28" rate="-0.396" rateAfterPeriodMin="Y"/>
+        <details detailSeqId="08" periodMin="15981" periodMax="" flatAmount="-4615.38" rate="-0.396" rateAfterPeriodMin="Y"/>
         <exempts taxExemptEnumId="EtxContract"/>
         <exempts taxExemptEnumId="EtxForeignAg"/>
     </mantle.humanres.employment.PayrollAdjustment>
