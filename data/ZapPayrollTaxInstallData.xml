@@ -112,7 +112,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- USA Federal Income Withholding Bi-Weekly Single -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitBiWeekSingle2015" taxAuthorityId="UsaIrs"
-            description="USA Federal Income Tax Withholding 2015" deductFromDisposable="Y"
+            description="USA Federal Income Tax Withholding Bi-Weekly Single 2015" deductFromDisposable="Y"
             timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
             rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsSingle"/>
@@ -130,7 +130,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- USA Federal Income Withholding Bi-Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitBiWeekMarried2015" taxAuthorityId="UsaIrs"
-            description="USA Federal Income Tax Withholding 2015" deductFromDisposable="Y"
+            description="USA Federal Income Tax Withholding Bi-Weekly Married 2015" deductFromDisposable="Y"
             timePeriodTypeId="PayrollBiWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
             rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsMarriedJoint"/>
@@ -148,7 +148,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- USA Federal Income Withholding Weekly Single -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitWeekSingle2015" taxAuthorityId="UsaIrs"
-            description="USA Federal Income Tax Withholding 2015" deductFromDisposable="Y"
+            description="USA Federal Income Tax Withholding Weekly Single 2015" deductFromDisposable="Y"
             timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
             rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsSingle"/>
@@ -166,7 +166,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- USA Federal Income Withholding Weekly Married -->
     <mantle.humanres.employment.PayrollAdjustment payrollAdjustmentId="UsFitWeekMarried2015" taxAuthorityId="UsaIrs"
-            description="USA Federal Income Tax Withholding 2015" deductFromDisposable="Y"
+            description="USA Federal Income Tax Withholding Weekly Married 2015" deductFromDisposable="Y"
             timePeriodTypeId="PayrollWeek" itemTypeEnumId="ItemTaxFederalWhold" payrollPhaseEnumId="PrphTax"
             rateBasisEnumId="PrbsIncome" isTax="Y" applyAllowanceDeduction="Y" fromDate="2015-01-01" thruDate="2017-12-31 23:59:59">
         <fedStatuses taxFederalStatusEnumId="TfsMarriedJoint"/>
