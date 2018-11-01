@@ -207,25 +207,25 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Tax - Surtax Employee" enumId="ItemTaxSurtaxEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Expense" enumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Section 125 HSA Employer" enumCode="Sec125Hsa" enumId="ItemPrlExp125HsaEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Section 125 Other Employer" enumCode="Sec125Other" enumId="ItemPrlExpSec125OtherEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Section 125 PPO Employer" enumCode="Sec125Ppo" enumId="ItemPrlExpSec125PpoEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="401(k) Employer" enumId="ItemPrlExp401kEmpr" enumCode="401k" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Roth IRA Employer" enumId="ItemPrlExpRothIraEmpr" enumCode="IraRoth" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Simple IRA Employer" enumId="ItemPrlExpIraSimpleEmpr" enumCode="IraSimple" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Federal Unemployment Insurance Employer" enumCode="FUTA" enumId="ItemPrlExpTaxFutaEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Social Security Employer" enumCode="OASDI" enumId="ItemPrlExpTaxSocialSecEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Medicare Employer" enumCode="HI" enumId="ItemPrlExpTaxMedEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Federal Pension Employer" enumCode="FPEN" enumId="ItemPrlExpTaxFedPensionEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Pension Employer" enumCode="SPEN" enumId="ItemPrlExpTaxStatePensionEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Unemployment Insurance Employer" enumCode="SUTA" enumId="ItemPrlExpTaxStateUnInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Workers&apos; Comp Insurance Employer" enumCode="WC" enumId="ItemPrlExpTaxStateWrkCmpInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Disability Insurance Employer" enumCode="SDI" enumId="ItemPrlExpTaxStateDisInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="State Miscellaneous Employer" enumCode="SMISC" enumId="ItemPrlExpTaxStateMiscEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Occupational Privilege Employer" enumCode="OPT" enumId="ItemPrlExpTaxOccPrivEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Head Employer" enumId="ItemPrlExpTaxHeadEmpr" enumCode="HEAD" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="School District Employer" enumId="ItemPrlExpTaxSchoolDistEmpr" enumCode="SCHL" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Surtax Employer" enumId="ItemPrlExpTaxSurtaxEmpr" enumCode="SURT" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Section 125 HSA Employer" enumId="ItemPrlExp125HsaEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Section 125 Other Employer" enumId="ItemPrlExpSec125OtherEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Section 125 PPO Employer" enumId="ItemPrlExpSec125PpoEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="401(k) Employer" enumId="ItemPrlExp401kEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Roth IRA Employer" enumId="ItemPrlExpRothIraEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Simple IRA Employer" enumId="ItemPrlExpIraSimpleEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Federal Unemployment Insurance Employer" enumId="ItemPrlExpTaxFutaEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Social Security Employer" enumId="ItemPrlExpTaxSocialSecEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Medicare Employer" enumId="ItemPrlExpTaxMedEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Federal Pension Employer" enumId="ItemPrlExpTaxFedPensionEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="State Pension Employer" enumId="ItemPrlExpTaxStatePensionEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="State Unemployment Insurance Employer" enumId="ItemPrlExpTaxStateUnInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="State Workers&apos; Comp Insurance Employer" enumId="ItemPrlExpTaxStateWrkCmpInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="State Disability Insurance Employer" enumId="ItemPrlExpTaxStateDisInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="State Miscellaneous Employer" enumId="ItemPrlExpTaxStateMiscEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Occupational Privilege Employer" enumId="ItemPrlExpTaxOccPrivEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Head Employer" enumId="ItemPrlExpTaxHeadEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="School District Employer" enumId="ItemPrlExpTaxSchoolDistEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Surtax Employer" enumId="ItemPrlExpTaxSurtaxEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
 
     <!-- Outgoing/Receivable/Sales Item Types -->
     <moqui.basic.Enumeration description="Outgoing/Receivable/Sales Items" enumId="EngItemsSales" enumTypeId="EnumGroup"/>
