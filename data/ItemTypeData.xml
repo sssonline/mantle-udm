@@ -166,45 +166,45 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Pay Period Adjustment - Pay" enumId="ItemPayAdjPay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Reimbursement" enumId="ItemReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
-    <moqui.basic.Enumeration description="Payroll Deduction" enumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Section 125 HSA" enumId="ItemDedSec125HsaEmpe" enumCode="Sec125Hsa" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Section 125 Other" enumId="ItemDedSec125OtherEmpe" enumCode="Sec125Other" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Section 125 PPO" enumId="ItemDedSec125PpoEmpe" enumCode="Sec125Ppo" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Advance Repayment" enumId="ItemDedAdvRepay" enumCode="AdvRepay" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Charity Donation" enumId="ItemDedCharity" enumCode="Charity" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Child Support Garnishment" enumId="ItemDedChildGarnish" enumCode="ChildGarn" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Health Insurance" enumId="ItemDedMHealthInsurance" enumCode="HealthIns" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Miscellaneous Deduction" enumId="ItemDedMisc" enumCode="Misc" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Roth 401(k)" enumId="ItemDed401kRothEmpe" enumCode="401kRoth" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Safe Harbor 401(k)" enumId="ItemDed401kSafHarEmpe" enumCode="401kSafHar" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Simple 401(k)" enumId="ItemDed401kSmpllEmpe" enumCode="401kSimple" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Solo 401(k)" enumId="ItemDed401kSoloEmpe" enumCode="401kSolo" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Traditional 401(k)" enumId="ItemDed401kTradEmpe" enumCode="401kTrad" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Roth IRA" enumId="ItemDedIraRothEmpe" enumCode="IraRoth" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Simple IRA" enumId="ItemDedIraSimpleEmpe" enumCode="IraSimple" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Union Dues" enumId="ItemDedUnion" enumCode="Union" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Unpaid Salary Time Off" enumId="ItemDedUnpaidTimeOff" enumCode="UnpaidTime" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Wage Garnishment" enumId="ItemDedWageGarnish" enumCode="WageGarn" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Payroll Deduction" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Section 125 HSA" enumId="ItemDedSec125HsaEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Section 125 Other" enumId="ItemDedSec125OtherEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Section 125 PPO" enumId="ItemDedSec125PpoEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Advance Repayment" enumId="ItemDedAdvRepay" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Charity Donation" enumId="ItemDedCharity" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Child Support Garnishment" enumId="ItemDedChildGarnish" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Health Insurance" enumId="ItemDedMHealthInsurance" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Miscellaneous Deduction" enumId="ItemDedMisc" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Roth 401(k)" enumId="ItemDed401kRothEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Safe Harbor 401(k)" enumId="ItemDed401kSafHarEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Simple 401(k)" enumId="ItemDed401kSmpllEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Solo 401(k)" enumId="ItemDed401kSoloEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Traditional 401(k)" enumId="ItemDed401kTradEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Roth IRA" enumId="ItemDedIraRothEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Simple IRA" enumId="ItemDedIraSimpleEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Union Dues" enumId="ItemDedUnion" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Unpaid Salary Time Off" enumId="ItemDedUnpaidTimeOff" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Wage Garnishment" enumId="ItemDedWageGarnish" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Taxes" enumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Federal Income Tax Withholding" enumId="ItemTaxFederalWhold" enumCode="FITW" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Federal Unemployment Insurance Employee" enumId="ItemTaxFutaEmpe" enumCode="FUTA" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Social Security Employee" enumId="ItemTaxSocialSecEmpe" enumCode="OASDI" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Medicare Employee" enumId="ItemTaxMedEmpe" enumCode="HI" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Medicare Additional Employee" enumId="ItemTaxAddtlMedEmpe" enumCode="HI+" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - Federal Pension Employee" enumId="ItemTaxFedPensionEmpe" enumCode="FPEN" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - State Income Withholding" enumId="ItemTaxStateWhold" enumCode="SITW" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - State Pension Employee" enumId="ItemTaxStatePensionEmpe" enumCode="SPEN" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - State Unemployment Insurance Employee" enumId="ItemTaxStateUnInsEmpe" enumCode="SUTA" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - State Workers&apos; Comp Insurance Employee" enumId="ItemTaxStateWrkCmpInsEmpe" enumCode="WC" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - State Disability Insurance Employee" enumId="ItemTaxStateDisInsEmpe" enumCode="SDI" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - State Miscellaneous Employee" enumId="ItemTaxStateMiscEmpe" enumCode="SMISC" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - County Income Withholding" enumId="ItemTaxCountyWhold" enumCode="CntyITW" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - City, Borough, and Township Withholding" enumId="ItemTaxCbt" enumCode="CityITW" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - Occupational Privilege Employee" enumId="ItemTaxOccPrivEmpe" enumCode="OPT" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - Head Employee" enumId="ItemTaxHeadEmpe" parentEnumId="ItemPayrollTaxes" enumCode="HEAD" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - School District Employee" enumId="ItemTaxSchoolDistEmpe" enumCode="SCHL" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Tax - Surtax Employee" enumId="ItemTaxSurtaxEmpe" parentEnumId="ItemPayrollTaxes" enumCode="SURT" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Federal Income Tax Withholding" enumId="ItemTaxFederalWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Federal Unemployment Insurance Employee" enumId="ItemTaxFutaEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Social Security Employee" enumId="ItemTaxSocialSecEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Medicare Employee" enumId="ItemTaxMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Medicare Additional Employee" enumId="ItemTaxAddtlMedEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Federal Pension Employee" enumId="ItemTaxFedPensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Income Withholding" enumId="ItemTaxStateWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Pension Employee" enumId="ItemTaxStatePensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Unemployment Insurance Employee" enumId="ItemTaxStateUnInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Workers&apos; Comp Insurance Employee" enumId="ItemTaxStateWrkCmpInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Disability Insurance Employee" enumId="ItemTaxStateDisInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Miscellaneous Employee" enumId="ItemTaxStateMiscEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - County Income Withholding" enumId="ItemTaxCountyWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - City, Borough, and Township Withholding" enumId="ItemTaxCbt" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Occupational Privilege Employee" enumId="ItemTaxOccPrivEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Head Employee" enumId="ItemTaxHeadEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - School District Employee" enumId="ItemTaxSchoolDistEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - Surtax Employee" enumId="ItemTaxSurtaxEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Expense" enumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 HSA Employer" enumCode="Sec125Hsa" enumId="ItemPrlExp125HsaEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
