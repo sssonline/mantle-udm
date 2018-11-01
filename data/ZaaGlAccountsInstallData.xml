@@ -1841,17 +1841,20 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="789000000" direction="E" itemTypeEnumId="ItemReimbursement" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemPayrollDeduct" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Compy" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Ppo" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDed125Hsa" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125OtherEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125PpoEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125HsaEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="254000000" direction="E" itemTypeEnumId="ItemDedCharity" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222700000" direction="E" itemTypeEnumId="ItemDedChildGarnish" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemDedMisc" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDed401kEmpe" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDedRoth401kEmpe" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDedRothIraEmpe" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDedSimpleIraEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDed401kRothEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDed401kSafHarEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDed401kSmpllEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDed401kSoloEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDed401kTradEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDedIraRothEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222600000" direction="E" itemTypeEnumId="ItemDedIraSimpleEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemDedUnion" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemDedUnpaidTimeOff" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222700000" direction="E" itemTypeEnumId="ItemDedWageGarnish" organizationPartyId="DefaultSettings"/>
