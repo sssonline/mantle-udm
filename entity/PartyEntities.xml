@@ -1427,6 +1427,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="accessCode" type="text-short"/>
         <field name="telecomContactMechId" type="id"/>
         <field name="emailContactMechId" type="id"/>
+        <field name="webUrlContactMechId" type="id"/>
         <field name="shipGatewayAddressId" type="text-medium"/>
         <relationship type="one" related="mantle.party.contact.ContactMech"/>
         <relationship type="one" title="City" related="moqui.basic.Geo" short-alias="cityGeo">
@@ -1448,6 +1449,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="telecomContactMechId"/></relationship>
         <relationship type="one" title="Email" related="mantle.party.contact.ContactMech" short-alias="emailContactMech" mutable="true">
             <key-map field-name="emailContactMechId"/></relationship>
+        <relationship type="one" title="WebUrl" related="mantle.party.contact.ContactMech" short-alias="webUrlContactMech" mutable="true">
+            <key-map field-name="webUrlContactMechId"/></relationship>
         <index name="CITY_IDX"><index-field name="city"/></index>
         <index name="POSTAL_CODE_IDX"><index-field name="postalCode"/></index>
     </entity>
