@@ -639,8 +639,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="appliesEnumId" type="id" default="PaafAlways">
             <description>Frequency to which this payroll adjustment applies, e.g. Once, Per Pay Period, or Always</description>
         </field>
-
-        <!-- Neither work type, nor facility are used to determine whether the adjustment applies. -->
+        <!-- Neither work type, nor facility are used to determine whether the adjustment applies; they are for where to
+             assign the work or facility to the resulting adjustment. -->
         <field name="workTypeEnumId" type="id"><description>Type of work to apply the adjustment to.</description></field>
         <field name="facilityId" type="id"><description>Where to apply the adjustment.</description></field>
 
@@ -661,6 +661,7 @@ along with this software (see the LICENSE.md file). If not, see
             positive adjustments and deductible negative adjustments.</description></field>
 
         <field name="rateBasisEnumId" type="id"/>
+        <!-- Deprecated: Move riskClassEnumId to PayrollAdjustmentAppliesFilter -->
         <field name="riskClassEnumId" type="text-short"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
@@ -690,6 +691,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="itemTypeEnumId"/></relationship>
         <relationship type="one" title="PayrollAdjApplFreq" related="moqui.basic.Enumeration" short-alias="appliesEnum">
             <key-map field-name="appliesEnumId"/></relationship>
+
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
@@ -801,6 +803,31 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="TaxStateStatus" related="moqui.basic.Enumeration">
             <key-map field-name="taxStateStatusEnumId"/></relationship>
+    </entity>
+    <entity entity-name="PayrollAdjustmentAppliesFilter" package="mantle.humanres.employment" use="configuration">
+        <description>
+            Additional filters to determine whether a payroll adjustment applies.  Filters will be logically OR'd.
+        </description>
+        <field name="payrollAdjustmentAppliesFilterId" type="id" is-pk="true"/>
+        <field name="payrollAdjustmentId" type="id" not-null="true"/>
+
+        <field name="geoId" type="id"/>
+        <field name="geoAddressTypeEnumId" type="id">
+            <description>If an address is necessary, which to use (e.g. facility address, employee address, or employer address)</description>
+        </field>
+        <field name="workTypeEnumId" type="id"><description>Apply only to this work type.</description></field>
+        <field name="facilityId" type="id"><description>Apply only to this facility.</description></field>
+        <field name="riskClassEnumId" type="id"><description>Apply only to this risk class.</description></field>
+
+        <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
+        <relationship type="one" title="Geo" related="moqui.basic.Geo" short-alias="geo"/>
+        <relationship type="one" title="GeoAddressType" related="moqui.basic.Enumeration" short-alias="geoAddressType">
+            <key-map field-name="geoAddressTypeEnumId"/></relationship>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workTypeEnum">
+            <key-map field-name="workTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" title="RiskClass" related="moqui.basic.Enumeration" short-alias="riskClassEnum">
+            <key-map field-name="riskClassEnumId"/></relationship>
     </entity>
 
     <entity entity-name="PayrollAdjCalcService" package="mantle.humanres.employment" use="configuration" cache="true">
