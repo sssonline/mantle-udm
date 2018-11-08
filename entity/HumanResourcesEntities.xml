@@ -831,9 +831,15 @@ along with this software (see the LICENSE.md file). If not, see
 
         <seed-data>
             <moqui.basic.EnumerationType description="Payroll Adjustment Geo Address Type" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employee" enumId="PagatEmployee" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employer" enumId="PagatEmployer" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Facility" enumId="PagatFacility" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Facility" enumId="PagatFacility" sequenceNum="1" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employment Work" enumId="PagatEmploymentWork" sequenceNum="2" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employer Primary" enumId="PagatEmployerPrim" sequenceNum="3" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee Primary" enumId="PagatEmployeePrim" sequenceNum="4" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee Home" enumId="PagatEmployeeHome" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee Tax" enumId="PagatEmployeeTax" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee Work" enumId="PagatEmployeeWork" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employer Tax" enumId="PagatEmployerTax" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employer Work" enumId="PagatEmployerWork" enumTypeId="PayrollAdjGeoAddrType"/>
         </seed-data>
     </entity>
 
