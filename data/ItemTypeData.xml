@@ -149,6 +149,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Break Hourly Earnings" enumId="ItemBreakHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Break RRP Earnings" enumId="ItemBreakRrpEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Nonproductive Earnings" enumId="ItemNonproductiveEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Family Leave Hourly" enumId="ItemFamilyLeaveHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Holiday Hourly" enumId="ItemHolidayHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="PTO Hourly" enumId="ItemPtoHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sick Hourly" enumId="ItemSickHourly" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
@@ -157,6 +158,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Holiday Salary" enumId="ItemHolidaySalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="PTO Salary" enumId="ItemPtoSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Sick Salary" enumId="ItemSickSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Family Leave Salary" enumId="ItemFamilyLeaveSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Vacation Salary" enumId="ItemVacationSalary" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Bonus (Discretionary)" enumId="ItemBonusDisc" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Bonus (Non-Discretionary)" enumId="ItemBonusNonDisc" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>

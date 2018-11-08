@@ -405,6 +405,7 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Employment Benefit Types -->
             <moqui.basic.EnumerationType description="Employment Benefit Type" enumTypeId="EmploymentBenefitType"/>
+            <moqui.basic.Enumeration description="Paid Family Leave" enumId="EbtPaidFamilyLeave" enumTypeId="EmploymentBenefitType"/>
             <moqui.basic.Enumeration description="Paid Holiday" enumId="EbtPaidHoliday" enumTypeId="EmploymentBenefitType"/>
             <moqui.basic.Enumeration description="Paid Sick Leave" enumId="EbtPaidSickLeave" enumTypeId="EmploymentBenefitType"/>
             <moqui.basic.Enumeration description="Paid Time Off" enumId="EbtPaidTimeOff" enumTypeId="EmploymentBenefitType"/>
@@ -412,6 +413,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Health Insurance" enumId="EbtHealthInsurance" enumTypeId="EmploymentBenefitType"/>
 
             <moqui.basic.Enumeration description="Benefit Type Group" enumId="EngEmploymentBenefitType" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="EbtPaidFamilyLeave" enumGroupEnumId="EngEmploymentBenefitType"/>
             <moqui.basic.EnumGroupMember enumId="EbtPaidHoliday" enumGroupEnumId="EngEmploymentBenefitType"/>
             <moqui.basic.EnumGroupMember enumId="EbtPaidSickLeave" enumGroupEnumId="EngEmploymentBenefitType"/>
             <moqui.basic.EnumGroupMember enumId="EbtPaidTimeOff" enumGroupEnumId="EngEmploymentBenefitType"/>
@@ -1230,6 +1232,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RatpUnpaidBreak" description="Unpaid Break" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidNptStd" description="NPT - STD" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpPaidNptRrp" description="NPT - RRP" enumTypeId="RateType" relatedEnumId="RatpStandard"/><!-- calculated, not configured -->
+            <moqui.basic.Enumeration enumId="RatpFamilyLeave" description="PTO - Family Leave" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpVacation" description="PTO - Vacation" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpHoliday" description="PTO - Holiday" enumTypeId="RateType"/><!-- calculated, not configured -->
             <moqui.basic.Enumeration enumId="RatpSick" description="PTO - Sick" enumTypeId="RateType"/><!-- calculated, not configured -->
@@ -1271,6 +1274,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="RatpHoliday" sequenceNum="12" enumGroupEnumId="EngRateCommonEntry"/>
             <moqui.basic.EnumGroupMember enumId="RatpSick" sequenceNum="13" enumGroupEnumId="EngRateCommonEntry"/>
             <moqui.basic.EnumGroupMember enumId="RatpPtoOther" sequenceNum="14" enumGroupEnumId="EngRateCommonEntry"/>
+            <moqui.basic.EnumGroupMember enumId="RatpFamilyLeave" sequenceNum="15" enumGroupEnumId="EngRateCommonEntry"/>
             <moqui.basic.EnumGroupMember enumId="RatpEvening" sequenceNum="21" enumGroupEnumId="EngRateCommonEntry"/>
             <moqui.basic.EnumGroupMember enumId="RatpNight" sequenceNum="22" enumGroupEnumId="EngRateCommonEntry"/>
             <moqui.basic.EnumGroupMember enumId="RatpWeekend" sequenceNum="23" enumGroupEnumId="EngRateCommonEntry"/>
@@ -1304,6 +1308,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngHourlyRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpSick" enumGroupEnumId="EngHourlyRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpPtoOther" enumGroupEnumId="EngHourlyRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpFamilyLeave" enumGroupEnumId="EngHourlyRateType"/>
 
             <!-- Piece Rate Type -->
             <moqui.basic.Enumeration description="Piece Rate Type" enumId="EngPieceRateType" enumTypeId="EnumGroup"/>

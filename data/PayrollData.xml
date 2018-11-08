@@ -91,6 +91,7 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- PTO: (Paid Time Off)
+    How should Family Leave Hours be Paid?
     How should Vacation Hours be Paid?
     How should Holiday Hours be Paid?
     How should Paid Time Off Hours be Paid?
@@ -98,6 +99,9 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumerationType description="Payroll PTO Rate Method" enumTypeId="PayrollPtoRateMethod"/>
     <moqui.basic.Enumeration description="Regular Rate of Pay" enumId="pprmPtoUseRrp" enumTypeId="PayrollPtoRateMethod"/>
     <moqui.basic.Enumeration description="Sick Rate of Pay" enumId="pprmPtoUseSrp" enumTypeId="PayrollPtoRateMethod"/>
+    <mantle.party.PartySettingType description="Payroll PTO - Family Leave Rate Method" partySettingTypeId="PayrollPtoFamLvRateMeth"
+                                   enumTypeId="PayrollPtoRateMethod" defaultValue="pprmPtoUseSrp">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll PTO - Vacation Rate Method" partySettingTypeId="PayrollPtoVacRateMeth"
                                    enumTypeId="PayrollPtoRateMethod" defaultValue="pprmPtoUseSrp">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
