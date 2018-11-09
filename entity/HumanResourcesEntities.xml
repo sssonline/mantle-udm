@@ -172,6 +172,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyId" type="id" is-pk="true"/>
         <field name="distGroupEnumId" type="id"/>
         <field name="taxFormId" type="id" enable-audit-log="update"/>
+        <field name="taxExemptEnumId" type="id" enable-audit-log="update"/>
         <field name="taxClassificationEnumId" type="id" enable-audit-log="update"/>
 
         <field name="taxName" type="text-medium"><description>Defaults to Person or Organization name fields</description></field>
@@ -197,7 +198,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="distGroupEnumId"/></relationship>
         <relationship type="one" title="Tax" related="moqui.screen.form.DbForm">
             <key-map field-name="taxFormId"/></relationship>
-        <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration">
+        <relationship type="one" title="EmplTaxExempt" related="moqui.basic.Enumeration" short-alias="taxExempt">
+            <key-map field-name="taxExemptEnumId"/></relationship>
+        <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration" short-alias="taxClassification">
             <key-map field-name="taxClassificationEnumId"/></relationship>
         <relationship type="one" title="TaxHome" related="mantle.party.contact.PostalAddress" short-alias="taxHomeContactMech">
             <key-map field-name="taxHomeContactMechId"/></relationship>
@@ -255,7 +258,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="distGroupEnumId" type="id"/>
         -->
         <field name="taxFormId" type="id"/>
-        <field name="taxClassificationEnumId" type="id"/>
+        <field name="taxExemptEnumId" type="id" enable-audit-log="update"/>
+        <field name="taxClassificationEnumId" type="id" enable-audit-log="update"/>
         <!--
 
         <field name="taxName" type="text-medium"><description>Defaults to Person or Organization name fields</description></field>
@@ -292,6 +296,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
         <relationship type="one" title="TaxWork" related="mantle.party.contact.PostalAddress" short-alias="taxWorkContactMech">
             <key-map field-name="taxWorkContactMechId"/></relationship>
+
+        <relationship type="one" title="EmplTaxExempt" related="moqui.basic.Enumeration" short-alias="taxExempt">
+            <key-map field-name="taxExemptEnumId"/></relationship>
+        <relationship type="one" title="TaxClassification" related="moqui.basic.Enumeration" short-alias="taxClassification">
+            <key-map field-name="taxClassificationEnumId"/></relationship>
 
         <relationship type="many" related="mantle.humanres.employment.EmploymentBenefit" short-alias="benefits">
             <key-map field-name="partyRelationshipId"/></relationship>
@@ -1047,7 +1056,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="temporaryFlag" type="text-indicator"/>
         <field name="overtimeFlag" type="text-indicator"><description>If Y employees are paid overtime/doubletime</description></field>
         <field name="minimumHourlyWage" type="number-decimal" enable-audit-log="true"/>
-        <field name="taxExemptEnumId" type="id"/>
+        <field name="taxExemptEnumId" type="id" enable-audit-log="update"/>
         <field name="taxFormId" type="id"/>
         <field name="fromDate" type="date-time"/>
         <field name="thruDate" type="date-time"/>
@@ -1061,7 +1070,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.rate.PayGrade"/>
         <relationship type="one" related="BudgetItem">
             <key-map field-name="budgetId"/><key-map field-name="budgetItemSeqId"/></relationship>
-        <relationship type="one" title="EmplTaxExempt" related="moqui.basic.Enumeration">
+        <relationship type="one" title="EmplTaxExempt" related="moqui.basic.Enumeration" short-alias="taxExempt">
             <key-map field-name="taxExemptEnumId"/></relationship>
         <relationship type="one" title="Tax" related="moqui.screen.form.DbForm">
             <key-map field-name="taxFormId"/></relationship>
