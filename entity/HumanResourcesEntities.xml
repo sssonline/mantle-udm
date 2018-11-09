@@ -832,14 +832,17 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <moqui.basic.EnumerationType description="Payroll Adjustment Geo Address Type" enumTypeId="PayrollAdjGeoAddrType"/>
             <moqui.basic.Enumeration description="Facility" enumId="PagatFacility" sequenceNum="1" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employment Work" enumId="PagatEmploymentWork" sequenceNum="2" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employer Primary" enumId="PagatEmployerPrim" sequenceNum="3" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employee Primary" enumId="PagatEmployeePrim" sequenceNum="4" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employee Home" enumId="PagatEmployeeHome" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employee Tax" enumId="PagatEmployeeTax" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employee Work" enumId="PagatEmployeeWork" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employer Tax" enumId="PagatEmployerTax" enumTypeId="PayrollAdjGeoAddrType"/>
-            <moqui.basic.Enumeration description="Employer Work" enumId="PagatEmployerWork" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employment" enumId="PagatEmploymentWork" sequenceNum="2" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employer - Postal Primary" enumId="PagatEmployerPrim" sequenceNum="3" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Primary" enumId="PagatEmployeePrim" sequenceNum="4" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Home" enumId="PagatEmployeeHome" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Tax" enumId="PagatEmployeeTax" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Work" enumId="PagatEmployeeWork" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employer - Postal Tax" enumId="PagatEmployerTax" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Employer - Postal Work" enumId="PagatEmployerWork" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Facility - Postal Primary" enumId="PagatFacilityPrim" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Facility - Postal Tax" enumId="PagatFacilityTax" enumTypeId="PayrollAdjGeoAddrType"/>
+            <moqui.basic.Enumeration description="Facility - Postal Work" enumId="PagatFacilityWork" enumTypeId="PayrollAdjGeoAddrType"/>
         </seed-data>
     </entity>
 
