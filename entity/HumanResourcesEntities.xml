@@ -841,15 +841,19 @@ along with this software (see the LICENSE.md file). If not, see
 
         <seed-data>
             <moqui.basic.EnumerationType description="Payroll Adjustment Applies Geo Source Type" enumTypeId="PayrollAdjApplGeoSrcType"/>
-            <moqui.basic.Enumeration description="Employment" enumId="PaagstEmploymentWork" enumTypeId="PayrollAdjApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employment - Postal Tax Work" enumId="PaagstEmploymentTaxWork" enumTypeId="PayrollAdjApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Any" enumId="PaagstEmployeeAny" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employee - Postal Primary" enumId="PaagstEmployeePrim" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employee - Postal Home" enumId="PaagstEmployeeHome" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employee - Postal Tax" enumId="PaagstEmployeeTax" enumTypeId="PayrollAdjApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Tax Home" enumId="PaagstEmployeeTaxHome" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employee - Postal Work" enumId="PaagstEmployeeWork" enumTypeId="PayrollAdjApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employer - Postal Any" enumId="PaagstEmployerAny" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employer - Postal Primary" enumId="PaagstEmployerPrim" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employer - Postal Tax" enumId="PaagstEmployerTax" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employer - Postal Work" enumId="PaagstEmployerWork" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Facility" enumId="PaagstFacility" enumTypeId="PayrollAdjApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Facility - Postal Any" enumId="PaagstFacilityAny" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Facility - Postal Primary" enumId="PaagstFacilityPrim" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Facility - Postal Tax" enumId="PaagstFacilityTax" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Facility - Postal Work" enumId="PaagstFacilityWork" enumTypeId="PayrollAdjApplGeoSrcType"/>
