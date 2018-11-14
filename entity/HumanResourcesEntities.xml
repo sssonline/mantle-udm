@@ -718,6 +718,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="FinAcctApplies" related="moqui.basic.Enumeration" short-alias="finAcctAppliesEnum">
             <key-map field-name="finAccountAppliesEnumId"/></relationship>
 
+        <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentApplies" short-alias="applies">
+            <key-map field-name="payrollAdjustmentId"/></relationship>
+        <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentAppliesTo" short-alias="appliesTo">
+            <key-map field-name="payrollAdjustmentId"/></relationship>
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentDetail" short-alias="details">
             <key-map field-name="payrollAdjustmentId"/></relationship>
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentExempt" short-alias="exempts">
