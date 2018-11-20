@@ -1283,6 +1283,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="organizationPartyId" type="id"><description>The organization (employer, etc) who pays the worker and bills the client</description></field>
         <field name="clientPartyId" type="id"><description>The client who pays the internal organization (vendor) via bill through</description></field>
         <!-- must match or null; match as many as possible (to allow for nulls) with this priority if more than one match with same number of fields -->
+
+        <field name="geoId" type="id"/>
+        <field name="geoSourceTypeEnumId" type="id">
+            <description>If an address is necessary, which to use (e.g. employee, employer, or client address)</description>
+        </field>
+
         <field name="workTypeEnumId" type="id"/>
         <field name="payGradeId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
@@ -1309,6 +1315,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="positionClass"/>
         <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
             <key-map field-name="workTypeEnumId"/></relationship>
+
+        <relationship type="one" title="Geo" related="moqui.basic.Geo" short-alias="geo"/>
+        <relationship type="one" title="GeoAddressSource" related="moqui.basic.Enumeration" short-alias="geoAddressSource">
+            <key-map field-name="geoSourceTypeEnumId"/></relationship>
 
         <seed-data>
             <!-- Rate Type -->
@@ -1422,6 +1432,27 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.humanres.rate.RateAmount rateAmountId="UnpaidVendor" rateTypeEnumId="RatpUnpaid" ratePurposeEnumId="RaprVendor"
                     timePeriodUomId="TF_hr" workEffortId="" partyId="" emplPositionClassId=""
                     fromDate="1265184000000" thruDate="" rateAmount="0.00" rateCurrencyUomId=""/>
+
+            <!-- Rate Geo -->
+            <moqui.basic.EnumerationType description="Rate Amount Applies Geo Source Type" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employment" enumId="RaagstEmployment" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Primary" enumId="RaagstEmployeePrim" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Home" enumId="RaagstEmployeeHome" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Tax" enumId="RaagstEmployeeTax" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employee" enumId="RaagstEmployee" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employee - Postal Work" enumId="RaagstEmployeeWork" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employer" enumId="RaagstEmployer" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employer - Postal Primary" enumId="RaagstEmployerPrim" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employer - Postal Tax" enumId="RaagstEmployerTax" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Employer - Postal Work" enumId="RaagstEmployerWork" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Facility" enumId="RaagstFacility" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Facility - Postal Primary" enumId="RaagstFacilityPrim" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Facility - Postal Tax" enumId="RaagstFacilityTax" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Facility - Postal Work" enumId="RaagstFacilityWork" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Client - Postal Billing (AP)" enumId="RaagstClientBilling" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Client - Postal Primary" enumId="RaagstClientPrim" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Client - Postal Tax" enumId="RaagstClientTax" enumTypeId="RateAmountApplGeoSrcType"/>
+            <moqui.basic.Enumeration description="Client" enumId="RaagstClient" enumTypeId="RateAmountApplGeoSrcType"/>
         </seed-data>
     </entity>
 
