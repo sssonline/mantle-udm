@@ -656,8 +656,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="overrideGlAccountId" type="id"/>
         <field name="payrollPhaseEnumId" type="id" not-null="true"/>
         <field name="timePeriodTypeId" type="id"/>
-        <field name="fromDate" type="date-time"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="fromDate" type="date"/>
+        <field name="thruDate" type="date"/>
 
         <field name="isTax" type="text-indicator"/>
         <field name="isTaxable" type="text-indicator"><description>For taxable positive adjustments and tax deductible
@@ -917,8 +917,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollAllowanceId" type="id" is-pk="true"/>
         <field name="taxAuthorityId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
-        <field name="fromDate" type="date-time"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="fromDate" type="date"/>
+        <field name="thruDate" type="date"/>
         <field name="amountTypeEnumId" type="id"/>
         <field name="amount" type="currency-amount"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
@@ -940,8 +940,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxStateStatusEnumId" type="id"/>
         <field name="minAllowances" type="number-integer"/>
         <field name="maxAllowances" type="number-integer"/>
-        <field name="fromDate" type="date-time"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="fromDate" type="date"/>
+        <field name="thruDate" type="date"/>
         <field name="amount" type="currency-amount"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
@@ -953,8 +953,8 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PayrollGarnishMinWage" package="mantle.humanres.employment" use="configuration">
         <field name="stateOrCountryGeoId" type="id" is-pk="true"/>
         <field name="timePeriodTypeId" type="id" is-pk="true"/>
-        <field name="fromDate" type="date-time" is-pk="true"/>
-        <field name="thruDate" type="date-time"/>
+        <field name="fromDate" type="date" is-pk="true"/>
+        <field name="thruDate" type="date"/>
         <field name="minimumWage" type="number-decimal"/>
         <field name="rangeLow" type="number-decimal"/>
         <field name="rangeHigh" type="number-decimal"/>
