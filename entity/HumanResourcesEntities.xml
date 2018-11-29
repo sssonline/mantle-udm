@@ -966,6 +966,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollBatchId" type="id" is-pk="true"/>
         <field name="description" type="text-medium" not-null="true"/>
         <field name="timePeriodId" type="id" not-null="true"/>
+        <field name="thruDateOverride" type="date"/>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <index name="PAYROLL_BATCH_TIMEPERIOD">
             <index-field name="payrollBatchId"/>
