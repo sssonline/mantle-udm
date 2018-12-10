@@ -164,6 +164,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Bonus (Discretionary)" enumId="ItemBonusDisc" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Bonus (Non-Discretionary)" enumId="ItemBonusNonDisc" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Commission" enumId="ItemPrlCommission" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tips" enumId="ItemPrlTips" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Advance Pay" enumId="ItemAdvancePay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Pay Period Adjustment - Overpay" enumId="ItemPayAdjOverpay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Pay Period Adjustment - Pay" enumId="ItemPayAdjPay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>

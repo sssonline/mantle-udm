@@ -975,6 +975,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="631100000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="Wages - Owners" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631200000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
+    <mantle.ledger.account.GlAccount accountName="Tips - Employee" description="" glAccountClassEnumId="COMPENSATION"
+        glAccountId="631300000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="Wages - Officers" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="631400000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="631000000"/>
     <mantle.ledger.account.GlAccount accountName="Sales Commissions - Employee" description="" glAccountClassEnumId="SALES_COMPENSATION"
@@ -1837,6 +1839,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631900000" direction="I" itemTypeEnumId="ItemBonusDisc" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemBonusNonDisc" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631600000" direction="I" itemTypeEnumId="ItemPrlCommission" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631300000" direction="I" itemTypeEnumId="ItemPrlTips" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjOverpay" organizationPartyId="DefaultSettings"/>

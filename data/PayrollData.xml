@@ -34,6 +34,8 @@ along with this software (see the LICENSE.md file). If not, see
         If Y and Rest Breaks or NPT are not recorded for HOURLY time entries, this will have no effect.
     Should HOURLY time entries be included in RRP calculation?
         If N, RRP calculation is performed against PIECE, HYBRID, and ND pay only.
+    Should Wage Adjustments be included in RRP calculation (Like Non-Discretionary Bonuses)?
+        If N, RRP calculation excludes Wage Adjustments.
     Should HOURLY Rest Breaks and NPT be paid RRP?
         If N, HOURLY Rest Breaks and NPT are paid HOURLY rate (If breaks are not extracted for RRP, they should not be paid RRP).
     Should PIECE/HYBRID Rest Breaks be paid the higher of RRP and the hourly rate they would have otherwise earned?
@@ -53,6 +55,12 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Include Hourly Pay" partySettingTypeId="PayrollRrpInclHourly"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Include Wage Adjustments" partySettingTypeId="PayrollRrpInclWageAdjustments"
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll RRP - Include Tips Pay" partySettingTypeId="PayrollRrpInclTips"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll RRP - Pay RRP on Hourly Break/NPT" partySettingTypeId="PayrollRrpPayOnHourlyBreakNpt"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
