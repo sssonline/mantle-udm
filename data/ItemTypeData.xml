@@ -180,11 +180,11 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Charity Donation" enumId="ItemDedCharity" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Child Support Garnishment" enumId="ItemDedChildGarnish" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Family Leave" enumId="ItemDedFamilyLeave" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Dental Insurance" enumId="ItemDedDentalInsurance" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Health Insurance" enumId="ItemDedHealthInsurance" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Prescription Insurance" enumId="ItemDedPrescriptionInsurance" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Other Insurance" enumId="ItemDedOtherInsurance" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Vision Insurance" enumId="ItemDedVisionInsurance" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Dental Insurance" enumId="ItemDedDentalInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Health Insurance" enumId="ItemDedHealthInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Prescription Insurance" enumId="ItemDedPrescriptionInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Other Insurance" enumId="ItemDedOtherInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Vision Insurance" enumId="ItemDedVisionInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Miscellaneous Deduction" enumId="ItemDedMisc" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Roth 401(k)" enumId="ItemDed401kRothEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Safe Harbor 401(k)" enumId="ItemDed401kSafHarEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
@@ -386,19 +386,31 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemDed401kSoloEmpe" enumGroupEnumId="Eng401kEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDed401kTradEmpe" enumGroupEnumId="Eng401kEmpe"/>
 
-    <moqui.basic.Enumeration description="Employer Insurance Types" enumId="EngInsuranceTypesEmpr" enumTypeId="EnumGroup"/>
-    <moqui.basic.EnumGroupMember enumId="ItemPrlExpDentalInsuranceEmpr" enumGroupEnumId="EngInsuranceTypesEmpr"/>
-    <moqui.basic.EnumGroupMember enumId="ItemPrlExpHealthInsuranceEmpr" enumGroupEnumId="EngInsuranceTypesEmpr"/>
-    <moqui.basic.EnumGroupMember enumId="ItemPrlExpOtherInsuranceEmpr" enumGroupEnumId="EngInsuranceTypesEmpr"/>
-    <moqui.basic.EnumGroupMember enumId="ItemPrlExpPrescriptionInsuranceEmpr" enumGroupEnumId="EngInsuranceTypesEmpr"/>
-    <moqui.basic.EnumGroupMember enumId="ItemPrlExpVisionInsuranceEmpr" enumGroupEnumId="EngInsuranceTypesEmpr"/>
+    <moqui.basic.Enumeration description="Employer Medical Coverage Types" enumId="EngMedicalCoverageTypesEmpr" enumTypeId="EnumGroup"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExpDentalInsuranceEmpr" enumGroupEnumId="EngMedicalCoverageTypesEmpr"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExpHealthInsuranceEmpr" enumGroupEnumId="EngMedicalCoverageTypesEmpr"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExpOtherInsuranceEmpr" enumGroupEnumId="EngMedicalCoverageTypesEmpr"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExpPrescriptionInsuranceEmpr" enumGroupEnumId="EngMedicalCoverageTypesEmpr"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExpVisionInsuranceEmpr" enumGroupEnumId="EngMedicalCoverageTypesEmpr"/>
 
-    <moqui.basic.Enumeration description="Employee Section 125 Types" enumId="EngSec125Empe" enumTypeId="EnumGroup"/>
-    <moqui.basic.EnumGroupMember enumId="ItemDedSec125DentalInsuranceEmpe" enumGroupEnumId="EngSec125Empe"/>
-    <moqui.basic.EnumGroupMember enumId="ItemDedSec125HealthInsuranceEmpe" enumGroupEnumId="EngSec125Empe"/>
-    <moqui.basic.EnumGroupMember enumId="ItemDedSec125OtherInsuranceEmpe" enumGroupEnumId="EngSec125Empe"/>
-    <moqui.basic.EnumGroupMember enumId="ItemDedSec125PrescriptionInsuranceEmpe" enumGroupEnumId="EngSec125Empe"/>
-    <moqui.basic.EnumGroupMember enumId="ItemDedSec125VisionInsuranceEmpe" enumGroupEnumId="EngSec125Empe"/>
+    <moqui.basic.Enumeration description="Employee Section 125 Medical Coverage Types" enumId="EngSec125MedicalCoverageEmpe" enumTypeId="EnumGroup"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125DentalInsuranceEmpe" enumGroupEnumId="EngSec125MedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125HealthInsuranceEmpe" enumGroupEnumId="EngSec125MedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125OtherInsuranceEmpe" enumGroupEnumId="EngSec125MedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125PrescriptionInsuranceEmpe" enumGroupEnumId="EngSec125MedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125VisionInsuranceEmpe" enumGroupEnumId="EngSec125MedicalCoverageEmpe"/>
+
+    <moqui.basic.Enumeration description="Employee Medical Coverage Types" enumId="EngMedicalCoverageEmpe" enumTypeId="EnumGroup"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125DentalInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125HealthInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125OtherInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125PrescriptionInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125VisionInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedDentalInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedHealthInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedOtherInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedPrescriptionInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedVisionInsuranceEmpe" enumGroupEnumId="EngMedicalCoverageEmpe"/>
 
     <!-- Product Item Types (used for GL mapping and other purposes for items that should always have a productId and may be treated differently) -->
     <moqui.basic.Enumeration description="Product Items" enumId="EngItemsProduct" enumTypeId="EnumGroup"/>
