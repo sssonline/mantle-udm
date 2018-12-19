@@ -783,9 +783,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration sequenceNum="2" description="Until Zero Balance" enumId="PafaaAppliesUntilZeroBalance" enumTypeId="PayrollAdjFinAcctApplies"/>
             <moqui.basic.Enumeration sequenceNum="3" description="Until Negative Balance Limit" enumId="PafaaAppliesUntilNegativeBalanceLimit" enumTypeId="PayrollAdjFinAcctApplies"/>
 
-            <moqui.basic.Enumeration description="Payroll Adjustment Non-Limit Financial Account Applies" enumId="EngPrAdjNonLmtFinAcctAppl" enumTypeId="EnumGroup"/>
-            <moqui.basic.EnumGroupMember enumId="PafaaAppliesUntilZeroBalance" sequenceNum="1" enumGroupEnumId="EngPrAdjNonLmtFinAcctAppl"/>
-            <moqui.basic.EnumGroupMember enumId="PafaaAlways" sequenceNum="2" enumGroupEnumId="EngPrAdjNonLmtFinAcctAppl"/>
+            <moqui.basic.Enumeration description="Payroll Adjustment Decrement Financial Account Applies" enumId="EngPrAdjDecrementFinAcctAppl" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="PafaaAppliesUntilZeroBalance" sequenceNum="1" enumGroupEnumId="EngPrAdjDecrementFinAcctAppl"/>
+            <moqui.basic.EnumGroupMember enumId="PafaaAlways" sequenceNum="2" enumGroupEnumId="EngPrAdjDecrementFinAcctAppl"/>
+
+            <moqui.basic.Enumeration description="Payroll Adjustment Increment Financial Account Applies" enumId="EngPrAdjIncrementFinAcctAppl" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="PafaaAppliesUntilNegativeBalanceLimit" sequenceNum="1" enumGroupEnumId="EngPrAdjIncrementFinAcctAppl"/>
+            <moqui.basic.EnumGroupMember enumId="PafaaAlways" sequenceNum="2" enumGroupEnumId="EngPrAdjIncrementFinAcctAppl"/>
 
         </seed-data>
     </entity>
