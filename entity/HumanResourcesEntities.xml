@@ -1138,6 +1138,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Foreign Agriculture (H-2A)" enumId="EtxForeignAg" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Foreign General (H-2B)" enumId="EtxForeignGeneral" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Foreign Specialty (H-1B)" enumId="EtxForeignSpecialty" enumTypeId="EmplTaxExempt"/>
+            <moqui.basic.Enumeration description="Totalization Agreement" enumId="EtxTotalizationAgreement" enumTypeId="EmplTaxExempt"/>
         </seed-data>
     </entity>
     <entity entity-name="EmplPositionBenefit" package="mantle.humanres.position" use="configuration">
