@@ -1244,6 +1244,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="comments" type="text-medium"/>
         <field name="memo" type="text-medium"/>
         <field name="distGroupEnumId" type="id"/>
+        <field name="paymentGroupId" type="id"/>
 
         <field name="amount" type="currency-amount" enable-audit-log="update"/>
         <field name="amountUomId" type="id"/>
@@ -1327,6 +1328,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="paymentId" related="toPaymentId"/></relationship>
         <relationship type="many" related="mantle.account.payment.PaymentContent" short-alias="contents">
             <key-map field-name="paymentId"/></relationship>
+        <relationship type="many" related="mantle.account.payment.PaymentGroup" short-alias="paymentGroup">
+            <key-map field-name="paymentGroupId"/></relationship>
 
         <seed-data>
             <!-- Payment Type -->
@@ -1439,6 +1442,16 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="contents"/>
         </master>
     </entity>
+
+    <entity entity-name="PaymentGroup" package="mantle.account.payment" short-alias="paymentGroup" cache="never" optimistic-lock="true">
+        <description>
+            Group payments created at the same time to facilitate reprinting check runs
+        </description>
+        <field name="paymentGroupId" type="id" is-pk="true"/>
+        <field name="description" type="text-medium" not-null="true"/>
+        <relationship type="one" related="mantle.account.payment.Payment"/>
+    </entity>
+
     <entity entity-name="PaymentFraudEvidence" package="mantle.account.payment" cache="never">
         <description>
             Evidence of payment fraud with references to the Payment and possibly OrderHeader that represents the fraud.
