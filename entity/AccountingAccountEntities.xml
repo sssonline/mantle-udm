@@ -1328,7 +1328,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="paymentId" related="toPaymentId"/></relationship>
         <relationship type="many" related="mantle.account.payment.PaymentContent" short-alias="contents">
             <key-map field-name="paymentId"/></relationship>
-        <relationship type="many" related="mantle.account.payment.PaymentGroup" short-alias="paymentGroup">
+        <relationship type="one" related="mantle.account.payment.PaymentGroup" short-alias="paymentGroup">
             <key-map field-name="paymentGroupId"/></relationship>
 
         <seed-data>
@@ -1449,7 +1449,9 @@ along with this software (see the LICENSE.md file). If not, see
         </description>
         <field name="paymentGroupId" type="id" is-pk="true"/>
         <field name="description" type="text-medium" not-null="true"/>
-        <relationship type="one" related="mantle.account.payment.Payment"/>
+        <relationship type="many" related="mantle.account.payment.Payment">
+            <key-map field-name="paymentGroupId"/>
+        </relationship>
     </entity>
 
     <entity entity-name="PaymentFraudEvidence" package="mantle.account.payment" cache="never">
