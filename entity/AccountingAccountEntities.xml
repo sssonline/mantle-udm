@@ -1036,6 +1036,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentId" type="id"/>
         <relationship type="one" related="mantle.account.method.PaymentMethod"/>
         <relationship type="one" related="mantle.account.payment.Payment"/>
+        <index name="BANK_ACCOUNT_CHECK_PAYMENT" unique="true">
+            <index-field name="paymentId"/>
+        </index>
     </entity>
     <entity entity-name="BitcoinWallet" package="mantle.account.method" cache="never">
         <field name="paymentMethodId" type="id" is-pk="true"/>
