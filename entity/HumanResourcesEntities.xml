@@ -675,6 +675,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxAuthorityId" type="id"/>
         <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
         <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
+        <field name="taxBoxDescription" type="text-short"><description>For tax forms, description</description></field>
         <field name="isEmployerPaid" type="text-indicator"><description>If Y is paid by the employer and not included
             in employee pay invoices.</description></field>
         <field name="applyStdDeduction" type="text-indicator"/>
