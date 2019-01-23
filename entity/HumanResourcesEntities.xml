@@ -861,7 +861,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration sequenceNum="24" enumCode="BB" description="W-2 Code 12 BB: Designated Roth contributions to a 403b retirement plan" enumId="ptbct12-BB" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="25" enumCode="DD" description="W-2 Code 12 DD: Cost of employer-sponsored health coverage" enumId="ptbct12-DD" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="26" enumCode="CC" description="W-2 Code 12 EE: Designated Roth contributions to a governmental 457b retirement plan" enumId="ptbct12-EE" enumTypeId="PayrollTaxBoxCodeType"/>
-            <!-- Fill in the rest from https://www.moneycrashers.com/w2-form-box-12-codes/ -->
 
         </seed-data>
     </entity>
