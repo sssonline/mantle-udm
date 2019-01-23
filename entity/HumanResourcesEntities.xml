@@ -835,9 +835,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="ptbtW2Box14" sequenceNum="14" enumGroupEnumId="EngPrAdjW2TaxBoxes"/>
 
             <moqui.basic.EnumerationType description="Payroll Tax Box Code Type" enumTypeId="PayrollTaxBoxCodeType"/>
-            <moqui.basic.Enumeration sequenceNum="1" description="W-2 Code 12 A: Uncollected social security or RRTA tax tips" enumId="ptbct12-A" enumTypeId="PayrollTaxBoxCodeType"/>
-            <moqui.basic.Enumeration sequenceNum="2" description="W-2 Code 12 B: Uncollected medicare tax on tips" enumId="ptbct12-B" enumTypeId="PayrollTaxBoxCodeType"/>
-            <moqui.basic.Enumeration sequenceNum="3" description="W-2 Code 12 C: Life insurance premiums for any value over $50,000" enumId="ptbct12-C" enumTypeId="PayrollTaxBoxCodeType"/>
+            <moqui.basic.Enumeration sequenceNum="1" description="W-2 Code 12 A: Uncollected social security or RRTA tax on tips" enumId="ptbct12-A" enumTypeId="PayrollTaxBoxCodeType"/>
+            <moqui.basic.Enumeration sequenceNum="2" description="W-2 Code 12 B: Uncollected Medicare tax on tips (but not Additional Medicare Tax)" enumId="ptbct12-B" enumTypeId="PayrollTaxBoxCodeType"/>
+            <moqui.basic.Enumeration sequenceNum="3" description="W-2 Code 12 C: Taxable cost of group-term life insurance over $50,000" enumId="ptbct12-C" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="4" description="W-2 Code 12 D: Contributions to a 401k or SIMPLE 401k retirement plan" enumId="ptbct12-D" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="5" description="W-2 Code 12 E: Contributions to a 403b retirement plan" enumId="ptbct12-E" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="6" description="W-2 Code 12 F: Contributions to a SEP IRA retirement plan" enumId="ptbct12-F" enumTypeId="PayrollTaxBoxCodeType"/>
@@ -848,18 +848,18 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration sequenceNum="11" description="W-2 Code 12 L: Reimbursements for employee business expenses" enumId="ptbct12-L" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="12" description="W-2 Code 12 M: Uncollected social security tax or RRTA tax on $50k+ group life insurance premium" enumId="ptbct12-M" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="13" description="W-2 Code 12 N: Uncollected medicare tax on $50k+ group life insurance premium" enumId="ptbct12-N" enumTypeId="PayrollTaxBoxCodeType"/>
-            <moqui.basic.Enumeration sequenceNum="14" description="W-2 Code 12 P: Reimbursements for job relocation expenses paid to employee(excluding boxes 1,3,5)" enumId="ptbct12-P" enumTypeId="PayrollTaxBoxCodeType"/>
+            <moqui.basic.Enumeration sequenceNum="14" description="W-2 Code 12 P: Reimbursements for job relocation expenses paid to employee (excluding boxes 1,3,5)" enumId="ptbct12-P" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="15" description="W-2 Code 12 Q: Non-taxable combat pay" enumId="ptbct12-Q" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="16" description="W-2 Code 12 R: Employer contributions to an Archer Medical Savings Account" enumId="ptbct12-R" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="17" description="W-2 Code 12 S: Employee contributions to a SIMPLE retirement plan" enumId="ptbct12-S" enumTypeId="PayrollTaxBoxCodeType"/>
-            <moqui.basic.Enumeration sequenceNum="18" description="W-2 Code 12 T: Adoption beneifts paid by employer" enumId="ptbct12-T" enumTypeId="PayrollTaxBoxCodeType"/>
+            <moqui.basic.Enumeration sequenceNum="18" description="W-2 Code 12 T: Adoption benefits paid by employer" enumId="ptbct12-T" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="19" description="W-2 Code 12 V: Income from exercising non-statutory stock options" enumId="ptbct12-V" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="20" description="W-2 Code 12 W: Employer contributions to employee health savings account" enumId="ptbct12-W" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="21" description="W-2 Code 12 Y: Salary deferrals under employee 409A non-qualified deferred compensation plan" enumId="ptbct12-Y" enumTypeId="PayrollTaxBoxCodeType"/>
-            <moqui.basic.Enumeration sequenceNum="22" description="W-2 Code 12 Z: Income recieved under 409A non-qualified deferred compensation plan" enumId="ptbct12-Z" enumTypeId="PayrollTaxBoxCodeType"/>
+            <moqui.basic.Enumeration sequenceNum="22" description="W-2 Code 12 Z: Income received under 409A non-qualified deferred compensation plan" enumId="ptbct12-Z" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="23" description="W-2 Code 12 AA: Designated Roth contributions to a 401k retirement plan" enumId="ptbct12-AA" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="24" description="W-2 Code 12 BB: Designated Roth contributions to a 403b retirement plan" enumId="ptbct12-BB" enumTypeId="PayrollTaxBoxCodeType"/>
-            <moqui.basic.Enumeration sequenceNum="25" description="W-2 Code 12 DD: Cost of employer-sponsored healthcare" enumId="ptbct12-DD" enumTypeId="PayrollTaxBoxCodeType"/>
+            <moqui.basic.Enumeration sequenceNum="25" description="W-2 Code 12 DD: Cost of employer-sponsored health coverage" enumId="ptbct12-DD" enumTypeId="PayrollTaxBoxCodeType"/>
             <moqui.basic.Enumeration sequenceNum="26" description="W-2 Code 12 EE: Designated Roth contributions to a governmental 457b retirement plan" enumId="ptbct12-EE" enumTypeId="PayrollTaxBoxCodeType"/>
             <!-- Fill in the rest from https://www.moneycrashers.com/w2-form-box-12-codes/ -->
 
