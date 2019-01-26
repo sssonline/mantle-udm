@@ -360,6 +360,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="issuedBy" type="text-medium"/>
         <field name="issuedByPartyId" type="id"/>
         <field name="expireDate" type="date"/>
+        <field name="expireWarn" type="text-indicator" default="N"/>
+        <field name="expireWarnDays" type="number-integer" default="0"/>
         <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyIdTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.party.Party"/>
