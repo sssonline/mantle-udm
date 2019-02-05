@@ -169,8 +169,6 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Pay Period Adjustment - Overpay" enumId="ItemPayAdjOverpay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Pay Period Adjustment - Pay" enumId="ItemPayAdjPay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Reimbursement" enumId="ItemReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Visa Reimbursement" enumId="ItemVisaReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Travel Reimbursement" enumId="ItemTravelReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Deduction" enumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Dental Insurance" enumId="ItemDedSec125DentalInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
@@ -424,10 +422,4 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemInventory" enumGroupEnumId="EngItemsProduct"/>
     <moqui.basic.EnumGroupMember enumId="ItemAsset" enumGroupEnumId="EngItemsProduct"/>
     <moqui.basic.EnumGroupMember enumId="ItemExpSupplies" enumGroupEnumId="EngItemsProduct"/>
-
-    <!-- H2A Reimbursement Group -->
-    <moqui.basic.Enumeration description="H2A Reimbursement Items" enumId="EngItemsH2AReimbursement" enumTypeId="EnumGroup"/>
-
-    <moqui.basic.EnumGroupMember enumId="ItemVisaReimbursement" enumGroupEnumId="EngItemsH2AReimbursement"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTravelReimbursement" enumGroupEnumId="EngItemsH2AReimbursement"/>
 </entity-facade-xml>
