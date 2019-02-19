@@ -1811,41 +1811,71 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Payroll Item Types -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayrollIncome" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPayrollIncome" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemOvertimeHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemOvertimeHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemDoubleTimeHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemDoubleTimeHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPieceworkEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPieceworkEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPieceOrHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPieceOrHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPiecePlusHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPiecePlusHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPieceMinWageAdj" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPieceMinWageAdj" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemShiftPremiumEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemShiftPremiumEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemBreakHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemBreakHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemBreakRrpEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemBreakRrpEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemNonproductiveEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemNonproductiveEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemOtherEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemOtherEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemOvertimePremium" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemOvertimePremium" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemDoubleTimePremium" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemDoubleTimePremium" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632100000" direction="I" itemTypeEnumId="ItemVacationHourly" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632200000" direction="O" itemTypeEnumId="ItemVacationHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632300000" direction="I" itemTypeEnumId="ItemSickHourly" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632400000" direction="O" itemTypeEnumId="ItemSickHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632350000" direction="I" itemTypeEnumId="ItemFamilyLeaveHourly" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632450000" direction="O" itemTypeEnumId="ItemFamilyLeaveHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632500000" direction="I" itemTypeEnumId="ItemPtoHourly" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632600000" direction="O" itemTypeEnumId="ItemPtoHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632700000" direction="I" itemTypeEnumId="ItemHolidayHourly" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632800000" direction="O" itemTypeEnumId="ItemHolidayHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemSalary" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632100000" direction="I" itemTypeEnumId="ItemVacationSalary" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632200000" direction="O" itemTypeEnumId="ItemVacationSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632300000" direction="I" itemTypeEnumId="ItemSickSalary" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632400000" direction="O" itemTypeEnumId="ItemSickSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632350000" direction="I" itemTypeEnumId="ItemFamilyLeaveSalary" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632450000" direction="O" itemTypeEnumId="ItemFamilyLeaveSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632500000" direction="I" itemTypeEnumId="ItemPtoSalary" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632600000" direction="O" itemTypeEnumId="ItemPtoSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632700000" direction="I" itemTypeEnumId="ItemHolidaySalary" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632800000" direction="O" itemTypeEnumId="ItemHolidaySalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631900000" direction="I" itemTypeEnumId="ItemBonusDisc" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631900000" direction="O" itemTypeEnumId="ItemBonusDisc" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemBonusNonDisc" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631900000" direction="O" itemTypeEnumId="ItemBonusNonDisc" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631600000" direction="I" itemTypeEnumId="ItemPrlCommission" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPrlCommission" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631300000" direction="I" itemTypeEnumId="ItemPrlTips" organizationPartyId="DefaultSettings"/>
-
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="I" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPrlTips" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjOverpay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPayAdjOverpay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="260000000" direction="O" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631200000" direction="O" itemTypeEnumId="ItemPayAdjPay" organizationPartyId="DefaultSettings"/>
+
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="E" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
 
     <!-- NOTE: may want to consider not mapping a default for ItemReimbursement, should generally be more specific expense type -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="789000000" direction="E" itemTypeEnumId="ItemReimbursement" organizationPartyId="DefaultSettings"/>
