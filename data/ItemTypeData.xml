@@ -177,6 +177,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Section 125 Prescription Insurance" enumId="ItemDedSec125PrescriptionInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Vision Insurance" enumId="ItemDedSec125VisionInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Advance Repayment" enumId="ItemDedAdvRepay" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Loan Repayment" enumId="ItemDedEmpeLoanRepay" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Charity Donation" enumId="ItemDedCharity" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Child Support Garnishment" enumId="ItemDedChildGarnish" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Family Leave" enumId="ItemDedFamilyLeave" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
