@@ -235,6 +235,16 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
+    <!-- Payroll Billing:
+    What level of invoice (Client or Facility) should be generated for Payroll Billing?
+    -->
+    <moqui.basic.EnumerationType description="Payroll Billing Invoice Level" enumTypeId="PayrollBillInvLvl"/>
+    <moqui.basic.Enumeration description="Client" enumId="PbilClient" enumTypeId="PayrollBillInvLvl"/>
+    <moqui.basic.Enumeration description="Facility" enumId="PbilFacility" enumTypeId="PayrollBillInvLvl"/>
+    <mantle.party.PartySettingType description="Payroll Billing - Invoice Level" partySettingTypeId="PayrollBillInvLvl"
+                                   enumTypeId="PayrollBillInvLvl" defaultValue="PbilClient">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
     <!-- Pay Stub:
     Should HOURLY Rest Breaks that are paid HOURLY rate be combined with the associated HOURLY time entry on pay stub?
     -->
