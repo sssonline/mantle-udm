@@ -237,12 +237,20 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- Payroll Billing:
     What level of invoice (Client or Facility) should be generated for Payroll Billing?
+    What level of invoice item (Collapse or Separate) should be generated for Payroll Billing time entries?
     -->
     <moqui.basic.EnumerationType description="Payroll Billing Invoice Level" enumTypeId="PayrollBillInvLvl"/>
     <moqui.basic.Enumeration description="Client" enumId="PbilClient" enumTypeId="PayrollBillInvLvl"/>
     <moqui.basic.Enumeration description="Facility" enumId="PbilFacility" enumTypeId="PayrollBillInvLvl"/>
     <mantle.party.PartySettingType description="Payroll Billing - Invoice Level" partySettingTypeId="PayrollBillInvLvl"
                                    enumTypeId="PayrollBillInvLvl" defaultValue="PbilClient">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <moqui.basic.EnumerationType description="Payroll Billing Invoice Item Time Entry Summary Level" enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl"/>
+    <moqui.basic.Enumeration description="Collapse Hours/Pieces and Rates" enumId="PbiiteslCollapseHoursPiecesAndRates" enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl"/>
+    <moqui.basic.Enumeration description="Separate Hours/Pieces by Rate" enumId="PbiiteslSeparateHoursPiecesByRate" enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl"/>
+    <mantle.party.PartySettingType description="Payroll Billing - Invoice Item Level" partySettingTypeId="PayrollBillInvItemTimeEntrySummaryLvl"
+                                   enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl" defaultValue="PbiiteslSeparateHoursPiecesByRate">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Pay Stub:
