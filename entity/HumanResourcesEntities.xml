@@ -234,6 +234,7 @@ along with this software (see the LICENSE.md file). If not, see
             <description>Multiple positions, benefit accrual, etc. may need a master employment to roll up to.</description>
         </field>
         <field name="emplPositionId" type="id" enable-audit-log="true"/>
+        <field name="emplPositionTypeEnumId" type="id"/> <!-- Ag/Non-Ag -->
         <field name="terminationReasonEnumId" type="id" enable-audit-log="update"/>
         <field name="terminationTypeEnumId" type="id" enable-audit-log="update"/>
         <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
@@ -284,6 +285,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Parent" related="mantle.humanres.employment.Employment" short-alias="parent">
             <key-map field-name="parentEmploymentId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
+        <relationship type="one" title="EmplPositionType" related="moqui.basic.Enumeration" short-alias="positionType">
+            <key-map field-name="emplPositionTypeEnumId"/></relationship>
         <relationship type="one" title="TerminationReason" related="moqui.basic.Enumeration">
             <key-map field-name="terminationReasonEnumId"/></relationship>
         <relationship type="one" title="TerminationType" related="moqui.basic.Enumeration">
@@ -1201,6 +1204,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="pseudoId" type="id" default="emplPositionId"/>
         <field name="organizationPartyId" type="id"/>
         <field name="emplPositionClassId" type="id" enable-audit-log="true"/>
+        <field name="emplPositionTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <field name="statusId" type="id"/>
         <field name="payGradeId" type="id" enable-audit-log="true"/>
@@ -1222,6 +1226,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
         <relationship type="one" title="EmplPosition" related="moqui.basic.StatusItem"/>
+        <relationship type="one" title="EmplPositionType" related="moqui.basic.Enumeration" short-alias="positionType">
+            <key-map field-name="emplPositionTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.humanres.rate.PayGrade"/>
         <relationship type="one" related="BudgetItem">
             <key-map field-name="budgetId"/><key-map field-name="budgetItemSeqId"/></relationship>
@@ -1249,6 +1255,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Foreign General (H-2B)" enumId="EtxForeignGeneral" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Foreign Specialty (H-1B)" enumId="EtxForeignSpecialty" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Totalization Agreement" enumId="EtxTotalizationAgreement" enumTypeId="EmplTaxExempt"/>
+
+            <!-- Position Type is necessary in the US to determine whether they appear on a 941 or 943 filing. -->
+            <moqui.basic.EnumerationType description="Position Type" enumTypeId="EmplPositionType"/>
+            <moqui.basic.Enumeration description="Agricultural" enumId="EptAgricultural" enumTypeId="EmplPositionType"/>
+            <moqui.basic.Enumeration description="Non-Agricultural" enumId="EptNonAgricultural" enumTypeId="EmplPositionType"/>
         </seed-data>
     </entity>
     <entity entity-name="EmplPositionBenefit" package="mantle.humanres.position" use="configuration">
