@@ -601,6 +601,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="hourRate" type="number-decimal"/>
         <field name="minHourRate" type="number-decimal"/>
         <field name="rrpHourRate" type="number-decimal"/>
+        <field name="rrpFromDate" type="date-time"/>
+        <field name="rrpThruDate" type="date-time"/>
 
         <field name="pieceCount" type="number-decimal"/>
         <field name="pieceRate" type="number-decimal"/>
