@@ -235,9 +235,22 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
+    <!-- Payroll Invoice:
+    How frequently should payroll invoice time entries be summarized?
+    -->
+    <moqui.basic.EnumerationType description="Payroll Invoice Time Entry Summary Frequency" enumTypeId="InvoiceTimeEntSumFreq"/>
+    <moqui.basic.Enumeration description="Payroll Period" enumId="ItesfPayrollPeriod" enumTypeId="InvoiceTimeEntSumFreq"/>
+    <moqui.basic.Enumeration description="Rrp Thru Date" enumId="ItesfRrpThruDate" enumTypeId="InvoiceTimeEntSumFreq"/>
+    <moqui.basic.Enumeration description="Time Entry Date" enumId="ItesfTimeEntryDate" enumTypeId="InvoiceTimeEntSumFreq"/>
+
+    <mantle.party.PartySettingType description="Payroll Invoice - Time Entry Summary Frequency" partySettingTypeId="PayrollInvTimeEntSumFreq"
+                                   enumTypeId="InvoiceTimeEntSumFreq" defaultValue="ItesfTimeEntryDate">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
     <!-- Payroll Billing:
     What level of invoice (Client or Facility) should be generated for Payroll Billing?
     What level of invoice item (Collapse or Separate) should be generated for Payroll Billing time entries?
+    How frequently should payroll billing invoice time entries be summarized?
     -->
     <moqui.basic.EnumerationType description="Payroll Billing Invoice Level" enumTypeId="PayrollBillInvLvl"/>
     <moqui.basic.Enumeration description="Client" enumId="PbilClient" enumTypeId="PayrollBillInvLvl"/>
@@ -251,6 +264,9 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Separate Hours/Pieces by Rate" enumId="PbiiteslSeparateHoursPiecesByRate" enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl"/>
     <mantle.party.PartySettingType description="Payroll Billing - Invoice Item Level" partySettingTypeId="PayrollBillInvItemTimeEntrySummaryLvl"
                                    enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl" defaultValue="PbiiteslSeparateHoursPiecesByRate">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll Billing - Time Entry Summary Frequency" partySettingTypeId="PayrollBillInvTimeEntSumFreq"
+                                   enumTypeId="InvoiceTimeEntSumFreq" defaultValue="ItesfTimeEntryDate">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Pay Stub:
