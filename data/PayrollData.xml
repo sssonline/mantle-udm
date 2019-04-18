@@ -247,10 +247,11 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="InvoiceTimeEntSumFreq" defaultValue="ItesfTimeEntryDate">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
-    <!-- Payroll Billing:
+    <!-- Payroll Billing Invoice:
     What level of invoice (Client or Facility) should be generated for Payroll Billing?
-    What level of invoice item (Collapse or Separate) should be generated for Payroll Billing time entries?
+    What level of invoice item (Combine or Separate) should be generated for Payroll Billing time entries?
     How frequently should payroll billing invoice time entries be summarized?
+    What level of invoice item (Combine or Separate) should be generated for Payroll Billing adjustments?
     -->
     <moqui.basic.EnumerationType description="Payroll Billing Invoice Level" enumTypeId="PayrollBillInvLvl"/>
     <moqui.basic.Enumeration description="Client" enumId="PbilClient" enumTypeId="PayrollBillInvLvl"/>
@@ -259,14 +260,28 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="PayrollBillInvLvl" defaultValue="PbilClient">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
-    <moqui.basic.EnumerationType description="Payroll Billing Invoice Item Time Entry Summary Level" enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl"/>
-    <moqui.basic.Enumeration description="Collapse Hours/Pieces and Rates" enumId="PbiiteslCollapseHoursPiecesAndRates" enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl"/>
-    <moqui.basic.Enumeration description="Separate Hours/Pieces by Rate" enumId="PbiiteslSeparateHoursPiecesByRate" enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl"/>
-    <mantle.party.PartySettingType description="Payroll Billing - Invoice Item Level" partySettingTypeId="PayrollBillInvItemTimeEntrySummaryLvl"
-                                   enumTypeId="PayrollBillInvItemTimeEntrySummaryLvl" defaultValue="PbiiteslSeparateHoursPiecesByRate">
+    <moqui.basic.EnumerationType description="Payroll Invoice Item Time Entry Summary Level" enumTypeId="PayrollInvItemTimeEntrySummaryLvl"/>
+    <moqui.basic.Enumeration description="Combine Hours/Pieces and Rates" enumId="PbiiteslCombineHoursPiecesAndRates" enumTypeId="PayrollInvItemTimeEntrySummaryLvl"/>
+    <moqui.basic.Enumeration description="Separate Hours/Pieces by Rate" enumId="PbiiteslSeparateHoursPiecesByRate" enumTypeId="PayrollInvItemTimeEntrySummaryLvl"/>
+    <mantle.party.PartySettingType description="Payroll Billing - Invoice Item Time Entry Level" partySettingTypeId="PayrollBillInvItemTimeEntrySummaryLvl"
+                                   enumTypeId="PayrollInvItemTimeEntrySummaryLvl" defaultValue="PbiiteslSeparateHoursPiecesByRate">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll Billing - Time Entry Summary Frequency" partySettingTypeId="PayrollBillInvTimeEntSumFreq"
                                    enumTypeId="InvoiceTimeEntSumFreq" defaultValue="ItesfTimeEntryDate">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <moqui.basic.EnumerationType description="Payroll Invoice Item Adjustment Summary Level" enumTypeId="PayrolInvItemAdjustmentSummaryLvl"/>
+    <moqui.basic.Enumeration description="Combine Similar Adjustments" enumId="PbiiaslCombineSimilarAdjustments" enumTypeId="PayrolInvItemAdjustmentSummaryLvl"/>
+    <moqui.basic.Enumeration description="Separate Similar Adjustments" enumId="PbiiaslSeparateSimilarAdjustments" enumTypeId="PayrolInvItemAdjustmentSummaryLvl"/>
+    <mantle.party.PartySettingType description="Payroll Billing - Invoice Item Adjustment Level" partySettingTypeId="PayrollBillInvItemAdjSumLvl"
+                                   enumTypeId="PayrolInvItemAdjustmentSummaryLvl" defaultValue="PbiiaslCombineSimilarAdjustments">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <!-- Payroll Other/Tax Invoices:
+    What level of invoice item (Combine or Separate) should be generated for Payroll Other/Tax adjustments?
+    -->
+    <mantle.party.PartySettingType description="Payroll Other/Tax - Invoice Item Adjustment Level" partySettingTypeId="PayrollOthTaxInvItemAdjSumLvl"
+                                   enumTypeId="PayrolInvItemAdjustmentSummaryLvl" defaultValue="PbiiaslCombineSimilarAdjustments">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Pay Stub:
