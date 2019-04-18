@@ -1252,10 +1252,10 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Employment Tax Exempt Category -->
             <moqui.basic.EnumerationType description="Employment Tax Exempt Category" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Resident Regular" enumId="EtxResidentRegular" enumTypeId="EmplTaxExempt"/>
-            <moqui.basic.Enumeration description="Contract (1099 only)" enumId="EtxContract" enumTypeId="EmplTaxExempt"/>
-            <moqui.basic.Enumeration description="Foreign Agriculture (H-2A)" enumId="EtxForeignAg" enumTypeId="EmplTaxExempt"/>
-            <moqui.basic.Enumeration description="Foreign General (H-2B)" enumId="EtxForeignGeneral" enumTypeId="EmplTaxExempt"/>
-            <moqui.basic.Enumeration description="Foreign Specialty (H-1B)" enumId="EtxForeignSpecialty" enumTypeId="EmplTaxExempt"/>
+            <moqui.basic.Enumeration description="Contract" enumId="EtxContract" enumTypeId="EmplTaxExempt"/>
+            <moqui.basic.Enumeration description="Foreign Agriculture" enumId="EtxForeignAg" enumTypeId="EmplTaxExempt"/>
+            <moqui.basic.Enumeration description="Foreign General" enumId="EtxForeignGeneral" enumTypeId="EmplTaxExempt"/>
+            <moqui.basic.Enumeration description="Foreign Specialty" enumId="EtxForeignSpecialty" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Totalization Agreement" enumId="EtxTotalizationAgreement" enumTypeId="EmplTaxExempt"/>
 
             <!-- Position Type is necessary in the US to determine whether they appear on a 941 or 943 filing. -->
