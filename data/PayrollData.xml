@@ -252,6 +252,7 @@ along with this software (see the LICENSE.md file). If not, see
     What level of invoice item (Combine or Separate) should be generated for Payroll Billing time entries?
     How frequently should payroll billing invoice time entries be summarized?
     What level of invoice item (Combine or Separate) should be generated for Payroll Billing adjustments?
+    Should invoice items be grouped by pay distribution group?
     -->
     <moqui.basic.EnumerationType description="Payroll Billing Invoice Level" enumTypeId="PayrollBillInvLvl"/>
     <moqui.basic.Enumeration description="Client" enumId="PbilClient" enumTypeId="PayrollBillInvLvl"/>
@@ -275,6 +276,10 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Separate Similar Adjustments" enumId="PbiiaslSeparateSimilarAdjustments" enumTypeId="PayrolInvItemAdjustmentSummaryLvl"/>
     <mantle.party.PartySettingType description="Payroll Billing - Invoice Item Adjustment Level" partySettingTypeId="PayrollBillInvItemAdjSumLvl"
                                    enumTypeId="PayrolInvItemAdjustmentSummaryLvl" defaultValue="PbiiaslCombineSimilarAdjustments">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <mantle.party.PartySettingType description="Payroll Billing - Group by Payroll Distribution Group" partySettingTypeId="PayrollBillInvGrpByPayDist"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Payroll Other/Tax Invoices:
