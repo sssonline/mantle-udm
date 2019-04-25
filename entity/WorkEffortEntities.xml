@@ -673,10 +673,10 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.work.time -->
     <!-- ========================================================= -->
-
     <entity entity-name="TimeEntry" package="mantle.work.time" short-alias="timeEntries" cache="never">
         <field name="timeEntryId" type="id" is-pk="true"/>
         <field name="parentEntryId" type="id"/>
+        <field name="entityImportEventId" type="id"/>
         <field name="timesheetId" type="id"/>
         <field name="partyId" type="id"><description>The party performing work (worker, may be the vendor or work for the vendor)</description></field>
         <field name="teamPartyId" type="id"/>
@@ -715,6 +715,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.work.time.Timesheet" short-alias="timesheet"/>
         <relationship type="one" title="Parent" related="mantle.work.time.TimeEntry" short-alias="parentEntry">
             <key-map field-name="parentEntryId"/></relationship>
+        <relationship type="one" title="EntityImportEvent" related="moqui.entity.import.EntityImportEvent" short-alias="entityImportEvent">
+            <key-map field-name="entityImportEventId"/></relationship>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one-nofk" related="mantle.party.Person" short-alias="person"/>
         <relationship type="one" title="Team" related="mantle.party.Party" short-alias="teamParty">
@@ -808,6 +810,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Approved" sequenceNum="3" statusId="TmshApproved" statusTypeId="Timesheet"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="TmshInProcess" toStatusId="TmshCompleted" transitionName="Confirm complete"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="TmshCompleted" toStatusId="TmshApproved" transitionName="Approve"/>
+            <moqui.basic.Enumeration enumId="eieTimeEntry" description="TimeEntry" enumTypeId="EntityImportEvent"/>
         </seed-data>
     </entity>
     <entity entity-name="TimesheetParty" package="mantle.work.time" cache="never">
