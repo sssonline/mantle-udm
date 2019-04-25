@@ -785,6 +785,9 @@ along with this software (see the LICENSE.md file). If not, see
             <index-field name="partyId"/>
             <index-field name="fromDate"/>
         </index>
+        <seed-data>
+            <moqui.basic.Enumeration enumId="eieTimeEntry" description="TimeEntry" enumTypeId="EntityImportEvent"/>
+        </seed-data>
     </entity>
     <entity entity-name="Timesheet" package="mantle.work.time" cache="never">
         <field name="timesheetId" type="id" is-pk="true"/>
@@ -810,7 +813,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Approved" sequenceNum="3" statusId="TmshApproved" statusTypeId="Timesheet"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="TmshInProcess" toStatusId="TmshCompleted" transitionName="Confirm complete"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="TmshCompleted" toStatusId="TmshApproved" transitionName="Approve"/>
-            <moqui.basic.Enumeration enumId="eieTimeEntry" description="TimeEntry" enumTypeId="EntityImportEvent"/>
         </seed-data>
     </entity>
     <entity entity-name="TimesheetParty" package="mantle.work.time" cache="never">
