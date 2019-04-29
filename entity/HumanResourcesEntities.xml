@@ -511,16 +511,18 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceId" type="id"/>
         <field name="internalPayroll" type="text-indicator"><description>If Y is included in year end tax reporting,
             otherwise considered external pay used only for YTD calculations in payroll adjustments</description></field>
-        <field name="payAmount" type="number-decimal"/>
-        <field name="taxablePayAmount" type="number-decimal"/>
-        <field name="socialTaxablePayAmount" type="number-decimal"/>
-        <field name="medicalTaxablePayAmount" type="number-decimal"/>
-        <field name="netPayAmount" type="number-decimal"/>
-        <field name="disposablePayAmount" type="number-decimal"/>
-        <field name="ytdIncome" type="number-decimal"/>
-        <field name="taxableYtdIncome" type="number-decimal"/>
-        <field name="socialTaxableYtdIncome" type="number-decimal"/>
-        <field name="medicalTaxableYtdIncome" type="number-decimal"/>
+        <field name="payAmount" type="number-decimal"><description>Gross Wages</description></field>
+        <field name="taxablePayAmount" type="number-decimal"><description>Taxable Wages (typically federal)</description></field>
+        <field name="socialTaxablePayAmount" type="number-decimal"><description>Social Taxable Wages (typically federal)</description></field>
+        <field name="medicalTaxablePayAmount" type="number-decimal"><description>Medical Taxable Wages (typically federal)</description></field>
+        <field name="netPayAmount" type="number-decimal"><description>Net Pay</description></field>
+        <field name="disposablePayAmount" type="number-decimal"><description>Disposable Pay</description></field>
+        <field name="ytdIncome" type="number-decimal"><description>YTD gross income through prior pay history. Add payAmount for true YTD amount.</description></field>
+        <field name="taxableYtdIncome" type="number-decimal"><description>YTD taxable income through prior pay history. Add taxablePayAmount for true YTD amount.</description></field>
+        <field name="socialTaxableYtdIncome" type="number-decimal"><description>YTD social taxable income through prior pay history. Add socialTaxablePayAmount for true YTD amount.</description></field>
+        <field name="medicalTaxableYtdIncome" type="number-decimal"><description>YTD medical taxable income through prior pay history. Add medicalTaxablePayAmount for true YTD amount.</description></field>
+        <field name="totalHours" type="number-decimal"><description>Hours total (worked, break, vacation, sick, pto, etc.)</description></field>
+        <field name="ytdTotalHours" type="number-decimal"><description>YTD total hours through prior pay history.  Add hours for true YTD hours.</description></field>
         <field name="currencyUomId" type="id"/>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
