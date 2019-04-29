@@ -517,6 +517,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="medicalTaxablePayAmount" type="number-decimal"/>
         <field name="netPayAmount" type="number-decimal"/>
         <field name="disposablePayAmount" type="number-decimal"/>
+        <field name="ytdIncome" type="number-decimal"/>
         <field name="taxableYtdIncome" type="number-decimal"/>
         <field name="socialTaxableYtdIncome" type="number-decimal"/>
         <field name="medicalTaxableYtdIncome" type="number-decimal"/>
