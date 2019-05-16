@@ -1309,8 +1309,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Management" enumId="WktpManagement" enumTypeId="WorkType"/>
             <moqui.basic.Enumeration description="General Labor" enumId="WktpGeneralLabor" enumTypeId="WorkType"/>
             <moqui.basic.Enumeration description="General Office" enumId="WktpGeneralOffice" enumTypeId="WorkType"/>
-            <moqui.basic.Enumeration description="Paid Break" enumId="WktpPaidBreak" enumTypeId="WorkType"/>
-            <moqui.basic.Enumeration description="Paid Non-productive Time" enumId="WktpPaidNpt" enumTypeId="WorkType"/>
 
             <!-- Empl Position Class -->
             <mantle.humanres.position.EmplPositionClass title="Project Manager" emplPositionClassId="ProjectManager"/>
