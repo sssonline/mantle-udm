@@ -560,7 +560,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="basisAmount" type="number-decimal"><description>What the amount and/or quantity was
             calculated from. Depending on the adjustment, this can be dollars, hours, etc.</description></field>
         <field name="basisAmountApplied" type="number-decimal">
-            <description>For adjustments with YTD min/max, the amount from this payroll that the adjustment applied to.</description></field>
+            <description>The basis amount that was actually used for the calculations (i.e. if a YTD min/max were in place, the full basis amount may not apply).</description></field>
 
         <field name="isEmployerPaid" type="text-indicator"/>
 
