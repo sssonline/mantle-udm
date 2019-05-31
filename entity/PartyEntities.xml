@@ -525,6 +525,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Manager" roleTypeId="Manager"/>
             <mantle.party.RoleType description="Operator" roleTypeId="Operator"/>
             <mantle.party.RoleType description="Order Clerk" roleTypeId="OrderClerk"/>
+            <mantle.party.RoleType description="Overseer" roleTypeId="Overseer"/>
             <mantle.party.RoleType description="Packer" roleTypeId="Packer"/>
             <mantle.party.RoleType description="Payroll" roleTypeId="Payroll"/>
             <mantle.party.RoleType description="Picker" roleTypeId="Picker"/>
@@ -539,6 +540,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Spouse" roleTypeId="Spouse"/>
             <mantle.party.RoleType description="Stocker" roleTypeId="Stocker"/>
             <mantle.party.RoleType description="Supplier Agent" roleTypeId="SupplierAgent"/>
+            <mantle.party.RoleType description="Team Lead" roleTypeId="TeamLead"/>
             <mantle.party.RoleType description="Watcher" roleTypeId="Watcher"/>
             <mantle.party.RoleType description="Worker" roleTypeId="Worker"/>
 
