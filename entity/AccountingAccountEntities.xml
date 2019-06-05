@@ -426,7 +426,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Credit Memo" enumId="InvoiceCreditMemo" enumTypeId="InvoiceType"/>
             <moqui.basic.Enumeration description="Template" enumId="InvoiceTemplate" enumTypeId="InvoiceType"/>
 
-            <!-- Invoice Status -->
+            <!-- ========== Invoice Status ========== -->
+
             <moqui.basic.StatusType description="Invoice Status" statusTypeId="Invoice"/>
             <!-- Outgoing Invoices (Receivable) -->
             <moqui.basic.StatusItem description="In-Process" sequenceNum="1" statusId="InvoiceInProcess" statusTypeId="Invoice"/>
@@ -485,27 +486,94 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoiceApproved" toStatusId="InvoiceCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="InvoicePmtSent" toStatusId="InvoiceCancelled" transitionName="Cancel"/>
 
+            <!-- ========== Receivable Invoice StatusFlow ========== -->
+            <!-- NOTE 2019-03-08: on existing databases (deployed with code from before 2019-03-08) load the data from here down to support new status flows -->
+
             <moqui.basic.StatusFlow statusFlowId="InvoiceReceivable" statusTypeId="Invoice" description="Invoice Receivable"/>
+            <!-- available statuses in flow -->
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceInProcess"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceSent"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceAcked"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoicePmtRecvd"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceWriteOff"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoiceReceivable" statusId="InvoiceCancelled"/>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceInProcess" toStatusId="InvoiceFinalized" transitionSequence="1" transitionName="Finalize"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceInProcess" toStatusId="InvoiceCancelled" transitionSequence="2" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized" toStatusId="InvoiceSent" transitionSequence="1" transitionName="Sent"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized" toStatusId="InvoicePmtRecvd" transitionSequence="2" transitionName="Payment Received"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized" toStatusId="InvoiceInProcess" transitionSequence="3" transitionName="Resume Changes"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized" toStatusId="InvoiceWriteOff" transitionSequence="4" transitionName="Write Off"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceFinalized" toStatusId="InvoiceCancelled" transitionSequence="5" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceSent" toStatusId="InvoicePmtRecvd" transitionSequence="1" transitionName="Payment Received"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceSent" toStatusId="InvoiceAcked" transitionSequence="2" transitionName="Acknowledged"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceSent" toStatusId="InvoiceInProcess" transitionSequence="3" transitionName="Resume Changes"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceSent" toStatusId="InvoiceWriteOff" transitionSequence="4" transitionName="Write Off"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceSent" toStatusId="InvoiceCancelled" transitionSequence="5" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceAcked" toStatusId="InvoicePmtRecvd" transitionSequence="1" transitionName="Payment Received"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceAcked" toStatusId="InvoiceCancelled" transitionSequence="2" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceWriteOff" toStatusId="InvoicePmtRecvd" transitionSequence="1" transitionName="Payment Received"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoiceWriteOff" toStatusId="InvoiceCancelled" transitionSequence="2" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoicePmtRecvd" toStatusId="InvoiceFinalized" transitionSequence="1" transitionName="Unpay"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoicePmtRecvd" toStatusId="InvoiceCancelled" transitionSequence="2" transitionName="Cancel"/>
+
+            <!-- Cross Org - Receivable Side, for invoices where both from and to parties are in role OrgInternal -->
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoiceReceivable" statusId="InvoicePmtSent" toStatusId="InvoicePmtRecvd" transitionSequence="1" transitionName="Payment Received"/>
+
+            <!-- ========== Payable Invoice StatusFlow ========== -->
+
             <moqui.basic.StatusFlow statusFlowId="InvoicePayable" statusTypeId="Invoice" description="Invoice Payable"/>
+            <!-- available statuses in flow -->
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceIncoming"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceReceived"/>
+            <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceAcked"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceApproved"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoicePmtSent"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceBilledThrough"/>
             <moqui.basic.StatusFlowItem statusFlowId="InvoicePayable" statusId="InvoiceCancelled"/>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceIncoming" toStatusId="InvoiceReceived" transitionSequence="1" transitionName="Receive"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceIncoming" toStatusId="InvoiceApproved" transitionSequence="2" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceIncoming" toStatusId="InvoiceCancelled" transitionSequence="3" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceReceived" toStatusId="InvoiceAcked" transitionSequence="1" transitionName="Acknowledged"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceReceived" toStatusId="InvoiceApproved" transitionSequence="2" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceReceived" toStatusId="InvoiceCancelled" transitionSequence="3" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceAcked" toStatusId="InvoiceApproved" transitionSequence="1" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceAcked" toStatusId="InvoiceCancelled" transitionSequence="2" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceApproved" toStatusId="InvoicePmtSent" transitionSequence="1" transitionName="Payment Sent"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceApproved" toStatusId="InvoiceReceived" transitionSequence="2" transitionName="Resume Changes"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceApproved" toStatusId="InvoiceCancelled" transitionSequence="3" transitionName="Cancel"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoicePmtSent" toStatusId="InvoiceBilledThrough" transitionSequence="1" transitionName="Billed Through"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoicePmtSent" toStatusId="InvoiceApproved" transitionSequence="2" transitionName="Unpay"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoicePmtSent" toStatusId="InvoiceCancelled" transitionSequence="3" transitionName="Cancel"/>
+
+            <!-- Cross Org - Payable Side, for invoices where both from and to parties are in role OrgInternal -->
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceFinalized" toStatusId="InvoiceReceived" transitionSequence="1" transitionName="Receive"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceFinalized" toStatusId="InvoiceApproved" transitionSequence="2" transitionName="Approve"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceSent" toStatusId="InvoiceReceived" transitionSequence="1" transitionName="Receive"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="InvoicePayable" statusId="InvoiceSent" toStatusId="InvoiceApproved" transitionSequence="2" transitionName="Approve"/>
+
+            <!-- ========== Special (hidden) Invoice StatusFlow ========== -->
             <moqui.basic.StatusFlow statusFlowId="InvoiceSpecial" statusTypeId="Invoice" description="Invoice Special"/>
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceInProcess" transitionName="Uncancel Receivable"/>
             <moqui.basic.StatusFlowTransition statusFlowId="InvoiceSpecial" statusId="InvoiceCancelled" toStatusId="InvoiceReceived" transitionName="Uncancel Payable"/>
 
             <!--
+            - TODO: InvoicePmtRecvd => InvoiceFinalized (Unpay) crosses Payable invoice statuses where from and to parties are in role OrgInternal
+              - SECA rule (AccountingLedger.secas.xml) handles specific status changes
+              - current code won't revert#InvoicePost for this status change, but it should revert ONLY the Payable side posting
+                (to party OrgInternal) and not Receivable (from party OrgInternal) - weird case with both in same system...
+
             - X GL Posting on any transition to Finalized or Approved statuses.
             - X Reverse GL Posting on Finalized/Approved/Sent/Payment* to Cancelled
             - X Reverse GL Posting on Finalized/Sent to In Process
@@ -608,6 +676,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="adjCalcServiceId" type="id"/>
         <field name="finAccountId" type="id"/>
         <field name="finAccountTransId" type="id"/>
+        <field name="billThruVendorName" type="text-medium">
+            <description>For tracking purposes when there is no associated bill through invoice with InvoiceItemAssoc records</description></field>
+        <field name="billThruVendorRef" type="text-short"/>
 
         <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one-nofk" title="Parent" related="mantle.account.invoice.InvoiceItem" short-alias="parent">
@@ -939,13 +1010,19 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="debitAmountTotal" type="currency-amount"/>
         <field name="creditAmountTotal" type="currency-amount"/>
         <field name="fileText" type="text-very-long"/>
+        <field name="isCancelled" type="text-indicator"/>
 
-        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
-        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration">
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
+        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration" short-alias="fileTypeEnum">
             <key-map field-name="fileTypeEnumId"/></relationship>
+        <relationship type="one-nofk" related="mantle.account.method.PaymentMethodFileType" short-alias="paymentMethodFileType">
+            <key-map field-name="paymentMethodId"/><key-map field-name="fileTypeEnumId"/></relationship>
         <seed-data>
             <moqui.basic.EnumerationType description="Payment Method File Type" enumTypeId="PaymentMethodFileType"/>
-            <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType"/>
+            <!-- NOTE: optionIndicator=Y means on cancel reset Payment.statusId for payments in file -->
+            <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType" optionIndicator="Y"/>
+            <moqui.basic.Enumeration description="OFX/QFX" enumId="PmftOfx" enumTypeId="PaymentMethodFileType"/>
+            <moqui.basic.Enumeration description="BAI 2" enumId="PmftBai2" enumTypeId="PaymentMethodFileType"/>
 
             <moqui.basic.Enumeration description="Positive Pay File" enumId="PmftPositivePay" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Bank of America AR PNV" enumId="PmftBankOfAmericaAr" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
@@ -953,8 +1030,25 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="SunTrust CPR" enumId="PmftSunTrustCpr" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Wachovia AR" enumId="PmftWachoviaAr" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Wells Fargo ARP" enumId="PmftWellsFargoArp" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
+            <moqui.basic.Enumeration description="Zions Bank CSV" enumId="PmftZionsBankCsv" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
         </seed-data>
     </entity>
+    <extend-entity entity-name="SystemMessage" package="moqui.service.message">
+        <field name="paymentMethodFileId" type="id"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethodFile"/>
+    </extend-entity>
+    <entity entity-name="PaymentMethodFileType" package="mantle.account.method">
+        <field name="paymentMethodId" type="id" is-pk="true"/>
+        <field name="fileTypeEnumId" type="id" is-pk="true"/>
+        <field name="systemMessageTypeId" type="id"/>
+        <field name="systemMessageRemoteId" type="id"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
+        <relationship type="one" title="PaymentMethodFileType" related="moqui.basic.Enumeration" short-alias="fileTypeEnum">
+            <key-map field-name="fileTypeEnumId"/></relationship>
+        <relationship type="one" related="moqui.service.message.SystemMessageType" short-alias="type"/>
+        <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="remote"/>
+    </entity>
+
     <entity entity-name="PaymentMethodTrans" package="mantle.account.method" cache="never">
         <description>Transactions of the PaymentMethod, such as imported from an OFX file (see www.ofx.net); can be
             imported from any source and reconciled in a more consistent way from here</description>
@@ -971,9 +1065,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentId" type="id"/>
         <field name="acctgTransId" type="id"/>
         <field name="acctgTransEntrySeqId" type="id"/>
-        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod"/>
         <!-- Type one-nofk for this because we want to allow other values -->
-        <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration">
+        <relationship type="one-nofk" title="PaymentMethodTransType" related="moqui.basic.Enumeration" short-alias="transTypeEnum">
             <key-map field-name="transType"/></relationship>
         <relationship type="one" related="mantle.account.payment.Payment"/>
         <relationship type="one" related="mantle.ledger.transaction.AcctgTransEntry">
@@ -999,6 +1093,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Merchant initiated debit" enumId="PMTT_DIRECTDEBIT" enumCode="DIRECTDEBIT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Repeating payment/standing order" enumId="PMTT_REPEATPMT" enumCode="REPEATPMT" enumTypeId="PaymentMethodTransType"/>
             <moqui.basic.Enumeration description="Other" enumId="PMTT_OTHER" enumCode="OTHER" enumTypeId="PaymentMethodTransType"/>
+            <moqui.basic.Enumeration description="ZBA Credit Transfer" enumId="PMTT_ZBA_CRTR" enumCode="" enumTypeId="PaymentMethodTransType"/>
         </seed-data>
     </entity>
 
