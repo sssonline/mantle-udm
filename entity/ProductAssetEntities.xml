@@ -270,8 +270,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Straight Line" enumId="DtpStraightLine" enumTypeId="DepreciationType"/>
             <moqui.basic.Enumeration description="Double Declining Balance" enumId="DtpDoubleDeclining" enumTypeId="DepreciationType"/>
             <moqui.basic.Enumeration description="Sum of Years Digits" enumId="DtpSumYearsDigits" enumTypeId="DepreciationType"/>
-            <moqui.basic.Enumeration description="ACRS" enumId="DtpAcrs" enumTypeId="DepreciationType"/>
-            <moqui.basic.Enumeration description="MACRS" enumId="DtpMacrs" enumTypeId="DepreciationType"/>
+            <!-- <moqui.basic.Enumeration description="ACRS" enumId="DtpAcrs" enumTypeId="DepreciationType"/> -->
+            <!-- <moqui.basic.Enumeration description="MACRS" enumId="DtpMacrs" enumTypeId="DepreciationType"/> -->
             <!-- not yet supported: <moqui.basic.Enumeration description="Units of Production" enumId="DtpUnitsProduction" enumTypeId="DepreciationType"/> -->
 
             <!-- Tax Depreciation Type -->
