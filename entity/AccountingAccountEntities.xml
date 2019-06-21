@@ -1586,6 +1586,7 @@ along with this software (see the LICENSE.md file). If not, see
         </description>
         <field name="paymentGroupId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" not-null="true"/>
+        <field name="paymentMethodId" type="id" not-null="true"/>
         <field name="timePeriodId" type="id"/>
         <field name="payrollBatchId" type="id"/>
 
