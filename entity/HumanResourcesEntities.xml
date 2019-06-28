@@ -1107,6 +1107,7 @@ along with this software (see the LICENSE.md file). If not, see
             <index-field name="description"/>
         </index>
     </entity>
+
     <entity entity-name="PayrollBatchDetail" package="mantle.humanres.employment">
         <field name="payrollBatchDetailId" type="id" is-pk="true"/>
         <field name="payrollBatchId" type="id" not-null="true"/>
