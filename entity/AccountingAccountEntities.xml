@@ -1594,7 +1594,9 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PaymentBatchDetail" package="mantle.account.payment">
         <field name="paymentBatchDetailId" type="id" is-pk="true"/>
         <field name="paymentBatchId" type="id" not-null="true"/>
-        <relationship type="one" related="mantle.humanres.employment.PaymentBatch" short-alias="paymentBatch"/>
+        <field name="paymentId" type="id" not-null="true"/>
+        <relationship type="one" related="mantle.account.payment.PaymentBatch" short-alias="paymentBatch"/>
+        <relationship type="one" related="mantle.account.payment.Payment" short-alias="payment"/>
     </entity>
 
     <entity entity-name="PaymentGroup" package="mantle.account.payment" short-alias="paymentGroup" cache="never" optimistic-lock="true">
