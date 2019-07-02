@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -626,6 +626,13 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.ledger.transaction -->
     <!-- ========================================================= -->
+    <entity entity-name="AcctgBatch" package="mantle.ledger.transaction" short-alias="acctgBatch" cache="never">
+        <field name="acctgBatchId" type="id" is-pk="true"/>
+        <field name="description" type="text-medium" not-null="true"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
+        <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
+    </entity>
 
     <entity entity-name="AcctgTrans" package="mantle.ledger.transaction" short-alias="acctgTrans" use="transactional" cache="never">
         <field name="acctgTransId" type="id" is-pk="true"/>
@@ -703,7 +710,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="acctgTransId"/></relationship>
 
         <index name="ACCTG_TRANS_TX_DATE"><index-field name="transactionDate"/></index>
-        
+
         <seed-data>
             <!-- Accounting Transaction Type -->
             <moqui.basic.EnumerationType description="Accounting Transaction Type" enumTypeId="AcctgTransType"/>
