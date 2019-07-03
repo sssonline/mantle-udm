@@ -1610,6 +1610,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentMethodId" type="id" not-null="true"/>
         <field name="timePeriodId" type="id"/>
         <field name="payrollBatchId" type="id"/>
+        <field name="paymentBatchId" type="id"/>
 
         <field name="creationDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="originalPaymentCount" type="number-decimal" not-null="true"/>
@@ -1623,6 +1624,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.account.method.PaymentMethod"/>
         <relationship type="one" title="TimePeriod" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
+        <relationship type="one" related="mantle.account.payment.PaymentBatch" short-alias="paymentBatch"/>
     </entity>
 
     <entity entity-name="PaymentFraudEvidence" package="mantle.account.payment" cache="never">
