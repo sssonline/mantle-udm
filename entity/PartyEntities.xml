@@ -416,6 +416,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="relationshipName" type="text-medium">
             <description>Official name of relationship, such as title in an organization.</description>
         </field>
+        <field name="relationshipPercentage" type="number-decimal">
+            <description>Amount or degree to which the party relationship pertains.  E.g. percentage of a partnership.  0 is 0%; 1 is 100%.</description>
+        </field>
         <relationship type="one" title="PartyRelationshipType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="relationshipTypeEnumId"/></relationship>
         <relationship type="one" title="From" related="mantle.party.Party" short-alias="fromParty">
