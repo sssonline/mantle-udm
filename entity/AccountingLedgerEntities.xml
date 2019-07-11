@@ -630,7 +630,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgBatchId" type="id" is-pk="true"/>
         <field name="description" type="text-medium" not-null="true"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
     <entity entity-name="AcctgBatchDetail" package="mantle.ledger.transaction" short-alias="acctgBatch" cache="never">
