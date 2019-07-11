@@ -617,6 +617,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Team" roleTypeId="OrgTeam"/>
             <mantle.party.RoleType description="Unit" roleTypeId="OrgUnit"/>
             <mantle.party.RoleType description="Parent" roleTypeId="OrgParent"/>
+            <mantle.party.RoleType description="Partnership" roleTypeId="OrgPartnership"/>
             <mantle.party.RoleType description="Regulatory Agency" roleTypeId="OrgRegulatoryAgency"/>
             <mantle.party.RoleType description="Subsidiary" roleTypeId="OrgSubsidiary"/>
             <mantle.party.RoleType description="Tax Authority" roleTypeId="OrgTaxAuthority"/>
@@ -635,6 +636,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgTeam"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgUnit"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgParent"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgPartnership"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgRegulatoryAgency"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgSubsidiary"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpOrganization" roleTypeId="OrgTaxAuthority"/>
