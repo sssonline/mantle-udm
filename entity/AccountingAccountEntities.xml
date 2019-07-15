@@ -353,7 +353,7 @@ along with this software (see the LICENSE.md file). If not, see
             using the fromPartyId and/or toPartyId (depending on which is an internal org).</description></field>
 
         <field name="productStoreId" type="id"><description>For sales invoices processed through a ProductStore, copied from order if applicable</description></field>
-        <field name="acctgBatchId" type="id"><description>For invoices, points to the Accounting Batch</description></field>
+        <field name="invoiceBatchId" type="id"><description>For invoices, points to the Invoice Batch</description></field>
         <field name="paymentBatchId" type="id"><description>For Non-Payroll invoices, points to Payment Batch</description></field>
 
         <field name="partyRelationshipId" type="id"><description>For Payroll invoices, points to Employment record</description></field>
@@ -399,7 +399,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="overrideOrgPartyId"/></relationship>
 
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
-        <relationship type="one" related="mantle.ledger.transaction.AcctgBatch" short-alias="acctgBatch"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceBatch" short-alias="invoiceBatch"/>
         <!-- TODO: Convert PayrollBatch into Payment Batch, it is cleaner than having a separate payroll specific batch -->
         <relationship type="one" related="mantle.account.payment.PaymentBatch" short-alias="paymentBatch"/>
 
@@ -613,6 +613,21 @@ along with this software (see the LICENSE.md file). If not, see
             <detail relationship="toPaymentApplications"/>
         </master>
     </entity>
+
+    <entity entity-name="InvoiceBatch" package="mantle.account.invoice" short-alias="invoiceBatch" cache="never">
+        <field name="invoiceBatchId" type="id" is-pk="true"/>
+        <field name="description" type="text-medium" not-null="true"/>
+        <field name="userId" type="id" default="ec.user.userId"/>
+        <relationship type="one" related="moqui.security.UserAccount"/>
+    </entity>
+    <entity entity-name="InvoiceBatchDetail" package="mantle.account.invoice" short-alias="invoiceBatch" cache="never">
+        <field name="invoiceBatchDetailId" type="id" is-pk="true"/>
+        <field name="invoiceBatchId" type="id" not-null="true"/>
+        <field name="invoiceId" type="id" not-null="true"/>
+        <relationship type="one" related="mantle.account.invoice.InvoiceBatch" short-alias="invoiceBatch"/>
+        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
+    </entity>
+
     <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="invoiceId" type="id"/>
         <relationship type="one" related="mantle.account.invoice.Invoice"/>

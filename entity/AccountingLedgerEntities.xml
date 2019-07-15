@@ -626,20 +626,6 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.ledger.transaction -->
     <!-- ========================================================= -->
-    <entity entity-name="AcctgBatch" package="mantle.ledger.transaction" short-alias="acctgBatch" cache="never">
-        <field name="acctgBatchId" type="id" is-pk="true"/>
-        <field name="description" type="text-medium" not-null="true"/>
-        <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related="moqui.security.UserAccount"/>
-    </entity>
-    <entity entity-name="AcctgBatchDetail" package="mantle.ledger.transaction" short-alias="acctgBatch" cache="never">
-        <field name="acctgBatchDetailId" type="id" is-pk="true"/>
-        <field name="acctgBatchId" type="id" not-null="true"/>
-        <field name="acctgTransId" type="id" not-null="true"/>
-        <relationship type="one" related="mantle.ledger.transaction.AcctgBatch" short-alias="acctgBatch"/>
-        <relationship type="one" related="mantle.ledger.transaction.AcctgTrans" short-alias="acctgTrans"/>
-    </entity>
-
     <entity entity-name="AcctgTrans" package="mantle.ledger.transaction" short-alias="acctgTrans" use="transactional" cache="never">
         <field name="acctgTransId" type="id" is-pk="true"/>
         <field name="acctgTransTypeEnumId" type="id"/>
