@@ -608,6 +608,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Corporation" roleTypeId="OrgCorporation"/>
             <mantle.party.RoleType description="Department" roleTypeId="OrgDepartment"/>
             <mantle.party.RoleType description="Division" roleTypeId="OrgDivision"/>
+            <mantle.party.RoleType description="Division Manager" roleTypeId="OrgDivisionManager"/>
             <mantle.party.RoleType description="Employer" roleTypeId="OrgEmployer"/>
             <mantle.party.RoleType description="Family" roleTypeId="OrgFamily"/>
             <mantle.party.RoleType description="Government" roleTypeId="OrgGovernment"/>
