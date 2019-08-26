@@ -441,6 +441,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Child" enumId="PrtChild" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Contact" enumId="PrtContact" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Customer" enumId="PrtCustomer" enumTypeId="PartyRelationshipType"/>
+            <moqui.basic.Enumeration description="Default Organization" enumId="PrtDefaultOrg" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Employee" enumId="PrtEmployee" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Friend" enumId="PrtFriend" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Manager" enumId="PrtManager" enumTypeId="PartyRelationshipType"/>
