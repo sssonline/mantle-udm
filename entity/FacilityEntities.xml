@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -295,6 +295,19 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Shipment Documents" enumId="PtpShipmentDocuments" enumTypeId="PrinterPurpose"/>
         </seed-data>
     </entity>
+
+    <entity entity-name="FacilityWorkType" package="mantle.facility" use="configuration">
+        <description>
+            For a given facility, which work types are allowed.
+            If a facility's presence is not detected presume all work types are allowed.
+        </description>
+        <field name="facilityId" type="id" is-pk="true"/>
+        <field name="workTypeEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
+        <relationship type="one" title="WorkType" related="moqui.basic.Enumeration" short-alias="workType">
+            <key-map field-name="workTypeEnumId"/></relationship>
+    </entity>
+
     <entity entity-name="ProductFacility" package="mantle.facility" cache="never">
         <field name="productId" type="id" is-pk="true"/>
         <field name="facilityId" type="id" is-pk="true"/>
