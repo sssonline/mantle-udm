@@ -182,7 +182,6 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Loan Repayment" enumId="ItemDedEmpeLoanRepay" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Charity Donation" enumId="ItemDedCharity" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Child Support Garnishment" enumId="ItemDedChildGarnish" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Family Leave" enumId="ItemDedFamilyLeave" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Dental Insurance" enumId="ItemDedDentalInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Dependent Care" enumId="ItemDedDependentCareEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Health Insurance" enumId="ItemDedHealthInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
@@ -212,6 +211,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Tax - State Pension Employee" enumId="ItemTaxStatePensionEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Unemployment Insurance Employee" enumId="ItemTaxStateUnInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Workers&apos; Comp Insurance Employee" enumId="ItemTaxStateWrkCmpInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Family Leave" enumId="ItemTaxStateFamilyLeaveEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Disability Insurance Employee" enumId="ItemTaxStateDisInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Miscellaneous Employee" enumId="ItemTaxStateMiscEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - County Income Withholding" enumId="ItemTaxCountyWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
@@ -231,7 +231,6 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="401(k) Employer" enumId="ItemPrlExp401kEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Roth IRA Employer" enumId="ItemPrlExpRothIraEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Simple IRA Employer" enumId="ItemPrlExpIraSimpleEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Family Leave" enumId="ItemPrlExpFamilyLeaveEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Federal Unemployment Insurance Employer" enumId="ItemPrlExpTaxFutaEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Social Security Employer" enumId="ItemPrlExpTaxSocialSecEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Medicare Employer" enumId="ItemPrlExpTaxMedEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
@@ -239,6 +238,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="State Pension Employer" enumId="ItemPrlExpTaxStatePensionEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="State Unemployment Insurance Employer" enumId="ItemPrlExpTaxStateUnInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="State Workers&apos; Comp Insurance Employer" enumId="ItemPrlExpTaxStateWrkCmpInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="State Family Leave" enumId="ItemPrlExpTaxStateFamilyLeaveEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="State Disability Insurance Employer" enumId="ItemPrlExpTaxStateDisInsEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="State Miscellaneous Employer" enumId="ItemPrlExpTaxStateMiscEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Occupational Privilege Employer" enumId="ItemPrlExpTaxOccPrivEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
