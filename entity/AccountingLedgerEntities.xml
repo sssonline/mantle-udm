@@ -631,9 +631,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acctgTransTypeEnumId" type="id"/>
         <field name="organizationPartyId" type="id"/>
         <field name="description" type="text-medium"/>
-        <field name="transactionDate" type="date-time" enable-audit-log="update"/>
+        <field name="transactionDate" type="date-time" enable-audit-log="update">
+            <description>Effective timestamp of this AcctgTrans; this is used to determine the accounting period for this transaction</description>
+        </field>
         <field name="isPosted" type="text-indicator" enable-audit-log="true"/>
-        <field name="postedDate" type="date-time" enable-audit-log="update"/>
+        <field name="postedDate" type="date-time" enable-audit-log="update">
+            <description>Timestamp when AcctgTrans was entered/updated</description>
+        </field>
         <field name="scheduledPostingDate" type="date-time"/>
         <field name="glJournalId" type="id"/>
         <field name="glFiscalTypeEnumId" type="id"/>
