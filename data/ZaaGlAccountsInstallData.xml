@@ -1853,8 +1853,6 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemVacationHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632300000" direction="I" itemTypeEnumId="ItemSickHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemSickHourly" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632350000" direction="I" itemTypeEnumId="ItemFamilyLeaveHourly" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemFamilyLeaveHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632500000" direction="I" itemTypeEnumId="ItemPtoHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemPtoHourly" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632700000" direction="I" itemTypeEnumId="ItemHolidayHourly" organizationPartyId="DefaultSettings"/>
@@ -1865,8 +1863,6 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemVacationSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632300000" direction="I" itemTypeEnumId="ItemSickSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemSickSalary" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="632350000" direction="I" itemTypeEnumId="ItemFamilyLeaveSalary" organizationPartyId="DefaultSettings"/>
-    <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemFamilyLeaveSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632500000" direction="I" itemTypeEnumId="ItemPtoSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemPtoSalary" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="632700000" direction="I" itemTypeEnumId="ItemHolidaySalary" organizationPartyId="DefaultSettings"/>
