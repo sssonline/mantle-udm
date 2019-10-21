@@ -617,19 +617,20 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="InvoiceBatch" package="mantle.account.invoice" short-alias="invoiceBatch" cache="never">
         <field name="invoiceBatchId" type="id" is-pk="true"/>
         <field name="description" type="text-medium" not-null="true"/>
+        <field name="statusId" type="id"><description>The Invoice statusId that all invoices in this batch must either have or be in the process of updating to.</description></field>
         <field name="userId" type="id" default="ec.user.userId"/>
         <field name="transactionDate" type="date-time" enable-audit-log="update" not-null="true">
             <description>Effective timestamp of the Invoice Batch; this is used to determine the accounting period for this set of transactions</description>
         </field>
         <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
-    <entity entity-name="InvoiceBatchDetail" package="mantle.account.invoice" short-alias="invoiceBatch" cache="never">
-        <field name="invoiceBatchDetailId" type="id" is-pk="true"/>
-        <field name="invoiceBatchId" type="id" not-null="true"/>
-        <field name="invoiceId" type="id" not-null="true"/>
-        <relationship type="one" related="mantle.account.invoice.InvoiceBatch" short-alias="invoiceBatch"/>
-        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
-    </entity>
+<!--    <entity entity-name="InvoiceBatchDetail" package="mantle.account.invoice" short-alias="invoiceBatch" cache="never">-->
+<!--        <field name="invoiceBatchDetailId" type="id" is-pk="true"/>-->
+<!--        <field name="invoiceBatchId" type="id" not-null="true"/>-->
+<!--        <field name="invoiceId" type="id" not-null="true"/>-->
+<!--        <relationship type="one" related="mantle.account.invoice.InvoiceBatch" short-alias="invoiceBatch"/>-->
+<!--        <relationship type="one" related="mantle.account.invoice.Invoice" short-alias="invoice"/>-->
+<!--    </entity>-->
 
     <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="invoiceId" type="id"/>
