@@ -531,6 +531,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
+        <index name="EPH_REL_TIMEPER_PAYBATCH" unique="true">
+            <index-field name="partyRelationshipId"/>
+            <index-field name="timePeriodId"/>
+            <index-field name="payrollBatchId"/>
+        </index>
     </entity>
     <entity entity-name="EmploymentPayAdjDetail" package="mantle.humanres.employment" use="transactional">
         <field name="employmentPayAdjDetailId" type="id" is-pk="true"/>
