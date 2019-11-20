@@ -1611,6 +1611,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="organizationPartyId" type="id" not-null="true"/>
         <field name="paymentMethodId" type="id" not-null="true"/>
         <field name="description" type="text-medium" not-null="true"/>
+        <relationship type="one" title="Organization" related="mantle.party.Organization" short-alias="organization">
+            <key-map field-name="organizationPartyId" related="partyId"/></relationship>
+        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
     </entity>
     <entity entity-name="PaymentBatchDetail" package="mantle.account.payment">
         <field name="paymentBatchDetailId" type="id" is-pk="true"/>

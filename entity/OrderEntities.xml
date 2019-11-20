@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -293,6 +293,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="productFeatureId" type="id"/>
         <field name="otherPartyProductId" type="text-short"/>
 
+        <!-- For orders such as purchase orders, it may be known at the time of PO how items should be accounted for -->
+        <field name="overGlAcctOrgPartyId" type="id"/>
+        <field name="overGlAcctFacilityId" type="id"/>
+
         <field name="itemDescription" type="text-medium"/>
         <field name="comments" type="text-medium"/>
 
@@ -363,6 +367,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.product.category.ProductCategory" short-alias="category"/>
         <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
         <relationship type="one" related="mantle.product.store.ProductStorePromoCode" short-alias="storePromoCode"/>
+
+        <relationship type="one" title="OverGlAcctOrg" related="mantle.party.Party" short-alias="overGlAcctOrgParty">
+            <key-map field-name="overGlAcctOrgPartyId"/></relationship>
+        <relationship type="one" title="OverGlAcctFacility" related="mantle.facility.Facility" short-alias="overGlAcctFacility">
+            <key-map field-name="overGlAcctFacilityId"/></relationship>
 
         <relationship type="one" related="mantle.product.subscription.Subscription" short-alias="subscription"/>
         <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
