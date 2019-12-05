@@ -1635,7 +1635,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentBatchId" type="id"/>
 
         <field name="creationDate" type="date-time" default="ec.user.nowTimestamp"/>
-        <field name="originalPaymentCount" type="number-decimal" not-null="true"/>
+        <field name="originalPaymentCount" type="number-decimal" not-null="true"><description>Number of payments initially generated for Payment Group</description></field>
+        <field name="originalInvoicePaymentCount" type="number-decimal" not-null="true"><description>Number of invoices initially paid for Payment Group</description></field>
 
         <!--<field name="description" type="text-medium" not-null="true"/>-->
         <relationship type="many" related="mantle.account.payment.Payment">
