@@ -81,7 +81,9 @@ along with this software (see the LICENSE.md file). If not, see
 
         <field name="remainingSubTotal" type="currency-amount"/>
         <field name="grandTotal" type="currency-amount"/>
+        <field name="settlementTermId" type="id"/>
 
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm" short-alias="settlementTerm"/>
         <relationship type="one" title="OrderHeader" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
