@@ -267,10 +267,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timePeriodTypeId" type="id"><description>Payroll time period type (week, bi-week, month, etc)</description></field>
 
         <field name="taxWorkContactMechId" type="id"/>
-        <field name="taxFederalAllowances" type="number-integer" enable-audit-log="update"/>
+
+        <field name="taxFederalStatusEnumId" type="id" enable-audit-log="update"/>
+        <field name="taxStateStatusEnumId" type="id" enable-audit-log="update"/>
 
         <!-- The USA IRS changed how calculations from 2020 on should be calculated and they are based on the W-4 -->
         <field name="taxFederalWhtMethodEnumId" type="id"><description>Federal Withholding Method</description></field>
+        <field name="taxFederalAllowances" type="number-integer" enable-audit-log="update"><description>Set to number of allowances if W-4 is 2019 or older</description></field>
         <field name="taxFederalWhtCheckbox" type="text-indicator" enable-audit-log="true"><description>Set to Y if W-4 is 2020 or newer and box 2c is checked</description></field>
         <field name="taxFederalWhtAnnualDepDed" type="number-integer" enable-audit-log="update"><description>Positive amount for deduction from step 3 if W-4 is 2020 or newer</description></field>
         <field name="taxFederalWhtAnnualOtherInc" type="number-integer" enable-audit-log="update"><description>Positive amount for other (non job) income from step 4a if W-4 is 2020 or newer</description></field>
