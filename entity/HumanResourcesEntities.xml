@@ -191,15 +191,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxYtdPriorIncome" type="currency-amount" enable-audit-log="update">
             <description>Added to YTD income for starting year only (for taxes limited by YTD income)</description></field>
 
-        <field name="taxFederalAllowances" type="number-integer" enable-audit-log="update"/>
-
         <!-- The USA IRS changed how calculations from 2020 on should be calculated and they are based on the W-4 -->
-        <field name="taxFederalWhtMethodEnumId" type="id"><description>Federal Withholding Method</description></field>
-        <field name="taxFederalWhtCheckbox" type="text-indicator" enable-audit-log="true"><description>Set to Y if W-4 is 2020 or newer and box 2c is checked</description></field>
+        <field name="taxFederalWhtMethodEnumId" type="id" enable-audit-log="update"><description>Federal Withholding Method</description></field>
+        <field name="taxFederalAllowances" type="number-integer" enable-audit-log="update"><description>Set to number of allowances if W-4 is 2019 or older</description></field>
+        <field name="taxFederalWhtCheckbox" type="text-indicator" enable-audit-log="update"><description>Set to Y if W-4 is 2020 or newer and box 2(c) is checked</description></field>
         <field name="taxFederalWhtAnnualDepDed" type="number-integer" enable-audit-log="update"><description>Positive amount for deduction from step 3 if W-4 is 2020 or newer</description></field>
-        <field name="taxFederalWhtAnnualOtherInc" type="number-integer" enable-audit-log="update"><description>Positive amount for other (non job) income from step 4a if W-4 is 2020 or newer</description></field>
-        <field name="taxFederalWhtAnnualOtherDed" type="number-integer" enable-audit-log="update"><description>Positive amount for other deductions from step 4b if W-4 is 2020 or newer</description></field>
-        <field name="taxFederalWhtPeriodAddlWht" type="number-integer" enable-audit-log="update"><description>Positive amount for other deductions from step 4b if W-4 is 2020 or newer</description></field>
+        <field name="taxFederalWhtAnnualOtherInc" type="number-integer" enable-audit-log="update"><description>Positive amount for other (non job) income from step 4(a) if W-4 is 2020 or newer</description></field>
+        <field name="taxFederalWhtAnnualOtherDed" type="number-integer" enable-audit-log="update"><description>Positive amount for other deductions from step 4(b) if W-4 is 2020 or newer</description></field>
+        <field name="taxFederalWhtPeriodAddlWht" type="number-integer" enable-audit-log="update"><description>Positive amount for other deductions from step 4(c) if W-4 is 2020 or newer</description></field>
 
         <field name="taxStateAllowances" type="number-integer" enable-audit-log="update"/>
 
@@ -230,8 +229,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Head of Household" enumId="TfsHeadHousehold" sequenceNum="5" enumTypeId="TaxFederalStatus"/>
 
             <moqui.basic.EnumerationType description="Tax Federal Withholding Method" enumTypeId="TaxFederalWhtMethod"/>
-            <moqui.basic.Enumeration description="W-4 2020 and Later" enumId="Tfwm2020" sequenceNum="1" enumTypeId="TaxFederalWhtMethod"/>
-            <moqui.basic.Enumeration description="W-4 2019 and Earlier" enumId="Tfwm2019" sequenceNum="2" enumTypeId="TaxFederalWhtMethod"/>
+            <moqui.basic.Enumeration description="W-4 2020 or Later" enumId="Tfwm2020" sequenceNum="1" enumTypeId="TaxFederalWhtMethod"/>
+            <moqui.basic.Enumeration description="W-4 2019 or Earlier" enumId="Tfwm2019" sequenceNum="2" enumTypeId="TaxFederalWhtMethod"/>
 
             <!-- Tax State Status -->
             <moqui.basic.EnumerationType description="Tax State Status" enumTypeId="TaxStateStatus"/>
