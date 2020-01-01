@@ -194,7 +194,6 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- The USA IRS changed how calculations from 2020 on should be calculated and they are based on the W-4 -->
         <field name="taxFederalWhtMethodEnumId" type="id" enable-audit-log="update"><description>Federal Withholding Method</description></field>
         <field name="taxFederalAllowances" type="number-integer" enable-audit-log="update"><description>Set to number of allowances if W-4 is 2019 or older</description></field>
-        <field name="taxFederalWhtCheckbox" type="text-indicator" enable-audit-log="update"><description>Set to Y if W-4 is 2020 or newer and box 2(c) is checked</description></field>
         <field name="taxFederalWhtAnnualDepDed" type="number-integer" enable-audit-log="update"><description>Positive amount for deduction from step 3 if W-4 is 2020 or newer</description></field>
         <field name="taxFederalWhtAnnualOtherInc" type="number-integer" enable-audit-log="update"><description>Positive amount for other (non job) income from step 4(a) if W-4 is 2020 or newer</description></field>
         <field name="taxFederalWhtAnnualOtherDed" type="number-integer" enable-audit-log="update"><description>Positive amount for other deductions from step 4(b) if W-4 is 2020 or newer</description></field>
@@ -215,12 +214,17 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="taxHomeContactMechId"/></relationship>
         <relationship type="one" title="TaxFederalStatus" related="moqui.basic.Enumeration">
             <key-map field-name="taxFederalStatusEnumId"/></relationship>
-        <relationship type="one" title="TaxFederalWhtMethod" related="moqui.basic.Enumeration">
+        <relationship type="one" title="TaxWhtMethod" related="moqui.basic.Enumeration">
             <key-map field-name="taxFederalWhtMethodEnumId"/></relationship>
         <relationship type="one" title="TaxStateStatus" related="moqui.basic.Enumeration">
             <key-map field-name="taxStateStatusEnumId"/></relationship>
 
         <seed-data>
+            <moqui.basic.EnumerationType description="Tax Withholding Method" enumTypeId="TaxWhtMethod"/>
+            <moqui.basic.Enumeration description="USA IRS W-4 2020 or Later" enumId="Twm2020" sequenceNum="1" enumTypeId="TaxWhtMethod"/>
+            <moqui.basic.Enumeration description="USA IRS W-4 2020 or Later w/Checkbox" enumId="Twm2020Checkbox" sequenceNum="2" enumTypeId="TaxWhtMethod"/>
+            <moqui.basic.Enumeration description="USA IRS W-4 2019 or Earlier" enumId="Twm2019" sequenceNum="3" enumTypeId="TaxWhtMethod"/>
+
             <!-- Tax Federal Status -->
             <moqui.basic.EnumerationType description="Tax Federal Status" enumTypeId="TaxFederalStatus"/>
             <moqui.basic.Enumeration description="Do Not Withhold" enumId="TfsDoNotWithhold" sequenceNum="1" enumTypeId="TaxFederalStatus"/>
@@ -228,9 +232,10 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Single or Married File Separate" enumId="TfsSingle" sequenceNum="4" enumTypeId="TaxFederalStatus"/>
             <moqui.basic.Enumeration description="Head of Household" enumId="TfsHeadHousehold" sequenceNum="5" enumTypeId="TaxFederalStatus"/>
 
-            <moqui.basic.EnumerationType description="Tax Federal Withholding Method" enumTypeId="TaxFederalWhtMethod"/>
-            <moqui.basic.Enumeration description="W-4 2020 or Later" enumId="Tfwm2020" sequenceNum="1" enumTypeId="TaxFederalWhtMethod"/>
-            <moqui.basic.Enumeration description="W-4 2019 or Earlier" enumId="Tfwm2019" sequenceNum="2" enumTypeId="TaxFederalWhtMethod"/>
+            <moqui.basic.EnumerationType description="Tax Withholding Method" enumTypeId="TaxWhtMethod"/>
+            <moqui.basic.Enumeration description="USA IRS W-4 2020 or Later" enumId="Twm2020" sequenceNum="1" enumTypeId="TaxWhtMethod"/>
+            <moqui.basic.Enumeration description="USA IRS W-4 2020 or Later w/Checkbox" enumId="Twm2020Checkbox" sequenceNum="2" enumTypeId="TaxWhtMethod"/>
+            <moqui.basic.Enumeration description="USA IRS W-4 2019 or Earlier" enumId="Twm2019" sequenceNum="3" enumTypeId="TaxWhtMethod"/>
 
             <!-- Tax State Status -->
             <moqui.basic.EnumerationType description="Tax State Status" enumTypeId="TaxStateStatus"/>
@@ -240,6 +245,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Married File Separate" enumId="TssMarriedSeparate" sequenceNum="4" enumTypeId="TaxStateStatus"/>
             <moqui.basic.Enumeration description="Unmarried Head of Household" enumId="TssHeadHousehold" sequenceNum="5" enumTypeId="TaxStateStatus"/>
             <moqui.basic.Enumeration description="Single" enumId="TssSingle" sequenceNum="6" enumTypeId="TaxStateStatus"/>
+
         </seed-data>
     </entity>
     <entity entity-name="Employment" package="mantle.humanres.employment" use="nontransactional">
@@ -274,7 +280,6 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- The USA IRS changed how calculations from 2020 on should be calculated and they are based on the W-4 -->
         <field name="taxFederalWhtMethodEnumId" type="id"><description>Federal Withholding Method</description></field>
         <field name="taxFederalAllowances" type="number-integer" enable-audit-log="update"><description>Set to number of allowances if W-4 is 2019 or older</description></field>
-        <field name="taxFederalWhtCheckbox" type="text-indicator" enable-audit-log="true"><description>Set to Y if W-4 is 2020 or newer and box 2c is checked</description></field>
         <field name="taxFederalWhtAnnualDepDed" type="number-integer" enable-audit-log="update"><description>Positive amount for deduction from step 3 if W-4 is 2020 or newer</description></field>
         <field name="taxFederalWhtAnnualOtherInc" type="number-integer" enable-audit-log="update"><description>Positive amount for other (non job) income from step 4a if W-4 is 2020 or newer</description></field>
         <field name="taxFederalWhtAnnualOtherDed" type="number-integer" enable-audit-log="update"><description>Positive amount for other deductions from step 4b if W-4 is 2020 or newer</description></field>
@@ -344,7 +349,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility" short-alias="defaultFacility">
             <key-map field-name="defaultFacilityId"/></relationship>
 
-        <relationship type="one" title="TaxFederalWhtMethod" related="moqui.basic.Enumeration">
+        <relationship type="one" title="TaxWhtMethod" related="moqui.basic.Enumeration">
             <key-map field-name="taxFederalWhtMethodEnumId"/></relationship>
 
         <seed-data>
@@ -728,6 +733,7 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- Deprecated: Move riskClassEnumId to PayrollAdjustmentApplies -->
         <field name="riskClassEnumId" type="text-short"/>
         <field name="taxAuthorityId" type="id"/>
+        <field name="taxWhtMethodEnumId" type="id"/>
         <field name="taxBox" type="text-short"><description>For tax forms, the alphanumeric box</description></field>
         <field name="taxBoxCode" type="text-short"><description>For tax forms, the code/type</description></field>
         <field name="taxBoxDescription" type="text-short"><description>For tax forms, description</description></field>
@@ -769,6 +775,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PayrollRateBasis" related="moqui.basic.Enumeration">
             <key-map field-name="rateBasisEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
+        <relationship type="one" title="TaxWhtMethod" related="moqui.basic.Enumeration">
+            <key-map field-name="taxWhtMethodEnumId"/></relationship>
         <relationship type="one" title="Payee" related="mantle.party.Party" short-alias="payeeParty">
             <key-map field-name="payeePartyId"/></relationship>
         <relationship type="one" related="mantle.account.financial.FinancialAccount" short-alias="financialAccount"/>
@@ -1086,12 +1094,15 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PayrollAllowance" package="mantle.humanres.employment" use="configuration">
         <field name="payrollAllowanceId" type="id" is-pk="true"/>
         <field name="taxAuthorityId" type="id"/>
+        <field name="taxWhtMethodEnumId" type="id"/>
         <field name="timePeriodTypeId" type="id"/>
         <field name="fromDate" type="date"/>
         <field name="thruDate" type="date"/>
         <field name="amountTypeEnumId" type="id"/>
         <field name="amount" type="currency-amount"/>
         <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
+        <relationship type="one" title="TaxWhtMethod" related="moqui.basic.Enumeration">
+            <key-map field-name="taxWhtMethodEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType"/>
         <relationship type="one" title="PayrollAllowanceAmountType" related="moqui.basic.Enumeration">
             <key-map field-name="amountTypeEnumId"/></relationship>
