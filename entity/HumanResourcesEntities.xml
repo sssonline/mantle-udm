@@ -232,11 +232,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Single or Married File Separate" enumId="TfsSingle" sequenceNum="4" enumTypeId="TaxFederalStatus"/>
             <moqui.basic.Enumeration description="Head of Household" enumId="TfsHeadHousehold" sequenceNum="5" enumTypeId="TaxFederalStatus"/>
 
-            <moqui.basic.EnumerationType description="Tax Withholding Method" enumTypeId="TaxWhtMethod"/>
-            <moqui.basic.Enumeration description="USA IRS W-4 2020 or Later" enumId="Twm2020" sequenceNum="1" enumTypeId="TaxWhtMethod"/>
-            <moqui.basic.Enumeration description="USA IRS W-4 2020 or Later w/Checkbox" enumId="Twm2020Checkbox" sequenceNum="2" enumTypeId="TaxWhtMethod"/>
-            <moqui.basic.Enumeration description="USA IRS W-4 2019 or Earlier" enumId="Twm2019" sequenceNum="3" enumTypeId="TaxWhtMethod"/>
-
             <!-- Tax State Status -->
             <moqui.basic.EnumerationType description="Tax State Status" enumTypeId="TaxStateStatus"/>
             <moqui.basic.Enumeration description="Do Not Withhold" enumId="TssDoNotWithhold" sequenceNum="1" enumTypeId="TaxStateStatus"/>
