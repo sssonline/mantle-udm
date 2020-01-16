@@ -752,7 +752,12 @@ along with this software (see the LICENSE.md file). If not, see
             <description>For financial accounts, how/if this adjustment should apply</description></field>
 
         <field name="garnishDisposablePercent" type="number-decimal"/>
+        <!-- This is a good idea, but in practice, the amounts and dates are determined by court order...and that may
+             cross date boundaries, so a lookup table to find the indicator does not suffice unless the date of the
+             court order were also present.  Nonetheless in practice, it is cleaner and more flexible to let the
+             user provide the amount that comes from the court order rather than attempt to look it up. -->
         <field name="garnishMinWageApplies" type="text-indicator"/>
+        <field name="garnishMinWageExemptAmount" type="number-decimal"/>
         <field name="garnishPriority" type="number-integer"/>
         <field name="deductFromDisposable" type="text-indicator"/>
 
