@@ -556,6 +556,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="socialTaxablePayAmount" type="number-decimal"><description>Social Taxable Wages (typically federal)</description></field>
         <field name="medicalTaxablePayAmount" type="number-decimal"><description>Medical Taxable Wages (typically federal)</description></field>
         <field name="netPayAmount" type="number-decimal"><description>Net Pay</description></field>
+        <field name="netPayInvoiceAdjAmount" type="number-decimal" default="0.0">
+            <description>Add this amount to align with Payroll Invoice</description></field>
         <field name="disposablePayAmount" type="number-decimal"><description>Disposable Pay</description></field>
         <field name="ytdIncome" type="number-decimal"><description>YTD gross income through prior pay history. Add payAmount for true YTD amount.</description></field>
         <field name="taxableYtdIncome" type="number-decimal"><description>YTD taxable income through prior pay history. Add taxablePayAmount for true YTD amount.</description></field>
