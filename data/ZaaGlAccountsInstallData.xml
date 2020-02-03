@@ -1889,6 +1889,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <!-- NOTE: may want to consider not mapping a default for ItemReimbursement, should generally be more specific expense type -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="789000000" direction="E" itemTypeEnumId="ItemReimbursement" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="789000000" direction="E" itemTypeEnumId="ItemUnqualifiedReimbursement" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="" direction="E" itemTypeEnumId="ItemPayrollDeduct" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125DentalInsuranceEmpe" organizationPartyId="DefaultSettings"/>

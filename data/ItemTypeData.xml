@@ -170,6 +170,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Pay Period Adjustment - Overpay" enumId="ItemPayAdjOverpay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Pay Period Adjustment - Pay" enumId="ItemPayAdjPay" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Reimbursement" enumId="ItemReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Unqualified Reimbursement" enumId="ItemUnqualifiedReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Deduction" enumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Dental Insurance" enumId="ItemDedSec125DentalInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
