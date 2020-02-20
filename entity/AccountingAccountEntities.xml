@@ -1087,6 +1087,38 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="remote"/>
     </entity>
 
+    <entity entity-name="PaymentMethodStmt" package="mantle.account.method">
+        <description>Statements such as a Bank Statement, Credit Card Statement, etc.</description>
+        <field name="paymentMethodStmtId" type="id" is-pk="true"/>
+        <field name="paymentMethodId" type="id" not-null="true"/>
+        <field name="previousPaymentMethodStmtId" type="id"/>
+        <field name="fromDate" type="date"><description>Statement beginning date</description></field>
+        <field name="thruDate" type="date"><description>Statement ending date</description></field>
+        <field name="beginningBalance" type="currency-amount"></field>
+        <field name="endingBalance" type="currency-amount"></field>
+        <field name="reconcileStatusId" type="id" default="'PmtrNot'"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" title="Previous" related="mantle.account.method.PaymentMethodStmt" short-alias="previous">
+            <key-map field-name="previousPaymentMethodStmtId" related="paymentMethodStmtId"/></relationship>
+        <relationship type="one" title="PaymentMethodStmtReconcile" related="moqui.basic.StatusItem" short-alias="reconcileStatus">
+            <key-map field-name="reconcileStatusId"/></relationship>
+        <index name="PAYMENT_METH_STMT_ID" unique="true">
+            <index-field name="paymentMethodId"/>
+            <index-field name="paymentMethodStmtId"/>
+        </index>
+    </entity>
+
+    <entity entity-name="PaymentMethodStmtDetail" package="mantle.account.method">
+        <field name="paymentMethodStmtDetailId" type="id" is-pk="true"/>
+        <field name="paymentMethodStmtId" type="id" not-null="true"/>
+        <field name="paymentId" type="id" not-null="true"/>
+        <field name="reconcileStatusId" type="id" default="'PmtrNot'"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethodStmt" short-alias="paymentMethodStmt"/>
+        <relationship type="one" related="mantle.account.payment.Payment" short-alias="payment"/>
+        <relationship type="one" title="PaymentMethodStmtReconcile" related="moqui.basic.StatusItem" short-alias="reconcileStatus">
+            <key-map field-name="reconcileStatusId"/></relationship>
+    </entity>
+
     <entity entity-name="PaymentMethodTrans" package="mantle.account.method" cache="never">
         <description>Transactions of the PaymentMethod, such as imported from an OFX file (see www.ofx.net); can be
             imported from any source and reconciled in a more consistent way from here</description>
