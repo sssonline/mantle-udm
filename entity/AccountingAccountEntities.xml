@@ -1092,19 +1092,23 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentMethodStmtId" type="id" is-pk="true"/>
         <field name="paymentMethodId" type="id" not-null="true"/>
         <field name="previousPaymentMethodStmtId" type="id"/>
-        <field name="fromDate" type="date" not-null="true"><description>Statement beginning date</description></field>
-        <field name="thruDate" type="date" not-null="true"><description>Statement ending date</description></field>
-        <field name="beginningBalance" type="currency-amount"></field>
-        <field name="endingBalance" type="currency-amount"></field>
+        <field name="beginningDate" type="date" not-null="true"><description>Statement beginning date</description></field>
+        <field name="endingDate" type="date" not-null="true"><description>Statement ending date</description></field>
+        <field name="beginningBalance" type="currency-amount" not-null="true"/>
+        <field name="endingBalance" type="currency-amount" not-null="true"/>
         <field name="reconcileStatusId" type="id" default="'PmtrNot'"/>
         <relationship type="one" related="mantle.account.method.PaymentMethod"/>
         <relationship type="one" title="Previous" related="mantle.account.method.PaymentMethodStmt" short-alias="previous">
             <key-map field-name="previousPaymentMethodStmtId" related="paymentMethodStmtId"/></relationship>
         <relationship type="one" title="PaymentMethodStmtReconcile" related="moqui.basic.StatusItem" short-alias="reconcileStatus">
             <key-map field-name="reconcileStatusId"/></relationship>
-        <index name="PAYMENT_METH_STMT_ID" unique="true">
+        <index name="PAYMENT_METH_STMT" unique="true">
             <index-field name="paymentMethodId"/>
             <index-field name="paymentMethodStmtId"/>
+        </index>
+        <index name="PAYMENT_METH_STMT_PREV" unique="true">
+            <index-field name="paymentMethodId"/> <!-- Probably unnecessary, but in case nulls matter, this would allow multiple -->
+            <index-field name="previousPaymentMethodStmtId"/>
         </index>
     </entity>
 
