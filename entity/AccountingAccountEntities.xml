@@ -1087,7 +1087,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="moqui.service.message.SystemMessageRemote" short-alias="remote"/>
     </entity>
 
-    <entity entity-name="PaymentMethodStmt" package="mantle.account.method">
+    <entity entity-name="PaymentMethodStmt" package="mantle.account.method" enable-audit-log="update">
         <description>Statements such as a Bank Statement, Credit Card Statement, etc.</description>
         <field name="paymentMethodStmtId" type="id" is-pk="true"/>
         <field name="paymentMethodId" type="id" not-null="true"/>
