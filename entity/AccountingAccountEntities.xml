@@ -1534,6 +1534,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Payment Type -->
             <moqui.basic.EnumerationType description="Payment Type" enumTypeId="PaymentType"/>
             <moqui.basic.Enumeration description="Disbursement" enumId="PtDisbursement" enumTypeId="PaymentType"/>
+            <moqui.basic.Enumeration description="Transfer" enumId="PtTransfer" enumTypeId="PaymentType"/>
             <moqui.basic.Enumeration description="Refund" enumId="PtRefund" enumTypeId="PaymentType"/>
             <!-- Payment meant to be applied to an invoice -->
             <moqui.basic.Enumeration description="Invoice Payment" enumId="PtInvoicePayment" enumTypeId="PaymentType"/>
