@@ -1732,6 +1732,8 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="419000000" direction="O" itemTypeEnumId="ItemWarranty" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="419000000" direction="O" itemTypeEnumId="ItemMkgtPkgAdj" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="412000000" direction="O" itemTypeEnumId="ItemServiceProduct" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="419000000" direction="O" itemTypeEnumId="ItemFinInstAdj" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="798000000" direction="I" itemTypeEnumId="ItemFinInstAdj" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="450000000" direction="O" itemTypeEnumId="ItemSalesThirdParty" organizationPartyId="DefaultSettings"/>
 

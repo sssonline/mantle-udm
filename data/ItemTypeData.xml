@@ -134,6 +134,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Slotting Fees" enumId="ItemSlottingFees" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Advertising" enumId="ItemAdjAdvertising" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Joint Advertising" enumId="ItemAdjJointAdv" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Fin Inst Adj" enumId="ItemFinInstAdj" parentEnumId="ItemInvAdjust" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Income" enumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Hourly Earnings" enumId="ItemHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
