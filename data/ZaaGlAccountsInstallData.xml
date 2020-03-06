@@ -1702,6 +1702,10 @@ along with this software (see the LICENSE.md file). If not, see
             isPayable="Y" acctgTransTypeEnumId="AttPayrollOtherInvoice" glAccountId="212400000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoicePayrollBilling" organizationPartyId="DefaultSettings"
             isPayable="N" acctgTransTypeEnumId="AttPayrollBillingInvoice" glAccountId="121000000"/>
+    <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceFinInstAdj" organizationPartyId="DefaultSettings"
+            isPayable="N" acctgTransTypeEnumId="AttFinInstAdjCreditInvoice" glAccountId="121000000"/>
+    <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceFinInstAdj" organizationPartyId="DefaultSettings"
+            isPayable="Y" acctgTransTypeEnumId="AttFinInstAdjChargeInvoice" glAccountId="212000000"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="410000000" direction="O" itemTypeEnumId="ItemSales" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="412000000" direction="O" itemTypeEnumId="ItemWorkEffort" organizationPartyId="DefaultSettings"/>
