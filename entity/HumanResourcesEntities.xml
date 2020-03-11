@@ -564,7 +564,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="socialTaxableYtdIncome" type="number-decimal"><description>YTD social taxable income through prior pay history. Add socialTaxablePayAmount for true YTD amount.</description></field>
         <field name="medicalTaxableYtdIncome" type="number-decimal"><description>YTD medical taxable income through prior pay history. Add medicalTaxablePayAmount for true YTD amount.</description></field>
         <field name="totalHours" type="number-decimal"><description>Hours total (worked, break, vacation, sick, pto, etc.)</description></field>
-        <field name="ytdTotalHours" type="number-decimal"><description>YTD total hours through prior pay history.  Add hours for true YTD hours.</description></field>
+        <field name="totalHoursWorked" type="number-decimal"><description>totalHours less Holiday, KOS, PTO, Sick, Vacation</description></field>
+        <field name="totalHoursNonSick" type="number-decimal"><description>totalHours less sick hours</description></field>
+        <field name="ytdTotalHours" type="number-decimal"><description>YTD total hours through prior pay history.  Add total hours for true YTD hours.</description></field>
+        <field name="ytdTotalHoursWorked" type="number-decimal"><description>YTD totalHours less Holiday, KOS, PTO, Sick, Vacation.  Add total hours worked for true YTD hours.</description></field>
+        <field name="ytdTotalHoursNonSick" type="number-decimal"><description>YTD totalHours less sick hours.  Add total hours worked for true YTD hours.</description></field>
         <field name="currencyUomId" type="id"/>
         <relationship type="one" related="mantle.humanres.employment.Employment" short-alias="employment"/>
         <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
