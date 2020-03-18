@@ -717,8 +717,8 @@ along with this software (see the LICENSE.md file). If not, see
         </field>
         <!-- Neither work type, nor facility are used to determine whether the adjustment applies; they are for where to
              assign the work or facility to the resulting adjustment. -->
-        <field name="workTypeEnumId" type="id"><description>Type of work to apply the adjustment to.</description></field>
-        <field name="facilityId" type="id"><description>Where to apply the adjustment.</description></field>
+        <field name="workTypeEnumId" type="id"><description>If present, the workType to set; use PayrollAdjustmentApplies to limit.</description></field>
+        <field name="facilityId" type="id"><description>If present, the facility to set; use PayrollAdjustmentApplies to limit.</description></field>
 
         <field name="overrideGlAccountId" type="id"/>
         <field name="payrollPhaseEnumId" type="id" not-null="true"/>
@@ -880,7 +880,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Social Taxable" enumId="PrbsSocial" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Medical Taxable" enumId="PrbsMedical" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Gross" enumId="PrbsGross" enumTypeId="PayrollRateBasis"/><!-- default -->
-            <moqui.basic.Enumeration description="Gross Less Tips" enumId="PrbsGrossLessTips" enumTypeId="PayrollRateBasis"/>>
+            <moqui.basic.Enumeration description="Gross Less Tips" enumId="PrbsGrossLessTips" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Straight Time Gross" enumId="PrbsStraightGross" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Hours Worked" enumId="PrbsHoursWorked" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Hours Non-Sick" enumId="PrbsHoursNonSick" enumTypeId="PayrollRateBasis"/>

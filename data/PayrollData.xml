@@ -165,6 +165,14 @@ along with this software (see the LICENSE.md file). If not, see
     Should minimum wage makeup subgroup by rate?
         If Y, treat each rate as a separate grouping level.  This allows multiple minimum wages, grouping them together to perform
         minimum wage checks.
+    Default Minimum Wage Makeup Facility determines which Facility to place on minimum wage makeup entry if one cannot
+        be determined.
+    Default Overrides Minimum Wage Makeup Facility determines whether the Facility that would otherwise be chosen for
+        minimum wage makeup to be superseded.
+    Default Minimum Wage Makeup Work Type determines which Work Type to place on minimum wage makeup entry if one cannot
+        be determined.
+    Default Overrides Minimum Wage Makeup Work Type determines whether the Work Type that would otherwise be chosen for
+        minimum wage makeup to be superseded.
     -->
     <mantle.party.PartySettingType description="Payroll MWG - Check Minimum Wage" partySettingTypeId="PayrollMwCheck"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
@@ -210,6 +218,21 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="PayrollWageCalcGrpMkupPro" defaultValue="PwgmpOwningFacPropMkup">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Makeup Subgroup By Rate" partySettingTypeId="PayrollMwMkpSubgrpByRate"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!-- Default Minimum Wage Makeup Facility -->
+    <mantle.party.PartySettingType description="Payroll MWG - Default Facility" partySettingTypeId="PayrollMwMkpDftFacility"> <!-- No Default -->
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!-- Default Overrides Minimum Wage Makeup Facility -->
+    <mantle.party.PartySettingType description="Payroll MWG - Default Overrides Facility" partySettingTypeId="PayrollMwMkpDftOvrFacility"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!-- Default Minimum Wage Makeup Work Type -->
+    <mantle.party.PartySettingType description="Payroll MWG - Default Work Type" partySettingTypeId="PayrollMwMkpDftWrkTp"
+                                   enumTypeId="WorkType"> <!-- No Default -->
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <!-- Default Overrides Minimum Wage Makeup Work Type -->
+    <mantle.party.PartySettingType description="Payroll MWG - Default Overrides Work Type" partySettingTypeId="PayrollMwMkpDftOvrWrkTp"
                                    enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 

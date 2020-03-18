@@ -716,7 +716,10 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one-nofk" related="moqui.basic.Enumeration">
-            <description>This is one-nofk because settingValue may by an enumId or may be plain text depending on PartySettingType</description>
+            <description>This is one-nofk because settingValue may by an enumId, facilityId, or plain text depending on PartySettingType</description>
+            <key-map field-name="settingValue"/></relationship>
+        <relationship type="one-nofk" related="mantle.facility.Facility">
+            <description>This is one-nofk because settingValue may by an enumId, facilityId, or plain text depending on PartySettingType</description>
             <key-map field-name="settingValue"/></relationship>
     </entity>
     <entity entity-name="PartyRelationshipSetting" package="mantle.party">
