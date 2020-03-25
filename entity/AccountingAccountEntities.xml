@@ -1048,6 +1048,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentMethodId" type="id"/>
         <field name="fileTypeEnumId" type="id"/>
         <field name="fileDate" type="date-time"/>
+        <field name="statusId" type="id" default="'PmfsCreated'"/>
+        <field name="statusDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="description" type="text-medium"/>
         <field name="entryCount" type="number-integer"/>
         <field name="debitAmountTotal" type="currency-amount"/>
@@ -1060,7 +1062,17 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="fileTypeEnumId"/></relationship>
         <relationship type="one-nofk" related="mantle.account.method.PaymentMethodFileType" short-alias="paymentMethodFileType">
             <key-map field-name="paymentMethodId"/><key-map field-name="fileTypeEnumId"/></relationship>
+        <relationship type="one" title="PaymentMethodFileStatus" related="moqui.basic.StatusItem" short-alias="status">
+            <key-map field-name="statusId"/></relationship>
         <seed-data>
+            <moqui.basic.StatusType description="Payment Method File Status" statusTypeId="PaymentMethodFileStatus"/>
+            <moqui.basic.StatusItem description="Created" sequenceNum="1" statusId="PmfsCreated" statusTypeId="PaymentMethodFileStatus">
+                <description>Created</description></moqui.basic.StatusItem>
+            <moqui.basic.StatusItem description="Downloaded" sequenceNum="2" statusId="PmfsDownloaded" statusTypeId="PaymentMethodFileStatus">
+                <description>Downloaded</description></moqui.basic.StatusItem>
+            <moqui.basic.StatusItem description="Sent" sequenceNum="3" statusId="PmfsSent" statusTypeId="PaymentMethodFileStatus">
+                <description>Sent</description></moqui.basic.StatusItem>
+
             <moqui.basic.EnumerationType description="Payment Method File Type" enumTypeId="PaymentMethodFileType"/>
             <!-- NOTE: optionIndicator=Y means on cancel reset Payment.statusId for payments in file -->
             <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType" optionIndicator="Y"/>
@@ -1079,6 +1091,8 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PaymentMethodAchPrenote" package="mantle.account.method" cache="never" enable-audit-log="true">
         <field name="paymentMethodAchPrenoteId" type="id" is-pk="true"/>
         <field name="paymentMethodId" type="id" not-null="true"/>
+        <field name="paymentMethodFileId" type="id"/>
+        <field name="paymentGroupId" type="id"/>
         <field name="toPaymentMethodId" type="id" not-null="true"/>
         <field name="achTransCodeEnumId" type="id" not-null="true"/>
         <field name="statusId" type="id" default="'ApnsAuthReq'"/>
@@ -1089,6 +1103,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PrenoteToPaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="toPaymentMethod">
             <key-map field-name="toPaymentMethodId"/>
         </relationship>
+        <relationship type="one" related="mantle.account.method.PaymentMethodFile" short-alias="paymentMethodFile"/>
+        <relationship type="one" related="mantle.account.payment.PaymentGroup" short-alias="paymentGroup">
+            <key-map field-name="paymentGroupId"/></relationship>
         <relationship type="one" title="PrenoteAchTransCodeEnum" related="moqui.basic.Enumeration" short-alias="achTransCodeEnum">
             <key-map field-name="achTransCodeEnumId"/></relationship>
         <relationship type="one" title="PreNoteAchStatus" related="moqui.basic.StatusItem" short-alias="status">
