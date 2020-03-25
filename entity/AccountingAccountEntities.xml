@@ -1048,6 +1048,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="paymentMethodId" type="id"/>
         <field name="fileTypeEnumId" type="id"/>
         <field name="fileDate" type="date-time"/>
+        <field name="description" type="text-medium"/>
         <field name="entryCount" type="number-integer"/>
         <field name="debitAmountTotal" type="currency-amount"/>
         <field name="creditAmountTotal" type="currency-amount"/>
@@ -1075,6 +1076,74 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Zions Bank CSV" enumId="PmftZionsBankCsv" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
         </seed-data>
     </entity>
+    <entity entity-name="PaymentMethodAchPrenote" package="mantle.account.method" cache="never" enable-audit-log="true">
+        <field name="paymentMethodAchPrenoteId" type="id" is-pk="true"/>
+        <field name="paymentMethodId" type="id" not-null="true"/>
+        <field name="toPaymentMethodId" type="id" not-null="true"/>
+        <field name="achTransCodeEnumId" type="id" not-null="true"/>
+        <field name="statusId" type="id" default="'ApnsAuthReq'"/>
+        <field name="statusDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <relationship type="one" title="PrenotePaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod">
+            <key-map field-name="paymentMethodId"/>
+        </relationship>
+        <relationship type="one" title="PrenoteToPaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="toPaymentMethod">
+            <key-map field-name="toPaymentMethodId"/>
+        </relationship>
+        <relationship type="one" title="PrenoteAchTransCodeEnum" related="moqui.basic.Enumeration" short-alias="achTransCodeEnum">
+            <key-map field-name="achTransCodeEnumId"/></relationship>
+        <relationship type="one" title="PreNoteAchStatus" related="moqui.basic.StatusItem" short-alias="status">
+            <key-map field-name="statusId"/></relationship>
+        <index name="PRENOTE_FROM_TO_CODE" unique="true">
+            <index-field name="paymentMethodId"/>
+            <index-field name="toPaymentMethodId"/>
+            <index-field name="achTransCodeEnumId"/>
+        </index>
+        <seed-data>
+            <moqui.basic.StatusType description="ACH Pre Notification Status" statusTypeId="AchPreNotification"/>
+            <moqui.basic.StatusItem description="Not Authorized" sequenceNum="1" statusId="ApnsNot" statusTypeId="AchPreNotification">
+                <description>ACH is not authorized</description></moqui.basic.StatusItem>
+            <moqui.basic.StatusItem description="Request Auth" sequenceNum="2" statusId="ApnsAuthReq" statusTypeId="AchPreNotification">
+                <description>Request ACH authorization in next request</description></moqui.basic.StatusItem>
+            <moqui.basic.StatusItem description="Auth Requested" sequenceNum="3" statusId="ApnsAuthSent" statusTypeId="AchPreNotification">
+                <description>ACH authorization has been requested</description></moqui.basic.StatusItem>
+            <moqui.basic.StatusItem description="Authorized" sequenceNum="4" statusId="ApnsAuth" statusTypeId="AchPreNotification">
+                <description>ACH is authorized</description></moqui.basic.StatusItem>
+
+            <moqui.basic.EnumerationType description="ACH Transaction Code" enumTypeId="AchTransCodeType"/>
+            <!-- Demand (Checking) Credits -->
+            <moqui.basic.Enumeration enumId="atcCheckingCreditNoc" enumCode="21" description="Checking Credit (Notification of Change or Return)"    enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcCheckingCreditDep" enumCode="22" description="Checking Credit (Deposit)"                             enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcCheckingCreditPre" enumCode="23" description="Checking Credit (Prenotification)"                     enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcCheckingCreditZer" enumCode="24" description="Checking Credit (Zero dollar with remittance data)"    enumTypeId="AchTransCodeType"/>
+            <!-- Demand (Checking) Debits -->
+            <moqui.basic.Enumeration enumId="atcCheckingDebitNoc"  enumCode="26" description="Checking Debit (Notification of Change or Return)"     enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcCheckingDebitPmt"  enumCode="27" description="Checking Debit (Payment)"                              enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcCheckingDebitPre"  enumCode="28" description="Checking Debit (Prenotification)"                      enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcCheckingDebitZer"  enumCode="29" description="Checking Debit (Zero dollar with remittance data)"     enumTypeId="AchTransCodeType"/>
+            <!-- Savings Credits -->
+            <moqui.basic.Enumeration enumId="atcSavingsCreditNoc"  enumCode="31" description="Savings Credit (Notification of Change or Return)"     enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcSavingsCreditDep"  enumCode="32" description="Savings Credit (Deposit)"                              enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcSavingsCreditPre"  enumCode="33" description="Savings Credit (Prenotification)"                      enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcSavingsCreditZer"  enumCode="34" description="Savings Credit (Zero dollar with remittance data)"     enumTypeId="AchTransCodeType"/>
+            <!-- Savings Debits -->
+            <moqui.basic.Enumeration enumId="atcSavingsDebitNoc"   enumCode="36" description="Savings Debit (Notification of Change or Return)"      enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcSavingsDebitPmt"   enumCode="37" description="Savings Debit (Payment)"                               enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcSavingsDebitPre"   enumCode="38" description="Savings Debit (Prenotification)"                       enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcSavingsDebitZer"   enumCode="39" description="Savings Debit (Zero dollar with remittance data)"      enumTypeId="AchTransCodeType"/>
+            <!-- Financial Institution General Ledger Credits -->
+            <moqui.basic.Enumeration enumId="atcFinInstCreditNoc"  enumCode="41" description="Fin Inst GL Credit (Notification of Change or Return)" enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcFinInstCreditDep"  enumCode="42" description="Fin Inst GL Credit (Deposit)"                          enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcFinInstCreditPre"  enumCode="43" description="Fin Inst GL Credit (Prenotification)"                  enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcFinInstCreditZer"  enumCode="44" description="Fin Inst GL Credit (Zero dollar with remittance data)" enumTypeId="AchTransCodeType"/>
+            <!-- Financial Institution General Ledger Debits -->
+            <moqui.basic.Enumeration enumId="atcFinInstDebitNoc"   enumCode="46" description="Fin Inst GL Debit (Notification of Change or Return)"  enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcFinInstDebitPmt"   enumCode="47" description="Fin Inst GL Debit (Payment)"                           enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcFinInstDebitPre"   enumCode="48" description="Fin Inst GL Debit (Prenotification)"                   enumTypeId="AchTransCodeType"/>
+            <moqui.basic.Enumeration enumId="atcFinInstDebitZer"   enumCode="49" description="Fin Inst GL Debit (Zero dollar with remittance data)"  enumTypeId="AchTransCodeType"/>
+        </seed-data>
+
+    </entity>
+
     <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="paymentMethodFileId" type="id"/>
         <relationship type="one" related="mantle.account.method.PaymentMethodFile"/>
@@ -1201,6 +1270,9 @@ along with this software (see the LICENSE.md file). If not, see
             must not be more than 10 characters</description></field>
         <field name="nachaEntryDescription" type="text-short"><description>A description to be added to ACH transactions
             (such as Payroll, Order); must not be more than 10 characters</description></field>
+        <field name="nachaPrenoteRequired" type="text-indicator"><description>Y to require</description></field>
+        <field name="nachaPrenoteValidAfterDays" type="number-integer"><description>If required, the number of days before a
+            deposit payment method can be utilized after prenotification</description></field>
 
         <field name="posPayBankNumber" type="text-short">
             <description>Number specified by bank to identify bank in positive pay files</description></field>
