@@ -1097,6 +1097,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="achTransCodeEnumId" type="id" not-null="true"/>
         <field name="statusId" type="id" default="'ApnsAuthReq'"/>
         <field name="statusDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="amount" type="currency-amount" default="0"/>
         <relationship type="one" title="PrenotePaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod">
             <key-map field-name="paymentMethodId"/>
         </relationship>
