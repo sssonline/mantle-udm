@@ -1073,6 +1073,10 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="Sent" sequenceNum="3" statusId="PmfsSent" statusTypeId="PaymentMethodFileStatus">
                 <description>Sent</description></moqui.basic.StatusItem>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmfsCreated" toStatusId="PmfsDownloaded" transitionName="Downloaded"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmfsDownloaded" toStatusId="PmfsSent" transitionName="Sent"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmfsSent" toStatusId="PmfsDownloaded" transitionName="Unsent"/>
+
             <moqui.basic.EnumerationType description="Payment Method File Type" enumTypeId="PaymentMethodFileType"/>
             <!-- NOTE: optionIndicator=Y means on cancel reset Payment.statusId for payments in file -->
             <moqui.basic.Enumeration description="NACHA" enumId="PmftNacha" enumTypeId="PaymentMethodFileType" optionIndicator="Y"/>
@@ -1122,10 +1126,30 @@ along with this software (see the LICENSE.md file). If not, see
                 <description>ACH is not authorized</description></moqui.basic.StatusItem>
             <moqui.basic.StatusItem description="Request Auth" sequenceNum="2" statusId="ApnsAuthReq" statusTypeId="AchPreNotification">
                 <description>Request ACH authorization in next request</description></moqui.basic.StatusItem>
-            <moqui.basic.StatusItem description="Auth Requested" sequenceNum="3" statusId="ApnsAuthSent" statusTypeId="AchPreNotification">
+            <moqui.basic.StatusItem description="Auth Created" sequenceNum="3" statusId="ApnsAuthCreated" statusTypeId="AchPreNotification">
+                <description>ACH request is in a NACHA file that has not been sent</description></moqui.basic.StatusItem>
+            <moqui.basic.StatusItem description="Auth Requested" sequenceNum="4" statusId="ApnsAuthSent" statusTypeId="AchPreNotification">
                 <description>ACH authorization has been requested</description></moqui.basic.StatusItem>
-            <moqui.basic.StatusItem description="Authorized" sequenceNum="4" statusId="ApnsAuth" statusTypeId="AchPreNotification">
+            <moqui.basic.StatusItem description="Authorized" sequenceNum="5" statusId="ApnsAuth" statusTypeId="AchPreNotification">
                 <description>ACH is authorized</description></moqui.basic.StatusItem>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsNot" toStatusId="ApnsAuthReq" transitionName="Request Auth"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthReq" toStatusId="ApnsNot" transitionName="Not Authorized"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthReq" toStatusId="ApnsAuthCreated" transitionName="Auth Created"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthReq" toStatusId="ApnsAuthSent" transitionName="Auth Sent"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthCreated" toStatusId="ApnsNot" transitionName="Not Authorized"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthCreated" toStatusId="ApnsAuthReq" transitionName="Request Auth"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthCreated" toStatusId="ApnsAuthSent" transitionName="Auth Sent"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthSent" toStatusId="ApnsNot" transitionName="Not Authorized"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthSent" toStatusId="ApnsAuthReq" transitionName="Request Auth"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuthSent" toStatusId="ApnsAuth" transitionName="Authorized"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuth" toStatusId="ApnsNot" transitionName="Not Authorized"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="ApnsAuth" toStatusId="ApnsAuthReq" transitionName="Request Auth"/>
+
 
             <moqui.basic.EnumerationType description="ACH Transaction Code" enumTypeId="AchTransCodeType"/>
             <!-- Demand (Checking) Credits -->
