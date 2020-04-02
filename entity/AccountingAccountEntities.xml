@@ -1312,6 +1312,7 @@ along with this software (see the LICENSE.md file). If not, see
             must not be more than 10 characters</description></field>
         <field name="nachaEntryDescription" type="text-short"><description>A description to be added to ACH transactions
             (such as Payroll, Order); must not be more than 10 characters</description></field>
+        <field name="nachaOffsetRecordRequired" type="text-indicator"><description>Y to require</description></field>
         <field name="nachaPrenoteRequired" type="text-indicator"><description>Y to require</description></field>
         <field name="nachaPrenoteValidAfterDays" type="number-integer"><description>If required, the number of days before a
             deposit payment method can be utilized after prenotification</description></field>
