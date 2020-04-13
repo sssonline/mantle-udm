@@ -1092,33 +1092,36 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Zions Bank CSV" enumId="PmftZionsBankCsv" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
         </seed-data>
     </entity>
-    <entity entity-name="PaymentMethodAchPrenote" package="mantle.account.method" cache="never" enable-audit-log="true">
-        <field name="paymentMethodAchPrenoteId" type="id" is-pk="true"/>
-        <field name="paymentMethodId" type="id" not-null="true"/>
-        <field name="paymentMethodFileId" type="id"/>
-        <field name="paymentGroupId" type="id"/>
-        <field name="toPaymentMethodId" type="id" not-null="true"/>
+    <entity entity-name="BankAccountNachaPrenote" package="mantle.account.method">
+        <field name="bankAccountNachaPrenoteId" type="id" is-pk="true"/>
+        <field name="routingNumber" type="text-short" not-null="true"/>
+        <field name="accountNumber" type="text-medium" not-null="true"/>
+        <field name="toRoutingNumber" type="text-short"><description>Leave unset for funding method</description></field>
+        <field name="toAccountNumber" type="text-medium"><description>Leave unset for funding method</description></field>
+        <field name="paymentMethodFileId" type="id"><description>File that contains the prenote</description></field>
         <field name="achTransCodeEnumId" type="id" not-null="true"/>
         <field name="statusId" type="id" default="'ApnsAuthReq'"/>
         <field name="statusDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="amount" type="currency-amount" default="0"/>
-        <relationship type="one" title="PrenotePaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod">
-            <key-map field-name="paymentMethodId"/>
-        </relationship>
-        <relationship type="one" title="PrenoteToPaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="toPaymentMethod">
-            <key-map field-name="toPaymentMethodId"/>
-        </relationship>
         <relationship type="one" related="mantle.account.method.PaymentMethodFile" short-alias="paymentMethodFile"/>
-        <relationship type="one" related="mantle.account.payment.PaymentGroup" short-alias="paymentGroup">
-            <key-map field-name="paymentGroupId"/></relationship>
         <relationship type="one" title="PrenoteAchTransCodeEnum" related="moqui.basic.Enumeration" short-alias="achTransCodeEnum">
             <key-map field-name="achTransCodeEnumId"/></relationship>
         <relationship type="one" title="PreNoteAchStatus" related="moqui.basic.StatusItem" short-alias="status">
             <key-map field-name="statusId"/></relationship>
-        <index name="PRENOTE_FROM_TO_CODE" unique="true">
-            <index-field name="paymentMethodId"/>
-            <index-field name="toPaymentMethodId"/>
+        <index name="BA_NACHA_FROM_TO_PRENOTE" unique="true">
+            <index-field name="routingNumber"/>
+            <index-field name="accountNumber"/>
+            <index-field name="toRoutingNumber"/>
+            <index-field name="toAccountNumber"/>
             <index-field name="achTransCodeEnumId"/>
+        </index>
+        <index name="BA_NACHA_FROM">
+            <index-field name="routingNumber"/>
+            <index-field name="accountNumber"/>
+        </index>
+        <index name="BA_NACHA_TO">
+            <index-field name="toRoutingNumber"/>
+            <index-field name="toAccountNumber"/>
         </index>
         <seed-data>
             <moqui.basic.StatusType description="ACH Pre Notification Status" statusTypeId="AchPreNotification"/>
@@ -1185,6 +1188,37 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
 
     </entity>
+
+<!--    &lt;!&ndash; TODO: Get rid of this; payment methods and bank accounts change to often for this to work. &ndash;&gt;-->
+<!--    <entity entity-name="PaymentMethodAchPrenote" package="mantle.account.method" cache="never" enable-audit-log="true">-->
+<!--        <field name="paymentMethodAchPrenoteId" type="id" is-pk="true"/>-->
+<!--        <field name="paymentMethodId" type="id" not-null="true"/>-->
+<!--        <field name="paymentMethodFileId" type="id"/>-->
+<!--        <field name="paymentGroupId" type="id"/>-->
+<!--        <field name="toPaymentMethodId" type="id" not-null="true"/>-->
+<!--        <field name="achTransCodeEnumId" type="id" not-null="true"/>-->
+<!--        <field name="statusId" type="id" default="'ApnsAuthReq'"/>-->
+<!--        <field name="statusDate" type="date-time" default="ec.user.nowTimestamp"/>-->
+<!--        <field name="amount" type="currency-amount" default="0"/>-->
+<!--        <relationship type="one" title="PrenotePaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="paymentMethod">-->
+<!--            <key-map field-name="paymentMethodId"/>-->
+<!--        </relationship>-->
+<!--        <relationship type="one" title="PrenoteToPaymentMethod" related="mantle.account.method.PaymentMethod" short-alias="toPaymentMethod">-->
+<!--            <key-map field-name="toPaymentMethodId"/>-->
+<!--        </relationship>-->
+<!--        <relationship type="one" related="mantle.account.method.PaymentMethodFile" short-alias="paymentMethodFile"/>-->
+<!--        <relationship type="one" related="mantle.account.payment.PaymentGroup" short-alias="paymentGroup">-->
+<!--            <key-map field-name="paymentGroupId"/></relationship>-->
+<!--        <relationship type="one" title="PrenoteAchTransCodeEnum" related="moqui.basic.Enumeration" short-alias="achTransCodeEnum">-->
+<!--            <key-map field-name="achTransCodeEnumId"/></relationship>-->
+<!--        <relationship type="one" title="PreNoteAchStatus" related="moqui.basic.StatusItem" short-alias="status">-->
+<!--            <key-map field-name="statusId"/></relationship>-->
+<!--        <index name="PRENOTE_FROM_TO_CODE" unique="true">-->
+<!--            <index-field name="paymentMethodId"/>-->
+<!--            <index-field name="toPaymentMethodId"/>-->
+<!--            <index-field name="achTransCodeEnumId"/>-->
+<!--        </index>-->
+<!--    </entity>-->
 
     <extend-entity entity-name="SystemMessage" package="moqui.service.message">
         <field name="paymentMethodFileId" type="id"/>
