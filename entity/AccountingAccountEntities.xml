@@ -1378,12 +1378,12 @@ along with this software (see the LICENSE.md file). If not, see
         <description>A simple check register (for Checking type BankAccount) with details on the Payment entity</description>
         <field name="paymentMethodId" type="id" is-pk="true"/>
         <field name="checkNumber" type="number-integer" is-pk="true"/>
-        <field name="paymentId" type="id"/>
+        <field name="paymentId" type="id" not-null="true"><description>Associated payment id; zero payment if merely consuming a check number</description></field>
         <relationship type="one" related="mantle.account.method.PaymentMethod"/>
         <relationship type="one" related="mantle.account.payment.Payment"/>
-        <!--<index name="BANK_ACCOUNT_CHECK_PAYMENT" unique="true">-->
-            <!--<index-field name="paymentId"/>-->
-        <!--</index>-->
+        <index name="BANK_ACCOUNT_CHECK_PAYMENT" unique="true">
+            <index-field name="paymentId"/>
+        </index>
     </entity>
     <entity entity-name="BitcoinWallet" package="mantle.account.method" cache="never">
         <field name="paymentMethodId" type="id" is-pk="true"/>
