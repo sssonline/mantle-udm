@@ -275,6 +275,7 @@ along with this software (see the LICENSE.md file). If not, see
     How frequently should payroll billing invoice time entries be summarized?
     What level of invoice item (Combine or Separate) should be generated for Payroll Billing adjustments?
     Should invoice items be grouped by pay distribution group?
+    Should payroll billing invoices be approved with payroll invoices?
     -->
     <moqui.basic.EnumerationType description="Payroll Billing Invoice Level" enumTypeId="PayrollBillInvLvl"/>
     <moqui.basic.Enumeration description="Client" enumId="PbilClient" enumTypeId="PayrollBillInvLvl"/>
@@ -304,11 +305,31 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlN">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
-    <!-- Payroll Other/Tax Invoices:
+    <mantle.party.PartySettingType description="Payroll Billing - Approve with Payroll Invoice" partySettingTypeId="PayrollBillInvAppWthPrlInv"
+                                   enumTypeId="BooleanYN" defaultValue="BlN">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+
+    <!-- Payroll Other/Tax/Garnishment Invoices:
     What level of invoice item (Combine or Separate) should be generated for Payroll Other/Tax adjustments?
+    Should payroll garnishment invoices be approved with payroll invoices?
+    Should payroll other invoices be approved with payroll invoices?
+    Should payroll tax invoices be approved with payroll invoices?
     -->
     <mantle.party.PartySettingType description="Payroll Other/Tax - Invoice Item Adjustment Level" partySettingTypeId="PayrollOthTaxInvItemAdjSumLvl"
                                    enumTypeId="PayrolInvItemAdjustmentSummaryLvl" defaultValue="PbiiaslCombineSimilarAdjustments">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <mantle.party.PartySettingType description="Payroll Garnishment - Approve with Payroll Invoice" partySettingTypeId="PayrollGarnInvAppWthPrlInv"
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <mantle.party.PartySettingType description="Payroll Other - Approve with Payroll Invoice" partySettingTypeId="PayrollOtherInvAppWthPrlInv"
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <mantle.party.PartySettingType description="Payroll Tax - Approve with Payroll Invoice" partySettingTypeId="PayrollTaxInvAppWthPrlInv"
+                                   enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Pay Stub:
