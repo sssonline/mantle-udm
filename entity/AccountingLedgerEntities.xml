@@ -375,6 +375,28 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="acctgTransTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
     </entity>
+    <entity entity-name="InvoiceItemTypeTransType" package="mantle.ledger.config" use="configuration">
+        <field name="invoiceTypeEnumId" type="id" is-pk="true"/>
+        <field name="itemTypeEnumId" type="id" is-pk="true"/>
+        <field name="organizationPartyId" type="id" is-pk="true"/>
+        <field name="isPayable" type="text-indicator" is-pk="true"><description>If Y is Payable, N is Receivable.</description></field>
+        <field name="acctgTransTypeEnumId" type="id" not-null="true"/>
+        <field name="glAccountId" type="id" not-null="true"/>
+        <relationship type="one" title="InvoiceType" related="moqui.basic.Enumeration">
+            <key-map field-name="invoiceTypeEnumId"/></relationship>
+        <relationship type="one" title="ItemType" related="moqui.basic.Enumeration">
+            <key-map field-name="itemTypeEnumId"/></relationship>
+        <relationship type="one" title="Organization" related="mantle.party.Party">
+            <key-map field-name="organizationPartyId"/></relationship>
+        <relationship type="one" title="AcctgTransType" related="moqui.basic.Enumeration">
+            <key-map field-name="acctgTransTypeEnumId"/></relationship>
+        <relationship type="one" related="mantle.ledger.account.GlAccount"/>
+        <index name="INV_TYPE_TRAN_TYPE">
+            <index-field name="invoiceTypeEnumId"/>
+            <index-field name="organizationPartyId"/>
+            <index-field name="isPayable"/>
+        </index>
+    </entity>
     <entity entity-name="ItemTypeGlAccount" package="mantle.ledger.config" use="configuration">
         <field name="itemTypeEnumId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
