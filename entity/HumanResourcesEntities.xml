@@ -725,6 +725,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timePeriodTypeId" type="id"/>
         <field name="fromDate" type="date"/>
         <field name="thruDate" type="date"/>
+        <field name="adjTimePeriodId" type="id"/>
+        <field name="adjPayrollBatchId" type="id"/>
 
         <field name="isTax" type="text-indicator"/>
         <field name="isTaxable" type="text-indicator"><description>For taxable positive adjustments and tax deductible
@@ -784,6 +786,12 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="PayrollPhase" related="moqui.basic.Enumeration" short-alias="payrollPhaseEnum">
             <key-map field-name="payrollPhaseEnumId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType" short-alias="timePeriodType"/>
+        <relationship type="one" related="mantle.party.time.TimePeriod" short-alias="timePeriod">
+            <key-map field-name="adjTimePeriodId" related="timePeriodId"/>
+        </relationship>
+        <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch">
+            <key-map field-name="adjPayrollBatchId" related="payrollBatchId"/>
+        </relationship>
         <relationship type="one" title="PayrollRateBasis" related="moqui.basic.Enumeration">
             <key-map field-name="rateBasisEnumId"/></relationship>
         <relationship type="one" related="mantle.other.tax.TaxAuthority" short-alias="taxAuthority"/>
