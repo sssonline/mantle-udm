@@ -1511,6 +1511,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Previous" related="mantle.party.time.TimePeriod" short-alias="previous">
             <key-map field-name="previousPeriodId" related="timePeriodId"/></relationship>
         <relationship type="one" related="mantle.party.time.TimePeriodType" short-alias="type"/>
+        <relationship type="one" title="Party" related="mantle.party.Party" short-alias="party"/>
         <index name="TIMEPER_TP_PTY_FR" unique="true"><index-field name="timePeriodTypeId"/><index-field name="partyId"/>
             <index-field name="fromDate"/></index>
     </entity>
