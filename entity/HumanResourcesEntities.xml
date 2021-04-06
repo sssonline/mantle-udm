@@ -860,6 +860,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration sequenceNum="40" description="Once per Period incl 30th"   enumId="PaofDay30" enumTypeId="PayrollAdjOccurFreq" enumCode="30"/>
             <moqui.basic.Enumeration sequenceNum="41" description="Once per Period incl 31st"   enumId="PaofDay31" enumTypeId="PayrollAdjOccurFreq" enumCode="31"/>
             <moqui.basic.Enumeration sequenceNum="50" description="Once per Period incl Last"   enumId="PaofDayLast" enumTypeId="PayrollAdjOccurFreq" enumCode="-1"/>
+            <moqui.basic.Enumeration sequenceNum="60" description="Once per Period on First Pay Day"  enumId="PaofPayDay1" enumTypeId="PayrollAdjOccurFreq"/>
+            <moqui.basic.Enumeration sequenceNum="61" description="Once per Period on Second Pay Day" enumId="PaofPayDay2" enumTypeId="PayrollAdjOccurFreq"/>
+            <moqui.basic.Enumeration sequenceNum="62" description="Once per Period on Third Pay Day"  enumId="PaofPayDay3" enumTypeId="PayrollAdjOccurFreq"/>
+            <moqui.basic.Enumeration sequenceNum="63" description="Once per Period on Fourth Pay Day" enumId="PaofPayDay4" enumTypeId="PayrollAdjOccurFreq"/>
+            <moqui.basic.Enumeration sequenceNum="64" description="Once per Period on Fifth Pay Day"  enumId="PaofPayDay5" enumTypeId="PayrollAdjOccurFreq"/>
 
             <!-- Payroll Calculation Phase -->
             <moqui.basic.EnumerationType description="Payroll Calculation Phase" enumTypeId="PayrollPhase"/>
