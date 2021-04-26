@@ -215,6 +215,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Tax - State Unemployment Insurance Employee" enumId="ItemTaxStateUnInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Workers&apos; Comp Insurance Employee" enumId="ItemTaxStateWrkCmpInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Family Leave Employee" enumId="ItemTaxStateFamilyLeaveEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Tax - State Long Term Care Act Employee" enumId="ItemTaxStateLongTermCareActEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Disability Insurance Employee" enumId="ItemTaxStateDisInsEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - State Miscellaneous Employee" enumId="ItemTaxStateMiscEmpe" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Tax - County Withholding Employee" enumId="ItemTaxCountyWhold" parentEnumId="ItemPayrollTaxes" enumTypeId="ItemType"/>
@@ -463,25 +464,26 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpIraSimpleEmpr"             enumGroupEnumId="EngEmprPayrollOther"/>
 
     <moqui.basic.Enumeration description="Employee Payroll Tax Types" enumId="EngEmpePayrollTax" enumTypeId="EnumGroup"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxFederalWhold"         enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxFutaEmpe"             enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxSocialSecEmpe"        enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxMedEmpe"              enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxAddtlMedEmpe"         enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxFedPensionEmpe"       enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxStateWhold"           enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxStatePensionEmpe"     enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxStateUnInsEmpe"       enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxStateWrkCmpInsEmpe"   enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxStateFamilyLeaveEmpe" enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxStateDisInsEmpe"      enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxStateMiscEmpe"        enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxCountyWhold"          enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxCbt"                  enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxOccPrivEmpe"          enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxHeadEmpe"             enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxSchoolDistEmpe"       enumGroupEnumId="EngEmpePayrollTax"/>
-    <moqui.basic.EnumGroupMember enumId="ItemTaxSurtaxEmpe"           enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxFederalWhold"             enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxFutaEmpe"                 enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxSocialSecEmpe"            enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxMedEmpe"                  enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxAddtlMedEmpe"             enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxFedPensionEmpe"           enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStateWhold"               enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStatePensionEmpe"         enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStateUnInsEmpe"           enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStateWrkCmpInsEmpe"       enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStateFamilyLeaveEmpe"     enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStateLongTermCareActEmpe" enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStateDisInsEmpe"          enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxStateMiscEmpe"            enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxCountyWhold"              enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxCbt"                      enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxOccPrivEmpe"              enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxHeadEmpe"                 enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxSchoolDistEmpe"           enumGroupEnumId="EngEmpePayrollTax"/>
+    <moqui.basic.EnumGroupMember enumId="ItemTaxSurtaxEmpe"               enumGroupEnumId="EngEmpePayrollTax"/>
 
     <moqui.basic.Enumeration description="Employer Payroll Tax Types" enumId="EngEmprPayrollTax" enumTypeId="EnumGroup"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpTaxFutaEmpr"             enumGroupEnumId="EngEmprPayrollTax"/>

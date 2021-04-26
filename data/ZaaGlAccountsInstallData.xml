@@ -574,6 +574,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="222460000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
     <mantle.ledger.account.GlAccount accountName="State Family Leave Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222470000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
+    <mantle.ledger.account.GlAccount accountName="State Long Term Care Act Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+        glAccountId="222480000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222400000"/>
 
     <mantle.ledger.account.GlAccount accountName="Local Withholding" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="222500000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="222000000"/>
@@ -607,6 +609,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="223600000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
     <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes - State Family Leave" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
         glAccountId="223700000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
+    <mantle.ledger.account.GlAccount accountName="Accrued Payroll Taxes - State Long Term Care Act" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
+        glAccountId="223800000" glAccountTypeEnumId="GatAccruedExpenses" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="223000000"/>
 
     <!-- SALES TAX COLLECTED -->
     <mantle.ledger.account.GlAccount accountName="Sales Tax Collected" description="" glAccountClassEnumId="ACCRUED_EXPENSES"
@@ -1009,6 +1013,8 @@ along with this software (see the LICENSE.md file). If not, see
         glAccountId="632350000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
     <mantle.ledger.account.GlAccount accountName="Family Leave - Owners" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632450000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
+    <mantle.ledger.account.GlAccount accountName="Long Term Care Act - Employees" description="" glAccountClassEnumId="COMPENSATION"
+        glAccountId="632360000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
     <mantle.ledger.account.GlAccount accountName="PTO Pay - Employees" description="" glAccountClassEnumId="COMPENSATION"
         glAccountId="632500000" glAccountTypeEnumId="" glResourceTypeEnumId="GlrtMoney" parentGlAccountId="632000000"/>
     <mantle.ledger.account.GlAccount accountName="PTO Pay - Owners" description="" glAccountClassEnumId="COMPENSATION"
@@ -1943,6 +1949,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222450000" direction="E" itemTypeEnumId="ItemTaxStateUnInsEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222460000" direction="E" itemTypeEnumId="ItemTaxStateWrkCmpInsEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222470000" direction="E" itemTypeEnumId="ItemTaxStateFamilyLeaveEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222480000" direction="E" itemTypeEnumId="ItemTaxStateLongTermCareActEmpe" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222510000" direction="E" itemTypeEnumId="ItemTaxCountyWhold" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222510000" direction="E" itemTypeEnumId="ItemTaxCbt" organizationPartyId="DefaultSettings"/>
