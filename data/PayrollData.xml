@@ -138,6 +138,20 @@ along with this software (see the LICENSE.md file). If not, see
         If N, OT/DT Premiums will be $0 (this only occurs if no minimum wage check is performed).
     Should HOURLY OT/DT premiums for HOURLY jobs be based on RRP?
         If Y, use RRP calculated rate.  FLSA allows using HOURLY wage at time of OT/DT, but employee/employer must agree.
+    How frequently should OT be calculated?
+        Workweek: Calculate the OT for each workweek.
+        Workday: Calculate the OT for each workday.
+        Workday and Workweek: Calculate OT both daily and weekly.
+        Do Not Calc: Default.
+    After how many hours is work considered OT for a Workweek?
+    After how many hours is work considered OT for a Workday?
+    How frequently should DT be calculated?
+        Workweek: Calculate the DT for each workweek.
+        Workday: Calculate the DT for each workday.
+        Workday and Workweek: Calculate DT both daily and weekly.
+        Do Not Calc: Default.
+    After how many hours is work considered DT for a Workweek?
+    After how many hours is work considered DT for a Workday?
     -->
     <mantle.party.PartySettingType description="Payroll OT - Overtime Premium" partySettingTypeId="PayrollOtOtPrem"
             validRegexp="\d\.\d" defaultValue="0.5">
@@ -150,6 +164,31 @@ along with this software (see the LICENSE.md file). If not, see
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll OT - Hourly use RRP" partySettingTypeId="PayrollOtHrUseRrp"
                                    enumTypeId="BooleanYN" defaultValue="BlY">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <moqui.basic.EnumerationType description="Payroll OT Calc Period" enumTypeId="PayrollOtCalcPer"/>
+    <moqui.basic.Enumeration description="Workweek" enumId="ProtpWorkweek" enumTypeId="PayrollOtCalcPer"/>
+    <moqui.basic.Enumeration description="Workday" enumId="ProtpWorkday" enumTypeId="PayrollOtCalcPer"/>
+    <moqui.basic.Enumeration description="Workday and Workweek" enumId="ProtpWorkdayAndWorkWeek" enumTypeId="PayrollOtCalcPer"/>
+    <moqui.basic.Enumeration description="Do Not Calc" enumId="ProtpDoNotCalc" enumTypeId="PayrollOtCalcPer"/>
+    <mantle.party.PartySettingType description="Payroll OT - OT Calc Period" partySettingTypeId="PayrollOtOtCalcPer"
+                                   enumTypeId="PayrollOtCalcPer" defaultValue="ProtpDoNotCalc">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll OT - Weekly OT Hours" partySettingTypeId="PayrollOtWeeklyOtHours"
+                                   validRegexp="[1-9]|1\d|2[0-4](\.\d+)?" defaultValue="40.0">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll OT - Daily OT Hours" partySettingTypeId="PayrollOtDailyOtHours"
+                                   validRegexp="[1-9]|1\d|2[0-4](\.\d+)?" defaultValue="8.0">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+
+    <mantle.party.PartySettingType description="Payroll OT - DT Calc Period" partySettingTypeId="PayrollOtDtCalcPer"
+                                   enumTypeId="PayrollOtCalcPer" defaultValue="ProtpDoNotCalc">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll OT - Weekly DT Hours" partySettingTypeId="PayrollOtWeeklyDtHours"
+                                   validRegexp="[1-9]|1\d|2[0-4](\.\d+)?" defaultValue="60.0">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
+    <mantle.party.PartySettingType description="Payroll OT - Daily DT Hours" partySettingTypeId="PayrollOtDailyDtHours"
+                                   validRegexp="[1-9]|1\d|2[0-4](\.\d+)?" defaultValue="12.0">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
     <!-- Minimum Wage:
