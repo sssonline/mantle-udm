@@ -144,7 +144,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Piece Or Hourly Earnings" enumId="ItemPieceOrHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Piece Plus Hourly Earnings" enumId="ItemPiecePlusHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Shift Premium Earnings" enumId="ItemShiftPremiumEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
-    <moqui.basic.Enumeration description="Piece Min Wage Adjustment" enumId="ItemPieceMinWageAdj" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Min Wage Makeup" enumId="ItemPieceMinWageAdj" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Overtime Premium" enumId="ItemOvertimePremium" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Double Time Premium" enumId="ItemDoubleTimePremium" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Break Hourly Earnings" enumId="ItemBreakHourlyEarnings" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
