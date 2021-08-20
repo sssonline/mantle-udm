@@ -233,7 +233,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- All time entries are considered together for the calculation period, but detail is maintained per facility. -->
     <moqui.basic.Enumeration description="Shared Minimum Wage Per Facility" enumId="PmwgSharedPerFac" sequenceNum="3" enumTypeId="PayrollMinWageGrp"/>
     <!-- A minimum wage will be generated for each facility owner for the calculation period (independent of other facility owners). -->
-    <moqui.basic.Enumeration description="Min Wage Per Facility Owner" enumId="PmwgPerFacOw" sequenceNum="4" enumTypeId="PayrollMinWageGrp"/>
+    <moqui.basic.Enumeration description="Min Wage Per Facility Owner" enumId="PmwgPerFacOwn" sequenceNum="4" enumTypeId="PayrollMinWageGrp"/>
     <!-- A minimum wage will be generated for each facility for the calculation period (independent of other facility owners). -->
     <moqui.basic.Enumeration description="Min Wage Per Facility" enumId="PmwgPerFac" sequenceNum="5" enumTypeId="PayrollMinWageGrp"/>
     <!-- Time Entry grouping should evaluate each time entry separately as for whether it achieved minimum wage -->
