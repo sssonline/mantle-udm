@@ -249,6 +249,10 @@ along with this software (see the LICENSE.md file). If not, see
          (only among those owing). -->
     <moqui.basic.Enumeration description="Owing Facility Proportion of Hours" enumId="PwgmpOwningFacPropHours" sequenceNum="2"
                              enumTypeId="PayrollWageCalcGrpMkupPro"/>
+    <!-- Prorate the minimum wage makeup among those facilities that did not make minimum wage by the inverse proportion
+         owed. This attributes more to facilities that need less, but does not consider the number of hours in earning less. -->
+    <moqui.basic.Enumeration description="Owing Facility Inverse Proportion of Makeup" enumId="PwgmpOwningFacInvPropMkup" sequenceNum="3"
+                             enumTypeId="PayrollWageCalcGrpMkupPro"/>
     <!-- Prorate the minimum wage makeup among the grouped facilities by hour regardless of the amount owed (even if it is a
          credit). -->
     <moqui.basic.Enumeration description="All Facility Proportion of Hours" enumId="PwgmpAllFacPropHours" sequenceNum="3"
