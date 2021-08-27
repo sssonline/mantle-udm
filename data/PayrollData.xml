@@ -255,10 +255,10 @@ along with this software (see the LICENSE.md file). If not, see
                              enumTypeId="PayrollWageCalcGrpMkupPro"/>
     <!-- Prorate the minimum wage makeup among the grouped facilities by hour regardless of the amount owed (even if it is a
          credit). -->
-    <moqui.basic.Enumeration description="All Facility Proportion of Hours" enumId="PwgmpAllFacPropHours" sequenceNum="3"
+    <moqui.basic.Enumeration description="All Facility Proportion of Hours" enumId="PwgmpAllFacPropHours" sequenceNum="4"
                              enumTypeId="PayrollWageCalcGrpMkupPro"/>
     <mantle.party.PartySettingType description="Payroll MWG - Calc Group Prorate" partySettingTypeId="PayrollMwCalcGrpPro"
-                                   enumTypeId="PayrollWageCalcGrpMkupPro" defaultValue="PwgmpOwningFacPropMkup">
+                                   enumTypeId="PayrollWageCalcGrpMkupPro" defaultValue="PwgmpOwningFacPropHours">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <mantle.party.PartySettingType description="Payroll MWG - Makeup Subgroup By Rate" partySettingTypeId="PayrollMwMkpSubgrpByRate"
                                    enumTypeId="BooleanYN" defaultValue="BlN">
