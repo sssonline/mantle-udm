@@ -239,7 +239,7 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- Time Entry grouping should evaluate each time entry separately as for whether it achieved minimum wage -->
     <moqui.basic.Enumeration description="Min Wage Per Time Entry" enumId="PmwgMinWagePerTimeEntry" sequenceNum="10" enumTypeId="PayrollMinWageGrp"/>
     <mantle.party.PartySettingType description="Payroll MWG - Calc Grouping" partySettingTypeId="PayrollMwCalcGrp"
-                                   enumTypeId="PayrollMinWageGrp" defaultValue="PmwgSharedMinWage">
+                                   enumTypeId="PayrollMinWageGrp" defaultValue="PmwgSharedPerFac">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
     <moqui.basic.EnumerationType description="Payroll Wage Calc Group Makeup Prorate" enumTypeId="PayrollWageCalcGrpMkupPro"/>
     <!-- Prorate the minimum wage makeup among those facilities that did not make minimum wage by the proportion owed. -->
