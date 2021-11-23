@@ -1089,6 +1089,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="SunTrust CPR" enumId="PmftSunTrustCpr" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Wachovia AR" enumId="PmftWachoviaAr" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Wells Fargo ARP" enumId="PmftWellsFargoArp" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
+            <moqui.basic.Enumeration description="Wells Fargo CSV" enumId="PmftWellsFargoCsv" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
             <moqui.basic.Enumeration description="Zions Bank CSV" enumId="PmftZionsBankCsv" parentEnumId="PmftPositivePay" enumTypeId="PaymentMethodFileType"/>
         </seed-data>
     </entity>
