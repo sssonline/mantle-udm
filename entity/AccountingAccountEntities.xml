@@ -1644,6 +1644,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one-nofk" related="mantle.order.OrderPart" short-alias="orderPart"/>
         <relationship type="one" title="PayDistributionGroup" related="moqui.basic.Enumeration" short-alias="distGroup">
             <key-map field-name="distGroupEnumId"/></relationship>
+        <relationship type="one" title="PaymentMethodFile" related="mantle.account.method.PaymentMethodFile" short-alias="paymentMethodFile">
+            <key-map field-name="paymentMethodFileId"/></relationship>
 
         <relationship type="one" title="Amount" related="moqui.basic.Uom" short-alias="amountUom">
             <key-map field-name="amountUomId"/></relationship>
