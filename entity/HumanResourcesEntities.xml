@@ -243,6 +243,8 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Employee Import -->
             <moqui.basic.Enumeration enumId="eieEmployee" description="Employee" enumTypeId="EntityImportEvent"/>
+            <moqui.basic.Enumeration enumId="eieSickLeave" description="Sick Leave" enumTypeId="EntityImportEvent"/>
+            <moqui.basic.Enumeration enumId="eieRecurringTimeAndAdjustments" description="Recurring Time and Adjustments" enumTypeId="EntityImportEvent"/>
         </seed-data>
     </entity>
     <entity entity-name="Employment" package="mantle.humanres.employment" use="nontransactional">

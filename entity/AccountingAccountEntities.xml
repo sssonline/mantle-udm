@@ -319,6 +319,8 @@ along with this software (see the LICENSE.md file). If not, see
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/>
             <mantle.account.financial.FinancialAccountType description="Employee Loan" finAccountTypeId="EmployeeLoan"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/>
+            <mantle.account.financial.FinancialAccountType description="Employee Obligated Advance" finAccountTypeId="EmployeeObligatedAdvance"
+                    replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/>
             <!-- <mantle.account.financial.FinancialAccountType description="Credit Card" finAccountTypeId="CreditCard"
                     replenishTypeEnumId="FarpManual" isRefundable="Y" parentTypeId="LoanAccount"/> -->
             <!-- <mantle.account.financial.FinancialAccountType description="Equity Line" finAccountTypeId="EquityLine"

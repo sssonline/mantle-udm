@@ -1904,6 +1904,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="E" itemTypeEnumId="ItemAdvancePay" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="124100000" direction="E" itemTypeEnumId="ItemLoanPay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="124100000" direction="E" itemTypeEnumId="ItemObligatedAdvancePay" organizationPartyId="DefaultSettings"/>
 
     <!-- NOTE: may want to consider not mapping a default for ItemReimbursement, should generally be more specific expense type -->
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="789000000" direction="E" itemTypeEnumId="ItemReimbursement" organizationPartyId="DefaultSettings"/>
@@ -1919,6 +1920,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="151400000" direction="E" itemTypeEnumId="ItemDedAdvRepay" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="124100000" direction="E" itemTypeEnumId="ItemDedEmpeLoanRepay" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="124100000" direction="E" itemTypeEnumId="ItemDedObligatedAdvanceRepay" organizationPartyId="DefaultSettings"/>
 
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="254000000" direction="E" itemTypeEnumId="ItemDedCharity" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222700000" direction="E" itemTypeEnumId="ItemDedChildGarnish" organizationPartyId="DefaultSettings"/>
