@@ -795,7 +795,8 @@ along with this software (see the LICENSE.md file). If not, see
 
             <moqui.basic.Enumeration description="Acc TX Types Invoice" enumId="EngAccTxTypesInvoice" enumTypeId="EnumGroup">
                 <groupMembers enumId="AttSalesInvoice"/><groupMembers enumId="AttCustRtnInvoice"/><groupMembers enumId="AttPurchaseInvoice"/>
-                <groupMembers enumId="AttVendRtnInvoice"/><groupMembers enumId="AttPayrollInvoice"/><groupMembers enumId="AttTaxInvoice"/>
+                <groupMembers enumId="AttVendRtnInvoice"/><groupMembers enumId="AttPayrollInvoice"/>
+                <groupMembers enumId="AttTaxInvoice"/><groupMembers enumId="AttTaxDue"/>
                 <groupMembers enumId="AttGarnishmentInvoice"/><groupMembers enumId="AttCommissionInvoice"/>
                 <groupMembers enumId="AttInvoiceAdjust"/><groupMembers enumId="AttPayrollOtherInvoice"/>
                 <groupMembers enumId="AttFinInstAdjCreditInvoice"/><groupMembers enumId="AttFinInstAdjChargeInvoice"/>
@@ -810,7 +811,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Acc TX Types Receivable" enumId="EngAccTxTypesReceivable" enumTypeId="EnumGroup">
                 <groupMembers enumId="AttSalesInvoice"/><groupMembers enumId="AttVendRtnInvoice"/>
                 <groupMembers enumId="AttInvoiceAdjust"/><groupMembers enumId="AttPayrollBillingInvoice"/>
-                <groupMembers enumId="AttFinInstAdjCreditInvoice"/>
+                <groupMembers enumId="AttFinInstAdjCreditInvoice"/><groupMembers enumId="AttTaxDue"/>
             </moqui.basic.Enumeration>
 
             <!-- GL Fiscal Type -->
