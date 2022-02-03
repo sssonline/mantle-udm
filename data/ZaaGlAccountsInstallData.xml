@@ -1704,14 +1704,23 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceTax" organizationPartyId="DefaultSettings"
             isPayable="Y" acctgTransTypeEnumId="AttTaxInvoice" glAccountId="212300000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceTax" organizationPartyId="DefaultSettings"
-            isPayable="N" acctgTransTypeEnumId="AttTaxDue" glAccountId="212300000"/>
+            isPayable="N" acctgTransTypeEnumId="AttTaxDue" glAccountId="212300000"/> <!-- Contra -->
 
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceGarnishment" organizationPartyId="DefaultSettings"
             isPayable="Y" acctgTransTypeEnumId="AttGarnishmentInvoice" glAccountId="212400000"/>
+    <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceGarnishment" organizationPartyId="DefaultSettings"
+            isPayable="N" acctgTransTypeEnumId="AttGarnishmentCredit" glAccountId="212400000"/> <!-- Contra -->
+
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoicePayrollOther" organizationPartyId="DefaultSettings"
             isPayable="Y" acctgTransTypeEnumId="AttPayrollOtherInvoice" glAccountId="212400000"/>
+    <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoicePayrollOther" organizationPartyId="DefaultSettings"
+            isPayable="N" acctgTransTypeEnumId="AttPayrollOtherCredit" glAccountId="212400000"/> <!-- Contra -->
+
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoicePayrollBilling" organizationPartyId="DefaultSettings"
             isPayable="N" acctgTransTypeEnumId="AttPayrollBillingInvoice" glAccountId="121000000"/>
+    <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoicePayrollBilling" organizationPartyId="DefaultSettings"
+            isPayable="Y" acctgTransTypeEnumId="AttPayrollBillingCredit" glAccountId="121000000"/> <!-- Contra -->
+
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceFinInstAdj" organizationPartyId="DefaultSettings"
             isPayable="N" acctgTransTypeEnumId="AttFinInstAdjCreditInvoice" glAccountId="121000000"/>
     <mantle.ledger.config.InvoiceTypeTransType invoiceTypeEnumId="InvoiceFinInstAdj" organizationPartyId="DefaultSettings"

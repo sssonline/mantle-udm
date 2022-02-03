@@ -748,6 +748,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AttSales" description="Sales" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttTaxDue" description="Tax Due" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
 
+            <moqui.basic.Enumeration enumId="AttGarnishmentCredit" description="Garnishment Credit" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPayrollOtherCredit" description="Payroll Other Credit" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+            <moqui.basic.Enumeration enumId="AttPayrollBillingCredit" description="Payroll Billing Credit" parentEnumId="AttObligation" enumTypeId="AcctgTransType"/>
+
+
             <!-- Payment TX Types -->
             <moqui.basic.Enumeration enumId="AttPayment" description="Payment" parentEnumId="AttExternal" enumTypeId="AcctgTransType"/>
             <moqui.basic.Enumeration enumId="AttDisbursement" description="Disbursement" parentEnumId="AttPayment" enumTypeId="AcctgTransType"/>
