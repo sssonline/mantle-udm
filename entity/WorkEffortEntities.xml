@@ -820,7 +820,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timesheetId" type="id" not-null="true"/>
         <field name="partyId" type="id" not-null="true"/>
         <field name="roleTypeId" type="id"/>
-        <field name="sequenceNum" type="number-integer"/>
+        <field name="sequenceNum" type="number-integer" not-null="true"/>
         <relationship type="one" related="mantle.work.time.Timesheet"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.RoleType"/>
@@ -835,6 +835,10 @@ along with this software (see the LICENSE.md file). If not, see
         <index name="TIMESHEET_PARTY_TIMESHEET_PARTY">
             <index-field name="timesheetId"/>
             <index-field name="partyId"/>
+        </index>
+        <index name="TIMESHEET_SEQUENCE_NUM" unique="true">
+            <index-field name="timesheetId"/>
+            <index-field name="sequenceNum"/>
         </index>
     </entity>
     <entity entity-name="TimesheetWorkEffort" package="mantle.work.time" cache="never">
