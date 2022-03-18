@@ -1862,6 +1862,8 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemPieceOrHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPiecePlusHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemPiecePlusHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPieceTholdDiffHourlyEarnings" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemPieceTholdDiffHourlyEarnings" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemPieceMinWageAdj" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="221200000" direction="O" itemTypeEnumId="ItemPieceMinWageAdj" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="631100000" direction="I" itemTypeEnumId="ItemShiftPremiumEarnings" organizationPartyId="DefaultSettings"/>

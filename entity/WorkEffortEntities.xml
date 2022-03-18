@@ -700,9 +700,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="pieceCount" type="number-decimal"/>
         <field name="pieceRateTypeEnumId" type="id"/>
         <field name="pieceRateAmountId" type="id"><description>Client/customer piece RateAmount reference</description></field>
+        <field name="pieceRateThreshold" type="number-decimal"><description>For various piece rate types, the level to eclipse before applying piece rate</description></field>
         <field name="clientPieceRate" type="number-decimal"/>
         <field name="vendorPieceRateAmountId" type="id"><description>Vendor/worker piece RateAmount reference</description></field>
         <field name="vendorPieceRate" type="number-decimal"/>
+        <field name="vendorPieceRateThreshold" type="number-decimal"><description>For various piece rate types, the level to eclipse before applying piece rate</description></field>
         <field name="comments" type="text-long"/>
         <field name="facilityId" type="id"><description>Where the work was done; if null and workEffortId is set get from WorkEffort.facilityId</description></field>
         <field name="workEffortId" type="id"/>

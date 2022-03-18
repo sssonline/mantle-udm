@@ -1518,6 +1518,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="workTypeEnumId" type="id"/>
         <field name="payGradeId" type="id"/>
         <field name="emplPositionClassId" type="id"/>
+        <field name="rateThreshold" type="number-decimal"><description>Various rate types may apply a threshold before applying the rate</description></field>
         <!-- what we're looking for -->
         <field name="rateAmount" type="number-decimal"/>
 
@@ -1566,6 +1567,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="RatpPieceOrHour" description="Piece or Hourly" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
             <moqui.basic.Enumeration enumId="RatpPieceOnly" description="Piece" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
             <moqui.basic.Enumeration enumId="RatpPiecePlusHour" description="Piece plus Hourly" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
+            <moqui.basic.Enumeration enumId="RatpPieceTholdDiff" description="Piece threshold differential" enumTypeId="PieceRateType" relatedEnumId="RatpStandard"/>
             <!-- these are less commonly used (NOTE if not configured looks for relatedEnumId to fill in) -->
             <moqui.basic.Enumeration enumId="RatpUnpaid" description="Unpaid" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
             <moqui.basic.Enumeration enumId="RatpNoCharge" description="No Charge" enumTypeId="RateType" relatedEnumId="RatpStandard"/>
@@ -1611,6 +1613,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="4" enumGroupEnumId="EngRateCommonConfig"/>
             <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="5" enumGroupEnumId="EngRateCommonConfig"/>
             <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="6" enumGroupEnumId="EngRateCommonConfig"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceTholdDiff" sequenceNum="7" enumGroupEnumId="EngRateCommonConfig"/>
             <moqui.basic.EnumGroupMember enumId="RatpEvening" sequenceNum="21" enumGroupEnumId="EngRateCommonConfig"/>
             <moqui.basic.EnumGroupMember enumId="RatpNight" sequenceNum="22" enumGroupEnumId="EngRateCommonConfig"/>
             <moqui.basic.EnumGroupMember enumId="RatpWeekend" sequenceNum="23" enumGroupEnumId="EngRateCommonConfig"/>
@@ -1640,6 +1643,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="RatpPieceOnly" sequenceNum="1" enumGroupEnumId="EngPieceRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpPieceOrHour" sequenceNum="2" enumGroupEnumId="EngPieceRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="3" enumGroupEnumId="EngPieceRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPieceTholdDiff" sequenceNum="4" enumGroupEnumId="EngPieceRateType"/>
 
             <!-- Rate Modifier Type -->
             <moqui.basic.Enumeration description="Pay Rate Modifier Type" enumId="EngPayRateModifierType" enumTypeId="EnumGroup"/>
