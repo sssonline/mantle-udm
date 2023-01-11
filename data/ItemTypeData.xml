@@ -180,6 +180,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Section 125 Dental Insurance" enumId="ItemDedSec125DentalInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Dependent Care" enumId="ItemDedSec125DependentCareEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Health Insurance" enumId="ItemDedSec125HealthInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Section 125 FSA" enumId="ItemDedSec125FSAEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Other Insurance" enumId="ItemDedSec125OtherInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Prescription Insurance" enumId="ItemDedSec125PrescriptionInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Vision Insurance" enumId="ItemDedSec125VisionInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
@@ -410,6 +411,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125DentalInsuranceEmpe" enumGroupEnumId="EngSec125EmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125DependentCareEmpe" enumGroupEnumId="EngSec125EmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125HealthInsuranceEmpe" enumGroupEnumId="EngSec125EmpeBenefitCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125FSAEmpe" enumGroupEnumId="EngSec125EmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125OtherInsuranceEmpe" enumGroupEnumId="EngSec125EmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125PrescriptionInsuranceEmpe" enumGroupEnumId="EngSec125EmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125VisionInsuranceEmpe" enumGroupEnumId="EngSec125EmpeBenefitCoverageEmpe"/>
@@ -418,6 +420,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125DentalInsuranceEmpe" enumGroupEnumId="EngEmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125DependentCareEmpe" enumGroupEnumId="EngEmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125HealthInsuranceEmpe" enumGroupEnumId="EngEmpeBenefitCoverageEmpe"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125FSAEmpe" enumGroupEnumId="EngEmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125OtherInsuranceEmpe" enumGroupEnumId="EngEmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125PrescriptionInsuranceEmpe" enumGroupEnumId="EngEmpeBenefitCoverageEmpe"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125VisionInsuranceEmpe" enumGroupEnumId="EngEmpeBenefitCoverageEmpe"/>
@@ -432,6 +435,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125DentalInsuranceEmpe"       enumGroupEnumId="EngEmpePayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125DependentCareEmpe"         enumGroupEnumId="EngEmpePayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125HealthInsuranceEmpe"       enumGroupEnumId="EngEmpePayrollOther"/>
+    <moqui.basic.EnumGroupMember enumId="ItemDedSec125FSAEmpe"                   enumGroupEnumId="EngEmpePayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125OtherInsuranceEmpe"        enumGroupEnumId="EngEmpePayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125PrescriptionInsuranceEmpe" enumGroupEnumId="EngEmpePayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemDedSec125VisionInsuranceEmpe"       enumGroupEnumId="EngEmpePayrollOther"/>

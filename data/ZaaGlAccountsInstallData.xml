@@ -1931,6 +1931,7 @@ along with this software (see the LICENSE.md file). If not, see
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125DentalInsuranceEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125DependentCareEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125HealthInsuranceEmpe" organizationPartyId="DefaultSettings"/>
+    <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125FSAEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125OtherInsuranceEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125VisionInsuranceEmpe" organizationPartyId="DefaultSettings"/>
     <mantle.ledger.config.ItemTypeGlAccount glAccountId="222800000" direction="E" itemTypeEnumId="ItemDedSec125PrescriptionInsuranceEmpe" organizationPartyId="DefaultSettings"/>
