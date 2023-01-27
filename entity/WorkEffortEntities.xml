@@ -787,6 +787,17 @@ along with this software (see the LICENSE.md file). If not, see
             <index-field name="partyId"/>
             <index-field name="fromDate"/>
         </index>
+        <index name="TIME_ENTRY_ORG_FACILITY_DATE">
+            <index-field name="organizationPartyId"/>
+            <index-field name="facilityId"/>
+            <index-field name="fromDate"/>
+        </index>
+        <index name="TIME_ENTRY_ORG_FACILITY_PARTY_DATE">
+            <index-field name="organizationPartyId"/>
+            <index-field name="facilityId"/>
+            <index-field name="partyId"/>
+            <index-field name="fromDate"/>
+        </index>
         <seed-data>
             <moqui.basic.Enumeration enumId="eieTimeEntry" description="TimeEntry" enumTypeId="EntityImportEvent"/>
         </seed-data>
