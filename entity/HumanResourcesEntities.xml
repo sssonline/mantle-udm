@@ -1348,6 +1348,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Employment Tax Exempt Category -->
             <moqui.basic.EnumerationType description="Employment Tax Exempt Category" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Resident Regular" enumId="EtxResidentRegular" enumTypeId="EmplTaxExempt"/>
+            <moqui.basic.Enumeration description="Resident Social Exempt" enumId="EtxResidentSocialExempt" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Contract" enumId="EtxContract" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Foreign Agriculture" enumId="EtxForeignAg" enumTypeId="EmplTaxExempt"/>
             <moqui.basic.Enumeration description="Foreign General" enumId="EtxForeignGeneral" enumTypeId="EmplTaxExempt"/>
