@@ -1399,6 +1399,10 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Email - Order Notification"/>
             <ContactMechPurpose contactMechPurposeId="EmailMarketing" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Marketing"/>
+            <ContactMechPurpose contactMechPurposeId="EmailPersonal" contactMechTypeEnumId="CmtEmailAddress"
+                    description="Email - Personal"/>
+            <ContactMechPurpose contactMechPurposeId="EmailWork" contactMechTypeEnumId="CmtEmailAddress"
+                    description="Email - Work"/>
 
             <ContactMechPurpose contactMechPurposeId="WebUrlPrimary" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - Primary"/>
