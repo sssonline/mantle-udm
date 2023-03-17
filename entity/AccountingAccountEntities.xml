@@ -1333,6 +1333,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="routingNumber" type="text-short"/>
         <field name="accountNumber" type="text-medium"/>
         <field name="lastCheckNumber" type="number-integer"/>
+        <field name="nachaUseCheckNumber" type="text-indicator" default="Y"/>
 
         <field name="nachaImmedDest" type="text-short"><description>Right 9 must be digits, generally assigned by bank,
             usually bank routing/transit number</description></field>
