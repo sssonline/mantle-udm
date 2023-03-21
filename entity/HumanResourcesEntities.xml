@@ -561,6 +561,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxablePayAmount" type="number-decimal"><description>Taxable Wages (typically federal)</description></field>
         <field name="socialTaxablePayAmount" type="number-decimal"><description>Social Taxable Wages (typically federal)</description></field>
         <field name="medicalTaxablePayAmount" type="number-decimal"><description>Medical Taxable Wages (typically federal)</description></field>
+        <field name="unempTaxablePayAmount" type="number-decimal"><description>Unemp Taxable Wages (typically federal)</description></field>
         <field name="netPayAmount" type="number-decimal"><description>Net Pay</description></field>
         <field name="netPayInvoiceAdjAmount" type="number-decimal" default="0.0">
             <description>Add this amount to align with Payroll Invoice</description></field>
@@ -569,6 +570,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxableYtdIncome" type="number-decimal"><description>YTD taxable income through prior pay history. Add taxablePayAmount for true YTD amount.</description></field>
         <field name="socialTaxableYtdIncome" type="number-decimal"><description>YTD social taxable income through prior pay history. Add socialTaxablePayAmount for true YTD amount.</description></field>
         <field name="medicalTaxableYtdIncome" type="number-decimal"><description>YTD medical taxable income through prior pay history. Add medicalTaxablePayAmount for true YTD amount.</description></field>
+        <field name="unempTaxableYtdIncome" type="number-decimal"><description>YTD unemp taxable income through prior pay history. Add unempTaxablePayAmount for true YTD amount.</description></field>
         <field name="totalHours" type="number-decimal"><description>Hours total (worked, break, vacation, sick, pto, etc.)</description></field>
         <field name="totalHoursWorked" type="number-decimal"><description>totalHours less Holiday, KOS, PTO, Sick, Vacation</description></field>
         <field name="totalHoursNonSick" type="number-decimal"><description>totalHours less sick hours</description></field>
@@ -743,6 +745,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isMedicalTax" type="text-indicator"/>
         <field name="isMedicalTaxable" type="text-indicator"><description>For medical (in USA: Medicare program) taxable
             positive adjustments and deductible negative adjustments.</description></field>
+        <field name="isUnempTax" type="text-indicator"/>
+        <field name="isUnempTaxable" type="text-indicator"><description>For unemp (in USA: Unemp FUTA
+            program) taxable positive adjustments and deductible negative adjustments.</description></field>
 
         <field name="rateBasisEnumId" type="id"/>
         <!-- Deprecated: Move riskClassEnumId to PayrollAdjustmentApplies -->
@@ -898,6 +903,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Income Taxable" enumId="PrbsIncome" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Social Taxable" enumId="PrbsSocial" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Medical Taxable" enumId="PrbsMedical" enumTypeId="PayrollRateBasis"/>
+            <moqui.basic.Enumeration description="Unemp Taxable" enumId="PrbsUnemp" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Gross" enumId="PrbsGross" enumTypeId="PayrollRateBasis"/><!-- default -->
             <moqui.basic.Enumeration description="Gross Less Tips" enumId="PrbsGrossLessTips" enumTypeId="PayrollRateBasis"/>
             <moqui.basic.Enumeration description="Straight Time Gross" enumId="PrbsStraightGross" enumTypeId="PayrollRateBasis"/>
