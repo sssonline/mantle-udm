@@ -1652,6 +1652,14 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.EnumGroupMember enumId="RatpPiecePlusHour" sequenceNum="3" enumGroupEnumId="EngPieceRateType"/>
             <moqui.basic.EnumGroupMember enumId="RatpPieceTholdDiff" sequenceNum="4" enumGroupEnumId="EngPieceRateType"/>
 
+            <!-- Non Work Rate Type -->
+            <moqui.basic.Enumeration description="Non Work Rate Type" enumId="EngNonWorkRateType" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="RatpVacation" enumGroupEnumId="EngNonWorkRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpHoliday" enumGroupEnumId="EngNonWorkRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpKeptOnSalary" enumGroupEnumId="EngNonWorkRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpSick" enumGroupEnumId="EngNonWorkRateType"/>
+            <moqui.basic.EnumGroupMember enumId="RatpPtoOther" enumGroupEnumId="EngNonWorkRateType"/>
+
             <!-- Rate Modifier Type -->
             <moqui.basic.Enumeration description="Pay Rate Modifier Type" enumId="EngPayRateModifierType" enumTypeId="EnumGroup"/>
             <moqui.basic.EnumGroupMember enumId="RatmRegular" sequenceNum="1" enumGroupEnumId="EngPayRateModifierType"/>
