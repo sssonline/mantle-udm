@@ -207,6 +207,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Order Quote Requested" enumId="PsetOrderRequested" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Quote Proposed" enumId="PsetOrderProposed" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Placed" enumId="PsetOrderPlaced" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Order Pre-Approved" enumId="PsetOrderPreApproved" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Approved" enumId="PsetOrderApproved" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Complete" enumId="PsetOrderComplete" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Change" enumId="PsetOrderChange" enumTypeId="ProductStoreEmailType"/>
