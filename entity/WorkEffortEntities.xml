@@ -798,6 +798,11 @@ along with this software (see the LICENSE.md file). If not, see
             <index-field name="partyId"/>
             <index-field name="fromDate"/>
         </index>
+        <index name="TIME_ENTRY_FROM_DATE_VENDOR_INVOICE" unique="true">
+            <index-field name="fromDate"/>
+            <index-field name="vendorInvoiceId"/>
+            <index-field name="timeEntryId"/>
+        </index>
         <seed-data>
             <moqui.basic.Enumeration enumId="eieTimeEntry" description="TimeEntry" enumTypeId="EntityImportEvent"/>
         </seed-data>

@@ -400,6 +400,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Native Tribal Document" enumId="EatNativeDoc" enumTypeId="EmplAuthzType"/>
             <moqui.basic.Enumeration description="Citizen ID Card" enumId="EatCitizenId" enumTypeId="EmplAuthzType"/>
             <moqui.basic.Enumeration description="Resident Citizen ID Card" enumId="EatResCitizenId" enumTypeId="EmplAuthzType"/>
+
+            <!-- Employee Occupational Classification (e.g. SOC Codes) -->
+            <moqui.basic.EnumerationType description="Employee Occupational Class" enumTypeId="EmplOccupClassType"/>
         </seed-data>
     </entity>
     <entity entity-name="EmploymentApplication" package="mantle.humanres.employment" use="nontransactional">
@@ -656,6 +659,13 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="payeeInvoiceId" related="invoiceId"/>
             <key-map field-name="payeeInvoiceItemSeqId" related="invoiceItemSeqId"/>
         </relationship>
+
+        <index name="EPAD_ITEM_TYPE_WORK_TYPE_FACILITY_EPH">
+            <index-field name="itemTypeEnumId"/>
+            <index-field name="workTypeEnumId"/>
+            <index-field name="facilityId"/>
+            <index-field name="employmentPayHistoryId"/>
+        </index>
     </entity>
 
     <entity entity-name="EmploymentPayTimeDetail" package="mantle.humanres.employment" use="transactional">
