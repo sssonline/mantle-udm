@@ -422,6 +422,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.ledger.transaction.AcctgTrans" short-alias="acctgTrans">
             <key-map field-name="invoiceId"/></relationship>
 
+        <index name="INVOICE_TO_FROM_STATUS_DATE">
+            <index-field name="toPartyId"/>
+            <index-field name="fromPartyId"/>
+            <index-field name="statusId"/>
+            <index-field name="invoiceDate"/>
+        </index>
+
         <seed-data>
             <!-- Invoice Type -->
             <moqui.basic.EnumerationType description="Invoice Type" enumTypeId="InvoiceType"/>
@@ -1689,6 +1696,19 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="paymentId"/></relationship>
         <relationship type="one" related="mantle.account.payment.PaymentGroup" short-alias="paymentGroup">
             <key-map field-name="paymentGroupId"/></relationship>
+
+        <index name="INVOICE_PMT_TYPE_FROM_PTY_TO_PTY_EFF_DATE">
+            <index-field name="paymentTypeEnumId"/>
+            <index-field name="fromPartyId"/>
+            <index-field name="toPartyId"/>
+            <index-field name="effectiveDate"/>
+        </index>
+        <index name="INVOICE_PMT_TYPE_FROM_PTY_STATUS_EFF_DATE">
+            <index-field name="paymentTypeEnumId"/>
+            <index-field name="fromPartyId"/>
+            <index-field name="statusId"/>
+            <index-field name="effectiveDate"/>
+        </index>
 
         <seed-data>
             <!-- Payment Type -->
