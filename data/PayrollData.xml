@@ -300,6 +300,11 @@ along with this software (see the LICENSE.md file). If not, see
                                    enumTypeId="BooleanYN" defaultValue="BlY">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
+    <!-- Employee Occupational Classification (e.g. SOC Codes) -->
+<!--    <mantle.party.PartySettingType description="Payroll OC - Default Occupational Class" partySettingTypeId="PayrollOcEmplOccupClass"-->
+<!--                                   enumTypeId="EmplOccupClassType">-->
+<!--        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>-->
+
     <!-- Payroll Invoice:
     How frequently should payroll invoice time entries be summarized?
     -->
