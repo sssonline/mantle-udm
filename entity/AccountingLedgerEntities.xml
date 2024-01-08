@@ -728,6 +728,10 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="acctgTransId"/></relationship>
 
         <index name="ACCTG_TRANS_TX_DATE"><index-field name="transactionDate"/></index>
+        <index name="ACCTG_TRANS_PAYMENT">
+            <index-field name="acctgTransId"/>
+            <index-field name="paymentId"/>
+        </index>
 
         <seed-data>
             <!-- Accounting Transaction Type -->
@@ -883,6 +887,13 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="SettlementTerm" short-alias="settlementTerm"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
+
+        <index name="ACCTG_TRANS_DEB_RECON_GLACCT">
+            <index-field name="debitCreditFlag"/>
+            <index-field name="reconcileStatusId"/>
+            <index-field name="glAccountId"/>
+            <index-field name="acctgTransId"/>
+        </index>
 
         <seed-data>
             <!-- Accounting Transaction Entry Reconcile Status -->
