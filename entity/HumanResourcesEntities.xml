@@ -1064,6 +1064,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxFederalStatusEnumId" type="id"/>
         <field name="taxStateStatusEnumId" type="id"/>
 
+        <field name="payAmountStatusEnumId" type="id"/>
+
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjustment"/>
         <relationship type="one" title="Geo" related="moqui.basic.Geo" short-alias="geo"/>
         <relationship type="one" title="GeoAddressSource" related="moqui.basic.Enumeration" short-alias="geoAddressSource">
@@ -1090,6 +1092,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Facility - Postal Primary" enumId="PaagstFacilityPrim" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Facility - Postal Tax" enumId="PaagstFacilityTax" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Facility - Postal Work" enumId="PaagstFacilityWork" enumTypeId="PayrollAdjApplGeoSrcType"/>
+            <moqui.basic.EnumerationType description="Payroll Adjustment Applies Payment Amount Status Type" enumTypeId="PayrollAdjApplPayAmtStsType"/>
+            <moqui.basic.Enumeration description="Gross Pay &gt; 0" enumId="PaapastGrossPayPositive" enumTypeId="PayrollAdjApplPayAmtStsType"/>
+            <moqui.basic.Enumeration description="Net Pay &gt; 0" enumId="PaapastNetPayPositive" enumTypeId="PayrollAdjApplPayAmtStsType"/>
         </seed-data>
     </entity>
     <entity entity-name="PayrollAdjustmentAppliesTo" package="mantle.humanres.employment" use="configuration">
