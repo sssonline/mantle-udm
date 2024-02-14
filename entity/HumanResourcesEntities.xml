@@ -1076,6 +1076,9 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="TaxStateStatus" related="moqui.basic.Enumeration">
             <key-map field-name="taxStateStatusEnumId"/></relationship>
 
+        <relationship type="one" title="PayAmountStatus" related="moqui.basic.Enumeration">
+            <key-map field-name="payAmountStatusEnumId"/></relationship>
+
         <seed-data>
             <moqui.basic.EnumerationType description="Payroll Adjustment Applies Geo Source Type" enumTypeId="PayrollAdjApplGeoSrcType"/>
             <moqui.basic.Enumeration description="Employment" enumId="PaagstEmployment" enumTypeId="PayrollAdjApplGeoSrcType"/>
