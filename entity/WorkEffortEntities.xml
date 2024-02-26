@@ -803,10 +803,9 @@ along with this software (see the LICENSE.md file). If not, see
             <index-field name="vendorInvoiceId"/>
             <index-field name="timeEntryId"/>
         </index>
-        <index name="TIME_ENTRY_PARTY_PARENT_PIECE_VENDOR_DATE">
+        <index name="TIME_ENTRY_PARTY_PARENT_VENDOR_DATE">
             <index-field name="partyId"/>
             <index-field name="parentEntryId"/>
-            <index-field name="pieceRateTypeEnumId"/>
             <index-field name="vendorInvoiceId"/>
             <index-field name="fromDate"/>
         </index>
