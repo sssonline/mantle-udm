@@ -400,9 +400,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Native Tribal Document" enumId="EatNativeDoc" enumTypeId="EmplAuthzType"/>
             <moqui.basic.Enumeration description="Citizen ID Card" enumId="EatCitizenId" enumTypeId="EmplAuthzType"/>
             <moqui.basic.Enumeration description="Resident Citizen ID Card" enumId="EatResCitizenId" enumTypeId="EmplAuthzType"/>
-
-            <!-- Employee Occupational Classification (e.g. SOC Codes) -->
-            <moqui.basic.EnumerationType description="Employee Occupational Class" enumTypeId="EmplOccupClassType"/>
         </seed-data>
     </entity>
     <entity entity-name="EmploymentApplication" package="mantle.humanres.employment" use="nontransactional">
