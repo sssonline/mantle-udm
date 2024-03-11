@@ -839,6 +839,20 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="many" related="mantle.humanres.employment.PayrollAdjustmentStateStts" short-alias="stateStatuses">
             <key-map field-name="payrollAdjustmentId"/></relationship>
 
+        <index name="PAYROLL_ADJUSTMENT_APPLICABLE">
+            <index-field name="fromDate"/>
+            <index-field name="thruDate"/>
+            <index-field name="organizationPartyId"/>
+            <index-field name="partyRelationshipId"/>
+            <index-field name="emplPositionId"/>
+            <index-field name="timePeriodTypeId"/>
+            <index-field name="adjTimePeriodId"/>
+            <index-field name="adjPayrollBatchId"/>
+            <index-field name="payrollPhaseEnumId"/>
+            <index-field name="payrollPhaseEnumId"/>
+            <index-field name="garnishPriority"/>
+        </index>
+
         <seed-data>
             <moqui.basic.EnumerationType description="Payroll Adjustment Occurrence Frequency" enumTypeId="PayrollAdjOccurFreq"/>
             <moqui.basic.Enumeration sequenceNum="1"  description="Always" enumId="PaofAlways" enumTypeId="PayrollAdjOccurFreq"/>
