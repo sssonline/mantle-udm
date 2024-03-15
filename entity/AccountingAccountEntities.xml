@@ -1709,6 +1709,10 @@ along with this software (see the LICENSE.md file). If not, see
             <index-field name="statusId"/>
             <index-field name="effectiveDate"/>
         </index>
+        <index name="PAYMENT_GROUP_STATUS">
+            <index-field name="paymentGroupId"/>
+            <index-field name="statusId"/>
+        </index>
 
         <seed-data>
             <!-- Payment Type -->
