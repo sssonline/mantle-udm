@@ -55,8 +55,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="orderId" type="id" is-pk="true"/>
 
         <field name="orderName" type="text-medium"/>
-        <field name="entryDate" type="date-time"/>
-        <field name="placedDate" type="date-time"/>
+        <field name="entryDate" type="date-time" enable-audit-log="update"/>
+        <field name="placedDate" type="date-time" enable-audit-log="update"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="orderRevision" type="number-integer"/>
 
@@ -301,7 +301,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="parentItemSeqId" type="id"/>
 
         <field name="itemTypeEnumId" type="id"/>
-        <field name="productId" type="id"/>
+        <field name="productId" type="id" enable-audit-log="update"/>
         <!-- for future reference when configurable products are supported: <field name="productConfigSavedId" type="id"/> -->
         <field name="productFeatureId" type="id"/>
         <field name="otherPartyProductId" type="text-short"/>
@@ -310,11 +310,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="overGlAcctOrgPartyId" type="id"/>
         <field name="overGlAcctFacilityId" type="id"/>
 
-        <field name="itemDescription" type="text-medium"/>
-        <field name="comments" type="text-medium"/>
+        <field name="itemDescription" type="text-medium" enable-audit-log="update"/>
+        <field name="comments" type="text-medium" enable-audit-log="update"/>
 
         <field name="quantity" type="number-decimal" enable-audit-log="true"/>
-        <field name="quantityUomId" type="id"/>
+        <field name="quantityUomId" type="id" enable-audit-log="update"/>
         <field name="quantityCancelled" type="number-decimal"/>
         <field name="selectedAmount" type="number-decimal"/>
         <field name="priority" type="number-integer"/>
@@ -473,13 +473,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="isGift" type="text-indicator"/>
         <field name="isNewCustomer" type="text-indicator"/>
 
-        <field name="partTotal" type="currency-amount"/>
+        <field name="partTotal" type="currency-amount" enable-audit-log="update"/>
 
         <field name="shipAfterDate" type="date-time"/>
-        <field name="shipBeforeDate" type="date-time"/>
+        <field name="shipBeforeDate" type="date-time" enable-audit-log="update"/>
         <field name="estimatedShipDate" type="date-time"/>
-        <field name="estimatedDeliveryDate" type="date-time"/>
-        <field name="estimatedPickUpDate" type="date-time"/>
+        <field name="estimatedDeliveryDate" type="date-time" enable-audit-log="update"/>
+        <field name="estimatedPickUpDate" type="date-time" enable-audit-log="update"/>
 
         <field name="validFromDate" type="date-time"/>
         <field name="validThruDate" type="date-time"/>

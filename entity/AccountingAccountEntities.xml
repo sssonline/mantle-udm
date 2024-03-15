@@ -344,13 +344,13 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="billingAccountId" type="id"/>
         <field name="invoiceDate" type="date-time" enable-audit-log="update"/>
         <field name="dueDate" type="date-time" enable-audit-log="update"/>
-        <field name="settlementTermId" type="id"/>
-        <field name="paidDate" type="date-time"/>
+        <field name="settlementTermId" type="id" enable-audit-log="update"/>
+        <field name="paidDate" type="date-time" enable-audit-log="update"/>
         <field name="invoiceMessage" type="text-long"/>
         <field name="referenceNumber" type="text-medium" enable-audit-log="update">
             <description>Vendor or other invoice number.</description></field>
         <field name="otherPartyOrderId" type="text-short" enable-audit-log="update"/>
-        <field name="description" type="text-medium"/>
+        <field name="description" type="text-medium" enable-audit-log="update"/>
         <field name="currencyUomId" type="id"/>
         <field name="overrideOrgPartyId" type="id"><description>Used to specify the organization override rather than
             using the fromPartyId and/or toPartyId (depending on which is an internal org).</description></field>
@@ -367,8 +367,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="externalId" type="text-short"><description>ID for the invoice in the direct upstream system it came from if it came from an external system</description></field>
         <field name="originId" type="text-short"><description>ID for the invoice in the original system it came from if not the direct upstream system</description></field>
 
-        <field name="invoiceTotal" type="currency-amount"/>
-        <field name="appliedPaymentsTotal" type="currency-amount">
+        <field name="invoiceTotal" type="currency-amount" enable-audit-log="update"/>
+        <field name="appliedPaymentsTotal" type="currency-amount" enable-audit-log="update">
             <description>Total of all PaymentApplication records by invoiceId or toInvoiceId, ie includes payments and invoices applied to/from this invoice.</description></field>
         <field name="unpaidTotal" type="currency-amount"/>
 
@@ -700,16 +700,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="overrideGlAccountId" type="id" enable-audit-log="update"><description>The override or actual glAccountId used for the
             AcctgTransEntry based on the InvoiceItem. If empty the glAccountId will be determined based on configuration
             or custom code.</description></field>
-        <field name="assetId" type="id"><description>For sale of a particular asset, required for fixed assets</description></field>
+        <field name="assetId" type="id" enable-audit-log="update"><description>For sale of a particular asset, required for fixed assets</description></field>
         <field name="productId" type="id" enable-audit-log="update"/>
         <field name="otherPartyProductId" type="text-short"/>
         <field name="parentInvoiceId" type="id"/>
         <field name="parentInvoiceItemSeqId" type="id"/>
         <field name="taxableFlag" type="text-indicator"/>
         <field name="quantity" type="number-decimal" enable-audit-log="update"/>
-        <field name="quantityUomId" type="id"/>
+        <field name="quantityUomId" type="id" enable-audit-log="update"/>
         <field name="amount" type="number-decimal" enable-audit-log="update"/>
-        <field name="description" type="text-medium"/>
+        <field name="description" type="text-medium" enable-audit-log="update"/>
         <field name="itemDate" type="date-time" enable-audit-log="update"/>
         <field name="isAdjustment" type="text-indicator"/>
         <field name="salesOpportunityId" type="id"/>
@@ -763,11 +763,11 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="invoiceItemDetailId" type="id" is-pk="true"/>
         <field name="invoiceId" type="id" not-null="true"/>
         <field name="invoiceItemSeqId" type="id" not-null="true"/>
-        <field name="facilityId" type="id"/>
-        <field name="workTypeEnumId" type="id"/>
-        <field name="assetId" type="id"/>
-        <field name="partyId" type="id"/>
-        <field name="quantity" type="number-decimal"/>
+        <field name="facilityId" type="id" enable-audit-log="update"/>
+        <field name="workTypeEnumId" type="id" enable-audit-log="update"/>
+        <field name="assetId" type="id" enable-audit-log="update"/>
+        <field name="partyId" type="id" enable-audit-log="update"/>
+        <field name="quantity" type="number-decimal" enable-audit-log="update"/>
 
         <relationship type="one-nofk" related="mantle.account.invoice.Invoice" short-alias="invoice"/>
         <relationship type="one" related="mantle.account.invoice.InvoiceItem" short-alias="invoiceItem"/>
