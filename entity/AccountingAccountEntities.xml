@@ -1350,6 +1350,8 @@ along with this software (see the LICENSE.md file). If not, see
             must not be more than 23 characters</description></field>
         <field name="nachaImmedOrigName" type="text-short"><description>Defaults to companyNameOnAccount, upper-cased;
             must not be more than 23 characters</description></field>
+        <field name="nachaOrigDFI" type="text-short"><description>Originating DFI Identification.
+            Defaults to the first 8 of nachaImmedDest if not provided.</description></field>
         <field name="nachaCompanyName" type="text-short"><description>Used to identify company in ACH transactions.
             Defaults to companyNameOnAccount, upper-cased; must not be more than 16 characters for NACHA files</description></field>
         <field name="nachaDiscrData" type="text-short"><description>Discretionary data, may be sub account or other;
