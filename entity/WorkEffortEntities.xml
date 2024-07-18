@@ -65,10 +65,10 @@ along with this software (see the LICENSE.md file). If not, see
             purpose, using WorkEffort as a more task and planning oriented approach to a picklist.</description></field>
 
         <!-- for estimated and actual time ranges -->
-        <field name="estimatedStartDate" type="date-time"/>
-        <field name="estimatedCompletionDate" type="date-time"/>
-        <field name="actualStartDate" type="date-time"/>
-        <field name="actualCompletionDate" type="date-time"/>
+        <field name="estimatedStartDate" type="date-time" enable-audit-log="true"/>
+        <field name="estimatedCompletionDate" type="date-time" enable-audit-log="true"/>
+        <field name="actualStartDate" type="date-time" enable-audit-log="true"/>
+        <field name="actualCompletionDate" type="date-time" enable-audit-log="true"/>
         <field name="recurStartCron" type="text-medium"/>
         <field name="recurLimit" type="number-integer"/>
         <field name="recurEndDate" type="date-time"/>
@@ -81,7 +81,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="estimatedSetupTime" type="number-decimal"><description>Total estimated setup time across all parties</description></field>
         <field name="remainingWorkTime" type="number-decimal" enable-audit-log="true">
             <description>Total remaining work time across all parties</description></field>
-        <field name="actualWorkTime" type="number-decimal"><description>Total actual work time across all parties</description></field>
+        <field name="actualWorkTime" type="number-decimal" enable-audit-log="true"><description>Total actual work time across all parties</description></field>
         <field name="actualSetupTime" type="number-decimal"><description>Total actual setup time across all parties</description></field>
         <field name="totalTimeAllowed" type="number-decimal" enable-audit-log="true">
             <description>Total work time allowed (budgeted) across all parties</description></field>
@@ -96,8 +96,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="timeUomId" type="id"><description>Time unit for all time and duration fields; defaults to hours (TF_hr)</description></field>
 
         <!-- something to consider for future: <field name="estimatedCost" type="currency-amount"/> -->
-        <field name="actualCost" type="currency-amount"/>
-        <field name="actualClientCost" type="currency-amount"/>
+        <field name="actualCost" type="currency-amount" enable-audit-log="true"/>
+        <field name="actualClientCost" type="currency-amount" enable-audit-log="true"/>
         <field name="totalClientCostAllowed" type="currency-amount"/>
         <field name="costUomId" type="id"/>
 
