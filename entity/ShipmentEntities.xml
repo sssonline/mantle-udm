@@ -160,7 +160,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="ReceivingShipment" statusId="ShipScheduled" toStatusId="ShipCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="ReceivingShipment" statusId="ShipShipped" toStatusId="ShipCancelled" transitionName="Cancel"/>
 
-            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisReceived" toStatusId="SisPending" transitionName="Un-Receive"/>
 
             <!-- Signature Required - see data in PartyEntities.xml under PartySettingType, there for FK dependency -->
         </seed-data>
@@ -327,6 +326,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPacked" toStatusId="SisReceived" transitionName="Receive"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPacked" toStatusId="SisPending" transitionName="Unpack"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisPending" toStatusId="SisCancelled" transitionName="Cancel"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="SisReceived" toStatusId="SisPending" transitionName="Un-Receive"/>
         </seed-data>
     </entity>
     <entity entity-name="ShipmentPackage" package="mantle.shipment" cache="never">
