@@ -13,7 +13,7 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.1.xsd">
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
     <!-- ========================================================= -->
     <!--  - mantle.party -->
     <!--  - mantle.party.agreement -->
@@ -29,9 +29,9 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="Party" package="mantle.party" short-alias="parties">
         <field name="partyId" type="id" is-pk="true"/>
-        <field name="pseudoId" type="id" default="partyId"/>
+        <field name="pseudoId" type="text-short" default="partyId"/>
         <field name="partyTypeEnumId" type="id"/>
-        <field name="disabled" type="text-indicator" enable-audit-log="true"/>
+        <field name="disabled" type="text-indicator" enable-audit-log="true" default="'N'"/>
         <field name="customerStatusId" type="id"/>
         <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'">
             <description>If applicable, such as for customer records, the other Party that 'owns' the data for this Party.</description></field>
@@ -326,6 +326,25 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
     </entity>
     -->
+    <!-- not currently used, likely useful at some point for dimensions applicable to a PartyClassification
+    <entity entity-name="PartyClassDimension" package="mantle.party">
+        <field name="partyClassificationId" type="id" is-pk="true"/>
+        <field name="uomDimensionTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
+    </entity>
+    -->
+
+    <entity entity-name="PartyDimension" package="mantle.party">
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="uomDimensionTypeId" type="id" is-pk="true"/>
+        <field name="dimensionDate" type="date-time" is-pk="true" default="ec.user.nowTimestamp"/>
+        <field name="value" type="number-decimal"/>
+        <field name="uomId" type="id"/>
+        <relationship type="one" related="mantle.party.Party"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
+        <relationship type="one" related="moqui.basic.Uom" short-alias="uom"/>
+    </entity>
 
     <entity entity-name="PartyContent" package="mantle.party">
         <field name="partyContentId" type="id" is-pk="true"/>
@@ -334,10 +353,19 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="partyContentTypeEnumId" type="id"/>
         <field name="description" type="text-long"/>
         <field name="contentDate" type="date-time" default="ec.user.nowTimestamp"/>
+        <field name="viewedDate" type="date-time" enable-audit-log="true"/>
         <field name="userId" type="id" default="ec.user.userId"/>
-        <relationship type="one" related="mantle.party.Party"/>
+        <field name="partyIdTypeEnumId" type="id"/>
+        <field name="originalPartyContentId" type="id">
+            <description>Set this when copying content from one Party to another, may have same or different contentLocation</description></field>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" title="PartyContentType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="partyContentTypeEnumId"/></relationship>
+        <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="partyIdTypeEnum">
+            <key-map field-name="partyIdTypeEnumId"/></relationship>
+        <relationship type="one" title="Original" related="mantle.party.PartyContent" short-alias="originalPartyContent">
+            <key-map field-name="originalPartyContentId"/></relationship>
+
         <seed-data>
             <!-- Party Content Type -->
             <moqui.basic.EnumerationType description="Party Content Type" enumTypeId="PartyContentType"/>
@@ -347,10 +375,13 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Logo Image"  enumId="PcntLogoImage" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Face Image"  enumId="PcntFaceImage" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Vendor Shipping Info"  enumId="PcntVendorShipping" enumTypeId="PartyContentType"/>
+            <moqui.basic.Enumeration description="Invoice Message - When From Party" enumId="PcntInvoiceMessageFrom" enumTypeId="PartyContentType"/>
+            <moqui.basic.Enumeration description="Invoice Message - When To Party" enumId="PcntInvoiceMessageTo" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Payment Signature Primary"  enumId="PcntPaymentSignaturePrimary" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Payment Signature Secondary"  enumId="PcntPaymentSignatureSecondary" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Identity Document"  enumId="PcntIdentityDocument" enumTypeId="PartyContentType"/>
             <moqui.basic.Enumeration description="Employment Authorization Document"  enumId="PcntEmplAuthzDocument" enumTypeId="PartyContentType"/>
+            <moqui.basic.Enumeration description="Bio"  enumId="PcntBio" enumTypeId="PartyContentType"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyGeoPoint" package="mantle.party">
@@ -457,7 +488,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Friend" enumId="PrtFriend" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Manager" enumId="PrtManager" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Organization Member" enumId="PrtMember" enumTypeId="PartyRelationshipType"/>
-            <moqui.basic.Enumeration description="Organization Rollup" enumId="PrtOrgRollup" enumTypeId="PartyRelationshipType"/>
+            <moqui.basic.Enumeration description="Organization Rollup (Child)" enumId="PrtOrgRollup" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Partner" enumId="PrtPartner" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Representative" enumId="PrtRepresentative" enumTypeId="PartyRelationshipType"/>
             <moqui.basic.Enumeration description="Sales Affiliate" enumId="PrtSalesAffiliate" enumTypeId="PartyRelationshipType"/>
@@ -501,6 +532,8 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- General Roles -->
             <mantle.party.RoleType description="Agent" roleTypeId="Agent"/>
             <mantle.party.RoleType description="Affiliate" roleTypeId="Affiliate"/>
+            <mantle.party.RoleType description="Asset Owner" roleTypeId="AssetOwner"/>
+            <mantle.party.RoleType description="Bad Actor (Banned)" roleTypeId="BadActor"/>
             <mantle.party.RoleType description="Carrier" roleTypeId="Carrier"/>
             <mantle.party.RoleType description="Competitor" roleTypeId="Competitor"/>
             <mantle.party.RoleType description="Consumer" roleTypeId="Consumer"/>
@@ -557,6 +590,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Stocker" roleTypeId="Stocker"/>
             <mantle.party.RoleType description="Supplier Agent" roleTypeId="SupplierAgent"/>
             <mantle.party.RoleType description="Team Lead" roleTypeId="TeamLead"/>
+            <mantle.party.RoleType description="Technical Contact" roleTypeId="TechContact"/>
             <mantle.party.RoleType description="Watcher" roleTypeId="Watcher"/>
             <mantle.party.RoleType description="Worker" roleTypeId="Worker"/>
 
@@ -627,7 +661,7 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleType description="Government" roleTypeId="OrgGovernment"/>
             <mantle.party.RoleType description="Government Agency" roleTypeId="OrgGovernmentAgency"/>
             <mantle.party.RoleType description="Household" roleTypeId="OrgHousehold"/>
-            <mantle.party.RoleType description="Internal" roleTypeId="OrgInternal"/>
+            <mantle.party.RoleType description="Internal Organization" roleTypeId="OrgInternal"/>
             <mantle.party.RoleType description="Team" roleTypeId="OrgTeam"/>
             <mantle.party.RoleType description="Unit" roleTypeId="OrgUnit"/>
             <mantle.party.RoleType description="Parent" roleTypeId="OrgParent"/>
@@ -713,11 +747,22 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="InventoryManager"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Manager"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="OrderClerk"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Owner"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="Receiver"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ProductionManager"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SalesRepresentative"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="ShipmentClerk"/>
             <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="SupplierAgent"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpAccountContact" roleTypeId="TechContact"/>
+
+            <moqui.basic.Enumeration description="Directly Applied Roles" enumId="RgpDirect" enumTypeId="RoleGroup"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Customer"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Account"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Contact"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Supplier"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="OrgInternal"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="Employee"/>
+            <mantle.party.RoleGroupMember roleGroupEnumId="RgpDirect" roleTypeId="BadActor"/>
         </seed-data>
     </entity>
 
@@ -817,6 +862,24 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
         <relationship type="one" related="mantle.party.RoleType" short-alias="role"/>
     </entity>
+    <!-- not currently used, likely useful for specifying settings applicable for a PartyClassification
+    <entity entity-name="PartySettingTypeClass" package="mantle.party" use="configuration">
+        <field name="partySettingTypeId" type="id" is-pk="true"/>
+        <field name="partyClassificationId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.party.PartySettingType" short-alias="settingType"/>
+        <relationship type="one" related="mantle.party.PartyClassification" short-alias="classification"/>
+    </entity>
+    -->
+
+    <entity entity-name="PartySystemMessage" package="mantle.party" cache="never">
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="systemMessageId" type="id" is-pk="true"/>
+        <field name="partyIdTypeEnumId" type="id"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="moqui.service.message.SystemMessage" short-alias="systemMessage"/>
+        <relationship type="one" title="PartyIdType" related="moqui.basic.Enumeration" short-alias="partyIdTypeEnum">
+            <key-map field-name="partyIdTypeEnumId"/></relationship>
+    </entity>
 
     <!-- ========================================================= -->
     <!-- mantle.party.agreement -->
@@ -835,6 +898,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="thruDate" type="date-time" enable-audit-log="update"/>
         <field name="description" type="text-medium"/>
         <field name="currencyUomId" type="id"/>
+        <field name="isTemplate" type="text-indicator"/>
+        <field name="templateAgreementId" type="id"><description>The template agreement this agreement was cloned from</description></field>
         <field name="textData" type="text-very-long"/>
         <relationship type="one" title="AgreementType" related="moqui.basic.Enumeration" short-alias="type">
             <key-map field-name="agreementTypeEnumId"/></relationship>
@@ -849,11 +914,16 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="otherRoleTypeId"/></relationship>
         <relationship type="one" title="Currency" related="moqui.basic.Uom" short-alias="currencyUom">
             <key-map field-name="currencyUomId"/></relationship>
+        <relationship type="one" title="Template" related="mantle.party.agreement.Agreement" short-alias="templateAgreement">
+            <key-map field-name="templateAgreementId"/></relationship>
 
         <relationship type="many" related="mantle.party.agreement.AgreementTerm" short-alias="terms">
             <key-map field-name="agreementId"/></relationship>
         <relationship type="many" related="mantle.party.agreement.AgreementItem" short-alias="items">
             <key-map field-name="agreementId"/></relationship>
+        <relationship type="many" related="mantle.party.agreement.AgreementParty" short-alias="parties">
+            <key-map field-name="agreementId"/></relationship>
+
         <seed-data>
             <!-- Agreement Type -->
             <moqui.basic.EnumerationType description="Agreement Type" enumTypeId="AgreementType"/>
@@ -888,6 +958,28 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
     </entity>
+    <entity entity-name="AgreementAssoc" package="mantle.party.agreement">
+        <field name="agreementAssocId" type="id" is-pk="true"/>
+        <field name="agreementId" type="id" not-null="true"/>
+        <field name="toAgreementId" type="id" not-null="true"/>
+        <field name="agreementAssocTypeEnumId" type="id"/>
+        <field name="geoId" type="id"/>
+
+        <relationship type="one" related="mantle.party.agreement.Agreement" short-alias="agreement"/>
+        <relationship type="one" title="To" related="mantle.party.agreement.Agreement" short-alias="toAgreement">
+            <key-map field-name="toAgreementId"/></relationship>
+        <relationship type="one" related="moqui.basic.Geo" short-alias="geo">
+            <key-map field-name="geoId"/></relationship>
+        <relationship type="one" title="AgreementAssocType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="agreementAssocTypeEnumId"/></relationship>
+        <seed-data>
+            <!-- Agreement Assoc Type -->
+            <moqui.basic.EnumerationType description="Agreement Association Type" enumTypeId="AgreementAssocType"/>
+
+            <moqui.basic.Enumeration description="Alternate" enumId="AatAlternate" enumTypeId="AgreementAssocType"/>
+            <moqui.basic.Enumeration description="Addendum" enumId="AatAddendum" enumTypeId="AgreementAssocType"/>
+        </seed-data>
+    </entity>
     <entity entity-name="AgreementContent" package="mantle.party.agreement">
         <field name="agreementContentId" type="id" is-pk="true"/>
         <field name="agreementId" type="id"/>
@@ -910,9 +1002,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="agreementId" type="id" is-pk="true"/>
         <field name="partyId" type="id" is-pk="true"/>
         <field name="roleTypeId" type="id" is-pk="true"/>
-        <relationship type="one" related="mantle.party.agreement.Agreement"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" related="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.party.agreement.Agreement" short-alias="agreement"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
     <entity entity-name="AgreementTerm" package="mantle.party.agreement">
         <field name="agreementTermId" type="id" is-pk="true"/>
@@ -980,7 +1072,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="agreementId"/>
             <key-map field-name="agreementItemSeqId"/>
         </relationship>
-        <relationship type="one" related="Geo"/>
+        <relationship type="one" related="moqui.basic.Geo"/>
     </entity>
     <entity entity-name="AgreementItemParty" package="mantle.party.agreement">
         <field name="agreementId" type="id" is-pk="true"/>
@@ -1065,8 +1157,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="toPartyId" related="partyId"/></relationship>
         <relationship type="one" title="To" related="mantle.party.RoleType" short-alias="toRole">
             <key-map field-name="toRoleTypeId"/></relationship>
-        <relationship type="one" related="ContactList" short-alias="contactList"/>
-        <relationship type="one" title="Reason" related="moqui.basic.Enumeration" short-alias="reason">
+        <relationship type="one" related="mantle.marketing.contact.ContactList" short-alias="contactList"/>
+        <relationship type="one" title="CommunicationEventReason" related="moqui.basic.Enumeration" short-alias="reason">
             <key-map field-name="reasonEnumId"/></relationship>
 
         <relationship type="many" related="mantle.party.communication.CommunicationEventContent" short-alias="contents">
@@ -1126,6 +1218,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CeResolved" toStatusId="CeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CeReferred" toStatusId="CeCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="CeUnknownParty" toStatusId="CeCancelled" transitionName="Cancel"/>
+
+            <!-- Communication Event Reason -->
+            <moqui.basic.EnumerationType description="Communication Event Reason" enumTypeId="CommunicationEventReason"/>
         </seed-data>
 
         <master>
@@ -1218,6 +1313,7 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Communication Purpose -->
             <moqui.basic.EnumerationType description="Communication Purpose" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpActivityRequest" description="Activity Request" enumTypeId="CommunicationPurpose"/>
+            <moqui.basic.Enumeration enumId="CpBilling" description="Billing" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpComment" description="Comment" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpConference" description="Conference" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpCustomerService" description="Customer Service" enumTypeId="CommunicationPurpose"/>
@@ -1226,6 +1322,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="CpSalesInquiry" description="Sales Inquiry" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpSalesFollowUp" description="Sales Follow-Up" enumTypeId="CommunicationPurpose"/>
             <moqui.basic.Enumeration enumId="CpSeminar" description="Seminar" enumTypeId="CommunicationPurpose"/>
+            <moqui.basic.Enumeration enumId="CpShipments" description="Shipments" enumTypeId="CommunicationPurpose"/>
         </seed-data>
     </entity>
     <entity entity-name="CommunicationEventType" package="mantle.party.communication">
@@ -1358,6 +1455,8 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Postal - Home"/>
             <ContactMechPurpose contactMechPurposeId="PostalWork" contactMechTypeEnumId="CmtPostalAddress"
                     description="Postal - Work"/>
+            <ContactMechPurpose contactMechPurposeId="PostalRetailStore" contactMechTypeEnumId="CmtPostalAddress"
+                    description="Postal - Retail Store"/>
 
             <ContactMechPurpose contactMechPurposeId="PhonePrimary" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Primary"/>
@@ -1391,6 +1490,8 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Phone - Assistant"/>
             <ContactMechPurpose contactMechPurposeId="PhoneQuick" contactMechTypeEnumId="CmtTelecomNumber"
                     description="Phone - Quick Calls"/>
+            <ContactMechPurpose contactMechPurposeId="PhoneRetailStore" contactMechTypeEnumId="CmtTelecomNumber"
+                    description="Phone - Retail Store"/>
 
             <ContactMechPurpose contactMechPurposeId="EmailPrimary" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Primary Address"/>
@@ -1414,19 +1515,38 @@ along with this software (see the LICENSE.md file). If not, see
                     description="Email - Personal"/>
             <ContactMechPurpose contactMechPurposeId="EmailWork" contactMechTypeEnumId="CmtEmailAddress"
                     description="Email - Work"/>
+            <ContactMechPurpose contactMechPurposeId="EmailRetailStore" contactMechTypeEnumId="CmtEmailAddress"
+                    description="Email - Retail Store"/>
 
             <ContactMechPurpose contactMechPurposeId="WebUrlPrimary" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - Primary"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlPayment" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - Payment (AR)"/>
-            <ContactMechPurpose contactMechPurposeId="WebUrlFacebook" contactMechTypeEnumId="CmtWebAddress"
-                    description="Website URL - Facebook"/>
+            <ContactMechPurpose contactMechPurposeId="WebRetailStore" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Retail Store"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlICal" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - iCal"/>
+
+            <ContactMechPurpose contactMechPurposeId="WebUrlFacebook" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Facebook"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlInstagram" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Instagram"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlLinkedIn" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - LinkedIn"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlSnapchat" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - Snapchat"/>
+            <ContactMechPurpose contactMechPurposeId="WebUrlTikTok" contactMechTypeEnumId="CmtWebAddress"
+                    description="Website URL - TikTok"/>
             <ContactMechPurpose contactMechPurposeId="WebUrlTwitter" contactMechTypeEnumId="CmtWebAddress"
                     description="Website URL - Twitter"/>
+
+
+
+            <!-- General 'Other' purpose, mainly needed because PartyContactMech.contactMechPurposeId is a PK field, needs a non-null value -->
+            <ContactMechPurpose contactMechPurposeId="Other" contactMechTypeEnumId="" description="Other"/>
+
+            <ContactMechPurpose contactMechPurposeId="IpAddressClient" contactMechTypeEnumId="CmtIpAddress"
+                    description="IP Address - Client"/>
         </seed-data>
     </entity>
     <entity entity-name="PartyContactMech" package="mantle.party.contact" use="nontransactional" cache="never">
@@ -1439,7 +1559,10 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="comments" type="text-medium"/>
         <field name="allowSolicitation" type="text-indicator"/>
         <field name="usedSince" type="date"/>
-        <field name="verifyCode" type="text-medium"/>
+        <field name="usedUntil" type="date"/>
+        <field name="verifyCode" type="text-medium" enable-audit-log="true"/>
+        <field name="verifyCodeDate" type="date-time"/>
+        <field name="verifyCodeAttempts" type="number-integer"/>
         <relationship type="one" related="mantle.party.Party"/>
         <relationship type="one" related="mantle.party.contact.ContactMech" short-alias="contactMech" mutable="true"/>
         <relationship type="one" related="mantle.party.contact.ContactMechPurpose" short-alias="purpose"/>

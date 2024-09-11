@@ -13,7 +13,7 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.1.xsd">
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
     <!-- ========================================================= -->
     <!--  - mantle.humanres.ability -->
     <!--  - mantle.humanres.employment -->
@@ -25,6 +25,24 @@ along with this software (see the LICENSE.md file). If not, see
     <!-- ========================================================= -->
     <!-- mantle.humanres.ability -->
     <!-- ========================================================= -->
+
+    <entity entity-name="PartySkill" package="mantle.humanres.ability" use="nontransactional">
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="skillTypeEnumId" type="id" is-pk="true"/>
+        <field name="rating" type="number-integer"/>
+        <field name="skillLevel" type="number-integer"/>
+        <field name="startedUsingDate" type="date-time"/>
+        <field name="yearsExperience" type="number-integer"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" title="SkillType" related="moqui.basic.Enumeration" short-alias="skillTypeEnum">
+            <key-map field-name="skillTypeEnumId"/></relationship>
+
+        <seed-data>
+            <!-- Skill Type -->
+            <moqui.basic.EnumerationType description="Skill Type" enumTypeId="SkillType"/>
+        </seed-data>
+    </entity>
+
     <!-- not yet used so commented for now:
     <entity entity-name="PartyQualification" package="mantle.humanres.ability" use="nontransactional">
         <field name="partyId" type="id" is-pk="true"/>
@@ -71,17 +89,6 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="resumeDate" type="date-time"/>
         <field name="resumeText" type="text-very-long"/>
         <relationship type="one" related="mantle.party.Party"/>
-    </entity>
-    <entity entity-name="PartySkill" package="mantle.humanres.ability" use="nontransactional">
-        <field name="partyId" type="id" is-pk="true"/>
-        <field name="skillTypeEnumId" type="id" is-pk="true"/>
-        <field name="yearsExperience" type="number-integer"/>
-        <field name="rating" type="number-integer"/>
-        <field name="skillLevel" type="number-integer"/>
-        <field name="startedUsingDate" type="date-time"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" title="SkillType" related="moqui.basic.Enumeration">
-            <key-map field-name="skillTypeEnumId"/></relationship>
     </entity>
     <entity entity-name="PerformanceReview" package="mantle.humanres.ability" use="nontransactional">
         <field name="performanceReviewId" type="id" is-pk="true"/>
@@ -364,6 +371,9 @@ along with this software (see the LICENSE.md file). If not, see
             <!-- Termination Reason -->
             <moqui.basic.EnumerationType description="Termination Reason" enumTypeId="TerminationReason"/>
 
+            <!-- Termination Reason -->
+            <moqui.basic.EnumerationType description="Termination Reason" enumTypeId="TerminationReason"/>
+
             <!-- Identity Type -->
             <moqui.basic.EnumerationType description="Identity Type" enumTypeId="IdentityType"/>
             <moqui.basic.Enumeration description="Local Passport" enumId="IdTpLocalPassport" enumTypeId="IdentityType"/>
@@ -412,15 +422,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="referredByPartyId" type="id"/>
         <field name="approverPartyId" type="id"/>
         <!-- not yet used: <field name="jobRequisitionId" type="id"/> -->
-        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
-        <relationship type="one" title="EmploymentApplication" related="moqui.basic.StatusItem"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
+        <relationship type="one" title="EmploymentApplication" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="EmploymentApplicationReferredBy" related="moqui.basic.Enumeration">
             <key-map field-name="referredByEnumId"/></relationship>
-        <relationship type="one" title="Applying" related="mantle.party.Party">
+        <relationship type="one" title="Applying" related="mantle.party.Party" short-alias="applyingParty">
             <key-map field-name="applyingPartyId"/></relationship>
-        <relationship type="one" title="ReferredBy" related="mantle.party.Party">
+        <relationship type="one" title="ReferredBy" related="mantle.party.Party" short-alias="referredParty">
             <key-map field-name="referredByPartyId"/></relationship>
-        <relationship type="one" title="Approver" related="mantle.party.Party">
+        <relationship type="one" title="Approver" related="mantle.party.Party" short-alias="approverParty">
             <key-map field-name="approverPartyId"/></relationship>
         <!-- <relationship type="one" related="mantle.humanres.recruitment.JobRequisition"/> -->
         <seed-data>
@@ -1145,8 +1155,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="adjCalcServiceId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id"><description>If null applies to all organizations</description></field>
         <field name="payrollPhaseEnumId" type="id"/>
-        <field name="description" type="text-medium"><description>Description for the OrderItem (itemDescription), promo service
-            should run this through ResourceFacade.expand() with parameters depending on the promo service</description></field>
+        <field name="description" type="text-medium"><description>Description for the OrderItem (itemDescription), adjustment calc service
+            should run this through ResourceFacade.expand() with parameters depending on the adjustment calc service</description></field>
         <field name="serviceRegisterId" type="id" not-null="true"><description>Registered Service of type PayrollAdjustmentCalc that implements the
             mantle.humanres.PayrollServices.calculate#Adjustment interface</description></field>
         <field name="sequenceNum" type="number-integer"/>
@@ -1158,6 +1168,8 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="PayrollAdjCalcParameter" package="mantle.humanres.employment" use="configuration" cache="true">
         <field name="adjCalcServiceId" type="id" is-pk="true"/>
         <field name="parameterName" type="text-short" is-pk="true"/>
+        <field name="fromDate" type="date-time" is-pk="true"/>
+        <field name="thruDate" type="date-time"/>
         <field name="parameterValue" type="text-medium"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollAdjCalcService" short-alias="adjCalcService"/>
     </entity>
@@ -1339,7 +1351,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <entity entity-name="EmplPosition" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionId" type="id" is-pk="true"/>
-        <field name="pseudoId" type="id" default="emplPositionId"/>
+        <field name="pseudoId" type="text-short" default="emplPositionId"/>
         <field name="organizationPartyId" type="id"/>
         <field name="emplPositionClassId" type="id" enable-audit-log="true"/>
         <field name="emplPositionTypeEnumId" type="id"/>
@@ -1363,11 +1375,11 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
-        <relationship type="one" title="EmplPosition" related="moqui.basic.StatusItem"/>
+        <relationship type="one" title="EmplPosition" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="EmplPositionType" related="moqui.basic.Enumeration" short-alias="positionType">
             <key-map field-name="emplPositionTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.humanres.rate.PayGrade"/>
-        <relationship type="one" related="BudgetItem">
+        <relationship type="one" related="mantle.other.budget.BudgetItem">
             <key-map field-name="budgetId"/><key-map field-name="budgetItemSeqId"/></relationship>
         <relationship type="one" title="EmplTaxExempt" related="moqui.basic.Enumeration" short-alias="taxExempt">
             <key-map field-name="taxExemptEnumId"/></relationship>
@@ -1449,6 +1461,26 @@ along with this software (see the LICENSE.md file). If not, see
             <mantle.humanres.position.EmplPositionClassWorkType emplPositionClassId="GeneralManager" workTypeEnumId="WktpManagement"/>
         </seed-data>
     </entity>
+    <entity entity-name="EmplPositionClassPtyClsTp" package="mantle.party">
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="classificationTypeEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass" short-alias="emplPositionClass"/>
+        <relationship type="one" title="PartyClassificationType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="classificationTypeEnumId"/></relationship>
+    </entity>
+    <entity entity-name="EmplPositionClassDimension" package="mantle.humanres.position" use="configuration">
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="uomDimensionTypeId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" related="moqui.basic.UomDimensionType" short-alias="type"/>
+    </entity>
+    <entity entity-name="EmplPositionClassSkill" package="mantle.humanres.position" use="configuration">
+        <field name="emplPositionClassId" type="id" is-pk="true"/>
+        <field name="skillTypeEnumId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPositionClass"/>
+        <relationship type="one" title="SkillType" related="moqui.basic.Enumeration" short-alias="skillTypeEnum">
+            <key-map field-name="skillTypeEnumId"/></relationship>
+    </entity>
     <entity entity-name="EmplPositionClassParty" package="mantle.humanres.position" use="nontransactional">
         <description>An alternative to EmplPosition and Employment to represent an employee in a position class for
             billing purposes, etc. Can be used in addition to EmplPosition or instead of.</description>
@@ -1477,9 +1509,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="fromDate" type="date-time" is-pk="true"/>
         <field name="thruDate" type="date-time"/>
         <field name="comments" type="text-medium"/>
-        <relationship type="one" related="mantle.humanres.position.EmplPosition"/>
-        <relationship type="one" related="mantle.party.Party"/>
-        <relationship type="one" related="mantle.party.RoleType"/>
+        <relationship type="one" related="mantle.humanres.position.EmplPosition" short-alias="position"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
     </entity>
     <entity entity-name="EmplPositionResponsibility" package="mantle.humanres.position" use="configuration">
         <field name="emplPositionId" type="id" is-pk="true"/>

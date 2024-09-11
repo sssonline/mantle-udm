@@ -13,7 +13,7 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.1.xsd">
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
     <!-- ========================================================= -->
     <!--  - mantle.product.asset -->
     <!--  - mantle.product.issuance -->
@@ -32,9 +32,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="classEnumId" type="id"/>
         <field name="statusId" type="id" enable-audit-log="true"/>
         <field name="ownerPartyId" type="id" enable-audit-log="update"/>
+        <field name="assetPoolId" type="id" enable-audit-log="update"/>
 
-        <field name="productId" type="id"><description>The Asset is an Instance of this Product (for inventory, maintenance
-            schedules/etc, content about what sort of thing the Asset is, etc)</description></field>
+        <field name="productId" type="id" enable-audit-log="update">
+            <description>The Asset is an Instance of this Product (for inventory, maintenance
+                schedules/etc, content about what sort of thing the Asset is, etc)</description>
+        </field>
 
         <field name="hasQuantity" type="text-indicator"><description>If Y asset has a quantity and QOH/ATP may be
             greater than one. If N (default) asset is a single item and may have a serial number, etc.</description></field>
@@ -48,7 +51,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="assetName" type="text-medium"/>
         <field name="comments" type="text-long"/>
 
-        <field name="serialNumber" type="text-medium"/>
+        <field name="serialNumber" type="text-medium" enable-audit-log="update"/>
         <field name="softIdentifier" type="text-medium"/>
         <field name="activationNumber" type="text-medium"/>
         <field name="activationValidThru" type="date-time"/>
@@ -62,15 +65,16 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="capacity" type="number-decimal"/>
         <field name="capacityUomId" type="id"/>
 
-        <field name="facilityId" type="id"><description>Current Facility, where stored.</description></field>
-        <field name="locationSeqId" type="id" enable-audit-log="true"/>
-        <field name="containerId" type="id" enable-audit-log="true"><description>
+        <field name="facilityId" type="id" enable-audit-log="update">
+            <description>Current Facility, where stored.</description></field>
+        <field name="locationSeqId" type="id" enable-audit-log="update"/>
+        <field name="containerId" type="id" enable-audit-log="update"><description>
             Container stored in, if specified the current facilityId and locationSeqId should come from the container
             and not from this record or with standard EECA rule in place facilityId and locationSeqId will be set and
             maintained from the Container values.
         </description></field>
         <field name="shipmentBoxTypeId" type="id"/>
-        <field name="lotId" type="id"/>
+        <field name="lotId" type="id" enable-audit-log="update"/>
         <field name="geoPointId" type="id" enable-audit-log="update"/>
 
         <field name="originId" type="id"><description>Origin ID, the ID used wherever this came from.</description></field>
@@ -80,13 +84,15 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="acquireWorkEffortId" type="id"><description>For assets created from production runs, etc.</description></field>
         <field name="acquireShipmentId" type="id"/>
         <field name="acquireCost" type="currency-amount" enable-audit-log="update"/>
-        <field name="acquireCostUomId" type="id"/>
+        <field name="acquireCostUomId" type="id" enable-audit-log="update"/>
 
         <field name="salvageValue" type="currency-amount" enable-audit-log="update"/>
-        <field name="depreciation" type="currency-amount"><description>History in AssetDepreciation</description></field>
-        <field name="depreciationTypeEnumId" type="id"/>
-        <field name="yearBeginDepreciation" type="currency-amount"><description>History in AssetDepreciation</description></field>
-        <field name="taxDepreciation" type="currency-amount"/>
+        <field name="depreciation" type="currency-amount" enable-audit-log="update">
+            <description>History in AssetDepreciation</description></field>
+        <field name="depreciationTypeEnumId" type="id" enable-audit-log="update"/>
+        <field name="yearBeginDepreciation" type="currency-amount" enable-audit-log="update">
+            <description>History in AssetDepreciation</description></field>
+        <field name="taxDepreciation" type="currency-amount" enable-audit-log="update"/>
         <field name="taxDepreciationTypeEnumId" type="id"/>
 
         <relationship type="one" title="Parent" related="mantle.product.asset.Asset" short-alias="parent">
@@ -98,6 +104,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Asset" related="moqui.basic.StatusItem" short-alias="status"/>
         <relationship type="one" title="Owner" related="mantle.party.Party" short-alias="owner">
             <key-map field-name="ownerPartyId"/></relationship>
+        <relationship type="one" related="mantle.product.asset.AssetPool" short-alias="pool"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" title="OriginalQuantity" related="moqui.basic.Uom" short-alias="originalQuantityUom">
             <key-map field-name="originalQuantityUomId"/></relationship>
@@ -179,6 +186,8 @@ along with this software (see the LICENSE.md file). If not, see
                     parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Inventory - Finished Good" enumId="AsClsInventoryFin"
                     parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
+            <moqui.basic.Enumeration description="Inventory - Digital Good" enumId="AsClsInventoryDig"
+                    parentEnumId="AsClsInventory" enumTypeId="AssetClass"/>
 
             <moqui.basic.Enumeration description="Warehouse Equipment" enumId="AsClsWhEquip" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Manufacturing Equipment" enumId="AsClsMfgEquip" enumTypeId="AssetClass"/>
@@ -228,8 +237,11 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusItem description="In Transfer (Promised)" sequenceNum="11" statusId="AstInTransferPromise" statusTypeId="Asset"/>
             <moqui.basic.StatusItem description="Returned" sequenceNum="20" statusId="AstReturned" statusTypeId="Asset"/>
             <moqui.basic.StatusItem description="Defective" sequenceNum="21" statusId="AstDefective" statusTypeId="Asset"/>
+            <moqui.basic.StatusItem description="Quarantine" sequenceNum="30" statusId="AstQuarantine" statusTypeId="Asset"/>
+            <moqui.basic.StatusItem description="Morgue" sequenceNum="31" statusId="AstMorgue" statusTypeId="Asset"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstAvailable" transitionName="Arrived"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstOnHold" transitionName="Hold"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstPromised" transitionName="Promise"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstOnHold" transitionName="Hold"/>
@@ -246,6 +258,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInTransferPromise" toStatusId="AstPromised" transitionName="Transfer Complete (Promised)"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDelivered" toStatusId="AstReturned" transitionName="Return Status Pending"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDelivered" toStatusId="AstActivated" transitionName="Activate"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDelivered" toStatusId="AstAvailable" transitionName="Un-Deliver (Available)"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstReturned" toStatusId="AstAvailable" transitionName="Make Return Available"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDefective" toStatusId="AstAvailable" transitionName="Make Return Available"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstReturned" toStatusId="AstOnHold" transitionName="Hold"/>
@@ -255,16 +268,33 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDeactivated" toStatusId="AstOnHold" transitionName="Hold"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDeactivated" toStatusId="AstReturned" transitionName="Return"/>
 
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstQuarantine" transitionName="Quarantine"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstQuarantine" transitionName="Quarantine"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstOnHold" toStatusId="AstQuarantine" transitionName="Quarantine"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstQuarantine" toStatusId="AstAvailable" transitionName="Release Available"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstQuarantine" toStatusId="AstOnHold" transitionName="Release Hold"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstQuarantine" toStatusId="AstMorgue" transitionName="Morgue"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstMorgue" transitionName="Morgue"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstMorgue" transitionName="Morgue"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstOnHold" toStatusId="AstMorgue" transitionName="Morgue"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstMorgue" toStatusId="AstIncoming" transitionName="Incoming"/>
+
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInUse" toStatusId="AstInStorage" transitionName="Store"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInUse" toStatusId="AstReturned" transitionName="Return"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInUse" toStatusId="AstDefective" transitionName="Defective"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInUse" toStatusId="AstInTransfer" transitionName="Start Transfer"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInTransfer" toStatusId="AstInUse" transitionName="Transfer Complete (Use)"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInStorage" toStatusId="AstInUse" transitionName="Use"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInStorage" toStatusId="AstAvailable" transitionName="Make Available"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInStorage" toStatusId="AstReturned" transitionName="Return"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInStorage" toStatusId="AstDefective" transitionName="Defective"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInStorage" toStatusId="AstInTransfer" transitionName="Start Transfer"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInTransfer" toStatusId="AstInStorage" transitionName="Transfer Complete (Store)"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstInStorage" toStatusId="AstDelivered" transitionName="Deliver"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDelivered" toStatusId="AstInStorage" transitionName="Un-Deliver (In Storage)"/>
+
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstDefective" toStatusId="AstOnHold" transitionName="Not Defective"/>
 
             <!-- Depreciation Type -->
             <moqui.basic.EnumerationType description="Depreciation Type" enumTypeId="DepreciationType"/>
@@ -317,6 +347,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="otherAssetId" type="id"/>
         <field name="shipmentId" type="id"/>
         <field name="productId" type="id"/>
+        <field name="orderId" type="id"/>
+        <field name="orderItemSeqId" type="id"/>
         <field name="returnId" type="id"/>
         <field name="returnItemSeqId" type="id"/>
         <field name="workEffortId" type="id"/>
@@ -334,6 +366,7 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="otherAssetId"/></relationship>
         <relationship type="one" related="mantle.shipment.Shipment" short-alias="shipment"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
         <relationship type="one" related="mantle.order.return.ReturnItem" short-alias="returnItem"/>
         <relationship type="one" related="mantle.work.effort.WorkEffort" short-alias="workEffort"/>
         <relationship type="one" related="mantle.product.maintenance.AssetMaintenance" short-alias="assetMaintenance"/>
@@ -437,6 +470,50 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
     -->
+
+    <entity entity-name="AssetPaymentMethod" package="mantle.product.asset">
+        <field name="assetId" type="id" is-pk="true"/>
+        <field name="paymentMethodId" type="id" is-pk="true"/>
+        <field name="typeEnumId" type="id"/>
+        <field name="sequenceNum" type="number-integer"/>
+        <relationship type="one" related="mantle.product.asset.Asset"/>
+        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" title="AssetPaymentMethodType" related="moqui.basic.Enumeration">
+            <key-map field-name="typeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Asset Payment Method Type" enumTypeId="AssetPaymentMethodType"/>
+            <moqui.basic.Enumeration enumId="ApmtSecuredLoan" description="Secured Loan" enumTypeId="AssetPaymentMethodType"/>
+        </seed-data>
+    </entity>
+
+    <entity entity-name="AssetPool" package="mantle.product.asset">
+        <field name="assetPoolId" type="id" is-pk="true"/>
+        <field name="pseudoId" type="text-short" default="assetPoolId"/>
+        <field name="ownerPartyId" type="id" enable-audit-log="update" default="'_NA_'"/>
+        <field name="description" type="text-medium"/>
+        <relationship type="many" related="mantle.product.asset.Asset" short-alias="assets">
+            <key-map field-name="assetPoolId"/></relationship>
+        <relationship type="many" related="mantle.product.asset.AssetPoolParty" short-alias="poolParties">
+            <key-map field-name="assetPoolId"/></relationship>
+        <relationship type="many" related="mantle.product.asset.AssetPoolStore" short-alias="poolStores">
+            <key-map field-name="assetPoolId"/></relationship>
+        <index name="ASSET_POOL_PSEUDO" unique="true"><index-field name="pseudoId"/><index-field name="ownerPartyId"/></index>
+    </entity>
+    <entity entity-name="AssetPoolParty" package="mantle.product.asset">
+        <field name="assetPoolId" type="id" is-pk="true"/>
+        <field name="partyId" type="id" is-pk="true"/>
+        <field name="roleTypeId" type="id"/>
+        <relationship type="one" related="mantle.product.asset.AssetPool" short-alias="pool"/>
+        <relationship type="one" related="mantle.party.Party" short-alias="party"/>
+        <relationship type="one" related="mantle.party.RoleType" short-alias="roleType"/>
+    </entity>
+    <entity entity-name="AssetPoolStore" package="mantle.product.asset">
+        <field name="assetPoolId" type="id" is-pk="true"/>
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <relationship type="one" related="mantle.product.asset.AssetPool" short-alias="pool"/>
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="productStore"/>
+    </entity>
+
     <entity entity-name="AssetStandardCost" package="mantle.product.asset" cache="never">
         <field name="assetId" type="id" is-pk="true"/>
         <field name="assetStandardCostTypeEnumId" type="id" is-pk="true"/>
@@ -468,7 +545,9 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="containerTypeEnumId"/></relationship>
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="location"/>
-        <index name="CONTNR_SER_NUM" unique="true"><index-field name="serialNumber"/></index>
+        <!-- NOTE: this was a unique index but that limits the usefulness of serialNumber and doesn't handle real world
+            situations with containers of different types or in different facilities with the same serialNumber -->
+        <index name="CONTNR_SER_NUM" unique="false"><index-field name="serialNumber"/></index>
         <seed-data>
             <!-- Container Type -->
             <moqui.basic.EnumerationType description="Container Type" enumTypeId="ContainerType"/>
@@ -501,10 +580,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="physicalInventoryId" type="id" is-pk="true"/>
         <field name="physicalInventoryDate" type="date-time"/>
         <field name="statusId" type="id" default="PIInPlanning" enable-audit-log="true"/>
+        <field name="facilityId" type="id"/>
         <field name="partyId" type="id"/>
         <field name="comments" type="text-long"/>
         <relationship type="one" related="mantle.party.Party" short-alias="party"/>
         <relationship type="one" title="PhysicalInventory" related="moqui.basic.StatusItem" short-alias="status" fk-name="physicalInventoryStatusId"/>
+        <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <seed-data>
             <moqui.basic.StatusType description="Physical Inventory Status" statusTypeId="PhysicalInventory"/>
             <moqui.basic.StatusItem description="In Planning" sequenceNum="1" statusId="PIInPlanning" statusTypeId="PhysicalInventory"/>
@@ -519,6 +600,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="facilityId" type="id"/>
         <field name="locationSeqId" type="id"/>
         <field name="productId" type="id"/>
+        <field name="lotId" type="id"/>
         <field name="countDate" type="date-time"/>
         <field name="quantityOnHand" type="number-decimal"/>
         <field name="comments" type="text-medium"/>
@@ -526,6 +608,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.facility.Facility" short-alias="facility"/>
         <relationship type="one-nofk" related="mantle.facility.FacilityLocation" short-alias="facilityLocation"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
+        <relationship type="one" related="mantle.product.asset.Lot" short-alias="lot"/>
     </entity>
 
     <!-- ========================================================= -->
@@ -553,6 +636,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="quantity" type="number-decimal" enable-audit-log="update"/>
         <field name="quantityCancelled" type="number-decimal"/>
         <field name="acctgTransResultEnumId" type="id"/>
+
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
         <relationship type="one-nofk" related="mantle.product.issuance.AssetReservation" short-alias="assetReservation"/><!-- nofk for when record is deleted -->
         <relationship type="one" related="mantle.order.OrderItem" short-alias="orderItem"/>
@@ -573,6 +657,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="issuedByUserId"/></relationship>
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResult">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
+
+        <index name="ASSET_ISS_SHPPRD"><index-field name="shipmentId"/><index-field name="productId"/></index>
     </entity>
     <entity entity-name="AssetIssuanceParty" package="mantle.product.issuance" cache="never">
         <field name="assetIssuanceId" type="id" is-pk="true"/>
@@ -628,11 +714,12 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="intervalProductMeterId" type="id"/>
         <field name="purchaseOrderId" type="id"/>
         <field name="userId" type="id" default="ec.user.userId"/>
+        <field name="comments" type="text-long"/>
         <relationship type="one" related="mantle.product.asset.Asset"/>
         <relationship type="one" title="AssetMaintenance" related="moqui.basic.StatusItem"/>
         <relationship type="one" title="MaintenanceType" related="moqui.basic.Enumeration">
             <key-map field-name="maintenanceTypeEnumId"/></relationship>
-        <relationship type="one" related="ProductMaintenance"/>
+        <relationship type="one" related="mantle.product.maintenance.ProductMaintenance"/>
         <relationship type="one" title="Task" related="mantle.work.effort.WorkEffort">
             <key-map field-name="taskWorkEffortId"/></relationship>
         <relationship type="one" title="Interval" related="moqui.basic.Uom">
@@ -726,7 +813,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="registrationNumber" type="text-medium"/>
         <field name="licenseNumber" type="text-medium"/>
         <relationship type="one" related="mantle.product.asset.Asset"/>
-        <relationship type="one" title="GovAgency" related="Party">
+        <relationship type="one" title="GovAgency" related="mantle.party.Party">
             <key-map field-name="govAgencyPartyId"/></relationship>
     </entity>
 
@@ -850,7 +937,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="AcctgTransResult" related="moqui.basic.Enumeration" short-alias="acctgTransResult">
             <key-map field-name="acctgTransResultEnumId"/></relationship>
 
-        <index name="ASSET_REC_ORDID" unique="false"><index-field name="orderId"/></index>
+        <index name="ASSET_REC_ORDID"><index-field name="orderId"/></index>
+        <index name="ASSET_REC_SHPPRD"><index-field name="shipmentId"/><index-field name="productId"/></index>
 
         <seed-data>
             <moqui.basic.EnumerationType description="Rejection Reason" enumTypeId="RejectionReason"/>

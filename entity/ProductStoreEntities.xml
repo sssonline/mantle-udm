@@ -12,7 +12,7 @@ You should have received a copy of the CC0 Public Domain Dedication
 along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
-<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.1.xsd">
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
     <!-- ========================================================= -->
     <!--  - mantle.product.store -->
     <!-- ========================================================= -->
@@ -22,20 +22,34 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="storeName" type="text-medium"/>
         <field name="organizationPartyId" type="id">
             <description>The Organization Party that Orders, Invoices, GL transactions, etc will be associated with.</description></field>
+
         <field name="inventoryFacilityId" type="id"/>
         <field name="reservationOrderEnumId" type="id"/>
         <field name="reservationAutoEnumId" type="id"/>
         <field name="requireInventory" type="text-indicator"/>
+
+        <field name="defaultDisablePromotions" type="text-indicator"/>
+        <field name="defaultDisableShippingCalc" type="text-indicator"/>
+        <field name="defaultDisableTaxCalc" type="text-indicator"/>
+
         <field name="returnPostalContactMechId" type="id"><description>Return postal address for shipping labels</description></field>
+        <field name="markupOrderShipLabels" type="text-indicator"/>
+        <field name="markupShipmentShipLabels" type="text-indicator"/>
+        <field name="shipmentAnyCarrierMethod" type="text-indicator">
+            <description>If Y don't restrict Shipment Shipping Options by ProductStoreShipOption records during fulfillment, show all Shipment Methods for Carriers associated with shipping gateway</description></field>
+        <field name="insurancePackageThreshold" type="currency-amount">
+            <description>If total cost of items in a package is above this amount buy insurance on that package</description></field>
+
         <field name="autoApproveDelay" type="number-integer"><description>Minimum time in minutes to wait before trying to auto-approve;
             defaults to 0 which means auto-approve immediately (via SECA rule), otherwise delayed auto-approve handled with service job</description></field>
 
         <field name="storeDomain" type="text-short"><description>Store domain for use in emails</description></field>
         <field name="profileUrlPath" type="text-medium"><description>Path to profile page for use in emails</description></field>
         <field name="wikiSpaceId" type="id"><description>For a WikiSpace mounted as content, superceded by ProductStoreWikiSpace with spaceTypeEnumId=PstFull</description></field>
-        <field name="contentDataDocumentId" type="id"><description>The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
-        <field name="blogDataDocumentId" type="id"><description>The dataDocumentId to use for search of blog entries</description></field>
-        <field name="productDataDocumentId" type="id"><description>The dataDocumentId to use for product search</description></field>
+        <!-- TODO: Warning dataDocumentId fields are to be deprecated in favor of the ProductStoreDataDocument entity -->
+        <field name="contentDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor of a ProductStoreDataDocument entity with a typeEnumId of PsdtContent. The dataDocumentId to use for search of content pages in wikiSpaceId</description></field>
+        <field name="blogDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor a ProductStoreDataDocument entity with a typeEnumId of PsdtBlog. The dataDocumentId to use for search of blog entries</description></field>
+        <field name="productDataDocumentId" type="id"><description>Warning: this field to be deprecated in favor of a ProductStoreDataDocument entity with a typeEnumId of PsdtProduct. The dataDocumentId to use for product search</description></field>
 
         <field name="defaultLocale" type="text-short"/>
         <field name="defaultCurrencyUomId" type="id"/>
@@ -62,6 +76,8 @@ along with this software (see the LICENSE.md file). If not, see
             <key-map field-name="returnPostalContactMechId"/></relationship>
 
         <relationship type="one" related="moqui.resource.wiki.WikiSpace" short-alias="wikiSpace"/>
+        <relationship type="many" related="mantle.product.store.ProductStoreDataDocument" short-alias="storeDataDocuments">
+            <key-map field-name="productStoreId"/></relationship>
         <relationship type="one" title="Content" related="moqui.entity.document.DataDocument" short-alias="contentDataDocument">
             <key-map field-name="contentDataDocumentId"/></relationship>
         <relationship type="one" title="Blog" related="moqui.entity.document.DataDocument" short-alias="blogDataDocument">
@@ -203,6 +219,15 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Product Store Email Type -->
             <moqui.basic.EnumerationType description="Product Store Email Notification Type" enumTypeId="ProductStoreEmailType"/>
+            <!-- currently generated automatically, triggered by status, based on configuration in mantle-usl -->
+            <moqui.basic.Enumeration description="Order Placed" enumId="PsetOrderPlaced" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Order Approved" enumId="PsetOrderApproved" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Shipment Shipped" enumId="PsetShipmentShipped" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Shipment Delivered" enumId="PsetShipmentDelivered" enumTypeId="ProductStoreEmailType"/>
+            <moqui.basic.Enumeration description="Invoice Finalized" enumId="PsetInvoiceFinalized" enumTypeId="ProductStoreEmailType"/>
+            <!-- currently generated manually, based on configuration in mantle-usl -->
+            <moqui.basic.Enumeration description="Invoices Past Due" enumId="PsetInvoicesPastDue" enumTypeId="ProductStoreEmailType"/>
+            <!-- not currently generated by OOTB code -->
             <moqui.basic.Enumeration description="Registration" enumId="PsetRegistration" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Quote Requested" enumId="PsetOrderRequested" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Order Quote Proposed" enumId="PsetOrderProposed" enumTypeId="ProductStoreEmailType"/>
@@ -220,10 +245,6 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Tell-A-Friend" enumId="PsetTellAFriend" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Gift Card Purchase" enumId="PsetGiftCardPurchase" enumTypeId="ProductStoreEmailType"/>
             <moqui.basic.Enumeration description="Gift Card Reload" enumId="PsetGiftCardReload" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Shipment Shipped" enumId="PsetShipmentShipped" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Shipment Delivered" enumId="PsetShipmentDelivered" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Invoice Finalized" enumId="PsetInvoiceFinalized" enumTypeId="ProductStoreEmailType"/>
-            <moqui.basic.Enumeration description="Invoices Past Due" enumId="PsetInvoicesPastDue" enumTypeId="ProductStoreEmailType"/>
         </seed-data>
     </entity>
     <entity entity-name="ProductStoreFacility" package="mantle.product.store">
@@ -299,6 +320,7 @@ along with this software (see the LICENSE.md file). If not, see
     <entity entity-name="ProductStorePromoProduct" package="mantle.product.store" use="configuration" cache="true">
         <field name="storePromotionId" type="id" is-pk="true"/>
         <field name="productId" type="id" is-pk="true"/>
+        <field name="excludeProduct" type="text-indicator"/>
         <relationship type="one" related="mantle.product.store.ProductStorePromotion" short-alias="storePromotion"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
     </entity>
@@ -347,6 +369,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Ship Label From Name" enumId="PsstShipLabelName" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Label From Company" enumId="PsstShipLabelCompany" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Ship Restrict Carriers (true/false)" enumId="PsstShipRestrictCarriers" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Shipping Label Cost Markup Percent" enumId="PsstShipLabelMarkup" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Shipping Order Charge Markup Percent" enumId="PsstShipOrderMarkup" enumTypeId="ProductStoreSettingType"/>
 
             <moqui.basic.Enumeration description="Template Location Shipment Insert" enumId="PsstTemplateShipmentInsert" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Template Location Shipment Pick Sheet" enumId="PsstTemplateShipmentPick" enumTypeId="ProductStoreSettingType"/>
@@ -359,6 +383,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Order Approve Warn New Customer (false to disable)" enumId="PsstOrdApproveNewCust" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Address not Valid (false to disable)" enumId="PsstOrdApproveAddrNotValid" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Address Missing (false to disable)" enumId="PsstOrdApproveAddrMissing" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Large Order - Total Above (default 0, 0 to disable)" enumId="PsstOrdApproveLargeOrder" enumTypeId="ProductStoreSettingType"/>
+            <moqui.basic.Enumeration description="Order Approve Warn Large Web Order - Total Above (default 0, 0 to disable)" enumId="PsstOrdApproveLargeWebOrder" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Std Devs Over Avg Total (default 3.0, 0 to disable)" enumId="PsstOrdApproveStdDevTotal" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Std Devs Over Avg Product Qty (default 3.0, 0 to disable)" enumId="PsstOrdApproveStdDevProdQty" enumTypeId="ProductStoreSettingType"/>
             <moqui.basic.Enumeration description="Order Approve Warn Inventory Not Available (false to disable)" enumId="PsstOrdApproveInventoryNotAvail" enumTypeId="ProductStoreSettingType"/>
@@ -382,10 +408,14 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="billingAccount" type="text-short"><description>Third party or other carrier account number</description></field>
         <field name="billingZip" type="text-short"/>
         <field name="billingCountry" type="text-short"><description>For Shippo this is the 2 letter ISO country code</description></field>
+        <field name="insurancePercent" type="number-decimal"><description>For insurance estimate records the percent of insured amount that is the cost of the insurance</description></field>
         <field name="defaultTradeTermEnumId" type="id"/>
-        <field name="customsCertify" type="text-short"/>
-        <field name="customsCertifySigner" type="text-short"/>
-        <field name="customsContentsType" type="text-short"/>
+        <!-- on further analysis doesn't make sense to configure at the store/gateway level:
+        <field name="customsCertify" type="text-indicator"/>
+        <field name="customsCertifySigner" type="text-short"/> -->
+        <!-- replaced by customsContentsEnumId, had not yet been used: <field name="customsContentsType" type="text-short"/> -->
+        <field name="customsContentsEnumId" type="id"/>
+        <field name="customsNonDeliveryEnumId" type="id"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
@@ -399,6 +429,8 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="carrierPartyId" type="id" is-pk="true"/>
         <field name="shipmentMethodEnumId" type="id" is-pk="true"/>
         <field name="sequenceNum" type="number-integer"/>
+        <field name="markupPercent" type="number-decimal"/>
+        <field name="markupAmount" type="currency-amount"/>
         <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
         <relationship type="one" title="Carrier" related="mantle.party.Party" short-alias="carrier">
             <key-map field-name="carrierPartyId"/></relationship>
@@ -494,12 +526,41 @@ along with this software (see the LICENSE.md file). If not, see
         </seed-data>
     </entity>
 
+    <extend-entity entity-name="DataDocument" package="moqui.entity.document">
+        <relationship type="many" related="mantle.product.store.ProductStoreDataDocument" short-alias="storeDataDocuments">
+            <key-map field-name="dataDocumentId"/></relationship>
+    </extend-entity>
+    <entity entity-name="ProductStoreDataDocument" package="mantle.product.store">
+        <description>Relationship between the ProductStore and DataDocument Entities meant to replace ProductStore.productDataDocumentId fields and the like. See: https://forum.moqui.org/t/productstore-datadocument-options/303.</description>
+        <field name="productStoreId" type="id" is-pk="true"/>
+        <field name="typeEnumId" type="id" is-pk="true"/>
+        <field name="dataDocumentId" type="id"/>
+
+        <!-- TODO: Are these many relationships? -->
+        <relationship type="one" related="mantle.product.store.ProductStore" short-alias="store"/>
+        <relationship type="one" related="moqui.entity.document.DataDocument" short-alias="dataDocument"/>
+        <relationship type="one" title="StoreDataDocumentType" related="moqui.basic.Enumeration" short-alias="type">
+            <key-map field-name="typeEnumId"/></relationship>
+
+        <seed-data>
+            <moqui.basic.EnumerationType description="Product Store Data Document Type" enumTypeId="ProductStoreDataDocumentType"/>
+            <moqui.basic.Enumeration description="Product Search" enumId="PsdtProduct" enumTypeId="ProductStoreDataDocumentType"/>
+            <moqui.basic.Enumeration description="Category Search" enumId="PsdtCategory" enumTypeId="ProductStoreDataDocumentType"/>
+            <moqui.basic.Enumeration description="Blog Search" enumId="PsdtBlog" enumTypeId="ProductStoreDataDocumentType"/>
+            <!-- TODO: What type of Content was the ProductStore.contentDataDocumentId for? -->
+            <moqui.basic.Enumeration description="Content Search" enumId="PsdtContent" enumTypeId="ProductStoreDataDocumentType"/>
+        </seed-data>
+    </entity>
+
     <entity entity-name="ProductStoreGroup" package="mantle.product.store">
         <field name="productStoreGroupId" type="id" is-pk="true"/>
         <field name="storeGroupTypeEnumId" type="id"/>
         <field name="description" type="text-medium"/>
         <relationship type="one" title="ProductStoreGroupType" related="moqui.basic.Enumeration">
             <key-map field-name="storeGroupTypeEnumId"/></relationship>
+        <seed-data>
+            <moqui.basic.EnumerationType description="Product Store Group Type" enumTypeId="ProductStoreGroupType"/>
+        </seed-data>
     </entity>
     <entity entity-name="ProductStoreGroupMember" package="mantle.product.store">
         <field name="productStoreGroupId" type="id" is-pk="true"/>

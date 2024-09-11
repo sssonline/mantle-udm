@@ -402,4 +402,7 @@ along with this software (see the LICENSE.md file). If not, see
                                    defaultValue="">
         <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 
+    <!-- Identification of Employees for tax authorities -->
+    <mantle.party.PartySettingType description="Party Identification Type to use for Employees" partySettingTypeId="PayrollEmployeePartyIdType" defaultValue="PtidSsn">
+        <roles roleTypeId="OrgEmployer"/></mantle.party.PartySettingType>
 </entity-facade-xml>

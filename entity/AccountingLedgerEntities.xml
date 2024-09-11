@@ -13,7 +13,7 @@ along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-2.1.xsd">
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
     <!-- ========================================================= -->
     <!--  - mantle.ledger.account -->
     <!--  - mantle.ledger.config -->
@@ -321,7 +321,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="finAccountTypeId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
-        <relationship type="one" related="FinancialAccountType"/>
+        <relationship type="one" related="mantle.account.financial.FinancialAccountType"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
@@ -439,7 +439,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="glAccountTypeEnumId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"><description>Revenue account for products in the category</description></field>
         <field name="contraGlAccountId" type="id"><description>Contra Revenue account for products in the category</description></field>
-        <relationship type="one" related="ProductCategory"/>
+        <relationship type="one" related="mantle.product.category.ProductCategory"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" title="GlAccountType" related="moqui.basic.Enumeration">
@@ -463,7 +463,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxAuthorityId" type="id" is-pk="true"/>
         <field name="organizationPartyId" type="id" is-pk="true"/>
         <field name="glAccountId" type="id"/>
-        <relationship type="one" related="TaxAuthority"/>
+        <relationship type="one" related="mantle.other.tax.TaxAuthority"/>
         <relationship type="one" title="Organization" related="mantle.party.Party">
             <key-map field-name="organizationPartyId"/></relationship>
         <relationship type="one" related="mantle.ledger.account.GlAccount"/>
@@ -495,7 +495,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="taxClassificationEnumId" type="id"/>
         <field name="employerClassEnumId" type="id"/>
         <field name="cogsMethodEnumId" type="id"/>
-        <field name="baseCurrencyUomId" type="id"/>
+        <field name="baseCurrencyUomId" type="id"><description>The unit of account currency for the Internal Organization</description></field>
         <field name="localCurrencyUomId" type="id"><description>For unstable local currencies when different from a more stable base currency</description></field>
         <field name="invoiceSequenceEnumId" type="id"/>
         <field name="invoiceIdPrefix" type="text-short"/>
@@ -666,9 +666,9 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="voucherRef" type="text-short"/>
         <field name="voucherDate" type="date-time"/>
         <field name="groupStatusId" type="id"/>
-        <field name="amountUomId" type="id"/>
-        <field name="localCurrencyUomId" type="id"/>
-        <field name="originalCurrencyUomId" type="id"/>
+        <field name="amountUomId" type="id"><description>The unit of account (base) currency, must match PartyAcctgPreference.baseCurrencyUomId</description></field>
+        <field name="localCurrencyUomId" type="id"><description>The local currency for the Organization, must match PartyAcctgPreference.localCurrencyUomId</description></field>
+        <field name="originalCurrencyUomId" type="id"><description>The original currency for the invoice, payment, etc - the currency used to interact with the external Party</description></field>
 
         <field name="assetId" type="id"/>
         <field name="assetIssuanceId" type="id"/>
@@ -884,7 +884,7 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" related="mantle.ledger.account.GlAccount" short-alias="glAccount"/>
         <relationship type="one" title="AcctgTransEntryReconcile" related="moqui.basic.StatusItem" short-alias="reconcileStatus">
             <key-map field-name="reconcileStatusId"/></relationship>
-        <relationship type="one" related="SettlementTerm" short-alias="settlementTerm"/>
+        <relationship type="one" related="mantle.account.invoice.SettlementTerm" short-alias="settlementTerm"/>
         <relationship type="one" related="mantle.product.Product" short-alias="product"/>
         <relationship type="one" related="mantle.product.asset.Asset" short-alias="asset"/>
 
