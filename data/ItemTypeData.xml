@@ -178,6 +178,9 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Unqualified Reimbursement" enumId="ItemUnqualifiedReimbursement" parentEnumId="ItemPayrollIncome" enumTypeId="ItemType"/>
 
     <moqui.basic.Enumeration description="Payroll Deduction" enumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="125*Compy. Contr Other Premium" enumId="ItemDed125Compy" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="125*PPO (pre tax)" enumId="ItemDed125Ppo" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="125*HSA Contribution (pre tax)" enumId="ItemDed125Hsa" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Dental Insurance" enumId="ItemDedSec125DentalInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Dependent Care" enumId="ItemDedSec125DependentCareEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Section 125 Health Insurance" enumId="ItemDedSec125HealthInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
@@ -197,6 +200,10 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Other Insurance" enumId="ItemDedOtherInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Vision Insurance" enumId="ItemDedVisionInsuranceEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Miscellaneous Deduction" enumId="ItemDedMisc" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Traditional 401K Employee" enumId="ItemDed401kEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Roth 401k Employee" enumId="ItemDedRoth401kEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Roth IRA Employee" enumId="ItemDedRothIraEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="Simple IRA Employee" enumId="ItemDedSimpleIraEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Roth 401(k)" enumId="ItemDed401kRothEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Safe Harbor 401(k)" enumId="ItemDed401kSafHarEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Simple 401(k)" enumId="ItemDed401kSimpleEmpe" parentEnumId="ItemPayrollDeduct" enumTypeId="ItemType"/>
