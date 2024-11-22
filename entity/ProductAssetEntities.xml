@@ -164,6 +164,7 @@ along with this software (see the LICENSE.md file). If not, see
         <seed-data>
             <!-- Asset Type -->
             <moqui.basic.EnumerationType description="Asset Type" enumTypeId="AssetType"/>
+            <moqui.basic.Enumeration description="Parts" enumId="AstTpParts" enumTypeId="AssetType"/>
             <moqui.basic.Enumeration description="Inventory" enumId="AstTpInventory" enumTypeId="AssetType"/><!-- IAS 2 -->
             <moqui.basic.Enumeration description="Supplies" enumId="AstTpSupplies" enumTypeId="AssetType"/><!-- IAS? -->
 
