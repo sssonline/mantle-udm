@@ -234,6 +234,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.Enumeration description="Dental Insurance Employer" enumId="ItemPrlExpDentalInsuranceEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Dependent Care Employer" enumId="ItemPrlExpDependentCareEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Health Insurance Employer" enumId="ItemPrlExpHealthInsuranceEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
+    <moqui.basic.Enumeration description="HSA Employer" enumId="ItemPrlExpHSAEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Other Insurance Employer" enumId="ItemPrlExpOtherInsuranceEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Vision Insurance Employer" enumId="ItemPrlExpVisionInsuranceEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
     <moqui.basic.Enumeration description="Prescription Insurance Employer" enumId="ItemPrlExpPrescriptionInsuranceEmpr" parentEnumId="ItemPayrollExpense" enumTypeId="ItemType"/>
@@ -404,6 +405,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpDentalInsuranceEmpr" enumGroupEnumId="EngEmpeBenefitCoverageTypesEmpr"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpDependentCareEmpr" enumGroupEnumId="EngEmpeBenefitCoverageTypesEmpr"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpHealthInsuranceEmpr" enumGroupEnumId="EngEmpeBenefitCoverageTypesEmpr"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExpHSAEmpr" enumGroupEnumId="EngEmpeBenefitCoverageTypesEmpr"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpOtherInsuranceEmpr" enumGroupEnumId="EngEmpeBenefitCoverageTypesEmpr"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpPrescriptionInsuranceEmpr" enumGroupEnumId="EngEmpeBenefitCoverageTypesEmpr"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpVisionInsuranceEmpr" enumGroupEnumId="EngEmpeBenefitCoverageTypesEmpr"/>
@@ -468,6 +470,7 @@ along with this software (see the LICENSE.md file). If not, see
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpDentalInsuranceEmpr"       enumGroupEnumId="EngEmprPayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpDependentCareEmpr"         enumGroupEnumId="EngEmprPayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpHealthInsuranceEmpr"       enumGroupEnumId="EngEmprPayrollOther"/>
+    <moqui.basic.EnumGroupMember enumId="ItemPrlExpHSAEmpr"                   enumGroupEnumId="EngEmprPayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpOtherInsuranceEmpr"        enumGroupEnumId="EngEmprPayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpVisionInsuranceEmpr"       enumGroupEnumId="EngEmprPayrollOther"/>
     <moqui.basic.EnumGroupMember enumId="ItemPrlExpPrescriptionInsuranceEmpr" enumGroupEnumId="EngEmprPayrollOther"/>
