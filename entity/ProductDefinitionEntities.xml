@@ -782,8 +782,8 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Inventory Group" enumId="PctInventoryGroup" enumTypeId="ProductCategoryType"/>
 
             <!-- Product Categories -->
-            <mantle.product.category.ProductCategory pseudoId="OP" productCategoryId="PctOperations" productCategoryTypeEnumId="PctUsage" categoryName="Operations"/>
-            <mantle.product.category.ProductCategory pseudoId="MAIN" productCategoryId="PctMaintenance" productCategoryTypeEnumId="PctUsage" categoryName="Maintenance"/>
+            <mantle.product.category.ProductCategory pseudoId="OP" productCategoryId="PcOperations" productCategoryTypeEnumId="PctUsage" categoryName="Operations"/>
+            <mantle.product.category.ProductCategory pseudoId="MAIN" productCategoryId="PcMaintenance" productCategoryTypeEnumId="PctUsage" categoryName="Maintenance"/>
         </seed-data>
 
         <master>
