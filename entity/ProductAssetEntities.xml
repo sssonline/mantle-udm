@@ -176,6 +176,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Bearer Biological" enumId="AstTpBearerBiological" parentEnumId="AstTpFixed" enumTypeId="AssetType"/><!-- IAS 16 -->
             <moqui.basic.Enumeration description="Biological" enumId="AstTpBiological" enumTypeId="AssetType"/><!-- IAS 41 -->
             <moqui.basic.Enumeration description="Intangible" enumId="AstTpIntangible" enumTypeId="AssetType"/><!-- IAS 38 -->
+            <moqui.basic.Enumeration description="Tools" enumId="AstTpTools" enumTypeId="AssetType"/>
 
             <!-- Asset Class -->
             <moqui.basic.EnumerationType description="Asset Class" enumTypeId="AssetClass"/>
@@ -222,6 +223,9 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="System Software" enumId="AsClsSoftSystem" parentEnumId="AsClsComputerSoft" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Application Software" enumId="AsClsSoftApp" parentEnumId="AsClsComputerSoft" enumTypeId="AssetClass"/>
             <moqui.basic.Enumeration description="Utility Software" enumId="AsClsSoftUtility" parentEnumId="AsClsComputerSoft" enumTypeId="AssetClass"/>
+
+            <moqui.basic.Enumeration description="Bag" enumId="AsClsBag" enumTypeId="AssetClass"/>
+            <moqui.basic.Enumeration description="Carton" enumId="AsClsCarton" enumTypeId="AssetClass"/>
 
             <!-- Asset Status -->
             <moqui.basic.StatusType description="Asset" statusTypeId="Asset"/>
