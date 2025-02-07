@@ -151,6 +151,13 @@ along with this software (see the LICENSE.md file). If not, see
 
             <!-- Product Status -->
             <moqui.basic.StatusType description="Product" statusTypeId="Product"/>
+            <moqui.basic.StatusItem description="Disabled" sequenceNum="1" statusId="PrDisabled" statusTypeId="Product"/>
+            <moqui.basic.StatusItem description="Active" sequenceNum="1" statusId="PrActive" statusTypeId="Product"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PrDisabled" toStatusId="PrActive" transitionName="Activate Product"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PrActive" toStatusId="PrDisabled" transitionName="Disable Product"/>
+            <!--            <moqui.basic.StatusFlow statusFlowId="Product" statusTypeId="Product" description="Product Status Flow"/>-->
+
+
 
             <!-- Product Class - used to classify products with similar Content types, Dimension types, Feature types, and Feature Groups -->
             <moqui.basic.EnumerationType description="Product Class" enumTypeId="ProductClass"/>
