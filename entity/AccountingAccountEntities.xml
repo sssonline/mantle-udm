@@ -642,6 +642,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="transactionDate" type="date-time" enable-audit-log="update" not-null="true">
             <description>Effective timestamp of the Invoice Batch; this is used to determine the accounting period for this set of transactions</description>
         </field>
+        <field name="creationDate" type="date-time" default="ec.user.nowTimestamp" create-only="true"/>
         <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
 <!--    <entity entity-name="InvoiceBatchDetail" package="mantle.account.invoice" short-alias="invoiceBatch" cache="never">-->
@@ -1906,6 +1907,7 @@ along with this software (see the LICENSE.md file). If not, see
         <field name="payrollBatchId" type="id"/>
         <field name="paymentBatchId" type="id"/>
 
+        <field name="userId" type="id" create-only="true" default="ec.user.userId"/>
         <field name="creationDate" type="date-time" default="ec.user.nowTimestamp"/>
         <field name="originalPaymentCount" type="number-decimal" not-null="true"><description>Number of payments initially generated for Payment Group</description></field>
         <field name="originalInvoicePaymentCount" type="number-decimal" not-null="true"><description>Number of invoices initially paid for Payment Group</description></field>
@@ -1917,6 +1919,8 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Organization" related="mantle.party.Organization" short-alias="organization">
             <key-map field-name="organizationPartyId" related="partyId"/></relationship>
         <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+<!--        <relationship type="one" related="moqui.security.UserAccount">-->
+<!--            <key-map field-name="userId"/></relationship>-->
         <relationship type="one" title="TimePeriod" related="mantle.party.time.TimePeriod" short-alias="timePeriod"/>
         <relationship type="one" related="mantle.humanres.employment.PayrollBatch" short-alias="payrollBatch"/>
         <relationship type="one" related="mantle.account.payment.PaymentBatch" short-alias="paymentBatch"/>
