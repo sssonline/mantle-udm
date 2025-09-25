@@ -925,6 +925,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="GLJRNL_ERROR" description="Error Journal" enumTypeId="GlJournalType"/>
             <moqui.basic.Enumeration enumId="GLJRNL_MANUAL" description="Manual Transactions Journal" enumTypeId="GlJournalType"/>
             <moqui.basic.Enumeration enumId="GLJRNL_PAYABLE" description="Payable Invoice Journal" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_PAYMENT" description="Payable Payment Journal" enumTypeId="GlJournalType"/>
         </seed-data>
     </entity>
 </entities>
