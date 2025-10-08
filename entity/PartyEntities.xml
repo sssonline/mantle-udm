@@ -933,6 +933,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="AgrOther" description="Other" enumTypeId="AgreementType"/>
             <moqui.basic.Enumeration enumId="AgrCommission" description="Commission" enumTypeId="AgreementType"/>
             <moqui.basic.Enumeration enumId="AgrEula" description="End User License Agreement" enumTypeId="AgreementType"/>
+            <moqui.basic.Enumeration enumId="AgrSupplierTerms" description="Supplier Terms" enumTypeId="AgreementType"/>
 
             <!-- Agreement Status -->
             <moqui.basic.StatusType description="Agreement" statusTypeId="Agreement"/>

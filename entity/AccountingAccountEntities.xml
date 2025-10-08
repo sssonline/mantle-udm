@@ -883,6 +883,16 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Commission Term Minimum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMin" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Maximum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMax" enumTypeId="TermType"/>
 
+            <!-- Supplier Due Date Terms -->
+            <!-- follow naming patter blah blah X Days from something - X is used to replace when displaying with actual value of days -->
+            <moqui.basic.Enumeration description="X Days from Invoice Date" enumId="TtNet" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Next Occurrence of Day X" enumId="TtNextOccurrence" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Next X Day of Month" enumId="TtNextMonth" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Supplier Terms Types" enumId="SupplierTermsGroup" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="SupplierTermsGroup" enumId="TtNet"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="SupplierTermsGroup" enumId="TtNextOccurrence"/>
+            <moqui.basic.EnumGroupMember enumGroupEnumId="SupplierTermsGroup" enumId="TtNextMonth"/>
+
             <!-- Incoterms as of 2010; see https://en.wikipedia.org/wiki/Incoterms -->
             <moqui.basic.Enumeration description="Incoterm" enumId="TtInco" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Incoterm Ex Works" parentEnumId="TtInco" enumId="TtEXW" enumCode="EXW" enumTypeId="TermType"/>
