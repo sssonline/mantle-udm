@@ -104,6 +104,15 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Dock" enumId="FcTpDock" enumTypeId="FacilityType"/>
             <moqui.basic.Enumeration description="Production Line" enumId="FcTpLine" enumTypeId="FacilityType"/>
 
+            <moqui.basic.Enumeration description="Allowed Customer Facility Types" enumId="CustomerFacilityTypeGroup" enumTypeId="EnumGroup"/>
+            <moqui.basic.EnumGroupMember enumId="FcTpBuilding" enumGroupEnumId="CustomerFacilityTypeGroup" sequenceNum="7"/>
+            <moqui.basic.EnumGroupMember enumId="FcTpOffice" enumGroupEnumId="CustomerFacilityTypeGroup" sequenceNum="6"/>
+            <moqui.basic.EnumGroupMember enumId="FcTpCallCenter" enumGroupEnumId="CustomerFacilityTypeGroup" sequenceNum="5"/>
+            <moqui.basic.EnumGroupMember enumId="FcTpDataCenter" enumGroupEnumId="CustomerFacilityTypeGroup" sequenceNum="4"/>
+            <moqui.basic.EnumGroupMember enumId="FcTpPlant" enumGroupEnumId="CustomerFacilityTypeGroup" sequenceNum="3"/>
+            <moqui.basic.EnumGroupMember enumId="FcTpRetailStore" enumGroupEnumId="CustomerFacilityTypeGroup" sequenceNum="2"/>
+            <moqui.basic.EnumGroupMember enumId="FcTpWarehouse" enumGroupEnumId="CustomerFacilityTypeGroup" sequenceNum="1"/>
+
             <!-- Facility Status -->
             <moqui.basic.StatusType description="Facility" statusTypeId="Facility"/>
         </seed-data>
