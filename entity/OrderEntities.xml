@@ -247,6 +247,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderApproved" toStatusId="OrderOpen" transitionName="Open Order"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderCompleted" toStatusId="OrderSent" transitionName="Open Order"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderCompleted" toStatusId="OrderPlaced" transitionName="Un-Complete Order"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="OrderCancelled" toStatusId="OrderOpen" transitionName="Re-Open Order"/>
 
             <!-- Sales Channel -->
             <moqui.basic.EnumerationType description="Sales Channel" enumTypeId="SalesChannel"/>
