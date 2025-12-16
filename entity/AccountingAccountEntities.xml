@@ -1843,6 +1843,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntDelivered" transitionName="Deliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntDeclined" transitionName="Decline"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntPromised" toStatusId="PmntProposed" transitionName="Un-Promise"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDeclined" toStatusId="PmntPromised" transitionName="Promise"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDeclined" toStatusId="PmntAuthorized" transitionName="Authorize"/>
@@ -1851,6 +1852,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntCancelled" transitionName="Cancel"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntVoid" transitionName="Void"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntDeclined" transitionName="Decline"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntAuthorized" toStatusId="PmntProposed" transitionName="Un-Authorize"/>
 
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntAuthorized" transitionName="Undeliver"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="PmntDelivered" toStatusId="PmntPromised" transitionName="Undeliver and Unauthorize"/>
@@ -2033,4 +2035,17 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration enumId="PctCheckImage" description="Check Image" enumTypeId="PaymentContentType"/>
         </seed-data>
     </entity>
+
+    <entity entity-name="BankAccountACH" package="mantle.account.method" cache="never">
+        <description>A simple ACH register (for ACH type BankAccount) with details on the Payment entity</description>
+        <field name="paymentMethodId" type="id" is-pk="true"/>
+        <field name="aCHNumber" type="number-integer" is-pk="true"/>
+        <field name="paymentId" type="id" not-null="true"><description>Associated payment id; zero payment if merely consuming a check number</description></field>
+        <relationship type="one" related="mantle.account.method.PaymentMethod"/>
+        <relationship type="one" related="mantle.account.payment.Payment"/>
+        <index name="BANK_ACCOUNT_ACH_PAYMENT" unique="true">
+            <index-field name="paymentId"/>
+        </index>
+    </entity>
+
 </entities>
