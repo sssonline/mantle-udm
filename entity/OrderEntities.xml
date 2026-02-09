@@ -265,6 +265,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="OAGIS" enumId="ScOagis" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Unknown" enumId="ScUnknown" enumTypeId="SalesChannel"/>
             <moqui.basic.Enumeration description="Test Order" enumId="ScTest" enumTypeId="SalesChannel"/>
+            <moqui.basic.Enumeration description="CHEESE" enumId="cheese123456789" enumTypeId="SalesChannel"/>
 
             <!-- Sync Status -->
             <moqui.basic.StatusType description="Sync Status" statusTypeId="Sync"/>
