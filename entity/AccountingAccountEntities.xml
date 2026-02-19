@@ -643,6 +643,10 @@ along with this software (see the LICENSE.md file). If not, see
             <description>Effective timestamp of the Invoice Batch; this is used to determine the accounting period for this set of transactions</description>
         </field>
         <field name="creationDate" type="date-time" default="ec.user.nowTimestamp" create-only="true"/>
+        <field name="organizationPartyId" type="id"/>
+        <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="org">
+            <key-map field-name="organizationPartyId"/>
+        </relationship>
         <relationship type="one" related="moqui.security.UserAccount"/>
     </entity>
 <!--    <entity entity-name="InvoiceBatchDetail" package="mantle.account.invoice" short-alias="invoiceBatch" cache="never">-->
