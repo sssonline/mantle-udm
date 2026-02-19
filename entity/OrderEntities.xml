@@ -445,7 +445,21 @@ along with this software (see the LICENSE.md file). If not, see
             this order; for tax exemption represents the what the tax would have been.</description></field>
         <field name="customerReferenceId" type="text-short"><description>For tax entries this is partyTaxId</description></field>
         <field name="taxAuthorityId" type="id"/>
+        <!-- For Sales orders -->
+        <field name="supplierPartyId" type="id">
+            <description>
+                When doing Direct Ship items select this and cost to show item is Direct Ship.
+            </description>
+        </field>
+        <field name="cost" type="currency-precise">
+            <description>
+                When doing Direct Ship items select this and cost to show item is Direct Ship.
+            </description>
+        </field>
 
+        <relationship type="one" title="SupplierPartyId" related="mantle.party.Party" short-alias="supplier">
+            <key-map field-name="supplierPartyId"/>
+        </relationship>
         <relationship type="one" related="mantle.order.OrderHeader" short-alias="header"/>
         <relationship type="one" title="ItemType" related="moqui.basic.Enumeration" short-alias="itemType">
             <key-map field-name="itemTypeEnumId"/></relationship>
