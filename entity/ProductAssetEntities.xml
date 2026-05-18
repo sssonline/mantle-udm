@@ -281,6 +281,7 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstQuarantine" toStatusId="AstMorgue" transitionName="Morgue"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstIncoming" toStatusId="AstMorgue" transitionName="Morgue"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstMorgue" transitionName="Morgue"/>
+            <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstAvailable" toStatusId="AstIncoming" transitionName="Re-Open"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstOnHold" toStatusId="AstMorgue" transitionName="Morgue"/>
             <moqui.basic.StatusFlowTransition statusFlowId="Default" statusId="AstMorgue" toStatusId="AstIncoming" transitionName="Incoming"/>
 
