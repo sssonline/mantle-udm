@@ -890,12 +890,12 @@ along with this software (see the LICENSE.md file). If not, see
             <moqui.basic.Enumeration description="Indemnification" enumId="TtIndemnification" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Non-Compete" enumId="TtNonCompete" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Exclusive Relationship" enumId="TtExclusive" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Commission" enumId="TtCommission" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Commission Inventory" enumId="TtCommission" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Fixed Per Unit" parentEnumId="TtCommission" enumId="TtCommissionFixed" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Variable" parentEnumId="TtCommission" enumId="TtCommissionVariable" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Minimum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMin" enumTypeId="TermType"/>
             <moqui.basic.Enumeration description="Commission Term Maximum Per Unit" parentEnumId="TtCommission" enumId="TtCommissionMax" enumTypeId="TermType"/>
-            <moqui.basic.Enumeration description="Commission Direct Ship Items" parentEnumId="TtCommission" enumId="TtCommissionDirShip" enumTypeId="TermType"/>
+            <moqui.basic.Enumeration description="Commission Direct Ship" parentEnumId="TtCommission" enumId="TtCommissionDirShip" enumTypeId="TermType"/>
 
             <!-- Supplier Due Date Terms -->
             <!-- follow naming patter blah blah X Days from something - X is used to replace when displaying with actual value of days -->
