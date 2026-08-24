@@ -920,13 +920,17 @@ along with this software (see the LICENSE.md file). If not, see
         <relationship type="one" title="Organization" related="mantle.party.Party" short-alias="organizationParty">
             <key-map field-name="organizationPartyId"/></relationship>
         <seed-data>
-            <!-- GL Journal Type -->
+            <!-- GL Journal Type: renamed by card 762 to standard accounting vocabulary (the artifact
+                 each journal represents, not the code path that writes it). Old ids GLJRNL_MANUAL,
+                 GLJRNL_PAYABLE, GLJRNL_PAYABLE_DIRCHAR, GLJRNL_PAYMENT are migrated by
+                 sssonline.basalt.LedgerServices.migrate#GlJournalTypeEnums. Posting/Reversal codes
+                 live per-organization on basalt.ledger.config.GlJournalTypeOrgConfig, not here. -->
             <moqui.basic.EnumerationType description="GL Journal Type" enumTypeId="GlJournalType"/>
-            <moqui.basic.Enumeration enumId="GLJRNL_ERROR" description="Error Journal" enumTypeId="GlJournalType"/>
-            <moqui.basic.Enumeration enumId="GLJRNL_MANUAL" description="Manual Transactions Journal" enumTypeId="GlJournalType"/>
-            <moqui.basic.Enumeration enumId="GLJRNL_PAYABLE" description="Payable Invoice Journal" enumTypeId="GlJournalType"/>
-            <moqui.basic.Enumeration enumId="GLJRNL_PAYABLE_DIRCHAR" description="Payable Invoice DirChar Journal" enumTypeId="GlJournalType"/>
-            <moqui.basic.Enumeration enumId="GLJRNL_PAYMENT" description="Payable Payment Journal" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_ERROR" description="Errors Journal" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_GENERAL" description="General Journal" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_PURCHASES" description="Purchases Journal" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_DIRECTCHARGES" description="Direct Charges Journal" enumTypeId="GlJournalType"/>
+            <moqui.basic.Enumeration enumId="GLJRNL_CASHDISBURSEMENTS" description="Cash Disbursements Journal" enumTypeId="GlJournalType"/>
         </seed-data>
     </entity>
 </entities>
